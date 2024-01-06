@@ -1,0 +1,35 @@
+.registration-page-body{
+    position: relative;
+}
+.registration-page-body{
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    z-index: 10;
+}
+
+.registration-body{
+    display: flex;
+    justify-content: center;
+    font-family: 'Jost', sans-serif;
+}
+.registration-left{
+    width: 65%;
+}
+.registration-img{
+    width: 100%;
+}
+.registration-input{
+    width: 40%;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 900px;
+}
+.registration-header{
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    font-weight: 700;
+
+}
