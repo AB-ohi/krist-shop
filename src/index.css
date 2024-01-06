@@ -1,0 +1,14 @@
+body{
+    margin: 0;
+    cursor: url('mouse.png');
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: rgb(119, 211, 253); 
+    border-radius: 20px; 
+    border: 3px solid none;
+  }

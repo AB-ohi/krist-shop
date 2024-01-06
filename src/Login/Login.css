@@ -1,0 +1,29 @@
+.login-page-body{
+    position: relative;
+}
+.login-page-body{
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    z-index: 10;
+}
+
+.login-body{
+    display: flex;
+    justify-content: center;
+    font-family: 'Jost', sans-serif;
+}
+.login-left{
+    width: 65%;
+}
+.login-img{
+    width: 100%;
+}
+.login-input{
+    width: 40%;
+    margin-left: 50px;
+}
+.login-header{
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+}
