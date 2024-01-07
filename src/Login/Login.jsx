@@ -1,5 +1,25 @@
+import { useContext } from "react";
 import "./Login.css";
+import { AuthContext } from "../Provider/AuthProvider";
 const Login = () => {
+  const {signIn, user} = useContext(AuthContext)
+  console.log(user)
+
+  const handelLogin = (event) =>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const user = {password, email};
+    console.log(user)
+
+    signIn(email, password)
+    .then(result =>{
+      const user = result.user;
+      console.log(user);
+    })
+  }
+
   return (
     <div className="login-main-body">
       <img className="login-page-body" src="../../public/img/logo.svg" alt="" />
@@ -14,7 +34,7 @@ const Login = () => {
               Please login here
             </p>
           </div>
-          <form style={{ width: "60%" }}>
+          <form onSubmit={handelLogin} style={{ width: "60%" }}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <label htmlFor="email">Email Address</label>
               <input
@@ -47,15 +67,10 @@ const Login = () => {
                 id=""
               />
             </div>
-            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginTop:'10px', marginBottom:'10px'}}>
               <div style={{display:'flex'}}>
-                <input
-                  type="checkbox"
-                  name="remember"
-                  id=""
-                  style={{ background: "#131118" }}
-                />
-                <p>Remember Me</p>
+                
+              <a style={{textDecoration:'none',  color:'black'}} href="/registration">Create New Account</a>
               </div>
               <div>
               <a href="">Forget Password?</a>

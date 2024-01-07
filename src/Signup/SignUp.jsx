@@ -1,5 +1,28 @@
-import './Sign.css'
+import { useContext } from "react";
+import './Sign.css';
+import { AuthContext } from "../Provider/AuthProvider";
 const SignUp = () => {
+  const {createUser} = useContext(AuthContext);
+
+  const handelOnCreateUSer = (event) =>{
+    event.preventDefault();
+    const form = event.target;
+    const name = form.firstName.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const userInfo = {name, email,password}
+    console.log(userInfo);
+
+    createUser(email, password)
+    .then(result=>{
+      const user = result.user;
+      console.log(user);
+    })
+    .then(error =>{
+      console.log(error)
+    })
+  }
+
     return (
         <div className="registration-main-body">
       <img className="registration-page-body" src="../../public/img/logo.svg" alt="" />
@@ -14,7 +37,7 @@ const SignUp = () => {
             Please enter details
             </p>
           </div>
-          <form style={{ width: "60%" }}>
+          <form onSubmit={handelOnCreateUSer} style={{ width: "60%" }}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <label htmlFor="email">First Name</label>
               <input
