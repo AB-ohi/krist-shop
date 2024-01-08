@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import './Sign.css';
 import { AuthContext } from "../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
   const {createUser} = useContext(AuthContext);
+  const navigate = useNavigate()
 
   const handelOnCreateUSer = (event) =>{
     event.preventDefault();
@@ -17,6 +19,7 @@ const SignUp = () => {
     .then(result=>{
       const user = result.user;
       console.log(user);
+      navigate('/login')
     })
     .then(error =>{
       console.log(error)

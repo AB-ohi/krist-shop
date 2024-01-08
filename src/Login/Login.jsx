@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import "./Login.css";
 import { AuthContext } from "../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const {signIn, user} = useContext(AuthContext)
+  const navigate = useNavigate()
   console.log(user)
 
   const handelLogin = (event) =>{
@@ -17,6 +19,7 @@ const Login = () => {
     .then(result =>{
       const user = result.user;
       console.log(user);
+      navigate('/')
     })
   }
 
