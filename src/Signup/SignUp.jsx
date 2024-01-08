@@ -1,47 +1,63 @@
-import { useContext } from "react";
-import './Sign.css';
+import { useContext, useState } from "react";
+import "./Sign.css";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 const SignUp = () => {
-  const {createUser} = useContext(AuthContext);
-  const navigate = useNavigate()
+  const { createUser } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
-  const handelOnCreateUSer = (event) =>{
+  const handelOnCreateUSer = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.firstName.value;
     const email = form.email.value;
     const password = form.password.value;
-    const userInfo = {name, email,password}
+    const userInfo = { name, email, password };
     console.log(userInfo);
 
     createUser(email, password)
-    .then(result=>{
-      const user = result.user;
-      console.log(user);
-      navigate('/login')
-    })
-    .then(error =>{
-      console.log(error)
-    })
-  }
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate("/login");
+      })
+      .then((error) => {
+        console.log(error);
+      });
+  };
 
-    return (
-        <div className="registration-main-body">
-      <img className="registration-page-body" src="../../public/img/logo.svg" alt="" />
+  return (
+    <div className="registration-main-body">
+      <img
+        className="registration-page-body"
+        src="../../public/img/logo.svg"
+        alt=""
+      />
       <div className="registration-body">
         <div className="registration-left">
-          <img className="registration-img" src="../../public/img/singup.png" alt="" />
+          <img
+            className="registration-img"
+            src="../../public/img/singup.png"
+            alt=""
+          />
         </div>
         <div className="registration-input">
           <div style={{ marginBottom: "32px" }}>
             <h1 className="registration-header">Create New Account</h1>
             <p style={{ color: "rgb(168, 168, 168)", margin: "0" }}>
-            Please enter details
+              Please enter details
             </p>
           </div>
-          <form onSubmit={handelOnCreateUSer} style={{ width: "60%" }}>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+          <form onSubmit={handelOnCreateUSer} style={{ width: "50%" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
               <label htmlFor="email">First Name</label>
               <input
                 style={{
@@ -49,7 +65,7 @@ const SignUp = () => {
                   border: "1px solid #131118",
                   outline: "none",
                   borderRadius: "10px",
-                  marginBottom:'18px'
+                  marginBottom: "18px",
                 }}
                 className="import-email"
                 type="text"
@@ -58,7 +74,7 @@ const SignUp = () => {
                 id=""
               />
             </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div style={{ display: "flex", flexDirection: "column", width:'100%' }}>
               <label htmlFor="email">Last Name</label>
               <input
                 style={{
@@ -66,7 +82,7 @@ const SignUp = () => {
                   border: "1px solid #131118",
                   outline: "none",
                   borderRadius: "10px",
-                  marginBottom:'18px'
+                  marginBottom: "18px",
                 }}
                 className="import-email"
                 type="text"
@@ -75,7 +91,7 @@ const SignUp = () => {
                 id=""
               />
             </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div style={{ display: "flex", flexDirection: "column", width:'100%' }}>
               <label htmlFor="email">Email Address</label>
               <input
                 style={{
@@ -83,7 +99,7 @@ const SignUp = () => {
                   border: "1px solid #131118",
                   outline: "none",
                   borderRadius: "10px",
-                  marginBottom:'18px'
+                  marginBottom: "18px",
                 }}
                 className="import-email"
                 type="email"
@@ -92,30 +108,51 @@ const SignUp = () => {
                 id=""
               />
             </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
               <label htmlFor="password">Password</label>
-              <input
-                style={{
-                  padding: "16px",
-                  border: "1px solid #131118",
-                  outline: "none",
-                  borderRadius: "10px",
-                }}
-                type="password"
-                name="password"
-                placeholder="Password"
-                id=""
-              />
-            </div>
-              <div style={{display:'flex'}}>
+              
+                <div style={{display:'flex', alignItems:"center"}}>
                 <input
-                  type="checkbox"
-                  name="remember"
+                  style={{
+                    padding: "16px",
+                    border: "1px solid #131118",
+                    outline: "none",
+                    borderRadius: "10px",
+                    width:'100%'
+                  }}
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Password"
                   id=""
-                  style={{ background: "#131118" }}
                 />
-                <p>I agree to the <span style={{fontWeight: '700',}}>Terms & Conditions</span></p>
-              </div>
+                <span onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? (
+                    <BiSolidHide style={{ marginLeft: "-27px" }} />
+                  ) : (
+                    <BiSolidShow style={{ marginLeft: "-27px" }} />
+                  )}
+                </span>
+              
+                </div>
+            </div>
+            <div style={{ display: "flex" }}>
+              <input
+                type="checkbox"
+                name="remember"
+                id=""
+                style={{ background: "#131118" }}
+              />
+              <p>
+                I agree to the{" "}
+                <span style={{ fontWeight: "700" }}>Terms & Conditions</span>
+              </p>
+            </div>
             <input
               style={{
                 width: "100%",
@@ -132,7 +169,7 @@ const SignUp = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default SignUp;
