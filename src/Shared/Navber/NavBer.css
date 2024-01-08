@@ -1,0 +1,29 @@
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Jost', sans-serif;
+}
+.nav-List-Item{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+#item-list{
+    text-decoration: none;
+    color: black;
+}
+.nav-item{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 25px;
+}
+#nev-btn{
+    background-color: #131118;
+    outline: none;
+    border: 0;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+}

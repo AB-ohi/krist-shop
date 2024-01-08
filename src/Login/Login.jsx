@@ -1,27 +1,28 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "./Login.css";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 const Login = () => {
-  const {signIn, user} = useContext(AuthContext)
-  const navigate = useNavigate()
-  console.log(user)
+  const { signIn, user } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  console.log(user);
 
-  const handelLogin = (event) =>{
+  const handelLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    const user = {password, email};
-    console.log(user)
+    const user = { password, email };
+    console.log(user);
 
-    signIn(email, password)
-    .then(result =>{
+    signIn(email, password).then((result) => {
       const user = result.user;
       console.log(user);
-      navigate('/')
-    })
-  }
+      navigate("/");
+    });
+  };
 
   return (
     <div className="login-main-body">
@@ -37,8 +38,8 @@ const Login = () => {
               Please login here
             </p>
           </div>
-          <form onSubmit={handelLogin} style={{ width: "60%" }}>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+          <form onSubmit={handelLogin} style={{ width: "50%" }}>
+            <div style={{ display: "flex", flexDirection: "column", width:'100%'}}>
               <label htmlFor="email">Email Address</label>
               <input
                 style={{
@@ -46,7 +47,7 @@ const Login = () => {
                   border: "1px solid #131118",
                   outline: "none",
                   borderRadius: "10px",
-                  marginBottom:'18px'
+                  marginBottom: "18px",
                 }}
                 className="import-email"
                 type="email"
@@ -55,28 +56,49 @@ const Login = () => {
                 id=""
               />
             </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div>
               <label htmlFor="password">Password</label>
-              <input
-                style={{
-                  padding: "16px",
-                  border: "1px solid #131118",
-                  outline: "none",
-                  borderRadius: "10px",
-                }}
-                type="password"
-                name="password"
-                placeholder="Password"
-                id=""
-              />
+              
+                <div style={{display:'flex', alignItems:'center', width:'100%'}}>
+                <input
+                  style={{
+                    padding: "16px",
+                    border: "1px solid #131118",
+                    outline: "none",
+                    borderRadius: "10px",
+                    width:'100%'
+                    
+                  }}
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Password"
+                  id=""
+                />
+                <span onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? <BiSolidHide  style={{marginLeft:'-27px'}} /> : <BiSolidShow  style={{marginLeft:'-27px'}}/>}
+                </span>
+                </div>
+              
             </div>
-            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginTop:'10px', marginBottom:'10px'}}>
-              <div style={{display:'flex'}}>
-                
-              <a style={{textDecoration:'none',  color:'black'}} href="/registration">Create New Account</a>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginTop: "10px",
+                marginBottom: "10px",
+              }}
+            >
+              <div style={{ display: "flex" }}>
+                <a
+                  style={{ textDecoration: "none", color: "black" }}
+                  href="/registration"
+                >
+                  Create New Account
+                </a>
               </div>
               <div>
-              <a href="">Forget Password?</a>
+                <a href="">Forget Password?</a>
               </div>
             </div>
             <input
