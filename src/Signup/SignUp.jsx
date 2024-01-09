@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "./Sign.css";
 import { AuthContext } from "../Provider/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 const SignUp = () => {
   const { createUser } = useContext(AuthContext);
@@ -141,17 +141,8 @@ const SignUp = () => {
               
                 </div>
             </div>
-            <div style={{ display: "flex" }}>
-              <input
-                type="checkbox"
-                name="remember"
-                id=""
-                style={{ background: "#131118" }}
-              />
-              <p>
-                I agree to the{" "}
-                <span style={{ fontWeight: "700" }}>Terms & Conditions</span>
-              </p>
+            <div style={{margin:'10px 0'}}>
+              <Link to='/login' style={{color:"black", textDecoration:'none', }}>Already have an account !</Link>
             </div>
             <input
               style={{
