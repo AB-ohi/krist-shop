@@ -1,3 +1,4 @@
+import Categories from "../Categories/Categories";
 import Header from "../Header/Header";
 
 
@@ -5,6 +6,7 @@ const Home = () => {
     return (
         <div>
             <Header/>
+            <Categories/>
         </div>
     );
 };
