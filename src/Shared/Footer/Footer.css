@@ -1,4 +1,27 @@
 .footer-body{
     background-color: #131118;
-    height: 400px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 100px;
+    width: 80%;
+    margin: auto;
+}
+.table-body{
+    text-align: left;
+}
+.table-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 80px;
+}
+.footer-last{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
 }
