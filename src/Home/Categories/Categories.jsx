@@ -1,84 +1,101 @@
-import Carousel from "react-multi-carousel";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import "./Categories.css";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+
+// import required modules
+import { Pagination } from "swiper/modules";
+const wearPic = [
+  {
+    img: "../../../public/wearPic/Athleisure.jpg",
+    name: "Athleisure",
+    link: "https://example.com/page1",
+  },
+  {
+    img: "../../../public/wearPic/banglaSari.jpg",
+    name: "Sari",
+    link: "https://example.com/page2",
+  },
+  {
+    img: "../../../public/wearPic/Bohemian.jpg",
+    name: "Bohemian",
+    link: "https://example.com/page3",
+  },
+  {
+    img: "../../../public/wearPic/casual.jpg",
+    name: "Casual",
+    link: "https://example.com/page3",
+  },
+  {
+    img: "../../../public/wearPic/ethnic.jpg",
+    name: "Ethnic",
+    link: "https://example.com/page1",
+  },
+  {
+    img: "../../../public/wearPic/Formal.jpg",
+    name: "Formal",
+    link: "https://example.com/page2",
+  },
+  {
+    img: "../../../public/wearPic/kids.jpg",
+    name: "Kids",
+    link: "https://example.com/page3",
+  },
+  {
+    img: "../../../public/wearPic/Streetwear.jpg",
+    name: "Street",
+    link: "https://example.com/page3",
+  },
+];
 const Categories = () => {
-    return (
-        <div>
-            <Carousel
-  additionalTransfrom={0}
-  arrows
-  autoPlay
-  autoPlaySpeed={1000}
-  centerMode={false}
-  className=""
-  containerClass="container-with-dots"
-  dotListClass=""
-  draggable
-  focusOnSelect={false}
-  infinite
-  itemClass=""
-  keyBoardControl
-  minimumTouchDrag={80}
-  pauseOnHover
-  renderArrowsWhenDisabled={false}
-  renderButtonGroupOutside={false}
-  renderDotsOutside={false}
-  responsive={{
-    desktop: {
-      breakpoint: {
-        max: 3000,
-        min: 1024
-      },
-      items: 3,
-      partialVisibilityGutter: 40
-    },
-    mobile: {
-      breakpoint: {
-        max: 464,
-        min: 0
-      },
-      items: 1,
-      partialVisibilityGutter: 30
-    },
-    tablet: {
-      breakpoint: {
-        max: 1024,
-        min: 464
-      },
-      items: 2,
-      partialVisibilityGutter: 30
-    }
-  }}
-  rewind={false}
-  rewindWithAnimation={false}
-  rtl={false}
-  shouldResetAutoplay
-  showDots={false}
-  sliderClass=""
-  slidesToSlide={2}
-  swipeable
->
-    {/* eslint-disable-next-line react/jsx-no-undef */}
-  <WithStyles
-    description="Fixing CSS load order/style.chunk.css incorrect in Nextjs"
-    headline="w3js.com - web front-end studio"
-    image="https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-  />
-    {/* eslint-disable-next-line react/jsx-no-undef */}
-  <WithStyles
-    description="React Carousel with Server Side Rendering Support – Part 2"
-    headline="w3js.com - web front-end studio"
-    image="https://images.unsplash.com/photo-1549396535-c11d5c55b9df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
-  />
-  {/* eslint-disable-next-line react/jsx-no-undef */}
-  <WithStyles
-    description="React Carousel with Server Side Rendering Support – Part 1"
-    headline="w3js.com - web front-end studio"
-    image="https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-  />
-  
-</Carousel>
-        </div>
-    );
+  return (
+    <div>
+      <h1 style={{ textAlign: "center", marginTop: "50px" }}>
+        Shop by Categories
+      </h1>
+      <Swiper
+        slidesPerView={5}
+        spaceBetween={1000}
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          "@0.00": {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          "@0.75": {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          "@1.00": {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          "@1.50": {
+            slidesPerView: 4,
+            spaceBetween: 50,
+          },
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+        style={{ width: "85%", margin: "auto" }}
+      >
+        {wearPic.map((wear, index) => (
+          <SwiperSlide key={index + 1} style={{position:'relative'}}>
+            <img className="wear-img" style={{zIndex:'10'}} src={wear.img} alt="" />
+            <div style={{ zIndex:'1', position:'absolute', bottom:'50px', width:'90%', }}>
+              <button style={{ width: "100%"}}>{wear.name} wear</button>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
 };
 
 export default Categories;
