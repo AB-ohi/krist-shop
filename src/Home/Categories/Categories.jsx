@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 const wearPic = [
   {
     img: "../../../public/wearPic/Athleisure.jpg",
@@ -58,38 +59,63 @@ const Categories = () => {
         Shop by Categories
       </h1>
       <Swiper
+      
         slidesPerView={5}
         spaceBetween={1000}
         pagination={{
           clickable: true,
         }}
         breakpoints={{
-          "@0.00": {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          "@0.75": {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          "@1.00": {
-            slidesPerView: 3,
-            spaceBetween: 40,
-          },
-          "@1.50": {
-            slidesPerView: 4,
-            spaceBetween: 50,
-          },
+          320: { slidesPerView: 2, spaceBetween: 80 },
+          480: { slidesPerView: 3, spaceBetween: 50 },
+          768: { slidesPerView: 3, spaceBetween: 50 },
+          1024: { slidesPerView: 4, spaceBetween: 50 },
         }}
         modules={[Pagination]}
         className="mySwiper"
         style={{ width: "85%", margin: "auto" }}
       >
         {wearPic.map((wear, index) => (
-          <SwiperSlide key={index + 1} style={{position:'relative'}}>
-            <img className="wear-img" style={{zIndex:'10'}} src={wear.img} alt="" />
-            <div style={{ zIndex:'1', position:'absolute', bottom:'50px', width:'90%', }}>
-              <button style={{ width: "100%"}}>{wear.name} wear</button>
+          <SwiperSlide key={index + 1} style={{ position: "relative" }}>
+            <img
+              className="wear-img"
+              style={{ zIndex: "10", borderRadius:'11px' }}
+              src={wear.img}
+              alt=""
+            />
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={{
+                  zIndex: "1",
+                  position: "absolute",
+                  bottom: "50px",
+                  width: "90%",
+                }}
+              >
+                <Link
+                  to=""
+                  style={{
+                    padding: "10px 0",
+                    width: "100%",
+                    backgroundColor: "white",
+                    cursor: "pointer",
+                    borderRadius: "11px",
+                  }}
+                >
+                  {" "}
+                  <button
+                    style={{
+                      width: "100%",
+                      cursor: "pointer",
+                      border: "none",
+                      background: "none",
+                      fontSize: "18px",
+                    }}
+                  >
+                    {wear.name} wear
+                  </button>{" "}
+                </Link>
+              </div>
             </div>
           </SwiperSlide>
         ))}
