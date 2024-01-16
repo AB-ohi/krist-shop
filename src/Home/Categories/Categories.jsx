@@ -79,7 +79,7 @@ const Categories = () => {
           <SwiperSlide key={index + 1} style={{ position: "relative" }}>
             <img
               className="wear-img"
-              style={{ zIndex: "10", borderRadius:'11px' }}
+              style={{ zIndex: "10", borderRadius:'11px', width:'100%' }}
               src={wear.img}
               alt=""
             />

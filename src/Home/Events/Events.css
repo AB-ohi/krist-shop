@@ -1,0 +1,15 @@
+.Event-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    margin: auto;
+}
+
+.event-details{
+    width: 50%;
+}
+
+.event-pic{
+    width: 50%;
+}
