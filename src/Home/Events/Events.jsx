@@ -6,8 +6,8 @@ const Events = () => {
   return (
     <div className="Event-main">
       <div className="event-details">
-        <h1>Valentine Day Events</h1>
-        <p>
+        <h1 style={{fontSize:'40px'}}>Valentine Day Events</h1>
+        <p style={{fontSize:'20px', marginBottom:'30px'}}>
           {/*  eslint-disable-next-line react/no-unescaped-entities */}
           Make this Valentine's Day unforgettable with a wardrobe that mirrors
           {/*  eslint-disable-next-line react/no-unescaped-entities */}
@@ -16,7 +16,7 @@ const Events = () => {
           the air, and so is style!
         </p>
 
-        <Link to='product'><button style={{display:'flex', justifyContent:'center'}}>view all product <GoArrowRight /></button></Link>
+        <Link to='product' className="event-all-product">view all product <GoArrowRight /></Link>
       </div>
       <div className="event-pic">
         <img style={{width:'100%'}} src="../../../public/img/event.jpg" alt="" />

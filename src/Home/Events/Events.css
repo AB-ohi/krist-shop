@@ -13,3 +13,18 @@
 .event-pic{
     width: 50%;
 }
+
+.event-all-product{
+    background-color: #131118;
+    text-decoration: none;
+    color: white;
+    padding: 15px 20px;
+    margin-top: 30px;
+    border-radius: 11px;
+    transition: 0.5s;
+
+}
+
+.event-all-product:hover{
+    background-color: #3c3c3d;
+}
