@@ -45,7 +45,31 @@ const Comment = () =>{
     ]
     return(
         <div>
-
+            <h1></h1>
+            <Swiper
+      
+        slidesPerView={5}
+        spaceBetween={1000}
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          320: { slidesPerView: 2, spaceBetween: 80 },
+          480: { slidesPerView: 3, spaceBetween: 50 },
+          768: { slidesPerView: 3, spaceBetween: 50 },
+          1024: { slidesPerView: 4, spaceBetween: 50 },
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+        style={{ width: "85%", margin: "auto" }}
+      >
+        {CustomarComments.map((Comments, index) => (
+          <SwiperSlide key={index + 1} style={{ position: "relative" }}>
+            
+           
+          </SwiperSlide>
+        ))}
+      </Swiper>
         </div>
     )
 }
