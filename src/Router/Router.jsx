@@ -8,7 +8,7 @@ import Home from "../Home/Home/Home";
 const router = createBrowserRouter([
     {
       path: "/",
-      element: <PrivetRoute><Main/></PrivetRoute>,
+      element: <Main/>,
       children:[
         {
           path:"/",
