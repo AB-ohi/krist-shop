@@ -1,3 +1,4 @@
+import Bestseller from "../Bestseller/Bestseller";
 import Categories from "../Categories/Categories";
 import Events from "../Events/events";
 import Header from "../Header/Header";
@@ -9,6 +10,7 @@ const Home = () => {
             <Header/>
             <Categories/>
             <Events/>
+            <Bestseller/>
         </div>
     );
 };
