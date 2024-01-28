@@ -50,7 +50,7 @@ const NavBer = () => {
         <CiHeart />
         <CiShoppingCart />
         {
-            user?<><button onClick={handelLogOut} id="nev-btn">LogOut</button></>:<><button id="nev-btn"><Link to='/login'>Login</Link></button></>
+            user?<><button onClick={handelLogOut} id="nev-btn">LogOut</button></>:<><button id="nev-btn"><Link style={{color:'white', textDecoration:'none'}} to='/login'>Login</Link></button></>
         }
       </div>
     </nav>
