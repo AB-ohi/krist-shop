@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 import "./NavBer.css";
-import { CiSearch, CiHeart,CiShoppingCart } from "react-icons/ci";
-import { useContext } from "react";
+import { CiSearch, CiHeart, CiShoppingCart } from "react-icons/ci";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { IoChevronUpSharp, IoChevronDownSharp } from "react-icons/io5";
 
 const NavBer = () => {
-    const {user, logOut} = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
+  const [shopMenu, setShopMenu] = useState(true);
 
-    const handelLogOut = () =>{
-        logOut()
-        .then(()=>{})
-        .catch(error =>console.log(error))
-        
-    }
+  const handelLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   return (
     <nav className="nav">
       <img src="../../../public/img/logo.svg" alt="" />
@@ -23,10 +24,18 @@ const NavBer = () => {
               Home
             </Link>
           </li>
-          <li>
-            <Link id="item-list" to="">
-              Shop
-            </Link>
+          <li onClick={() => setShopMenu(!shopMenu)}>
+            {shopMenu ? (
+              <Link style={{display:'flex', alignItems:'center'}} id="item-list" to="">
+                Shop <IoChevronDownSharp/>
+              </Link>
+            ) : (
+              <>
+                <Link style={{display:'flex', alignItems:'center'}} id="item-list" to="">
+                  Shop <IoChevronUpSharp/>
+                </Link>
+              </>
+            )}
           </li>
           <li>
             <Link id="item-list" to="">
@@ -49,9 +58,24 @@ const NavBer = () => {
         <CiSearch />
         <CiHeart />
         <CiShoppingCart />
-        {
-            user?<><button onClick={handelLogOut} id="nev-btn">LogOut</button></>:<><button id="nev-btn"><Link style={{color:'white', textDecoration:'none'}} to='/login'>Login</Link></button></>
-        }
+        {user ? (
+          <>
+            <button onClick={handelLogOut} id="nev-btn">
+              LogOut
+            </button>
+          </>
+        ) : (
+          <>
+            <button id="nev-btn">
+              <Link
+                style={{ color: "white", textDecoration: "none" }}
+                to="/login"
+              >
+                Login
+              </Link>
+            </button>
+          </>
+        )}
       </div>
     </nav>
   );
