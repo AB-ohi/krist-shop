@@ -15,69 +15,88 @@ const NavBer = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <nav className="nav">
-      <img src="../../../public/img/logo.svg" alt="" />
-      <div>
-        <ul className="nav-List-Item">
-          <li>
-            <Link id="item-list" to="">
-              Home
-            </Link>
-          </li>
-          <li onClick={() => setShopMenu(!shopMenu)}>
-            {shopMenu ? (
-              <Link style={{display:'flex', alignItems:'center'}} id="item-list" to="">
-                Shop <IoChevronDownSharp/>
+    <div>
+      <nav className="nav">
+        <img src="../../../public/img/logo.svg" alt="" />
+        <div>
+          <ul className="nav-List-Item">
+            <li>
+              <Link id="item-list" to="">
+                Home
               </Link>
-            ) : (
-              <>
-                <Link style={{display:'flex', alignItems:'center'}} id="item-list" to="">
-                  Shop <IoChevronUpSharp/>
+            </li>
+            <li onClick={() => setShopMenu(!shopMenu)}>
+              {shopMenu ? (
+                <Link
+                  style={{ display: "flex", alignItems: "center" }}
+                  id="item-list"
+                  to=""
+                >
+                  Shop <IoChevronDownSharp />
                 </Link>
-              </>
-            )}
-          </li>
-          <li>
-            <Link id="item-list" to="">
-              Our Story
-            </Link>
-          </li>
-          <li>
-            <Link id="item-list" to="">
-              Blog
-            </Link>
-          </li>
-          <li>
-            <Link id="item-list" to="">
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="nav-item">
-        <CiSearch />
-        <CiHeart />
-        <CiShoppingCart />
-        {user ? (
-          <>
-            <button onClick={handelLogOut} id="nev-btn">
-              LogOut
-            </button>
-          </>
-        ) : (
-          <>
-            <button id="nev-btn">
-              <Link
-                style={{ color: "white", textDecoration: "none" }}
-                to="/login"
-              >
-                Login
+              ) : (
+                <>
+                  <Link
+                    style={{ display: "flex", alignItems: "center" }}
+                    id="item-list"
+                    to=""
+                  >
+                    Shop <IoChevronUpSharp />
+                  </Link>
+                </>
+              )}
+            </li>
+            <li>
+              <Link id="item-list" to="">
+                Our Story
               </Link>
-            </button>
-          </>
-        )}
-      </div>
-    </nav>
+            </li>
+            <li>
+              <Link id="item-list" to="">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link id="item-list" to="">
+                Contact Us
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="nav-item">
+          <CiSearch />
+          <CiHeart />
+          <CiShoppingCart />
+          {user ? (
+            <>
+              <button onClick={handelLogOut} id="nev-btn">
+                LogOut
+              </button>
+            </>
+          ) : (
+            <>
+              <button id="nev-btn">
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="/login"
+                >
+                  Login
+                </Link>
+              </button>
+            </>
+          )}
+        </div>
+      </nav>
+      {shopMenu ? (
+        <div>
+          <h1 style={{backgroundColor:'red'}}>halum galum</h1>
+        </div>
+      ) : (
+        <div>
+          <h1 style={{backgroundColor:'green'}}>halum galum</h1>
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -59,7 +59,6 @@ const Categories = () => {
         Shop by Categories
       </h1>
       <Swiper
-      
         slidesPerView={5}
         spaceBetween={1000}
         pagination={{
@@ -69,7 +68,7 @@ const Categories = () => {
           320: { slidesPerView: 2, spaceBetween: 80 },
           480: { slidesPerView: 3, spaceBetween: 50 },
           768: { slidesPerView: 3, spaceBetween: 50 },
-          1024: { slidesPerView: 4, spaceBetween: 50 },
+          1024: { slidesPerView: 4, spaceBetween: 50 }
         }}
         modules={[Pagination]}
         className="mySwiper"
