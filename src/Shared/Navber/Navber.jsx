@@ -4,6 +4,7 @@ import { CiSearch, CiHeart, CiShoppingCart } from "react-icons/ci";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { IoChevronUpSharp, IoChevronDownSharp } from "react-icons/io5";
+import ShopMenu from "./shopMenu/ShopMenu";
 
 const NavBer = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -88,12 +89,12 @@ const NavBer = () => {
         </div>
       </nav>
       {shopMenu ? (
-        <div>
-          <h1 style={{backgroundColor:'red'}}>halum galum</h1>
+        <div  style={{backgroundColor:'red'}}>
+          <ShopMenu/>
         </div>
       ) : (
-        <div>
-          <h1 style={{backgroundColor:'green'}}>halum galum</h1>
+        <div style={{backgroundColor:'green'}}>
+        <ShopMenu/>
         </div>
       )}
     </div>
