@@ -28,7 +28,13 @@
     border-radius: 8px;
 }
 
-.show-menu{
+/* .show-menu{
     display: flex;
     justify-content: center;
+} */
+.onMenu{
+    position: absolute;
+}
+.ofMenu{
+    display: none;
 }

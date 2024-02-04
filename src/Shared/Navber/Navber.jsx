@@ -33,7 +33,7 @@ const NavBer = () => {
                   id="item-list"
                   to=""
                 >
-                  Shop <IoChevronDownSharp style={{ marginLeft:'5px'}} />
+                  Shop <IoChevronUpSharp style={{ marginLeft:'5px'}}/>
                 </Link>
               ) : (
                 <>
@@ -42,7 +42,7 @@ const NavBer = () => {
                     id="item-list"
                     to=""
                   >
-                    Shop <IoChevronUpSharp style={{ marginLeft:'5px'}}/>
+                    Shop <IoChevronDownSharp style={{ marginLeft:'5px'}} />
                   </Link>
                 </>
               )}
@@ -89,11 +89,11 @@ const NavBer = () => {
         </div>
       </nav>
       {shopMenu ? (
-        <div  className="show-menu">
+        <div  className="show-menu ofMenu">
           <ShopMenu/>
         </div>
       ) : (
-        <div className="show-menu">
+        <div className="show-menu onMenu">
         <ShopMenu/>
         </div>
       )}
