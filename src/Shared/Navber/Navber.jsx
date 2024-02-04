@@ -89,11 +89,11 @@ const NavBer = () => {
         </div>
       </nav>
       {shopMenu ? (
-        <div  style={{backgroundColor:'red'}}>
+        <div  className="show-menu">
           <ShopMenu/>
         </div>
       ) : (
-        <div style={{backgroundColor:'green'}}>
+        <div className="show-menu">
         <ShopMenu/>
         </div>
       )}
