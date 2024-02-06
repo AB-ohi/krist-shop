@@ -2,7 +2,7 @@ import "./ShopMenu.css";
 const ShopMenu = () => {
   return (
     <div style={{marginLeft:'50%',marginRight:'50%'}}>
-      <table>
+      <table className="menuTable">
         <tr className="table-row">
           <th>Men</th>
           <th>Women</th>

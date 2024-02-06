@@ -9,6 +9,7 @@
 }
 .table-body{
     text-align: left;
+    background-color: rgba(255, 0, 0, 0);
 }
 .table-row{
     display: flex;

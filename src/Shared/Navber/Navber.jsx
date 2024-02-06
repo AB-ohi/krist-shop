@@ -33,7 +33,7 @@ const NavBer = () => {
                   id="item-list"
                   to=""
                 >
-                  Shop <IoChevronUpSharp style={{ marginLeft:'5px'}}/>
+                  Shop <IoChevronDownSharp style={{ marginLeft:'5px'}} />
                 </Link>
               ) : (
                 <>
@@ -42,7 +42,7 @@ const NavBer = () => {
                     id="item-list"
                     to=""
                   >
-                    Shop <IoChevronDownSharp style={{ marginLeft:'5px'}} />
+                    Shop <IoChevronUpSharp style={{ marginLeft:'5px'}}/>
                   </Link>
                 </>
               )}
