@@ -3,7 +3,7 @@ import './BestSeller.css'
 import { useEffect } from 'react';
 
 const Bestseller = () => {
-    const [menCollections, SetMenCollections] = useState();
+    const [menCollections, SetMenCollections] = useState([]);
 
     useEffect(()=>{
         fetch("http://localhost:5000/men")
@@ -17,7 +17,7 @@ const Bestseller = () => {
                 {
                     menCollections.map(menCollection=>
                     <div key={menCollection._id}>
-
+                        <img style={{width:'100%', border:'1px solid red'}} src={menCollection.pictureURL} alt="" />
                     </div>)
                 }
             </div>
