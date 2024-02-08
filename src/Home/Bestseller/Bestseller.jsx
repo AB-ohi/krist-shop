@@ -4,6 +4,11 @@ import { useEffect } from "react";
 
 const Bestseller = () => {
   const [menCollections, SetMenCollections] = useState([]);
+  console.log(menCollections.price)
+  const originalPrice = menCollections.price
+  console.log(originalPrice)
+  const discountPrice = originalPrice - (menCollections.price*0.01)
+  console.log(discountPrice)
 
   useEffect(() => {
     fetch("http://localhost:5000/men")
@@ -24,7 +29,7 @@ const Bestseller = () => {
             <h1 style={{ margin: "0" }}>{menCollection.productName}</h1>
             <p style={{ margin: "0" }}>{menCollection.nickname}</p>
             <div>
-              <p></p>
+              <p>{discountPrice}</p>
               <p></p>
             </div>
           </div>
