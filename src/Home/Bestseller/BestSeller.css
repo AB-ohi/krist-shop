@@ -1,0 +1,4 @@
+best-seller-card-body{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
