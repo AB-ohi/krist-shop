@@ -12,23 +12,23 @@ import { Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 const wearPic = [
   {
-    img: "../../../public/wearPic/Athleisure.jpg",
-    name: "Athleisure",
+    img: "../../../public/wearPic/casual.jpg",
+    name: "Men",
     link: "https://example.com/page1",
   },
   {
-    img: "../../../public/wearPic/banglaSari.jpg",
-    name: "Sari",
+    img: "../../../public/wearPic/ethnic.jpg",
+    name: "Women",
     link: "https://example.com/page2",
   },
   {
-    img: "../../../public/wearPic/Bohemian.jpg",
-    name: "Bohemian",
+    img: "../../../public/wearPic/foot.png",
+    name: "Foot",
     link: "https://example.com/page3",
   },
   {
-    img: "../../../public/wearPic/casual.jpg",
-    name: "Casual",
+    img: "../../../public/wearPic/banglaSari.jpg",
+    name: "Bengali & Festive Wear",
     link: "https://example.com/page3",
   },
   {
@@ -46,11 +46,7 @@ const wearPic = [
     name: "Kids",
     link: "https://example.com/page3",
   },
-  {
-    img: "../../../public/wearPic/Streetwear.jpg",
-    name: "Street",
-    link: "https://example.com/page3",
-  },
+  
 ];
 const Categories = () => {
   return (
