@@ -1,14 +1,15 @@
 import { useState } from "react";
 import "./BestSeller.css";
 import { useEffect } from "react";
+import SelleCard from "./SelleCard";
 
 const Bestseller = () => {
   const [menCollections, SetMenCollections] = useState([]);
-  console.log(menCollections.price)
-  const originalPrice = menCollections.price
-  console.log(originalPrice)
-  const discountPrice = originalPrice - (menCollections.price*0.01)
-  console.log(discountPrice)
+  // console.log(menCollections.price)
+  // const originalPrice = menCollections.price
+  // console.log(originalPrice)
+  // const discountPrice = originalPrice - (menCollections.price * 0.01)
+  // console.log(discountPrice)
 
   useEffect(() => {
     fetch("http://localhost:5000/men")
@@ -20,19 +21,15 @@ const Bestseller = () => {
       <h1 style={{ textAlign: "center" }}>Our Bestseller</h1>
       <div className="best-seller-card-body">
         {menCollections.map((menCollection) => (
-          <div style={{ border: "1px solid red" }} key={menCollection._id}>
-            <img
-              style={{ width: "100%" }}
-              src={menCollection.pictureURL}
-              alt=""
-            />
-            <h1 style={{ margin: "0" }}>{menCollection.productName}</h1>
-            <p style={{ margin: "0" }}>{menCollection.nickname}</p>
-            <div>
-              <p>{discountPrice}</p>
-              <p></p>
-            </div>
-          </div>
+          <SelleCard style={{ border: "1px solid red" }}
+          key={menCollection._id}
+          pictureURL={menCollection.pictureURL}
+          productName= {menCollection.productName}
+          nickname = {menCollection.nickname}
+          price= {menCollection.price}
+          >
+
+          </SelleCard>
         ))}
       </div>
     </div>
