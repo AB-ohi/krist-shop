@@ -20,7 +20,7 @@ const Bestseller = () => {
     <div>
       <h1 style={{ textAlign: "center" }}>Our Bestseller</h1>
       <div className="best-seller-card-body">
-        {menCollections.map((menCollection) => (
+        {menCollections.slice(2).map((menCollection) => (
           <SelleCard style={{ border: "1px solid red" }}
           key={menCollection._id}
           pictureURL={menCollection.pictureURL}

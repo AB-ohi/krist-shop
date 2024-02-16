@@ -4,6 +4,7 @@ import Login from "../Login/Login";
 import SignUp from "../Signup/SignUp";
 import PrivetRoute from "./privetRoute";
 import Home from "../Home/Home/Home";
+import Shop from "../page/Shop/Shop";
 
 const router = createBrowserRouter([
     {
@@ -13,6 +14,13 @@ const router = createBrowserRouter([
         {
           path:"/",
           element:<Home/>
+        },
+        {
+          path:'/shop',
+          element:<PrivetRoute><Shop/></PrivetRoute>,
+          children:[
+            
+          ]
         }
       ]
     },

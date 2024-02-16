@@ -26,25 +26,35 @@ const NavBer = () => {
                 Home
               </Link>
             </li>
-            <li onClick={() => setShopMenu(!shopMenu)}>
+            <li>
               {shopMenu ? (
-                <Link
-                  style={{ display: "flex", alignItems: "center" }}
-                  id="item-list"
-                  to=""
-                >
-                  Shop <IoChevronDownSharp style={{ marginLeft:'5px'}} />
-                </Link>
+                <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+                  <Link
+                    style={{ display: "flex", alignItems: "center" }}
+                    id="item-list"
+                    to="/shop"
+                  >
+                    Shop
+                  </Link>
+                  <IoChevronDownSharp
+                    onClick={() => setShopMenu(!shopMenu)}
+                    style={{ marginLeft: "5px" }}
+                  />
+                </div>
               ) : (
-                <>
+                <div  style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
                   <Link
                     style={{ display: "flex", alignItems: "center" }}
                     id="item-list"
                     to=""
                   >
-                    Shop <IoChevronUpSharp style={{ marginLeft:'5px'}}/>
+                    Shop
                   </Link>
-                </>
+                  <IoChevronUpSharp
+                    onClick={() => setShopMenu(!shopMenu)}
+                    style={{ marginLeft: "5px" }}
+                  />
+                </div>
               )}
             </li>
             <li>
@@ -89,12 +99,12 @@ const NavBer = () => {
         </div>
       </nav>
       {shopMenu ? (
-        <div  className="show-menu ofMenu">
-          <ShopMenu/>
+        <div className="show-menu ofMenu">
+          <ShopMenu />
         </div>
       ) : (
         <div className="show-menu onMenu">
-        <ShopMenu/>
+          <ShopMenu />
         </div>
       )}
     </div>
