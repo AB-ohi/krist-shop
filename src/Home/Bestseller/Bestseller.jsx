@@ -17,7 +17,7 @@ const Bestseller = () => {
       .then((data) => SetMenCollections(data));
   }, []);
   return (
-    <div>
+    <div style={{marginBottom:"20px"}}>
       <h1 style={{ textAlign: "center" }}>Our Bestseller</h1>
       <div className="best-seller-card-body">
         {menCollections.slice(2).map((menCollection) => (

@@ -2,11 +2,12 @@ const SelleCard = ({pictureURL,productName,nickname,price}) => {
     // const {pictureURL,productName,nickname,price }= props;
     const originalPrice = price;
     console.log(originalPrice)
-    const discountPrice = originalPrice - (originalPrice * 0.3)
+    const discountPrice = parseInt(originalPrice - (originalPrice * 0.3))
+    
     console.log(discountPrice)
 
     return (
-        <div>
+        <div className="product-cart">
             <img
                 style={{ width: "100%" }}
                 src={pictureURL}

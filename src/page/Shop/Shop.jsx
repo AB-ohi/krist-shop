@@ -1,7 +1,9 @@
+import SIdeBer from "../../Shared/SideBer/SIdeBer";
+
 const Shop = () => {
     return (
         <div>
-            this is shop
+            <SIdeBer/>
         </div>
     );
 };
