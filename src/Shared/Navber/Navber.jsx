@@ -37,7 +37,7 @@ const NavBer = () => {
                     Shop
                   </Link>
                   <IoChevronDownSharp
-                    onClick={() => setShopMenu(!shopMenu)}
+                    onClick={() => setShopMenu(false)}
                     style={{ marginLeft: "5px" }}
                   />
                 </div>
@@ -46,12 +46,12 @@ const NavBer = () => {
                   <Link
                     style={{ display: "flex", alignItems: "center" }}
                     id="item-list"
-                    to=""
+                    to="/shop"
                   >
                     Shop
                   </Link>
                   <IoChevronUpSharp
-                    onClick={() => setShopMenu(!shopMenu)}
+                    onClick={() => setShopMenu(true)}
                     style={{ marginLeft: "5px" }}
                   />
                 </div>
