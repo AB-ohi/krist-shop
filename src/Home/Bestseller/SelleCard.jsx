@@ -9,7 +9,7 @@ const SelleCard = ({pictureURL,productName,nickname,price}) => {
     return (
         <div className="product-cart">
             <div style={{position:'relative'}}>
-                <p style={{zIndex:'10', position:'absolute',backgroundColor:'red', color:'white', padding:'5px 8px'}}>30%</p>
+                <p style={{zIndex:'10', position:'absolute',backgroundColor:'red', color:'white', padding:'5px 8px', margin:'0', top:'-20px', left:'-20px', borderRadius:'11px 0 0 0 '}}>30%</p>
             <img
                 style={{ width: "100%", zIndex:'1' }}
                 src={pictureURL}
