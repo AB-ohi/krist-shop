@@ -16,7 +16,7 @@ const ShopMenu = () => {
           <td>T-Shirt</td>
         </tr>
         <tr className="table-row">
-          <td>Casusl Shirts</td>
+          <td>Casual Shirts</td>
           <td>Sarees</td>
           <td>Casual Shoes</td>
           <td>Shirts</td>
