@@ -4,7 +4,7 @@ import { useState } from "react";
 const SIdeBer = () => {
   const [showMenItem, setShowMenItem] = useState(true);
   const [showWomenItem, setShowWomenItem] = useState(true);
-  // const [showFootwearItem, setShowFootwearItem]= useState(true);
+  const [showFootwearItem, setShowFootwearItem] = useState(true);
   // const [showKidsItem, setShowKidsItem]= useState(true);
   // const [showIndianItem, setShowIndianItem]= useState(true);
   // const [showWesternItem, setShowWesternItem]= useState(true);
@@ -75,7 +75,36 @@ const SIdeBer = () => {
           <p>Jackets</p>
         </div>
       )}
-      <h1>Footwear</h1>
+      {showFootwearItem ? (
+        <h1
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          Footwear
+          <IoChevronDownSharp onClick={() => setShowFootwearItem(false)} />
+        </h1>
+      ) : (
+        <div>
+          <h1
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            Footwear
+            <IoChevronUpSharp onClick={() => setShowFootwearItem(true)} />
+          </h1>
+          <p>Flats</p>
+          <p>Casual Shoes</p>
+          <p>Heels</p>
+          <p>Boots</p>
+          <p>Sports Shoes & Floaters</p>
+        </div>
+      )}
       <h1>Kids</h1>
       <h1>Indian & Festive Wear</h1>
       <h1>Western Wear</h1>
