@@ -6,8 +6,8 @@ const SIdeBer = () => {
   const [showWomenItem, setShowWomenItem] = useState(true);
   const [showFootwearItem, setShowFootwearItem] = useState(true);
   const [showKidsItem, setShowKidsItem]= useState(true);
-  // const [showIndianItem, setShowIndianItem]= useState(true);
-  // const [showWesternItem, setShowWesternItem]= useState(true);
+  const [showIndianItem, setShowIndianItem]= useState(true);
+  const [showWesternItem, setShowWesternItem]= useState(true);
   return (
     <div
       style={{
@@ -104,7 +104,7 @@ const SIdeBer = () => {
           <p>Sports Shoes & Floaters</p>
         </div>
       )}
-      {showKidsItem ? (
+      {showIndianItem ? (
         <h1
           style={{
             display: "flex",
@@ -113,7 +113,7 @@ const SIdeBer = () => {
           }}
         >
           Kids
-          <IoChevronDownSharp onClick={() => setShowKidsItem(false)} />
+          <IoChevronDownSharp onClick={() => setShowIndianItem(false)} />
         </h1>
       ) : (
         <div>
@@ -125,7 +125,7 @@ const SIdeBer = () => {
             }}
           >
             Kids
-            <IoChevronUpSharp onClick={() => setShowKidsItem(true)} />
+            <IoChevronUpSharp onClick={() => setShowIndianItem(true)} />
           </h1>
           <p>T-Shirt</p>
           <p>Shirts</p>
@@ -134,7 +134,60 @@ const SIdeBer = () => {
           <p>Party wear</p>
         </div>
       )}
-      <h1>Indian & Festive Wear</h1>
+      {showKidsItem ? (
+        <h1
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          Indian & Festive Wear
+          <IoChevronDownSharp onClick={() => setShowKidsItem(false)} />
+        </h1>
+      ) : (
+        <div>
+          <h1
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            Indian & Festive Wear
+            <IoChevronUpSharp onClick={() => setShowKidsItem(true)} />
+          </h1>
+          <p>Kurta & Kurta Set</p>
+          <p>Sherwanis</p>
+        </div>
+      )}
+      {showKidsItem ? (
+        <h1
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          Western Wear
+          <IoChevronDownSharp onClick={() => setShowKidsItem(false)} />
+        </h1>
+      ) : (
+        <div>
+          <h1
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            Western Wear
+            <IoChevronUpSharp onClick={() => setShowKidsItem(true)} />
+          </h1>
+          <p>Kurta & Kurta Set</p>
+          <p>Sherwanis</p>
+        </div>
+      )}
       <h1>Western Wear</h1>
     </div>
   );
