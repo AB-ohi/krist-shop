@@ -161,7 +161,7 @@ const SIdeBer = () => {
           <p>Sherwanis</p>
         </div>
       )}
-      {showKidsItem ? (
+      {showWesternItem ? (
         <h1
           style={{
             display: "flex",
@@ -170,7 +170,7 @@ const SIdeBer = () => {
           }}
         >
           Western Wear
-          <IoChevronDownSharp onClick={() => setShowKidsItem(false)} />
+          <IoChevronDownSharp onClick={() => setShowWesternItem(false)} />
         </h1>
       ) : (
         <div>
@@ -182,13 +182,12 @@ const SIdeBer = () => {
             }}
           >
             Western Wear
-            <IoChevronUpSharp onClick={() => setShowKidsItem(true)} />
+            <IoChevronUpSharp onClick={() => setShowWesternItem(true)} />
           </h1>
-          <p>Kurta & Kurta Set</p>
-          <p>Sherwanis</p>
+          <p>Dresses</p>
+          <p>Jumpsuits</p>
         </div>
       )}
-      <h1>Western Wear</h1>
     </div>
   );
 };
