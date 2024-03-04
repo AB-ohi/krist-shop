@@ -5,14 +5,13 @@ const SIdeBer = () => {
   const [showMenItem, setShowMenItem] = useState(true);
   const [showWomenItem, setShowWomenItem] = useState(true);
   const [showFootwearItem, setShowFootwearItem] = useState(true);
-  // const [showKidsItem, setShowKidsItem]= useState(true);
+  const [showKidsItem, setShowKidsItem]= useState(true);
   // const [showIndianItem, setShowIndianItem]= useState(true);
   // const [showWesternItem, setShowWesternItem]= useState(true);
   return (
     <div
       style={{
         width: "20%",
-        height: "100vh",
         backgroundColor: "black",
         color: "white",
       }}
@@ -105,7 +104,36 @@ const SIdeBer = () => {
           <p>Sports Shoes & Floaters</p>
         </div>
       )}
-      <h1>Kids</h1>
+      {showKidsItem ? (
+        <h1
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          Kids
+          <IoChevronDownSharp onClick={() => setShowKidsItem(false)} />
+        </h1>
+      ) : (
+        <div>
+          <h1
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            Kids
+            <IoChevronUpSharp onClick={() => setShowKidsItem(true)} />
+          </h1>
+          <p>T-Shirt</p>
+          <p>Shirts</p>
+          <p>Jeans</p>
+          <p>Trousers</p>
+          <p>Party wear</p>
+        </div>
+      )}
       <h1>Indian & Festive Wear</h1>
       <h1>Western Wear</h1>
     </div>
