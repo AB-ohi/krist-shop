@@ -22,7 +22,7 @@ const NavBer = () => {
         <div>
           <ul className="nav-List-Item">
             <li>
-              <Link id="item-list" to="">
+              <Link id="item-list" to="" onClick={() => setShopMenu(true)}>
                 Home
               </Link>
             </li>
@@ -30,9 +30,11 @@ const NavBer = () => {
               {shopMenu ? (
                 <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
                   <Link
-                    style={{ display: "flex", alignItems: "center" }}
+                  
+                    style={{ display: "flex", alignItems: "center" }} 
+                    
                     id="item-list"
-                    to="/shop"
+                    to="/shop" onClick={() => setShopMenu(true)}
                   >
                     Shop
                   </Link>
@@ -44,6 +46,7 @@ const NavBer = () => {
               ) : (
                 <div  style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
                   <Link
+                  onClick={() => setShopMenu(true)} 
                     style={{ display: "flex", alignItems: "center" }}
                     id="item-list"
                     to="/shop"
@@ -58,17 +61,18 @@ const NavBer = () => {
               )}
             </li>
             <li>
-              <Link id="item-list" to="">
+              <Link id="item-list" to="" onClick={() => setShopMenu(true)}>
+              
                 Our Story
               </Link>
             </li>
             <li>
-              <Link id="item-list" to="">
+              <Link id="item-list" to="" onClick={() => setShopMenu(true)}>
                 Blog
               </Link>
             </li>
             <li>
-              <Link id="item-list" to="">
+              <Link id="item-list" to="" onClick={() => setShopMenu(true)}>
                 Contact Us
               </Link>
             </li>
