@@ -1,0 +1,19 @@
+.shoe-menu{
+    visibility: visible;
+    transition: 0.5s;
+}
+
+.hide-menu{
+    display: none;
+    transition: 0.5s;
+}
+
+.close-menu{
+    transform: rotate(540deg);
+    transition: 0.5s;
+}
+
+.open-menu{
+    transform: rotate(360deg);
+    transition: 0.5s;
+}

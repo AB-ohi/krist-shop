@@ -1,13 +1,13 @@
 import { IoChevronDownSharp, IoChevronUpSharp } from "react-icons/io5";
-
+import './SideBer.css'
 import { useState } from "react";
 const SIdeBer = () => {
-  const [showMenItem, setShowMenItem] = useState(true);
+  const [showMenItem, setShowMenItem] = useState();
   const [showWomenItem, setShowWomenItem] = useState(true);
   const [showFootwearItem, setShowFootwearItem] = useState(true);
-  const [showKidsItem, setShowKidsItem]= useState(true);
-  const [showIndianItem, setShowIndianItem]= useState(true);
-  const [showWesternItem, setShowWesternItem]= useState(true);
+  const [showKidsItem, setShowKidsItem] = useState(true);
+  const [showIndianItem, setShowIndianItem] = useState(true);
+  const [showWesternItem, setShowWesternItem] = useState(true);
   return (
     <div
       style={{
@@ -15,8 +15,8 @@ const SIdeBer = () => {
         backgroundColor: "black",
         color: "white",
       }}
-    >
-      {showMenItem ? (
+    > 
+      <div>
         <h1
           style={{
             display: "flex",
@@ -24,38 +24,17 @@ const SIdeBer = () => {
             alignItems: "center",
           }}
         >
-          Men <IoChevronDownSharp onClick={() => setShowMenItem(false)} />
+          Men <IoChevronUpSharp className={`${showMenItem ? 'close-menu':'open-menu'}`} onClick={() => setShowMenItem(!showMenItem)} />
         </h1>
-      ) : (
-        <div>
-          <h1
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            Men <IoChevronUpSharp onClick={() => setShowMenItem(true)} />
-          </h1>
+        <div className={`${showMenItem ? 'hide-menu':'shoe-menu'}`}>
           <p>T-Shirt</p>
           <p>Casual Shirt</p>
           <p>Formal Shirts</p>
           <p>Jackets</p>
           <p>Blazers & Coats</p>
         </div>
-      )}
-      {showWomenItem ? (
-        <h1
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          Women
-          <IoChevronDownSharp onClick={() => setShowWomenItem(false)} />
-        </h1>
-      ) : (
+      </div>
+      
         <div>
           <h1
             style={{
@@ -65,15 +44,16 @@ const SIdeBer = () => {
             }}
           >
             Women
-            <IoChevronUpSharp onClick={() => setShowWomenItem(true)} />
+            <IoChevronUpSharp  className={`${showWomenItem ? 'close-menu':'open-menu'}`} onClick={() => setShowWomenItem(!showWomenItem)} />
           </h1>
+          <div className={`${showWomenItem ? 'hide-menu':'shoe-menu'}`}>
           <p>Kurtas & Suits</p>
           <p>Sarees</p>
           <p>Ethnic Wear</p>
           <p>Lehenga Cholis</p>
           <p>Jackets</p>
+          </div>
         </div>
-      )}
       {showFootwearItem ? (
         <h1
           style={{
