@@ -1,4 +1,4 @@
-import { IoChevronDownSharp, IoChevronUpSharp } from "react-icons/io5";
+import {  IoChevronUpSharp } from "react-icons/io5";
 import './SideBer.css'
 import { useState } from "react";
 const SIdeBer = () => {
@@ -54,18 +54,7 @@ const SIdeBer = () => {
           <p>Jackets</p>
           </div>
         </div>
-      {showFootwearItem ? (
-        <h1
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          Footwear
-          <IoChevronDownSharp onClick={() => setShowFootwearItem(false)} />
-        </h1>
-      ) : (
+      
         <div>
           <h1
             style={{
@@ -75,27 +64,17 @@ const SIdeBer = () => {
             }}
           >
             Footwear
-            <IoChevronUpSharp onClick={() => setShowFootwearItem(true)} />
+            <IoChevronUpSharp className={`${showFootwearItem ? 'close-menu':'open-menu'}`} onClick={() => setShowFootwearItem(!showFootwearItem)} />
           </h1>
+          <div className={`${showFootwearItem ? 'hide-menu':'shoe-menu'}`}>
           <p>Flats</p>
           <p>Casual Shoes</p>
           <p>Heels</p>
           <p>Boots</p>
           <p>Sports Shoes & Floaters</p>
+          </div>
         </div>
-      )}
-      {showIndianItem ? (
-        <h1
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          Kids
-          <IoChevronDownSharp onClick={() => setShowIndianItem(false)} />
-        </h1>
-      ) : (
+      
         <div>
           <h1
             style={{
@@ -105,27 +84,17 @@ const SIdeBer = () => {
             }}
           >
             Kids
-            <IoChevronUpSharp onClick={() => setShowIndianItem(true)} />
+            <IoChevronUpSharp className={`${showKidsItem ? 'close-menu':'open-menu'}`} onClick={() => setShowKidsItem(!showKidsItem)} />
           </h1>
+          <div className={`${showKidsItem ? 'hide-menu':'shoe-menu'}`}>
           <p>T-Shirt</p>
           <p>Shirts</p>
           <p>Jeans</p>
           <p>Trousers</p>
           <p>Party wear</p>
+          </div>
         </div>
-      )}
-      {showKidsItem ? (
-        <h1
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          Indian & Festive Wear
-          <IoChevronDownSharp onClick={() => setShowKidsItem(false)} />
-        </h1>
-      ) : (
+      
         <div>
           <h1
             style={{
@@ -134,25 +103,15 @@ const SIdeBer = () => {
               alignItems: "center",
             }}
           >
-            Indian & Festive Wear
-            <IoChevronUpSharp onClick={() => setShowKidsItem(true)} />
+            Bangla & Festive Wear
+            <IoChevronUpSharp className={`${showIndianItem ? 'close-menu':'open-menu'}`} onClick={() => setShowIndianItem(!showIndianItem)} />
           </h1>
+          <div  className={`${showIndianItem ? 'hide-menu':'shoe-menu'}`}>
           <p>Kurta & Kurta Set</p>
           <p>Sherwanis</p>
+          </div>
         </div>
-      )}
-      {showWesternItem ? (
-        <h1
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          Western Wear
-          <IoChevronDownSharp onClick={() => setShowWesternItem(false)} />
-        </h1>
-      ) : (
+     
         <div>
           <h1
             style={{
@@ -162,12 +121,13 @@ const SIdeBer = () => {
             }}
           >
             Western Wear
-            <IoChevronUpSharp onClick={() => setShowWesternItem(true)} />
+            <IoChevronUpSharp className={`${showWesternItem ? 'close-menu':'open-menu'}`} onClick={() => setShowWesternItem(!showWesternItem)} />
           </h1>
+          <div className={`${showWesternItem ? 'hide-menu':'shoe-menu'}`}>
           <p>Dresses</p>
           <p>Jumpsuits</p>
+          </div>
         </div>
-      )}
     </div>
   );
 };
