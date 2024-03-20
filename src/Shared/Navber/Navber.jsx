@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./NavBer.css";
 import { CiSearch, CiHeart, CiShoppingCart } from "react-icons/ci";
 import { useContext, useState } from "react";
@@ -18,18 +18,18 @@ const NavBer = () => {
   return (
     <div>
       <nav className="nav">
-        <img src="../../../public/img/logo.svg" alt="" />
+        <a href="/"><img src="../../../public/img/logo.svg" alt="" /></a>
         <div>
           <ul className="nav-List-Item">
             <li>
-              <Link id="item-list" to="" onClick={() => setShopMenu(true)}>
+              <NavLink id="item-list" to="" onClick={() => setShopMenu(true)}>
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
               {shopMenu ? (
                 <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
-                  <Link
+                  <NavLink
                   
                     style={{ display: "flex", alignItems: "center" }} 
                     
@@ -37,7 +37,7 @@ const NavBer = () => {
                     to="/shop" onClick={() => setShopMenu(true)}
                   >
                     Shop
-                  </Link>
+                  </NavLink>
                   <IoChevronDownSharp
                     onClick={() => setShopMenu(false)}
                     style={{ marginLeft: "5px" }}
@@ -45,14 +45,14 @@ const NavBer = () => {
                 </div>
               ) : (
                 <div  style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
-                  <Link
+                  <NavLink
                   onClick={() => setShopMenu(true)} 
                     style={{ display: "flex", alignItems: "center" }}
                     id="item-list"
                     to="/shop"
                   >
                     Shop
-                  </Link>
+                  </NavLink>
                   <IoChevronUpSharp
                     onClick={() => setShopMenu(true)}
                     style={{ marginLeft: "5px" }}
@@ -61,20 +61,20 @@ const NavBer = () => {
               )}
             </li>
             <li>
-              <Link id="item-list" to="" onClick={() => setShopMenu(true)}>
+              <NavLink id="item-list" to="" onClick={() => setShopMenu(true)}>
               
                 Our Story
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link id="item-list" to="" onClick={() => setShopMenu(true)}>
+              <NavLink id="item-list" to="" onClick={() => setShopMenu(true)}>
                 Blog
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link id="item-list" to="" onClick={() => setShopMenu(true)}>
+              <NavLink id="item-list" to="" onClick={() => setShopMenu(true)}>
                 Contact Us
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -91,12 +91,12 @@ const NavBer = () => {
           ) : (
             <>
               <button id="nev-btn">
-                <Link
+                <NavLink
                   style={{ color: "white", textDecoration: "none" }}
                   to="/login"
                 >
                   Login
-                </Link>
+                </NavLink>
               </button>
             </>
           )}

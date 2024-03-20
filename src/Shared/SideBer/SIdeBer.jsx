@@ -12,11 +12,13 @@ const SIdeBer = () => {
     <div
       style={{
         width: "20%",
-        backgroundColor: "black",
+        backgroundImage:'url(../../../public/img/sidebarBG.jpg)',
         color: "white",
+        paddingTop:'30px',
+        paddingBottom:'30px'
       }}
     > 
-      <div>
+      <div className='side-list'>
         <h1
           style={{
             display: "flex",
@@ -35,12 +37,13 @@ const SIdeBer = () => {
         </div>
       </div>
       
-        <div>
+        <div className='side-list'>
           <h1
             style={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              
             }}
           >
             Women
@@ -55,12 +58,13 @@ const SIdeBer = () => {
           </div>
         </div>
       
-        <div>
+        <div className='side-list'>
           <h1
             style={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              
             }}
           >
             Footwear
@@ -75,12 +79,13 @@ const SIdeBer = () => {
           </div>
         </div>
       
-        <div>
+        <div className='side-list'>
           <h1
             style={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              
             }}
           >
             Kids
@@ -95,12 +100,13 @@ const SIdeBer = () => {
           </div>
         </div>
       
-        <div>
+        <div className='side-list'>
           <h1
             style={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              
             }}
           >
             Bangla & Festive Wear
@@ -112,12 +118,13 @@ const SIdeBer = () => {
           </div>
         </div>
      
-        <div>
+        <div className='side-list'>
           <h1
             style={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              
             }}
           >
             Western Wear

@@ -12,6 +12,15 @@
 #item-list{
     text-decoration: none;
     color: black;
+    transition: 0.3s;
+}
+
+#item-list:hover{
+    color: rgb(42, 110, 255);
+}
+
+#nav-List-Item li a.active {
+    color: aqua;
 }
 .nav-item{
     display: flex;
@@ -27,7 +36,6 @@
     padding: 15px 20px;
     border-radius: 8px;
 }
-
 /* .show-menu{
     display: flex;
     justify-content: center;

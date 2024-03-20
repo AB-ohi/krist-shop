@@ -2,7 +2,10 @@
     visibility: visible;
     transition: 0.5s;
 }
-
+.side-list{
+    background-color: rgba(0,0,0,.5);
+    border-radius: 11px;
+}
 .hide-menu{
     display: none;
     transition: 0.5s;
@@ -16,4 +19,12 @@
 .open-menu{
     transform: rotate(360deg);
     transition: 0.5s;
+}
+h1{
+    margin-left: 10px;
+}
+p{
+    margin-left: 10px;
+    cursor: pointer;
+
 }
