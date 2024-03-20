@@ -2,7 +2,7 @@ import {  IoChevronUpSharp } from "react-icons/io5";
 import './SideBer.css'
 import { useState } from "react";
 const SIdeBer = () => {
-  const [showMenItem, setShowMenItem] = useState();
+  const [showMenItem, setShowMenItem] = useState(true);
   const [showWomenItem, setShowWomenItem] = useState(true);
   const [showFootwearItem, setShowFootwearItem] = useState(true);
   const [showKidsItem, setShowKidsItem] = useState(true);
