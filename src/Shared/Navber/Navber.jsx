@@ -4,11 +4,15 @@ import { CiSearch, CiHeart, CiShoppingCart } from "react-icons/ci";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { IoChevronUpSharp, IoChevronDownSharp } from "react-icons/io5";
+import { GiScrollUnfurled } from "react-icons/gi";
+import { GiTireIronCross } from "react-icons/gi";
 import ShopMenu from "./shopMenu/ShopMenu";
 
 const NavBer = () => {
   const { user, logOut } = useContext(AuthContext);
   const [shopMenu, setShopMenu] = useState(true);
+  const [tabletsNavItemShow, setTabletsNavItemShow] = useState(true);
+  console.log(tabletsNavItemShow)
 
   const handelLogOut = () => {
     logOut()
@@ -18,9 +22,11 @@ const NavBer = () => {
   return (
     <div>
       <nav className="nav">
-        <a href="/"><img src="../../../public/img/logo.svg" alt="" /></a>
+        <a href="/">
+          <img src="../../../public/img/logo.svg" alt="" />
+        </a>
         <div>
-          <ul className="nav-List-Item">
+          <ul className="nav-List-Item ">
             <li>
               <NavLink id="item-list" to="" onClick={() => setShopMenu(true)}>
                 Home
@@ -28,13 +34,18 @@ const NavBer = () => {
             </li>
             <li>
               {shopMenu ? (
-                <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
                   <NavLink
-                  
-                    style={{ display: "flex", alignItems: "center" }} 
-                    
+                    style={{ display: "flex", alignItems: "center" }}
                     id="item-list"
-                    to="/shop" onClick={() => setShopMenu(true)}
+                    to="/shop"
+                    onClick={() => setShopMenu(true)}
                   >
                     Shop
                   </NavLink>
@@ -44,9 +55,15 @@ const NavBer = () => {
                   />
                 </div>
               ) : (
-                <div  style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
                   <NavLink
-                  onClick={() => setShopMenu(true)} 
+                    onClick={() => setShopMenu(true)}
                     style={{ display: "flex", alignItems: "center" }}
                     id="item-list"
                     to="/shop"
@@ -62,7 +79,6 @@ const NavBer = () => {
             </li>
             <li>
               <NavLink id="item-list" to="" onClick={() => setShopMenu(true)}>
-              
                 Our Story
               </NavLink>
             </li>
@@ -79,6 +95,10 @@ const NavBer = () => {
           </ul>
         </div>
         <div className="nav-item">
+          {
+            tabletsNavItemShow? (<div onClick={() => setTabletsNavItemShow(!tabletsNavItemShow)}><GiTireIronCross/></div>):(<div onClick={() => setTabletsNavItemShow(!tabletsNavItemShow)}><GiScrollUnfurled /></div>)
+          }
+          
           <CiSearch />
           <CiHeart />
           <CiShoppingCart />
