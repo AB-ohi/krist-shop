@@ -26,3 +26,9 @@
     align-items: center;
     color: white;
 }
+
+@media only screen and (max-width: 700px){
+    .footer-body{
+        flex-direction: column;
+    }
+}

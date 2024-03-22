@@ -6,6 +6,7 @@
 }
 .nav-List-Item{
     display: flex;
+    align-items: center;
     gap: 30px;
     list-style: none;
 }
@@ -13,10 +14,13 @@
     text-decoration: none;
     color: black;
     transition: 0.3s;
+    padding: 6px 11px;
+    border-radius: 8px;
 }
 
 #item-list:hover{
-    color: rgb(42, 110, 255);
+    color: rgb(255, 89, 29);
+    background-color: rgba(94, 94, 94, 0.288);
 }
 
 #nav-List-Item li a.active {
@@ -45,4 +49,7 @@
 }
 .ofMenu{
     display: none;
+}
+@media only screen and (min-width: 700px){
+    
 }
