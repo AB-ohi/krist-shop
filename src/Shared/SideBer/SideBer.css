@@ -1,51 +1,47 @@
-.shoe-menu{
-    visibility: visible;
-    transition: 0.5s;
+.shoe-menu {
+  visibility: visible;
+  transition: 0.5s;
 }
-.side-list{
-    color: white;
-    border-radius: 11px;
-    transition: 0.5s;
+.side-list {
+  color: white;
+  border-radius: 11px;
+  transition: 0.5s;
 }
-h1{
-    transition: 0.5s;
+.side-list h1 {
+  margin-left: 10px;
+  transition: 0.5s;
 }
-h1:hover{
-    color: rgb(253, 113, 62);
-}
-
-p{
-    transition: 0.5s;
-    /* background: red; */
-    padding: 15px 10px;
-    margin: 0;
-    border-radius: 11px 0 0 11px;
+.side-list h1:hover {
+  color: rgb(253, 113, 62);
 }
 
-p:hover{
-    background-color: rgba(51, 51, 51, 0.562);
-    color: darkorange;
+.side-list p {
+  margin-left: 10px;
+  cursor: pointer;
+
+  transition: 0.5s;
+  /* background: red; */
+  padding: 15px 10px;
+  margin: 0;
+  border-radius: 11px 0 0 11px;
 }
 
-.hide-menu{
-    display: none;
-    transition: 0.5s;
+.side-list p:hover {
+  background-color: rgba(51, 51, 51, 0.562);
+  color: darkorange;
 }
 
-.close-menu{
-    transform: rotate(540deg);
-    transition: 0.5s;
+.hide-menu {
+  display: none;
+  transition: 0.5s;
 }
 
-.open-menu{
-    transform: rotate(360deg);
-    transition: 0.5s;
+.close-menu {
+  transform: rotate(540deg);
+  transition: 0.5s;
 }
-h1{
-    margin-left: 10px;
-}
-p{
-    margin-left: 10px;
-    cursor: pointer;
 
+.open-menu {
+  transform: rotate(360deg);
+  transition: 0.5s;
 }
