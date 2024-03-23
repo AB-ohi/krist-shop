@@ -1,66 +1,117 @@
-.nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-family: 'Jost', sans-serif;
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Jost", sans-serif;
 }
-.nav-List-Item{
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    list-style: none;
+.nav-List-Item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
 }
-#item-list{
-    text-decoration: none;
-    color: black;
-    transition: 0.3s;
-    padding: 6px 11px;
-    border-radius: 8px;
+#item-list {
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+  padding: 6px 11px;
+  border-radius: 8px;
 }
 
-#item-list:hover{
-    color: rgb(255, 89, 29);
-    background-color: rgba(94, 94, 94, 0.288);
+#item-list:hover {
+  color: rgb(255, 89, 29);
+  background-color: rgba(94, 94, 94, 0.288);
 }
 
 #nav-List-Item li a.active {
-    color: aqua;
+  color: aqua;
 }
-.nav-item{
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    font-size: 25px;
+.nav-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 25px;
 }
-#nev-btn{
-    background-color: #131118;
-    outline: none;
-    border: 0;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 8px;
+#nev-btn {
+  background-color: #131118;
+  outline: none;
+  border: 0;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
 }
 /* .show-menu{
     display: flex;
     justify-content: center;
 } */
-.onMenu{
-    position: absolute;
+.onMenu {
+  position: absolute;
 }
-.ofMenu{
+.ofMenu {
+  display: none;
+}
+
+.res-menu {
+  visibility: hidden;
+}
+.ResNav{
     display: none;
 }
-@media only screen and (max-width: 700px){
-    .nav-List-Item{
-        visibility: hidden;
-        flex-direction: column;
-        position: absolute;
-        background-color: rgb(196, 81, 81);
-        padding: 40px 10px;
-        top: 0;
-    }
 
-    .nav-List-Item-hidden{
 
-    }
+
+@media only screen and (max-width: 700px) {
+  .nav-List-Item {
+    visibility: hidden;
+    flex-direction: column;
+    position: absolute;
+    background-color: rgb(196, 81, 81);
+    padding: 40px 10px;
+    top: 0;
+  }
+
+  /* .nav-List-Item-hidden{
+
+    } */
+
+  .res-menu {
+    visibility: visible;
+  }
+
+
+  /* Res-Nav Css code */
+.ResNav {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(../../../public/img/resnav.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 40px 0;
+    width: 100%;
+  }
+  
+  .ResNav-ul {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin: auto;
+    padding: 0;
+  }
+  
+  .ResNav-ul li {
+    list-style: none;
+    width: 100px;
+  }
+
+  .PRasNavOpen{
+    visibility: visible;
+  }
+  .PRasNavClose{
+    visibility: hidden;
+  }
 }

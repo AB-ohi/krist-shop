@@ -7,12 +7,13 @@ import { IoChevronUpSharp, IoChevronDownSharp } from "react-icons/io5";
 import { GiScrollUnfurled } from "react-icons/gi";
 import { GiTireIronCross } from "react-icons/gi";
 import ShopMenu from "./shopMenu/ShopMenu";
+import ResNav from "./ResNav";
 
 const NavBer = () => {
   const { user, logOut } = useContext(AuthContext);
   const [shopMenu, setShopMenu] = useState(true);
   const [tabletsNavItemShow, setTabletsNavItemShow] = useState(true);
-  console.log(tabletsNavItemShow)
+  console.log(tabletsNavItemShow);
 
   const handelLogOut = () => {
     logOut()
@@ -95,10 +96,18 @@ const NavBer = () => {
           </ul>
         </div>
         <div className="nav-item">
-          {
-            tabletsNavItemShow? (<div onClick={() => setTabletsNavItemShow(!tabletsNavItemShow)}><GiTireIronCross/></div>):(<div onClick={() => setTabletsNavItemShow(!tabletsNavItemShow)}><GiScrollUnfurled /></div>)
-          }
-          
+          <div className="res-menu">
+          {tabletsNavItemShow ? (
+            <div onClick={() => setTabletsNavItemShow(!tabletsNavItemShow)}>
+              <GiScrollUnfurled />
+            </div>
+          ) : (
+            <div onClick={() => setTabletsNavItemShow(!tabletsNavItemShow)}>
+              <GiTireIronCross />
+            </div>
+          )}
+          </div>
+
           <CiSearch />
           <CiHeart />
           <CiShoppingCart />
@@ -121,7 +130,14 @@ const NavBer = () => {
             </>
           )}
         </div>
+        
+
+
       </nav>
+      {/* res-nav item */}
+     <div className={`${tabletsNavItemShow? 'PRasNavClose':'PRasNavOpen'}`}>
+     <ResNav />
+     </div>
       {shopMenu ? (
         <div className="show-menu ofMenu">
           <ShopMenu />
@@ -136,3 +152,4 @@ const NavBer = () => {
 };
 
 export default NavBer;
+//
