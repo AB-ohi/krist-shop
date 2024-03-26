@@ -23,3 +23,22 @@
 .header-Btn:hover{
     background-color: #3c3c3d;
 }
+.page-header-chile p{
+    font-size: 35px ;
+}
+
+
+@media only screen and (max-width: 700px){
+    .page-header-chile{
+        margin: 15px;
+    }
+    .page-header-chile p{
+        font-size: 30px ;
+    }
+    .page-header-chile h1{
+        font-size: 30px !important;
+    }
+    .page-header-chile button{
+        margin: 0;
+    }
+}

@@ -71,7 +71,7 @@ const Categories = () => {
         style={{ width: "85%", margin: "auto" }}
       >
         {wearPic.map((wear, index) => (
-          <SwiperSlide key={index + 1} style={{ position: "relative" }}>
+          <SwiperSlide key={index + 1}>
             <img
               className="wear-img"
               style={{ zIndex: "10", borderRadius:'11px', width:'100%' }}
@@ -97,7 +97,6 @@ const Categories = () => {
                     borderRadius: "11px",
                   }}
                 >
-                  {" "}
                   <button
                     style={{
                       width: "100%",
@@ -108,7 +107,7 @@ const Categories = () => {
                     }}
                   >
                     {wear.name} wear
-                  </button>{" "}
+                  </button>
                 </Link>
               </div>
             </div>

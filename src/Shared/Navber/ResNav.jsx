@@ -19,10 +19,11 @@ const ResNav = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
+                 justifyContent:'center'
               }}
             >
               <NavLink
-                style={{ display: "flex", alignItems: "center" }}
+                style={{ display: "flex", alignItems: "center" ,}}
             
                 to="/shop"
                 onClick={() => setShopMenu(true)}
@@ -39,6 +40,7 @@ const ResNav = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
+                justifyContent:'center'
               }}
             >
               <NavLink

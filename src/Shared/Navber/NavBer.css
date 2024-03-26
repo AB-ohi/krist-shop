@@ -76,7 +76,9 @@
 
   .res-menu {
     visibility: visible;
+    font-size: 20px;
   }
+
 
 
   /* Res-Nav Css code */
@@ -84,7 +86,7 @@
     display: block;
     position: absolute;
     z-index: 100;
-    top: 35%;
+    top: 226px;
     left: 50%;
     transform: translate(-50%, -50%);
     background-image: url(../../../public/img/resnav.jpeg);
@@ -106,12 +108,26 @@
   .ResNav-ul li {
     list-style: none;
     width: 100px;
+    transition: 0.5s;
+    background-color: #161516;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    border-radius: 11px;
   }
+
+
 
   .PRasNavOpen{
     visibility: visible;
   }
   .PRasNavClose{
     visibility: hidden;
+  }
+
+ 
+  .ResNav-ul a{
+    text-decoration: none;
+    color: white;
   }
 }

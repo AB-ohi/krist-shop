@@ -152,4 +152,3 @@ const NavBer = () => {
 };
 
 export default NavBer;
-//
