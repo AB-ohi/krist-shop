@@ -1,9 +1,11 @@
 import SIdeBer from "../../Shared/SideBer/SIdeBer";
+import Cart from "./Cart/Cart";
 
 const Shop = () => {
     return (
-        <div>
+        <div style={{display:'flex'}}>
             <SIdeBer/>
+            <Cart/>
         </div>
     );
 };

@@ -11,6 +11,7 @@ const SIdeBer = () => {
   return (
     <div
       style={{
+        cursor:"pointer",
         width: "20%",
         backgroundImage:'url(../../../public/img/sidebarBG.jpg)',
         color: "white",
@@ -21,12 +22,14 @@ const SIdeBer = () => {
       <div className='side-list'>
         <h1
           style={{
+            cursor:"pointer",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
           }}
+          onClick={() => setShowMenItem(!showMenItem)}
         >
-          Men <IoChevronUpSharp className={`${showMenItem ? 'close-menu':'open-menu'}`} onClick={() => setShowMenItem(!showMenItem)} />
+          Men <IoChevronUpSharp className={`${showMenItem ? 'close-menu':'open-menu'}`}  />
         </h1>
         <div className={`${showMenItem ? 'hide-menu':'shoe-menu'}`}>
           <p>T-Shirt</p>
@@ -40,14 +43,19 @@ const SIdeBer = () => {
         <div className='side-list'>
           <h1
             style={{
+              cursor:"pointer",
+              
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              ZIndex: "1",
+
               
             }}
+             onClick={() => setShowWomenItem(!showWomenItem)} 
           >
             Women
-            <IoChevronUpSharp  className={`${showWomenItem ? 'close-menu':'open-menu'}`} onClick={() => setShowWomenItem(!showWomenItem)} />
+            <IoChevronUpSharp  className={`${showWomenItem ? 'close-menu':'open-menu'}`}/>
           </h1>
           <div className={`${showWomenItem ? 'hide-menu':'shoe-menu'}`}>
           <p>Kurtas & Suits</p>
@@ -61,14 +69,18 @@ const SIdeBer = () => {
         <div className='side-list'>
           <h1
             style={{
+              cursor:"pointer",
+              
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              ZIndex: "10"
               
             }}
+             onClick={() => setShowFootwearItem(!showFootwearItem)} 
           >
             Footwear
-            <IoChevronUpSharp className={`${showFootwearItem ? 'close-menu':'open-menu'}`} onClick={() => setShowFootwearItem(!showFootwearItem)} />
+            <IoChevronUpSharp className={`${showFootwearItem ? 'close-menu':'open-menu'}`}/>
           </h1>
           <div className={`${showFootwearItem ? 'hide-menu':'shoe-menu'}`}>
           <p>Flats</p>
@@ -82,14 +94,18 @@ const SIdeBer = () => {
         <div className='side-list'>
           <h1
             style={{
+              cursor:"pointer",
+              
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              ZIndex: "10"
               
             }}
+            onClick={() => setShowKidsItem(!showKidsItem)}
           >
             Kids
-            <IoChevronUpSharp className={`${showKidsItem ? 'close-menu':'open-menu'}`} onClick={() => setShowKidsItem(!showKidsItem)} />
+            <IoChevronUpSharp className={`${showKidsItem ? 'close-menu':'open-menu'}`}  />
           </h1>
           <div className={`${showKidsItem ? 'hide-menu':'shoe-menu'}`}>
           <p>T-Shirt</p>
@@ -103,14 +119,18 @@ const SIdeBer = () => {
         <div className='side-list'>
           <h1
             style={{
+              cursor:"pointer",
+              
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              ZIndex: "10"
               
             }}
+            onClick={() => setShowIndianItem(!showIndianItem)}
           >
             Bangla & Festive Wear
-            <IoChevronUpSharp className={`${showIndianItem ? 'close-menu':'open-menu'}`} onClick={() => setShowIndianItem(!showIndianItem)} />
+            <IoChevronUpSharp className={`${showIndianItem ? 'close-menu':'open-menu'}`}  />
           </h1>
           <div  className={`${showIndianItem ? 'hide-menu':'shoe-menu'}`}>
           <p>Kurta & Kurta Set</p>
@@ -121,14 +141,18 @@ const SIdeBer = () => {
         <div className='side-list'>
           <h1
             style={{
+              cursor:"pointer",
+              
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              ZIndex: "10"
               
             }}
+            onClick={() => setShowWesternItem(!showWesternItem)}
           >
             Western Wear
-            <IoChevronUpSharp className={`${showWesternItem ? 'close-menu':'open-menu'}`} onClick={() => setShowWesternItem(!showWesternItem)} />
+            <IoChevronUpSharp className={`${showWesternItem ? 'close-menu':'open-menu'}`}  />
           </h1>
           <div className={`${showWesternItem ? 'hide-menu':'shoe-menu'}`}>
           <p>Dresses</p>

@@ -6,6 +6,7 @@
   color: white;
   border-radius: 11px;
   transition: 0.5s;
+  position: relative;
 }
 .side-list h1 {
   margin-left: 10px;
@@ -34,6 +35,7 @@
 .hide-menu {
   display: none;
   transition: 0.5s;
+  z-index: 1;
 }
 
 .close-menu {
