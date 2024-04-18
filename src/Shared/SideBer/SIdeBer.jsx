@@ -13,10 +13,14 @@ const SIdeBer = () => {
       style={{
         cursor:"pointer",
         width: "20%",
+        height:'100vh',
         backgroundImage:'url(../../../public/img/sidebarBG.jpg)',
         color: "white",
         paddingTop:'30px',
-        paddingBottom:'30px'
+        paddingBottom:'30px',
+            position:'static',
+            top:"10px",
+            overflow:'auto'
       }}
     > 
       <div className='side-list'>
