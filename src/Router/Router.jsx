@@ -5,6 +5,7 @@ import SignUp from "../Signup/SignUp";
 import PrivetRoute from "./privetRoute";
 import Home from "../Home/Home/Home";
 import Shop from "../page/Shop/Shop";
+import Man from "../page/Shop/Men/man";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +20,10 @@ const router = createBrowserRouter([
           path:'/shop',
           element:<PrivetRoute><Shop/></PrivetRoute>,
           children:[
-            
+            {
+              path:'man',
+              element:<Man/>
+            }
           ]
         }
       ]

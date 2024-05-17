@@ -1,7 +1,11 @@
+export const calculateDiscountPrice = (price) =>{
+    return price - (price-0.3)
+}
 const SelleCard = ({pictureURL,productName,nickname,price}) => {
     // const {pictureURL,productName,nickname,price }= props;
     const originalPrice = price;
     console.log(originalPrice)
+    
     const discountPrice = parseInt(originalPrice - (originalPrice * 0.3))
     
     console.log(discountPrice)
@@ -25,4 +29,5 @@ const SelleCard = ({pictureURL,productName,nickname,price}) => {
         </div>
     )
 }
+
 export default SelleCard;
