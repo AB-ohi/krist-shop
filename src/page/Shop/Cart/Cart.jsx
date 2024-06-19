@@ -20,12 +20,17 @@ const Cart = () => {
         {products.map((products) => {
           const discountPRice =  parseInt(products.price - (products.price * 0.3))
           return(
-            <div style={{border:'1px, solid, red'}} key={products._id}>
+            <div style={{boxShadow:'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', padding:'20px', borderRadius:'11px'}} key={products._id}>
             <img style={{width:"100%"}} src={products.pictureURL} alt="" />
+            <div style={{display:'flex', alignItems:'center' ,justifyContent:'space-between'}}>
             <div className="productCart">
               <p style={{fontWeight:'bold'}}>{products.productName}</p>
               <p>{products.nickname}</p>
               <p>${discountPRice}</p>
+            </div>
+            <div>
+              <p style={{padding:'10px 15px', border:'solid 1px #1C0000', borderRadius:'8px'}}>Details & Buy</p>
+            </div>
             </div>
           </div>
           )
