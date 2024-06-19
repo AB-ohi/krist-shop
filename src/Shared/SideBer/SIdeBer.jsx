@@ -10,9 +10,9 @@ const SIdeBer = () => {
   const [showWesternItem, setShowWesternItem] = useState(true);
   return (
     <div
+    className="sideBer-main"
       style={{
         cursor:"pointer",
-        width: "20%",
         height:'100vh',
         backgroundImage:'url(../../../public/img/sidebarBG.jpg)',
         color: "white",
