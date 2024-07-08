@@ -3,7 +3,8 @@ import './Cart.css'
 
 const Cart = () => {
   const [products, setProduct] = useState([]);
-  console.log
+ const [showingReact, setShowingReact] = useState(true)
+ console.log(showingReact)
 
   useEffect(() => {
     fetch("http://localhost:5000/men")
@@ -21,7 +22,12 @@ const Cart = () => {
           const discountPRice =  parseInt(products.price - (products.price * 0.3))
           return(
             <div style={{boxShadow:'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', padding:'20px', borderRadius:'11px'}} key={products._id}>
-            <img style={{width:"100%"}} src={products.pictureURL} alt="" />
+            <div className="cardBody">
+            <img onMouse={()=>setShowingReact(false)}  onMouseLeave={() => setShowingReact(true)} style={{width:"100%"}} className="cartImg" src={products.pictureURL} alt="" />
+            <div className={`${showingReact? 'productReactHidden':'productReactShowing'}`}>
+              <p>vfvf</p>
+            </div>
+            </div>
             <div style={{display:'flex', alignItems:'center' ,justifyContent:'space-between'}}>
             <div className="productCart">
               <p style={{fontWeight:'bold'}}>{products.productName}</p>

@@ -3,3 +3,24 @@
     font-size: 15px;
     
 }
+.cardBody{
+position: relative;
+width: 100%;
+height: auto;
+}
+.cartImg{
+    background: linear-gradient(180deg, red, yellow);
+}
+
+.productReactHidden{
+    visibility: hidden;
+}
+
+.productReactShowing{
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.404);
+    position: absolute;
+    top: 0;
+}
