@@ -13,7 +13,7 @@ const NavBer = () => {
   const { user, logOut } = useContext(AuthContext);
   const [shopMenu, setShopMenu] = useState(true);
   const [tabletsNavItemShow, setTabletsNavItemShow] = useState(true);
-  console.log(tabletsNavItemShow);
+  // console.log(tabletsNavItemShow);
 
   const handelLogOut = () => {
     logOut()

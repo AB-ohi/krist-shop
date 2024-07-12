@@ -6,6 +6,7 @@ import PrivetRoute from "./privetRoute";
 import Home from "../Home/Home/Home";
 import Shop from "../page/Shop/Shop";
 import Man from "../page/Shop/Men/man";
+import Details from "../page/Details/Details";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,11 @@ const router = createBrowserRouter([
         {
           path:"/",
           element:<Home/>
+        },
+        {
+          path:'/detail/:detailsId',
+          element:<PrivetRoute><Details/></PrivetRoute>,
+          loader:({params})=>fetch(`http://localhost:5173/shop/detail/${params.detailsId}.json`)
         },
         {
           path:'/shop',
