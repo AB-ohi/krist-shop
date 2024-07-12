@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import './Cart.css'
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [products, setProduct] = useState([]);
- const [showingReact, setShowingReact] = useState(true)
- console.log(showingReact)
 
   useEffect(() => {
     fetch("http://localhost:5000/men")
@@ -23,9 +22,9 @@ const Cart = () => {
           return(
             <div style={{boxShadow:'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', padding:'20px', borderRadius:'11px'}} key={products._id}>
             <div className="cardBody">
-            <img onMouse={()=>setShowingReact(false)}  onMouseLeave={() => setShowingReact(true)} style={{width:"100%"}} className="cartImg" src={products.pictureURL} alt="" />
-            <div className={`${showingReact? 'productReactHidden':'productReactShowing'}`}>
-              <p>vfvf</p>
+            <img style={{width:"100%"}} className="cartImg" src={products.pictureURL} alt="" />
+            <div>
+              <p></p>
             </div>
             </div>
             <div style={{display:'flex', alignItems:'center' ,justifyContent:'space-between'}}>
@@ -35,7 +34,7 @@ const Cart = () => {
               <p>${discountPRice}</p>
             </div>
             <div>
-              <p style={{padding:'10px 15px', border:'solid 1px #1C0000', borderRadius:'8px'}}>Details & Buy</p>
+              <p style={{padding:'10px 15px', border:'solid 1px #1C0000', borderRadius:'8px'}}><Link to={`details`}> Details & Buy</Link></p>
             </div>
             </div>
           </div>
