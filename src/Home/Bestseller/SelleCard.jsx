@@ -1,10 +1,11 @@
+// eslint-disable-next-line react-refresh/only-export-components
 export const calculateDiscountPrice = (price) =>{
     return price - (price-0.3)
 }
 const SelleCard = ({pictureURL,productName,nickname,price}) => {
     // const {pictureURL,productName,nickname,price }= props;
     const originalPrice = price;
-    console.log(originalPrice)
+    // console.log(originalPrice)
     
     const discountPrice = parseInt(originalPrice - (originalPrice * 0.3))
     

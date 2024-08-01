@@ -18,9 +18,9 @@ const router = createBrowserRouter([
           element:<Home/>
         },
         {
-          path:'/detail/:detailsId',
+          path:'/detail/:id',
           element:<PrivetRoute><Details/></PrivetRoute>,
-          loader:({params})=>fetch(`http://localhost:5173/shop/detail/${params.detailsId}.json`)
+          loader:({params})=>fetch(`http://localhost:5000/men/${params.id}`)
         },
         {
           path:'/shop',
