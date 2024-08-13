@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import './Details.css'
+import ReactStars from 'react-rating-star-with-type'
 
 const Details = () => {
     const detail = useLoaderData()
@@ -21,6 +22,14 @@ const Details = () => {
             <div className="detailAria">
                 <p style={{fontSize:'42px', fontWeight:'700', marginBottom:'10px'}}>{detail.productName}</p>
                 <p style={{fontSize:'20px'}}>{detail.nickname}</p>
+                <div style={{display:'flex', gap:'10px'}}>
+                <ReactStars
+                            value={detail.rating}
+                            edit={true}
+                            activeColors={["red", "orange", "#FFCE00", "#9177FF", "#8568FC",]}
+                        />
+                        <p>{detail.rating}</p>
+                </div>
             </div>
             </div>
         </div>
