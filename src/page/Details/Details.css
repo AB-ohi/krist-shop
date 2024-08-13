@@ -10,8 +10,23 @@
     font-weight: 700;
     text-decoration: none;
     transition: 0.4s;
+    
 }
 
 .linkDeration:hover{
     color: rgb(255, 89, 29);
 }
+
+.detailMainBody{
+    display: flex;
+    gap: 100px;
+    margin: auto;
+}
+.detailAria{
+    /* width: 60%; */
+}
+
+.detailImg{
+    width: 40%;
+}
+
