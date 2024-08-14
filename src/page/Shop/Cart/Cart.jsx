@@ -34,7 +34,7 @@ const Cart = () => {
               <p>${discountPRice}</p>
             </div>
             <div>
-              <p style={{padding:'10px 15px', border:'solid 1px #1C0000', borderRadius:'8px'}}><Link to={`/detail/${products._id}`}> Details & Buy</Link></p>
+              <p style={{}} className="DHB"><Link style={{ textDecoration:'none', color:'wheat'}} to={`/detail/${products._id}`}> Details & Buy</Link></p>
             </div>
             </div>
           </div>
