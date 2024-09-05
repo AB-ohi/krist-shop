@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./NavBer.css";
 import { CiSearch, CiHeart, CiShoppingCart } from "react-icons/ci";
 import { useContext, useState } from "react";
@@ -8,12 +8,13 @@ import { GiScrollUnfurled } from "react-icons/gi";
 import { GiTireIronCross } from "react-icons/gi";
 import ShopMenu from "./shopMenu/ShopMenu";
 import ResNav from "./ResNav";
+import profilePIC from "../../../public/img/profilePIC.jpg"
 
 const NavBer = () => {
   const { user, logOut } = useContext(AuthContext);
   const [shopMenu, setShopMenu] = useState(true);
   const [tabletsNavItemShow, setTabletsNavItemShow] = useState(true);
-  // console.log(tabletsNavItemShow);
+  console.log(user.photoURL);
 
   const handelLogOut = () => {
     logOut()
@@ -93,24 +94,38 @@ const NavBer = () => {
                 Contact Us
               </NavLink>
             </li>
+           
           </ul>
         </div>
         <div className="nav-item">
           <div className="res-menu">
-          {tabletsNavItemShow ? (
-            <div onClick={() => setTabletsNavItemShow(!tabletsNavItemShow)}>
-              <GiScrollUnfurled />
-            </div>
-          ) : (
-            <div onClick={() => setTabletsNavItemShow(!tabletsNavItemShow)}>
-              <GiTireIronCross />
-            </div>
-          )}
+            {tabletsNavItemShow ? (
+              <div onClick={() => setTabletsNavItemShow(!tabletsNavItemShow)}>
+                <GiScrollUnfurled />
+              </div>
+            ) : (
+              <div onClick={() => setTabletsNavItemShow(!tabletsNavItemShow)}>
+                <GiTireIronCross />
+              </div>
+            )}
           </div>
 
           <CiSearch />
           <CiHeart />
           <CiShoppingCart />
+          {user ? (
+              user.photoURL ? (
+                <Link to='#'>
+                  <img className="profilePic" src={user.photoURL} alt="" />
+                </Link>
+              ) : (
+                <Link to='#'>
+                  <img className="profilePic" src={profilePIC} alt="" />
+                </Link>
+              )
+            ) : (
+              <div></div>
+            )}
           {user ? (
             <>
               <button onClick={handelLogOut} id="nev-btn">
@@ -130,14 +145,11 @@ const NavBer = () => {
             </>
           )}
         </div>
-        
-
-
       </nav>
       {/* res-nav item */}
-     <div className={`${tabletsNavItemShow? 'PRasNavClose':'PRasNavOpen'}`}>
-     <ResNav />
-     </div>
+      <div className={`${tabletsNavItemShow ? "PRasNavClose" : "PRasNavOpen"}`}>
+        <ResNav />
+      </div>
       {shopMenu ? (
         <div className="show-menu ofMenu">
           <ShopMenu />
