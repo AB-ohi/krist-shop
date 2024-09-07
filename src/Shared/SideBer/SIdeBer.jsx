@@ -1,6 +1,7 @@
 import {  IoChevronUpSharp } from "react-icons/io5";
 import './SideBer.css'
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const SIdeBer = () => {
   const [showMenItem, setShowMenItem] = useState(true);
   const [showWomenItem, setShowWomenItem] = useState(true);
@@ -24,7 +25,7 @@ const SIdeBer = () => {
       }}
     > 
       <div className='side-list'>
-        <h1
+        <Link to='/shop/man'
           style={{
             cursor:"pointer",
             display: "flex",
@@ -34,7 +35,7 @@ const SIdeBer = () => {
           onClick={() => setShowMenItem(!showMenItem)}
         >
           Men <IoChevronUpSharp className={`${showMenItem ? 'close-menu':'open-menu'}`}  />
-        </h1>
+        </Link>
         <div className={`${showMenItem ? 'hide-menu':'shoe-menu'}`}>
           <p>T-Shirt</p>
           <p>Casual Shirt</p>

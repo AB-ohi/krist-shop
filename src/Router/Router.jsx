@@ -4,9 +4,11 @@ import Login from "../Login/Login";
 import SignUp from "../Signup/SignUp";
 import PrivetRoute from "./privetRoute";
 import Home from "../Home/Home/Home";
-import Shop from "../page/Shop/Shop";
+import Shop from "../Layout/Shop";
 import Man from "../page/Shop/Men/man";
 import Details from "../page/Details/Details";
+import Profile from "../Layout/Profile";
+import Cart from "../page/Shop/Cart/Cart";
 
 const router = createBrowserRouter([
     {
@@ -23,12 +25,25 @@ const router = createBrowserRouter([
           loader:({params})=>fetch(`http://localhost:5000/men/${params.id}`)
         },
         {
+          path:'/profile',
+          element:<PrivetRoute><Profile/></PrivetRoute>,
+          children:[
+            {
+              path:''
+            }
+          ]
+        },
+        {
           path:'/shop',
           element:<PrivetRoute><Shop/></PrivetRoute>,
           children:[
             {
               path:'man',
               element:<Man/>
+            },
+            {
+              path:'/shop',
+              element:<Cart/>
             }
           ]
         }

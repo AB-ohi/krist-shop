@@ -14,7 +14,7 @@ const NavBer = () => {
   const { user, logOut } = useContext(AuthContext);
   const [shopMenu, setShopMenu] = useState(true);
   const [tabletsNavItemShow, setTabletsNavItemShow] = useState(true);
-  console.log(user.photoURL);
+  // console.log(user.photoURL);
 
   const handelLogOut = () => {
     logOut()
@@ -115,11 +115,11 @@ const NavBer = () => {
           <CiShoppingCart />
           {user ? (
               user.photoURL ? (
-                <Link to='#'>
+                <Link to='/profile'>
                   <img className="profilePic" src={user.photoURL} alt="" />
                 </Link>
               ) : (
-                <Link to='#'>
+                <Link to='/profile'>
                   <img className="profilePic" src={profilePIC} alt="" />
                 </Link>
               )
