@@ -9,6 +9,8 @@ import Man from "../page/Shop/Men/man";
 import Details from "../page/Details/Details";
 import Profile from "../Layout/Profile";
 import Cart from "../page/Shop/Cart/Cart";
+import ProfileInfo from "../page/profile/profileInfo";
+import AddressBook from "../page/Profile/AddressBook";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +31,12 @@ const router = createBrowserRouter([
           element:<PrivetRoute><Profile/></PrivetRoute>,
           children:[
             {
-              path:''
+              path:'/profile',
+              element:<ProfileInfo/>
+            },
+            {
+              path:'address',
+              element:<AddressBook/>
             }
           ]
         },
