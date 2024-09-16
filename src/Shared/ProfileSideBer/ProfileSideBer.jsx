@@ -8,9 +8,9 @@ const ProfileSideBer = () => {
 
             <div className='MainProfileSideBer'>
             <div className='MainChild'>
-            <button><CgProfile/><Link to='#'>Profile</Link></button>
-            <button><LiaAddressBookSolid/><Link to='#'>Address book</Link></button>
-            <button><MdOutlineBookmarkBorder/><Link to='#'>My orders</Link></button>
+            <button><CgProfile/><Link to='/profile'>Profile</Link></button>
+            <button><LiaAddressBookSolid/><Link to='/profile/address'>Address book</Link></button>
+            <button><MdOutlineBookmarkBorder/><Link to='/profile/order'>My orders</Link></button>
             </div>
         </div>
 
