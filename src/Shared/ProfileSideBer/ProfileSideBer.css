@@ -1,13 +1,28 @@
 .MainProfileSideBer{
     width: 20%;
     background-color: rgb(201, 201, 201);
+    height: 100vh;
+    border-radius: 15px 15px 0 0 ;    
+}
+.MainChild{
     display: flex;
     flex-direction: column;
     gap: 40px;
-    height: 100vh;
+    /* margin-top: 20px; */
+    
 }
 
 .MainProfileSideBer button{
-    width: 45%;
-    margin: auto;
+    text-align: start;
+    border-radius: 15px ;    
+font-size: 26px;
+background-color: rgb(136, 86, 255);
+outline: none;
+border: none;
+padding: 15px 0 15px 40px;
+}
+
+.MainProfileSideBer a{
+    text-decoration: none;
+    color: white;
 }

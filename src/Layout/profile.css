@@ -1,0 +1,31 @@
+.profileBody{
+    display: flex;
+}
+.profilePicture{
+    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;; */
+
+    
+}
+
+.profileHeader{
+    position: relative;
+    height: 600px;
+}
+.profileBanner{
+    background-image: url(../../public/img/profileBanner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 450px;
+    width: 100%;
+    position: absolute;
+    z-index: -10;
+}
+.profileCommonInfo{
+    position: absolute;
+    bottom: 50px;
+    left: 100px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
