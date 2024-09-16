@@ -1,8 +1,10 @@
-
 const ProfileInfo = () => {
     return (
         <div>
-            fvfvff
+            <p>Name:</p>
+            <p>Phone:</p>
+            <p>E-mail:</p>
+            <p>Address:</p>
         </div>
     );
 };
