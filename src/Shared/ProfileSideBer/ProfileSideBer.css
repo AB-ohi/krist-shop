@@ -1,28 +1,36 @@
-.MainProfileSideBer{
-    width: 20%;
-    background-color: rgb(201, 201, 201);
-    height: 100vh;
-    border-radius: 15px 15px 0 0 ;    
+.MainProfileSideBer {
+  width: 15%;
+  /* background-color: rgb(201, 201, 201); */
+  background-color: rgb(136, 86, 255);
+  height: 100vh;
+  border-radius: 0 15px 0 0;
 }
-.MainChild{
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    /* margin-top: 20px; */
-    
+.MainChild {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 53px;
 }
 
-.MainProfileSideBer button{
+.MainProfileSideBer button {
+    color: white;
+    background: none;
     text-align: start;
-    border-radius: 15px ;    
-font-size: 26px;
-background-color: rgb(136, 86, 255);
-outline: none;
-border: none;
-padding: 15px 0 15px 40px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    padding: 15px 0 15px 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid ;
+    transition: 0.2s;
 }
-
-.MainProfileSideBer a{
+.MainProfileSideBer button:hover{
+    background-color: rgb(106, 66, 199);
+    /* border-bottom: 1px solid  rgb(106, 66, 199); */
+}
+.MainProfileSideBer a {
     text-decoration: none;
     color: white;
 }
