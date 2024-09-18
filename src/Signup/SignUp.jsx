@@ -3,6 +3,7 @@ import "./Sign.css";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
+import { updateProfile } from "firebase/auth";
 const SignUp = () => {
   const { createUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
@@ -11,20 +12,25 @@ const SignUp = () => {
   const handelOnCreateUSer = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.firstName.value;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
     const email = form.email.value;
     const password = form.password.value;
-    const userInfo = { name, email, password };
+    const fullName = `${firstName} ${lastName}`
+    const userInfo = { fullName, email, password };
     console.log(userInfo);
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate("/login");
+        return updateProfile(user,{
+          displayName: fullName,
+        })
       })
-      .then((error) => {
-        console.log(error);
+      .then(() => {
+        console.log(fullName);
+        navigate("/login");
       });
   };
 
