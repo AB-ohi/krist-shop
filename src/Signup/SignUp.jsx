@@ -16,8 +16,9 @@ const SignUp = () => {
     const lastName = form.lastName.value;
     const email = form.email.value;
     const password = form.password.value;
-    const fullName = `${firstName} ${lastName}`
-    const userInfo = { fullName, email, password };
+    const fullName = `${firstName}${lastName}`
+    const profileIDName = `${firstName}_${lastName}`
+    const userInfo = { fullName, email, password, profileIDName };
     console.log(userInfo);
 
     createUser(email, password)
@@ -28,10 +29,20 @@ const SignUp = () => {
           displayName: fullName,
         })
       })
-      .then(() => {
-        console.log(fullName);
-        navigate("/login");
-      });
+      .then (()=>{
+        const saveUser ={displayName: userInfo.fullName, email: userInfo.email, profileIDName: userInfo.profileIDName}
+        fetch('http://localhost:5000/user', {
+          method:"POST",
+          headers:{
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(saveUser)
+        })
+        .then((res)=>res.json())
+       
+        navigate("/")
+      })
+     
   };
 
   return (
