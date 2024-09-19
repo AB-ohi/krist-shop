@@ -1,8 +1,9 @@
 import {  IoChevronUpSharp } from "react-icons/io5";
 import './SideBer.css'
-import { useState } from "react";
+import {  useState } from "react";
 import { Link } from "react-router-dom";
 const SIdeBer = () => {
+  
   const [showMenItem, setShowMenItem] = useState(true);
   const [showWomenItem, setShowWomenItem] = useState(true);
   const [showFootwearItem, setShowFootwearItem] = useState(true);

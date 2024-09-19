@@ -115,11 +115,11 @@ const NavBer = () => {
           <CiShoppingCart />
           {user ? (
               user.photoURL ? (
-                <Link to='/profile'>
+                <Link to={`/profile/${user.displayName}`}>
                   <img className="profilePic" src={user.photoURL} alt="" />
                 </Link>
               ) : (
-                <Link to='/profile'>
+                <Link to={`/profile/${user.displayName}`}>
                   <img className="profilePic" src={profilePIC} alt="" />
                 </Link>
               )
