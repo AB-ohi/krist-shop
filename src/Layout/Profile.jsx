@@ -19,7 +19,7 @@ const Profile = () => {
           src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
           alt=""
         />
-        <h1 style={{margin:'0'}}>Name</h1>
+        <h1 style={{margin:'0'}}>{user.displayName}</h1>
       </div>
      </div>
       <div className="profileBody">
