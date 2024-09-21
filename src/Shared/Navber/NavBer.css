@@ -46,6 +46,8 @@
 } */
 .onMenu {
   position: absolute;
+  left: 25%;
+  z-index: 20;
 }
 .ofMenu {
   display: none;
@@ -87,10 +89,10 @@
 
 
   /* Res-Nav Css code */
-.ResNav {
+.ResNav{
     display: block;
     position: absolute;
-    z-index: 100;
+    z-index: 200;
     top: 226px;
     left: 50%;
     transform: translate(-50%, -50%);

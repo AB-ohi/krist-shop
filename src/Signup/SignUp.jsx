@@ -16,7 +16,7 @@ const SignUp = () => {
     const lastName = form.lastName.value;
     const email = form.email.value;
     const password = form.password.value;
-    const fullName = `${firstName}${lastName}`
+    const fullName = `${firstName} ${lastName}`
     const profileIDName = `${firstName}_${lastName}`
     const userInfo = { fullName, email, password, profileIDName };
     console.log(userInfo);
