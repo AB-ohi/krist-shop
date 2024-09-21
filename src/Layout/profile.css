@@ -9,13 +9,13 @@
 
 .profileHeader{
     position: relative;
-    height: 600px;
+    height: 500px;
 }
 .profileBanner{
     background-image: url(../../public/img/profileBanner.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 450px;
+    height: 330px;
     width: 100%;
     position: absolute;
     z-index: -10;

@@ -1,9 +1,13 @@
 .profileImg{
     position: absolute;
     width: 30%;
-    bottom: 0;
+    top:100px;
     right: 0;
 }
 .InfoBody{
     display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    width: 40%;
+    /* color: rgba(255, 120, 255, 0.418); */
 }
