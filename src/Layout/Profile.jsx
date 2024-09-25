@@ -4,14 +4,20 @@ import "./profile.css";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaCamera } from "react-icons/fa";
+import portalHook from "../page/Profile/portalHook";
 // import profileBanner from '../../public/img/profileBanner.jpg'
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+  const {isPortalOn, setIsPortalOn} = portalHook()
+  console.log(isPortalOn)
   return (
     <div>
       <div className="profileHeader">
+        <div className="portal">
+            <label htmlFor="img">select a picture</label>
+            <input type="file" name="img" id="" />
+        </div>
         <div className="profileBanner"></div>
         <div className="profileCommonInfo">
           <div style={{ position: "relative" }}>
@@ -27,6 +33,7 @@ const Profile = () => {
               alt=""
             />
             <FaCamera
+              onClick={()=>setIsPortalOn(!isPortalOn)}
               style={{
                 position: "absolute",
                 color: "white",
