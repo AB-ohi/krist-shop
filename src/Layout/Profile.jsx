@@ -14,10 +14,16 @@ const Profile = () => {
   return (
     <div>
       <div className="profileHeader">
-        <div className="portal">
+       <div className="portal_main">
+       <div className="portal">
             <label htmlFor="img">select a picture</label>
             <input type="file" name="img" id="" />
+            <div style={{display:'flex', gap:'10px', padding:'20px 0 0 0', justifyContent:'end'}}>
+              <p style={{backgroundColor:'rgb(136, 86, 255)', color:'white', padding:'3px 11px', borderRadius:'8px'}}>Save</p>
+              <p style={{ padding:'3px 11px'}}>Cancel</p>
+            </div>
         </div>
+       </div>
         <div className="profileBanner"></div>
         <div className="profileCommonInfo">
           <div style={{ position: "relative" }}>
