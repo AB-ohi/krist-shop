@@ -14,13 +14,13 @@ const Profile = () => {
   return (
     <div>
       <div className="profileHeader">
-       <div className="portal_main">
+       <div className={`${!isPortalOn? "portal_main":"portal_main_off"}`}>
        <div className="portal">
             <label htmlFor="img">select a picture</label>
             <input type="file" name="img" id="" />
             <div style={{display:'flex', gap:'10px', padding:'20px 0 0 0', justifyContent:'end'}}>
               <p style={{backgroundColor:'rgb(136, 86, 255)', color:'white', padding:'3px 11px', borderRadius:'8px'}}>Save</p>
-              <p style={{ padding:'3px 11px'}}>Cancel</p>
+              <p onClick={()=>setIsPortalOn(!isPortalOn)} style={{ padding:'3px 11px', cursor:'pointer'}}>Cancel</p>
             </div>
         </div>
        </div>
@@ -39,6 +39,7 @@ const Profile = () => {
               alt=""
             />
             <FaCamera
+            className={`${!isPortalOn? 'update_picture':''}`}
               onClick={()=>setIsPortalOn(!isPortalOn)}
               style={{
                 position: "absolute",
