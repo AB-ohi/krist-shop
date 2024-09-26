@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaCamera } from "react-icons/fa";
 import portalHook from "../page/Profile/portalHook";
-// import profileBanner from '../../public/img/profileBanner.jpg'
+import profileLoader from '../../public/img/loader.gif'
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -38,19 +38,33 @@ const Profile = () => {
               src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
               alt=""
             />
-            <FaCamera
-            className={`${!isPortalOn? 'update_picture':''}`}
-              onClick={()=>setIsPortalOn(!isPortalOn)}
-              style={{
-                position: "absolute",
-                color: "white",
-                boxShadow:
-                  "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
-                  bottom:'22px',
-                  right:'31px',
-                  fontSize:'23px'
-              }}
-            />
+            {
+              !isPortalOn? <div>
+              <img style={{
+                  position: "absolute",
+                  color: "white",
+                  boxShadow:
+                    "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
+                    bottom:'22px',
+                    right:'17px',
+                    width:'45px',
+                    height:'45px',
+                    borderRadius:'50%'
+                }} src={profileLoader} alt="" />
+              </div>:<FaCamera
+              className={`${!isPortalOn? 'update_picture':''}`}
+                onClick={()=>setIsPortalOn(!isPortalOn)}
+                style={{
+                  position: "absolute",
+                  color: "white",
+                  boxShadow:
+                    "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
+                    bottom:'22px',
+                    right:'31px',
+                    fontSize:'23px'
+                }}
+              />
+            }
           </div>
           <h1 style={{ margin: "0" }}>{user.displayName}</h1>
         </div>

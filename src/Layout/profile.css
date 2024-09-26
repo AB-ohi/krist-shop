@@ -1,11 +1,11 @@
 .profileBody{
     display: flex;
 }
-.profilePicture{
-    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;; */
+/* .profilePicture{
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
     
-}
+} */
 
 .profileHeader{
     position: relative;
@@ -33,19 +33,30 @@
     visibility: hidden;
 }
 .portal_main_off{
-    visibility: hidden ;
+    width: 100%;
+    height: 100%;
+    top:-600px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(176deg, rgba(2,0,36,1) 0%, rgba(181,128,223,1) 0%, rgba(226,226,226,0.2329306722689075) 59%, rgba(226,226,226,0.022846638655462215) 100%);
+    transition: 0.5s;
 }
 .portal_main{
     width: 100%;
     height: 100%;
     display: flex;
+    top: 0;
     justify-content: center;
     align-items: center;
     position: absolute;
+    background: linear-gradient(176deg, rgba(2,0,36,1) 0%, rgba(181,128,223,1) 0%, rgba(226,226,226,0.2329306722689075) 59%, rgba(226,226,226,0.022846638655462215) 100%);
+    transition: 0.5s;
 }
 
 .portal{
-    position: absolute;
+    position: fixed;
     z-index: 10;
     background-color: aliceblue;
     display: flex;
