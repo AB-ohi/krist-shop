@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/main";
 import Login from "../Login/Login";
 import SignUp from "../Signup/SignUp";
-import PrivetRoute from "./privetRoute";
 import Home from "../Home/Home/Home";
 import Shop from "../Layout/Shop";
 import Man from "../page/Shop/Men/man";
@@ -12,6 +11,7 @@ import Cart from "../page/Shop/Cart/Cart";
 import ProfileInfo from "../page/profile/profileInfo";
 import AddressBook from "../page/Profile/AddressBook";
 import Order from "../page/Profile/Order";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
     {
