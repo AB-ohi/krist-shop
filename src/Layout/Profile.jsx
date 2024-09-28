@@ -6,24 +6,47 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { FaCamera } from "react-icons/fa";
 import portalHook from "../page/Profile/portalHook";
 import profileLoader from '../../public/img/loader.gif'
+import { useForm } from "react-hook-form"
 
+
+const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token
 const Profile = () => {
   const { user } = useContext(AuthContext);
+  console.log(user)
   const {isPortalOn, setIsPortalOn} = portalHook()
-  console.log(isPortalOn)
+  const {register,handleSubmit} = useForm()
+const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token}`
+  const addProfilePicture = (data) => {
+    console.log(data)
+    const formData = new FormData();
+    formData.append('image', data.image[0]);
+    fetch(img_hosting_url,{
+      method:'post',
+      body:formData
+    })
+    .then((res)=>res.json())
+    .then((imgUpload)=>{
+      console.log(imgUpload)
+      if(imgUpload.success){
+        const url = imgUpload.data.display_url;
+        console.log(url)
+      }
+    })
+  }
+
   return (
     <div>
       <div className="profileHeader">
-       <div className={`${!isPortalOn? "portal_main":"portal_main_off"}`}>
+       <form onSubmit={handleSubmit(addProfilePicture)} className={`${!isPortalOn? "portal_main":"portal_main_off"}`}>
        <div className="portal">
             <label htmlFor="img">select a picture</label>
-            <input type="file" name="img" id="" />
+            <input type="file" {...register("image", { required: true })} name="image" id="" />
             <div style={{display:'flex', gap:'10px', padding:'20px 0 0 0', justifyContent:'end'}}>
-              <p style={{backgroundColor:'rgb(136, 86, 255)', color:'white', padding:'3px 11px', borderRadius:'8px'}}>Save</p>
+              <input type="submit" value='save' style={{backgroundColor:'rgb(136, 86, 255)', color:'white', padding:'3px 11px', borderRadius:'8px'}}/>
               <p onClick={()=>setIsPortalOn(!isPortalOn)} style={{ padding:'3px 11px', cursor:'pointer'}}>Cancel</p>
             </div>
         </div>
-       </div>
+       </form>
         <div className="profileBanner"></div>
         <div className="profileCommonInfo">
           <div style={{ position: "relative" }}>
