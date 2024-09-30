@@ -8,13 +8,15 @@ import { GiScrollUnfurled } from "react-icons/gi";
 import { GiTireIronCross } from "react-icons/gi";
 import ShopMenu from "./shopMenu/ShopMenu";
 import ResNav from "./ResNav";
-import profilePIC from "../../../public/img/profilePIC.jpg"
+import useUserData from "../../Hook/useUserData";
 
 const NavBer = () => {
   const { user, logOut } = useContext(AuthContext);
   const [shopMenu, setShopMenu] = useState(true);
   const [tabletsNavItemShow, setTabletsNavItemShow] = useState(true);
   // console.log(user.photoURL);
+  const {User} = useUserData()
+  console.log(User)
 
   const handelLogOut = () => {
     logOut()
@@ -114,15 +116,11 @@ const NavBer = () => {
           <CiHeart />
           <CiShoppingCart />
           {user ? (
-              user.photoURL ? (
+              
                 <Link to={`/profile/${user.displayName}`}>
-                  <img className="profilePic" src={user.photoURL} alt="" />
+                  <img className="profilePic" src={user.photoURL || (User && User.pictureUrl)} alt="" />
                 </Link>
-              ) : (
-                <Link to={`/profile/${user.displayName}`}>
-                  <img className="profilePic" src={profilePIC} alt="" />
-                </Link>
-              )
+              
             ) : (
               <div></div>
             )}

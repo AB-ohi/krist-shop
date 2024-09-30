@@ -7,6 +7,7 @@ import { FaCamera } from "react-icons/fa";
 import portalHook from "../page/Profile/portalHook";
 import profileLoader from '../../public/img/loader.gif'
 import { useForm } from "react-hook-form"
+import Swal from "sweetalert2";
 
 
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token
@@ -14,7 +15,7 @@ const Profile = () => {
   const { user } = useContext(AuthContext);
   console.log(user)
   const {isPortalOn, setIsPortalOn} = portalHook()
-  const {register,handleSubmit} = useForm()
+  const {register,handleSubmit,reset} = useForm()
 const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token}`
   const addProfilePicture = (data) => {
     console.log(data)
@@ -30,6 +31,27 @@ const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token
       if(imgUpload.success){
         const url = imgUpload.data.display_url;
         console.log(url)
+        fetch(`http://localhost:5000/user/${user.displayName}`,{
+          method:'PATCH',
+          headers:{
+            "content-type": "application/json"
+          },
+          body:JSON.stringify({pictureUrl: url})
+        })
+        .then(data=>{
+          console.log(data.url)
+          if(data.url){
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Your work has been saved",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            setIsPortalOn(!isPortalOn)
+          }
+          reset()
+        })
       }
     })
   }
