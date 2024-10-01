@@ -16,7 +16,7 @@ const NavBer = () => {
   const [tabletsNavItemShow, setTabletsNavItemShow] = useState(true);
   // console.log(user.photoURL);
   const {User} = useUserData()
-  console.log(User)
+  // console.log(User)
 
   const handelLogOut = () => {
     logOut()

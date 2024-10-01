@@ -8,6 +8,8 @@ import portalHook from "../page/Profile/portalHook";
 import profileLoader from '../../public/img/loader.gif'
 import { useForm } from "react-hook-form"
 import Swal from "sweetalert2";
+import useUserData from "../Hook/useUserData";
+import emptyProfilePicture from "../../public/img/emptyProfilePicture.png"
 
 
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token
@@ -16,6 +18,7 @@ const Profile = () => {
   console.log(user)
   const {isPortalOn, setIsPortalOn} = portalHook()
   const {register,handleSubmit,reset} = useForm()
+  const {User} = useUserData()
 const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token}`
   const addProfilePicture = (data) => {
     console.log(data)
@@ -72,7 +75,8 @@ const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token
         <div className="profileBanner"></div>
         <div className="profileCommonInfo">
           <div style={{ position: "relative" }}>
-            <img
+            {
+              user ? (<img
               className="profilePicture"
               style={{
                 width: "250px",
@@ -80,9 +84,22 @@ const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token
                 borderRadius: "100%",
                 boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
               }}
-              src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+              src={user.photoUrl || (User && User.pictureUrl)}
+              alt=""
+            />):(
+              <img
+              className="profilePicture"
+              style={{
+                width: "250px",
+                height: "250px",
+                borderRadius: "100%",
+                boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
+              }}
+              src={emptyProfilePicture}
               alt=""
             />
+            )
+            }
             {
               !isPortalOn? <div>
               <img style={{
