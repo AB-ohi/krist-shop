@@ -15,10 +15,11 @@ const SignUp = () => {
     const firstName = form.firstName.value;
     const lastName = form.lastName.value;
     const email = form.email.value;
+    const PhoneNumber = form.PhoneNumber.value;
     const password = form.password.value;
     const fullName = `${firstName} ${lastName}`
     const profileIDName = `${firstName}_${lastName}`
-    const userInfo = { fullName, email, password, profileIDName };
+    const userInfo = { fullName, email, password, profileIDName, PhoneNumber };
     console.log(userInfo);
 
     createUser(email, password)
@@ -30,7 +31,7 @@ const SignUp = () => {
         })
       })
       .then (()=>{
-        const saveUser ={displayName: userInfo.fullName, email: userInfo.email, profileIDName: userInfo.profileIDName}
+        const saveUser ={displayName: userInfo.fullName, email: userInfo.email, profileIDName: userInfo.profileIDName, phoneNumber: userInfo.PhoneNumber        }
         fetch('http://localhost:5000/user', {
           method:"POST",
           headers:{
@@ -122,6 +123,23 @@ const SignUp = () => {
                 type="email"
                 name="email"
                 placeholder="email"
+                id=""
+              />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", width:'100%' }}>
+              <label htmlFor="number">phone Number</label>
+              <input
+                style={{
+                  padding: "16px",
+                  border: "1px solid #131118",
+                  outline: "none",
+                  borderRadius: "10px",
+                  marginBottom: "18px",
+                }}
+                className="import-email"
+                type="number"
+                name="PhoneNumber"
+                placeholder="Number"
                 id=""
               />
             </div>
