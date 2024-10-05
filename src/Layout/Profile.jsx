@@ -84,14 +84,14 @@ const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token
                 borderRadius: "100%",
                 boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
               }}
-              src={user.photoUrl || (User && User.pictureUrl)}
+              src={user.photoUrl || (User && User.pictureUrl) || emptyProfilePicture}
               alt=""
             />):(
               <img
               className="profilePicture"
               style={{
-                width: "250px",
                 height: "250px",
+                width: "250px",
                 borderRadius: "100%",
                 boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
               }}

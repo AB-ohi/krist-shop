@@ -31,7 +31,7 @@ const SignUp = () => {
         })
       })
       .then (()=>{
-        const saveUser ={displayName: userInfo.fullName, email: userInfo.email, profileIDName: userInfo.profileIDName, phoneNumber: userInfo.PhoneNumber        }
+        const saveUser ={displayName: userInfo.fullName, email: userInfo.email, profileIDName: userInfo.profileIDName, phoneNumber: userInfo.PhoneNumber }
         fetch('http://localhost:5000/user', {
           method:"POST",
           headers:{
@@ -137,7 +137,8 @@ const SignUp = () => {
                   marginBottom: "18px",
                 }}
                 className="import-email"
-                type="number"
+                type="tel"
+                maxLength="11"
                 name="PhoneNumber"
                 placeholder="Number"
                 id=""

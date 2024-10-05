@@ -11,9 +11,9 @@ const ProfileSideBer = () => {
 
             <div className='MainProfileSideBer'>
             <div className='MainChild'>
-            <button><CgProfile/><Link to={`/profile/${user.displayName}`}>Profile</Link></button>
-            <button><LiaAddressBookSolid/><Link to='/profile/address'>Address book</Link></button>
-            <button><MdOutlineBookmarkBorder/><Link to='/profile/order'>My orders</Link></button>
+            <button><Link to={`/profile/${user.displayName}`}><CgProfile/>Profile</Link></button>
+            <button><Link to='/profile/address'><LiaAddressBookSolid/>Address book</Link></button>
+            <button><Link to='/profile/order'><MdOutlineBookmarkBorder/>My orders</Link></button>
             </div>
         </div>
 

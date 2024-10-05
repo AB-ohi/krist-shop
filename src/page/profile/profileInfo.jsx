@@ -34,7 +34,7 @@ const ProfileInfo = () => {
             padding:'20px'
 
           }}><FiPhone style={{ fontSize: "50px", textAlign: "center", color:'#17C1CB' }} />{" "}
-          <span><span style={{fontSize:'37px'}}>01729539440</span> <FaEdit style={{cursor:'pointer'}}/></span></p>
+          <span><span style={{fontSize:'37px'}}>{user.phoneNumber}</span> <FaEdit style={{cursor:'pointer'}}/></span></p>
         <p style={{
             boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px',
             borderBottom:'4px solid #F4A528',

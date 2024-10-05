@@ -9,6 +9,7 @@ import { GiTireIronCross } from "react-icons/gi";
 import ShopMenu from "./shopMenu/ShopMenu";
 import ResNav from "./ResNav";
 import useUserData from "../../Hook/useUserData";
+import emptyProfilePicture from "../../../public/img/emptyProfilePicture.png"
 
 const NavBer = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -118,7 +119,7 @@ const NavBer = () => {
           {user ? (
               
                 <Link to={`/profile/${user.displayName}`}>
-                  <img className="profilePic" src={user.photoURL || (User && User.pictureUrl)} alt="" />
+                  <img className="profilePic" src={user.photoURL || (User && User.pictureUrl) || emptyProfilePicture} alt="" />
                 </Link>
               
             ) : (
