@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import './AddressBook.css'
 import locationBG from '../../../public/img/locationBG.png'
+import emptyAddressPicture from '../../../public/img/emptyAddressPicture.webp'
 const AddressBook = () => {
   const [area, setArea] = useState("");
   // const [thanas, setThanas] = useState([]);
@@ -43,7 +44,8 @@ const AddressBook = () => {
         <img className="address_BG" src={locationBG} alt="" />
       
       <form className="address_input_area">
-        <div className="address_input_section">
+       <div className="left_input_area">
+       <div className="address_input_section">
           <label htmlFor="">Select you district</label>
           {/* eslint-disable-next-line react/no-unknown-property */}
           <select name="area" id="area"  onChange={handleChange} required>
@@ -57,18 +59,30 @@ const AddressBook = () => {
         </div>
         <div className="address_input_section">
           <label htmlFor="">Your division</label>
-          <input type="text" value={area} readOnly placeholder="division" required/>
+          <input type="text" name="division" value={area} readOnly placeholder="division" required/>
         </div>
         <div className="address_input_section">
           <label htmlFor="">Home address</label>
-          <input name="" value={address.thana} id="" placeholder="Your full address"/>
+          <input name="Home_address" value={address.thana} id="" placeholder="Your full address"/>
+        </div>
+        
+       </div>
+       <div className="right_input_area">
+       <div className="address_input_section">
+          <label htmlFor="">Add phone number</label>
+          <input type="text" name="number" value={area} readOnly placeholder="phone number" required/>
+        </div>
+       <div className="address_input_section">
+          <label htmlFor="">Add Email</label>
+          <input type="email" name="email" value={area} readOnly placeholder="@_mail.com" required/>
         </div>
         <div className="address_input_section" >
         <input style={{width:'50%', marginLeft:'50%'}} type="submit" value="Submit your address" />
         </div>
+       </div>
       </form>
       <div className="address_show_area">
-        dd
+        <img src={emptyAddressPicture} alt="" />
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ const NavBer = () => {
         <div>
           <ul className="nav-List-Item ">
             <li>
-              <NavLink id="item-list" to="" onClick={() => setShopMenu(true)}>
+              <NavLink className={({ isActive }) => (isActive ? 'active-link':'')} id="item-list" to="" onClick={() => setShopMenu(true)}>
                 Home
               </NavLink>
             </li>
@@ -51,6 +51,7 @@ const NavBer = () => {
                     id="item-list"
                     to="/shop"
                     onClick={() => setShopMenu(true)}
+                    className={({ isActive }) => (isActive ? 'active-link':'')}
                   >
                     Shop
                   </NavLink>
@@ -72,6 +73,7 @@ const NavBer = () => {
                     style={{ display: "flex", alignItems: "center" }}
                     id="item-list"
                     to="/shop"
+                    className={({ isActive }) => (isActive ? 'active-link':'')}
                   >
                     Shop
                   </NavLink>
@@ -83,17 +85,17 @@ const NavBer = () => {
               )}
             </li>
             <li>
-              <NavLink id="item-list" to="" onClick={() => setShopMenu(true)}>
+              <NavLink className={({ isActive }) => (isActive ? 'active-link':'')} id="item-list" to="/" onClick={() => setShopMenu(true)}>
                 Our Story
               </NavLink>
             </li>
             <li>
-              <NavLink id="item-list" to="" onClick={() => setShopMenu(true)}>
+              <NavLink className={({ isActive }) => (isActive ? 'active-link':'')} id="item-list" to="/#" onClick={() => setShopMenu(true)}>
                 Blog
               </NavLink>
             </li>
             <li>
-              <NavLink id="item-list" to="" onClick={() => setShopMenu(true)}>
+              <NavLink className={({ isActive }) => (isActive ? 'active-link':'')} id="item-list" to="/#" onClick={() => setShopMenu(true)}>
                 Contact Us
               </NavLink>
             </li>
