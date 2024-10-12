@@ -1,0 +1,40 @@
+.address_input_section{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+.address_input_section select,input{
+    outline: none;
+    border: 1px solid rgb(106, 66, 199);
+    padding: 10px 15px;
+    background-color: rgb(240, 233, 255);
+    border-radius: 8px;
+}
+.address_input_section option{
+    padding-left: 15px;
+}
+
+.address_input_area{
+    padding: 0 0 0 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 50%;
+}
+.address_show_area{
+    width: 50%;
+}
+
+.address_body{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.address_BG{
+ position: absolute;
+ z-index: -50;
+ right: 0px;
+ opacity: 0.4;
+}
