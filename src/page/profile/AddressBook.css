@@ -36,6 +36,14 @@
 .address_show_area{
     width: 50%;
 }
+.submit_button{
+    color: rgb(106, 66, 199);
+    transition: 0.2s;
+}
+.submit_button:hover{
+    background-color: rgb(106, 66, 199);
+    color: white;
+}
 
 .address_body{
     position: relative;
@@ -48,5 +56,6 @@
  position: absolute;
  z-index: -50;
  right: 0px;
- opacity: 0.4;
+ bottom: 100px;
+ opacity: 0.2;
 }

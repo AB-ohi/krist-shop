@@ -70,18 +70,20 @@ const AddressBook = () => {
        <div className="right_input_area">
        <div className="address_input_section">
           <label htmlFor="">Add phone number</label>
-          <input type="text" name="number" value={area} readOnly placeholder="phone number" required/>
+          <input type="text" name="number" placeholder="phone number" required/>
         </div>
        <div className="address_input_section">
           <label htmlFor="">Add Email</label>
-          <input type="email" name="email" value={area} readOnly placeholder="@_mail.com" required/>
+          <input type="email" name="email" placeholder="@_mail.com" required/>
         </div>
         <div className="address_input_section" >
-        <input style={{width:'50%', marginLeft:'50%'}} type="submit" value="Submit your address" />
+        <input className="submit_button" style={{width:'50%', marginLeft:'50%'}} type="submit" value="Submit your address" />
         </div>
        </div>
       </form>
+      
       <div className="address_show_area">
+        <p style={{fontSize:'30px'}}>please add your address!</p>
         <img src={emptyAddressPicture} alt="" />
       </div>
     </div>
