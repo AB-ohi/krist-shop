@@ -95,7 +95,7 @@ const NavBer = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className={({ isActive }) => (isActive ? 'active-link':'')} id="item-list" to="/#" onClick={() => setShopMenu(true)}>
+              <NavLink className={({ isActive }) => (isActive ? 'active-link':'')} id="item-list" to="/contact" onClick={() => setShopMenu(true)}>
                 Contact Us
               </NavLink>
             </li>

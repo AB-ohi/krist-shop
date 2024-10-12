@@ -12,6 +12,7 @@ import ProfileInfo from "../page/profile/profileInfo";
 import AddressBook from "../page/Profile/AddressBook";
 import Order from "../page/Profile/Order";
 import PrivetRoute from "./PrivetRoute";
+import Contact from "../page/Contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
           path:'/detail/:id',
           element:<PrivetRoute><Details/></PrivetRoute>,
           loader:({params})=>fetch(`http://localhost:5000/men/${params.id}`)
+        },
+        {
+          path:"/contact",
+          element:<Contact/>
         },
         {
           path:'/profile',
