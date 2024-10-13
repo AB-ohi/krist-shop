@@ -13,6 +13,7 @@ import AddressBook from "../page/Profile/AddressBook";
 import Order from "../page/Profile/Order";
 import PrivetRoute from "./PrivetRoute";
 import Contact from "../page/Contact/Contact";
+import Dokan from "../page/Dokan/Dokan";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         {
           path:"/contact",
           element:<Contact/>
+        },
+        {
+          path:'/dokan',
+          element:<Dokan/>
         },
         {
           path:'/profile',

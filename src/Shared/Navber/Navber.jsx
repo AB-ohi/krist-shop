@@ -90,8 +90,8 @@ const NavBer = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className={({ isActive }) => (isActive ? 'active-link':'')} id="item-list" to="/#" onClick={() => setShopMenu(true)}>
-                Blog
+              <NavLink className={({ isActive }) => (isActive ? 'active-link':'')} id="item-list" to="/dokan" onClick={() => setShopMenu(true)}>
+                Dokan
               </NavLink>
             </li>
             <li>
