@@ -9,14 +9,14 @@ import { GiTireIronCross } from "react-icons/gi";
 import ShopMenu from "./shopMenu/ShopMenu";
 import ResNav from "./ResNav";
 import useUserData from "../../Hook/useUserData";
-import emptyProfilePicture from "../../../public/img/emptyProfilePicture.png"
+import emptyProfilePicture from "../../../public/img/emptyProfilePicture.png";
 
 const NavBer = () => {
   const { user, logOut } = useContext(AuthContext);
   const [shopMenu, setShopMenu] = useState(true);
   const [tabletsNavItemShow, setTabletsNavItemShow] = useState(true);
   // console.log(user.photoURL);
-  const {User} = useUserData()
+  const { User } = useUserData();
   // console.log(User)
 
   const handelLogOut = () => {
@@ -33,7 +33,12 @@ const NavBer = () => {
         <div>
           <ul className="nav-List-Item ">
             <li>
-              <NavLink className={({ isActive }) => (isActive ? 'active-link':'')} id="item-list" to="" onClick={() => setShopMenu(true)}>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active-link" : "")}
+                id="item-list"
+                to=""
+                onClick={() => setShopMenu(true)}
+              >
                 Home
               </NavLink>
             </li>
@@ -51,7 +56,9 @@ const NavBer = () => {
                     id="item-list"
                     to="/shop"
                     onClick={() => setShopMenu(true)}
-                    className={({ isActive }) => (isActive ? 'active-link':'')}
+                    className={({ isActive }) =>
+                      isActive ? "active-link" : ""
+                    }
                   >
                     Shop
                   </NavLink>
@@ -73,7 +80,9 @@ const NavBer = () => {
                     style={{ display: "flex", alignItems: "center" }}
                     id="item-list"
                     to="/shop"
-                    className={({ isActive }) => (isActive ? 'active-link':'')}
+                    className={({ isActive }) =>
+                      isActive ? "active-link" : ""
+                    }
                   >
                     Shop
                   </NavLink>
@@ -84,22 +93,27 @@ const NavBer = () => {
                 </div>
               )}
             </li>
+
             <li>
-              <NavLink className={({ isActive }) => (isActive ? 'active-link':'')} id="item-list" to="/" onClick={() => setShopMenu(true)}>
-                Our Story
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className={({ isActive }) => (isActive ? 'active-link':'')} id="item-list" to="/dokan" onClick={() => setShopMenu(true)}>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active-link" : "")}
+                id="item-list"
+                to="/dokan"
+                onClick={() => setShopMenu(true)}
+              >
                 Dokan
               </NavLink>
             </li>
             <li>
-              <NavLink className={({ isActive }) => (isActive ? 'active-link':'')} id="item-list" to="/contact" onClick={() => setShopMenu(true)}>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active-link" : "")}
+                id="item-list"
+                to="/contact"
+                onClick={() => setShopMenu(true)}
+              >
                 Contact Us
               </NavLink>
             </li>
-           
           </ul>
         </div>
         <div className="nav-item">
@@ -119,14 +133,20 @@ const NavBer = () => {
           <CiHeart />
           <CiShoppingCart />
           {user ? (
-              
-                <Link to={`/profile/${user.displayName}`}>
-                  <img className="profilePic" src={user.photoURL || (User && User.pictureUrl) || emptyProfilePicture} alt="" />
-                </Link>
-              
-            ) : (
-              <div></div>
-            )}
+            <Link to={`/profile/${user.displayName}`}>
+              <img
+                className="profilePic"
+                src={
+                  user.photoURL ||
+                  (User && User.pictureUrl) ||
+                  emptyProfilePicture
+                }
+                alt=""
+              />
+            </Link>
+          ) : (
+            <div></div>
+          )}
           {user ? (
             <>
               <button onClick={handelLogOut} id="nev-btn">

@@ -58,11 +58,7 @@ const ResNav = () => {
             </div>
           )}
         </li>
-        <li>
-          <NavLink to="" onClick={() => setShopMenu(true)}>
-            Our Story
-          </NavLink>
-        </li>
+        
         <li>
           <NavLink to="" onClick={() => setShopMenu(true)}>
             Blog
