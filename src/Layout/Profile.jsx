@@ -4,12 +4,12 @@ import "./profile.css";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaCamera } from "react-icons/fa";
-import portalHook from "../page/Profile/portalHook";
 import profileLoader from '../../public/img/loader.gif'
 import { useForm } from "react-hook-form"
 import Swal from "sweetalert2";
 import useUserData from "../Hook/useUserData";
 import emptyProfilePicture from "../../public/img/emptyProfilePicture.png"
+import portalHook from "../Hook/portalHook";
 
 
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token

@@ -1,36 +1,68 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import './AddressBook.css'
 import locationBG from '../../../public/img/locationBG.png'
 import emptyAddressPicture from '../../../public/img/emptyAddressPicture.webp'
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import error from "../../../public/img/error.gif"
 const AddressBook = () => {
+  const {user} = useContext(AuthContext)
+  console.log(user)
   const [area, setArea] = useState("");
-  // const [thanas, setThanas] = useState([]);
-  // console.log(thanas)
   const [address, setAddress] = useState([]);
   const handleChange = (option) => {
     const selectedArea = option.target.value;
     setArea(selectedArea);
-    // const selectedDistrict = address.find(
-    //   (district)=> district.district === selectedArea
-    // )
-    // if(selectedDistrict){
-    //   setThanas(selectedDistrict.thana)
-    // }
   };
   // const handelChangeThana = (e) => {
   //   setThanas(e.target.value);
   // };
 
-  // const handelSubmit = (e) =>{
-  //     e.preventDefault();
-  //     alert(Village/Area/Locality: ${area});
-  // }
+  const handelSubmit = (e) =>{
+      e.preventDefault();
+      const form = e.target;
+      const district = form.area.value;
+      const division = form.division.value;
+      const homeAddress = form.Home_address.value;
+      const number = form.number.value;
+      const email = form.email.value;
+      const user_name = user.email;
+      const addressForm = {district, division, homeAddress, number, email, user_name};
+      
+      
+        fetch('http://localhost:5000/address',{
+          method:'POST',
+          headers:{
+            'content-type':'application/json'
+          },
+          body: JSON.stringify(addressForm)
+        })
+        .then((res)=>res.json())
+        .then(data => {
+          if(data){
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Your work has been saved",
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }else{
+            Swal.fire({
+              imageUrl: error,
+              imageHeight: 100,
+              title: "Oops...",
+              text: "Something went wrong!",
+            });
+          }
+        })
+      
+  }
 
   useEffect(() => {
-    fetch("http://localhost:5000/addressAPI")
+    fetch(`http://localhost:5000/addressAPI/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("Fetched Data:", data);
         if (data) {
           setAddress(data);
         } else {
@@ -43,7 +75,7 @@ const AddressBook = () => {
     <div className="address_body">
         <img className="address_BG" src={locationBG} alt="" />
       
-      <form className="address_input_area">
+      <form onSubmit={handelSubmit} className="address_input_area">
        <div className="left_input_area">
        <div className="address_input_section">
           <label htmlFor="">Select you district</label>
