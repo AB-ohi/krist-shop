@@ -10,6 +10,7 @@ const AddressBook = () => {
   console.log(user)
   const [area, setArea] = useState("");
   const [address, setAddress] = useState([]);
+  const [addressList, setAddressList] = useState()
   const handleChange = (option) => {
     const selectedArea = option.target.value;
     setArea(selectedArea);
@@ -41,7 +42,7 @@ const AddressBook = () => {
         .then(data => {
           if(data){
             Swal.fire({
-              position: "top-end",
+              position: "center",
               icon: "success",
               title: "Your work has been saved",
               showConfirmButton: false,
@@ -58,9 +59,24 @@ const AddressBook = () => {
         })
       
   }
+  useEffect(() => {
+    if (user && user.email) {
+      fetch(`http://localhost:5000/address/`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data) {
+            const filterAddressList = data.filter((addressList)=>addressList.user_name === user.email)
+            setAddressList(filterAddressList)
+          } else {
+            console.error("Error: No data fetched");
+          }
+        })
+        .catch(err => console.error("Error fetching address", err));
+    }
+  }, [user]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/addressAPI/${user.email}`)
+    fetch(`http://localhost:5000/addressAPI`)
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -69,7 +85,7 @@ const AddressBook = () => {
           console.error("Error: No data fetched");
         }
       });
-  }, []);
+  }, [user]);
 
   return (
     <div className="address_body">
@@ -115,9 +131,23 @@ const AddressBook = () => {
       </form>
       
       <div className="address_show_area">
-        <p style={{fontSize:'30px'}}>please add your address!</p>
-        <img src={emptyAddressPicture} alt="" />
+  {addressList.length > 0 ? (
+    addressList.map((addr, index) => (
+      <div key={index}>
+        <p><strong>District:</strong> {addr.district}</p>
+        <p><strong>Division:</strong> {addr.division}</p>
+        <p><strong>Home Address:</strong> {addr.homeAddress}</p>
+        <p><strong>Phone Number:</strong> {addr.number}</p>
+        <p><strong>Email:</strong> {addr.email}</p>
       </div>
+    ))
+  ) : (
+    <>
+      <p style={{fontSize: '30px'}}>Please add your address!</p>
+      <img src={emptyAddressPicture} alt="No address" />
+    </>
+  )}
+</div>
     </div>
   );
 };
