@@ -48,8 +48,7 @@ const router = createBrowserRouter([
             },
             {
               path:'address',
-              element:<AddressBook/>,
-              loader:({params})=>fetch(`http://localhost:5000/user/${params.name}`)
+              element:<AddressBook/>
             },
             {
               path:'order',

@@ -24,7 +24,7 @@ const ProfileInfo = () => {
           }}
         >
           <IoPersonCircleSharp style={{ fontSize: "50px", textAlign: "center", color:'pink', textAlignLast:'center'}} />
-          <span><span style={{fontSize:'37px'}}>{user.displayName}</span> <FaEdit style={{cursor:'pointer'}}/></span>
+          <span><span style={{fontSize:'37px'}}>{user.displayName}</span></span>
         </p>
         <p style={{
             boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px',
@@ -34,7 +34,7 @@ const ProfileInfo = () => {
             padding:'20px'
 
           }}><FiPhone style={{ fontSize: "50px", textAlign: "center", color:'#17C1CB' }} />{" "}
-          <span><span style={{fontSize:'37px'}}>{user.phoneNumber}</span> <FaEdit style={{cursor:'pointer'}}/></span></p>
+          <span><span style={{fontSize:'37px'}}>{user.phoneNumber}</span></span></p>
         <p style={{
             boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px',
             borderBottom:'4px solid #F4A528',
@@ -43,7 +43,7 @@ const ProfileInfo = () => {
             padding:'20px'
 
           }}><HiOutlineMail style={{ fontSize: "50px", textAlign: "center", color:'#F4A528' }} />{" "}
-           <span><span style={{fontSize:'20px'}}>{user.email}</span> <FaEdit style={{cursor:'pointer'}}/></span></p>
+           <span><span style={{fontSize:'20px'}}>{user.email}</span></span></p>
         <p style={{
             boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px',
             borderBottom:'4px solid #333F61',
@@ -52,7 +52,14 @@ const ProfileInfo = () => {
             padding:'20px'
 
           }}><MdPersonPinCircle style={{ fontSize: "50px", textAlign: "center", color:'#333F61' }} />{" "}
-          <span><span style={{fontSize:'37px'}}>{user.displayName}</span> <FaEdit style={{cursor:'pointer'}}/></span></p>
+          <span><span style={{fontSize:'37px'}}>
+          <select >
+          <option value="dscd">dccdcd</option>
+          <option value="dscd">dccdcd</option>
+          <option value="dscd">dccdcd</option>
+          <option value="dscd">dccdcd</option>
+          </select>
+          </span> <FaEdit style={{cursor:'pointer'}}/></span></p>
       </div>
     </div>
   );

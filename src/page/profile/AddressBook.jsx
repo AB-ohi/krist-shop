@@ -5,18 +5,28 @@ import emptyAddressPicture from '../../../public/img/emptyAddressPicture.webp'
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import error from "../../../public/img/error.gif"
+import { MdDeleteForever } from "react-icons/md";
 const AddressBook = () => {
   const {user} = useContext(AuthContext)
-  console.log(user)
   const [area, setArea] = useState("");
+  console.log(area)
   const [address, setAddress] = useState([]);
   const [addressList, setAddressList] = useState()
+  const [district, setDistrict] = useState()
+  console.log(district)
   const handleChange = (option) => {
     const selectedArea = option.target.value;
     setArea(selectedArea);
   };
-  // const handelChangeThana = (e) => {
-  //   setThanas(e.target.value);
+  useEffect(() => {
+    if (address && area) {
+      const areaFilter = address.find((addr) => addr.value === area);
+      setDistrict(areaFilter ? areaFilter.district : "");
+    }
+  }, [area, address]);
+
+  // const handelDistrictValueSet= (e) => {
+  //   setDistrict(e.target.area.value);
   // };
 
   const handelSubmit = (e) =>{
@@ -28,7 +38,8 @@ const AddressBook = () => {
       const number = form.number.value;
       const email = form.email.value;
       const user_name = user.email;
-      const addressForm = {district, division, homeAddress, number, email, user_name};
+      const addressForm = {district,division,  homeAddress, number, email, user_name};
+      console.log(addressForm)
       
       
         fetch('http://localhost:5000/address',{
@@ -48,6 +59,7 @@ const AddressBook = () => {
               showConfirmButton: false,
               timer: 1500
             });
+            window.location.reload()
           }else{
             Swal.fire({
               imageUrl: error,
@@ -61,7 +73,7 @@ const AddressBook = () => {
   }
   useEffect(() => {
     if (user && user.email) {
-      fetch(`http://localhost:5000/address/`)
+      fetch('http://localhost:5000/address')
         .then((res) => res.json())
         .then((data) => {
           if (data) {
@@ -95,23 +107,17 @@ const AddressBook = () => {
        <div className="left_input_area">
        <div className="address_input_section">
           <label htmlFor="">Select you district</label>
-          {/* eslint-disable-next-line react/no-unknown-property */}
-          <select name="area" id="area"  onChange={handleChange} required>
-            <option value="">district</option>
-            {address.map((division, index) => (
-              <option key={index} value={division.value}>
-                {division.district}
-              </option>
-            ))}
-          </select>
+          <input name="area"  id="area" placeholder="district" onChange={handleChange} required>
+            
+          </input>
         </div>
         <div className="address_input_section">
           <label htmlFor="">Your division</label>
-          <input type="text" name="division" value={area} readOnly placeholder="division" required/>
+          <input type="text" name="division"  placeholder="division" required/>
         </div>
         <div className="address_input_section">
           <label htmlFor="">Home address</label>
-          <input name="Home_address" value={address.thana} id="" placeholder="Your full address"/>
+          <input name="Home_address" id="" placeholder="Your full address"/>
         </div>
         
        </div>
@@ -131,22 +137,30 @@ const AddressBook = () => {
       </form>
       
       <div className="address_show_area">
-  {addressList.length > 0 ? (
-    addressList.map((addr, index) => (
+  {addressList ? 
+    <div>
+      <p style={{fontSize:'25px', marginBottom:'15px'}}>address list</p>
+    <div style={{height:'600px', overflow:'scroll',scrollbarWidth:'none'}}>
+    { addressList.map((addr, index) => (
       <div key={index}>
+        <div className="addressList">
+          <button style={{background:'none', border:'none', position:'absolute', bottom:'1px', right:'0', fontSize:'30px', color:'rgb(167, 74, 253)', cursor:'pointer'}}><MdDeleteForever /></button>
         <p><strong>District:</strong> {addr.district}</p>
         <p><strong>Division:</strong> {addr.division}</p>
         <p><strong>Home Address:</strong> {addr.homeAddress}</p>
         <p><strong>Phone Number:</strong> {addr.number}</p>
         <p><strong>Email:</strong> {addr.email}</p>
       </div>
-    ))
-  ) : (
+      </div>
+    ))}
+    </div>
+    </div>
+   : 
     <>
       <p style={{fontSize: '30px'}}>Please add your address!</p>
       <img src={emptyAddressPicture} alt="No address" />
     </>
-  )}
+  }
 </div>
     </div>
   );

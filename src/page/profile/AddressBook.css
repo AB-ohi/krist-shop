@@ -59,3 +59,13 @@
  bottom: 100px;
  opacity: 0.2;
 }
+.addressList{
+    background-color: rgba(225, 199, 255, 0.575);
+    width: 50%;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 11px 0 ;
+    border: solid 1px rgb(167, 74, 253);
+    position: relative;
+
+}

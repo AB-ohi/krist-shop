@@ -53,6 +53,7 @@ const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token
             });
             setIsPortalOn(!isPortalOn)
             reset()
+            window.location.reload()
           }
         })
       }
