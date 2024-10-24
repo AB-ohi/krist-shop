@@ -65,10 +65,10 @@ const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token
       <div className="profileHeader">
        <form onSubmit={handleSubmit(addProfilePicture)} className={`${!isPortalOn? "portal_main":"portal_main_off"}`}>
        <div className="portal">
-            <label htmlFor="img">select a picture</label>
-            <input type="file" accept="image/*"{...register("image", { required: true })} name="image" id="" />
+            <label htmlFor="img" style={{fontSize:'25px'}}>select a picture</label>
+            <input className="profile_Picture_select" type="file" accept="image/*"{...register("image", { required: true })} name="image" id="" />
             <div style={{display:'flex', gap:'10px', padding:'20px 0 0 0', justifyContent:'end'}}>
-              <input type="submit" value='save' style={{backgroundColor:'rgb(136, 86, 255)', color:'white', padding:'3px 11px', borderRadius:'8px'}}/>
+              <input type="submit" value='save' style={{backgroundColor:'rgb(136, 86, 255)', color:'white', padding:'5px 17px', borderRadius:'4px', fontSize:'18px'}}/>
               <p onClick={()=>setIsPortalOn(!isPortalOn)} style={{ padding:'3px 11px', cursor:'pointer'}}>Cancel</p>
             </div>
         </div>
