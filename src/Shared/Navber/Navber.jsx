@@ -12,18 +12,13 @@ import useUserData from "../../Hook/useUserData";
 import emptyProfilePicture from "../../../public/img/emptyProfilePicture.png";
 
 const NavBer = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [shopMenu, setShopMenu] = useState(true);
   const [tabletsNavItemShow, setTabletsNavItemShow] = useState(true);
   // console.log(user.photoURL);
   const { User } = useUserData();
-  // console.log(User)
 
-  const handelLogOut = () => {
-    logOut()
-      .then(() => {})
-      .catch((error) => console.log(error));
-  };
+
   return (
     <div>
       <nav className="nav">
@@ -147,24 +142,7 @@ const NavBer = () => {
           ) : (
             <div></div>
           )}
-          {user ? (
-            <>
-              <button onClick={handelLogOut} id="nev-btn">
-                LogOut
-              </button>
-            </>
-          ) : (
-            <>
-              <button id="nev-btn">
-                <NavLink
-                  style={{ color: "white", textDecoration: "none" }}
-                  to="/login"
-                >
-                  Login
-                </NavLink>
-              </button>
-            </>
-          )}
+          
         </div>
       </nav>
       {/* res-nav item */}
