@@ -8,36 +8,31 @@ import { MdDeleteForever } from "react-icons/md";
 import useAddress from "../../Hook/addressHook";
 const AddressBook = () => {
   const { user } = useContext(AuthContext);
-  // const [area, setArea] = useState("");
-  // const [address, setAddress] = useState([]);
   const { addressList } = useAddress();
-  // const [district, setDistrict] = useState();
-  // const handleChange = (option) => {
-  //   const selectedArea = option.target.value;
-  //   setArea(selectedArea);
-  // };
-  // useEffect(() => {
-  //   if (address && area) {
-  //     const areaFilter = address.find((addr) => addr.value === area);
-  //     setDistrict(areaFilter ? areaFilter.district : "");
-  //   }
-  // }, [area, address]);
-
-  const handelDelete = async (addr) => {
-    const response = await fetch(`http://localhost:5000/address/${addr._id}`, {
-      method: "DELETE",
-    });
-    if (response.ok) {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Address deleted successfully",
-        showConfirmButton: false,
-        timer: 1500,
+  const handelDelete =  (addr) => {
+    
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if(result.isConfirmed){
+        const response =  fetch(`http://localhost:5000/address/${addr._id}`, {
+        method: "DELETE",
       });
-    } else {
-      console.error("Failed to delete address");
-    }
+      if (response.ok) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+      }
+      }
+    });
   };
 
   const handelSubmit = (e) => {
@@ -75,6 +70,7 @@ const AddressBook = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+          form.reset()
         } else {
           Swal.fire({
             imageUrl: "error",
