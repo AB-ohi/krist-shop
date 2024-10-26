@@ -10,14 +10,15 @@ import ShopMenu from "./shopMenu/ShopMenu";
 import ResNav from "./ResNav";
 import useUserData from "../../Hook/useUserData";
 import emptyProfilePicture from "../../../public/img/emptyProfilePicture.png";
+import { MdOutlineLogin } from "react-icons/md";
 
 const NavBer = () => {
   const { user } = useContext(AuthContext);
+  console.log(user)
   const [shopMenu, setShopMenu] = useState(true);
   const [tabletsNavItemShow, setTabletsNavItemShow] = useState(true);
   // console.log(user.photoURL);
   const { User } = useUserData();
-
 
   return (
     <div>
@@ -140,9 +141,29 @@ const NavBer = () => {
               />
             </Link>
           ) : (
-            <div></div>
+            <div>
+              <Link
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "8px",
+                  paddingInline: "10px 15px",
+                  padding: "10px",
+                  backgroundColor: "rgba(225, 199, 255, 0.575)",
+                  color: "rgb(167, 74, 253)",
+                  textDecoration: "none",
+                  gap: "10px",
+                  border: "solid 1px rgb(167, 74, 253)",
+                  fontSize: "20px",
+                }}
+                to={"/login"}
+              >
+                <MdOutlineLogin />
+                Login
+              </Link>
+            </div>
           )}
-          
         </div>
       </nav>
       {/* res-nav item */}

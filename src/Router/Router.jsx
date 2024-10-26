@@ -42,9 +42,9 @@ const router = createBrowserRouter([
           element:<PrivetRoute><Profile/></PrivetRoute>,
           children:[
             {
-              path:':name',
+              path:':displayName',
               element:<ProfileInfo/>,
-              loader:({params})=>fetch(`http://localhost:5000/user/${params.name}`)
+              loader:({params})=>fetch(`http://localhost:5000/user/${params.displayName}`)
             },
             {
               path:'address',

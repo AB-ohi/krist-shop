@@ -34,7 +34,7 @@ const ProfileInfo = () => {
             }}
           />
           <span>
-            <span style={{ fontSize: "37px" }}>{user.displayName}</span>
+            <span style={{ fontSize: "37px" }}>{user.profileIDName}</span>
           </span>
         </p>
         <p

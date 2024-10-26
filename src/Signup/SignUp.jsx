@@ -17,8 +17,9 @@ const SignUp = () => {
     const email = form.email.value;
     const PhoneNumber = form.PhoneNumber.value;
     const password = form.password.value;
-    const fullName = `${firstName} ${lastName}`
-    const profileIDName = `${firstName}_${lastName}`
+    const fullName = 
+    `${firstName} ${lastName}${Date.now().toString(36)+Math.random().toString(36).substring(2)}`;
+    const profileIDName = `${firstName} ${lastName}`;
     const userInfo = { fullName, email, password, profileIDName, PhoneNumber };
     console.log(userInfo);
 
@@ -26,24 +27,27 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        return updateProfile(user,{
+        return updateProfile(user, {
           displayName: fullName,
-        })
+        });
       })
-      .then (()=>{
-        const saveUser ={displayName: userInfo.fullName, email: userInfo.email, profileIDName: userInfo.profileIDName, phoneNumber: userInfo.PhoneNumber }
-        fetch('http://localhost:5000/user', {
-          method:"POST",
-          headers:{
-            "content-type": "application/json"
+      .then(() => {
+        const saveUser = {
+          displayName: userInfo.fullName,
+          email: userInfo.email,
+          profileIDName: userInfo.profileIDName,
+          phoneNumber: userInfo.PhoneNumber,
+        };
+        fetch("http://localhost:5000/user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
           },
-          body: JSON.stringify(saveUser)
-        })
-        .then((res)=>res.json())
-       
-        navigate("/")
-      })
-     
+          body: JSON.stringify(saveUser),
+        }).then((res) => res.json());
+
+        navigate("/");
+      });
   };
 
   return (
@@ -92,7 +96,13 @@ const SignUp = () => {
                 id=""
               />
             </div>
-            <div style={{ display: "flex", flexDirection: "column", width:'100%' }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
               <label htmlFor="email">Last Name</label>
               <input
                 style={{
@@ -109,7 +119,13 @@ const SignUp = () => {
                 id=""
               />
             </div>
-            <div style={{ display: "flex", flexDirection: "column", width:'100%' }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
               <label htmlFor="email">Email Address</label>
               <input
                 style={{
@@ -126,7 +142,13 @@ const SignUp = () => {
                 id=""
               />
             </div>
-            <div style={{ display: "flex", flexDirection: "column", width:'100%' }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
               <label htmlFor="number">phone Number</label>
               <input
                 style={{
@@ -152,15 +174,15 @@ const SignUp = () => {
               }}
             >
               <label htmlFor="password">Password</label>
-              
-                <div style={{display:'flex', alignItems:"center"}}>
+
+              <div style={{ display: "flex", alignItems: "center" }}>
                 <input
                   style={{
                     padding: "16px",
                     border: "1px solid #131118",
                     outline: "none",
                     borderRadius: "10px",
-                    width:'100%'
+                    width: "100%",
                   }}
                   type={showPassword ? "text" : "password"}
                   name="password"
@@ -174,11 +196,15 @@ const SignUp = () => {
                     <BiSolidShow style={{ marginLeft: "-27px" }} />
                   )}
                 </span>
-              
-                </div>
+              </div>
             </div>
-            <div style={{margin:'10px 0'}}>
-              <Link to='/login' style={{color:"black", textDecoration:'none', }}>Already have an account !</Link>
+            <div style={{ margin: "10px 0" }}>
+              <Link
+                to="/login"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                Already have an account !
+              </Link>
             </div>
             <input
               style={{

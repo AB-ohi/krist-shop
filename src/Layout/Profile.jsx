@@ -15,10 +15,10 @@ import portalHook from "../Hook/portalHook";
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token
 const Profile = () => {
   const { user } = useContext(AuthContext);
-  console.log(user)
   const {isPortalOn, setIsPortalOn} = portalHook()
   const {register,handleSubmit,reset} = useForm()
-  const {User} = useUserData()
+  const {User} = useUserData([])
+  console.log(User)
 const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token}`
   const addProfilePicture = (data) => {
     console.log(data)
@@ -129,7 +129,7 @@ const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token
               />
             }
           </div>
-          <h1 style={{ margin: "0" }}>{user.displayName}</h1>
+          <h1 style={{ margin: "0" }}>{User? User.profileIDName:'' }</h1>
         </div>
       </div>
       <div className="profileBody">
