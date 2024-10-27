@@ -8,11 +8,17 @@
   transition: 0.5s;
   position: relative;
 }
-.side-list h1 {
+.side-list a {
   margin-left: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
   transition: 0.5s;
 }
-.side-list h1:hover {
+.side-list a:hover {
   color: rgb(253, 113, 62);
 }
 
