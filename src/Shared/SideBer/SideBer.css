@@ -8,8 +8,8 @@
   transition: 0.5s;
   position: relative;
 }
-.side-list a {
-  margin-left: 10px;
+.sideBer-Link {
+  margin: 30px 10px 30px 20px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -18,10 +18,21 @@
   text-decoration: none;
   transition: 0.5s;
 }
-.side-list a:hover {
+.sideBer-Link:hover {
   color: rgb(253, 113, 62);
 }
 
+.active-sideBer-link{
+  margin: 30px 10px 30px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  color: white; 
+  font-size: 30px;
+  text-decoration: none;
+  transition: 0.5s;
+  background-color: blue;
+}
 .side-list p {
   margin-left: 10px;
   cursor: pointer;
@@ -57,6 +68,7 @@
 .sideBer-main{
   width: 20%
 }
+
 
 @media only screen and (max-width: 1200px){
   .sideBer-main{

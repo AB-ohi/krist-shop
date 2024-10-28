@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import "./ProfileSideBer.css";
 import { CgProfile } from "react-icons/cg";
 import { LiaAddressBookSolid } from "react-icons/lia";
@@ -14,27 +14,21 @@ const ProfileSideBer = () => {
   return (
     <div className="MainProfileSideBer">
       <div className="MainChild">
-        <button>
-          <Link to={`/profile/${user.displayName}`}>
+          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to={`/profile/${user.displayName}`}>
             <CgProfile />
             Profile
-          </Link>
-        </button>
-        <button>
-          <Link to="/profile/address">
+          </NavLink>
+          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/address">
             <LiaAddressBookSolid />
             Address book
-          </Link>
-        </button>
-        <button>
-          <Link to="/profile/order">
+          </NavLink>
+          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/order">
             <MdOutlineBookmarkBorder />
             My orders
-          </Link>
-        </button>
+          </NavLink>  
 
-        <button onClick={handelLogOut}>
-         <Link> <RiLogoutBoxLine /> LogOut</Link>
+        <button className="profile_side_ber" onClick={handelLogOut}>
+         <NavLink> <RiLogoutBoxLine /> LogOut</NavLink>
         </button>
       </div>
     </div>

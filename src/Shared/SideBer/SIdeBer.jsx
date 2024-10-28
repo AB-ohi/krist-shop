@@ -1,7 +1,7 @@
 import { IoChevronUpSharp } from "react-icons/io5";
 import "./SideBer.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 const SIdeBer = () => {
   const [showMenItem, setShowMenItem] = useState(true);
   const [showWomenItem, setShowWomenItem] = useState(true);
@@ -13,7 +13,6 @@ const SIdeBer = () => {
     <div
       className="sideBer-main"
       style={{
-        cursor: "pointer",
         height: "100vh",
         backgroundImage: "url(../../../public/img/sidebarBG.jpg)",
         color: "white",
@@ -25,12 +24,12 @@ const SIdeBer = () => {
       }}
     >
       <div className="side-list">
-        <Link to="/shop/man" onClick={() => setShowMenItem(!showMenItem)}>
-          Men{" "}
+        <NavLink className={({isActive})=>(isActive? 'active-sideBer-link':'sideBer-Link')} to="/shop/man" onClick={() => setShowMenItem(!showMenItem)}>
+        men
           <IoChevronUpSharp
             className={`${showMenItem ? "close-menu" : "open-menu"}`}
           />
-        </Link>
+        </NavLink>
         <div className={`${showMenItem ? "hide-menu" : "shoe-menu"}`}>
           <p>T-Shirt</p>
           <p>Casual Shirt</p>
@@ -41,12 +40,12 @@ const SIdeBer = () => {
       </div>
 
       <div className="side-list">
-        <Link to={""} onClick={() => setShowWomenItem(!showWomenItem)}>
+        <NavLink  className={(isActive)=>(isActive? 'active-sideBer-link':'sideBer-Link')} to='/shop' onClick={() => setShowWomenItem(!showWomenItem)}>
           Women
           <IoChevronUpSharp
             className={`${showWomenItem ? "close-menu" : "open-menu"}`}
           />
-        </Link>
+        </NavLink>
         <div className={`${showWomenItem ? "hide-menu" : "shoe-menu"}`}>
           <p>Kurtas & Suits</p>
           <p>Sarees</p>
@@ -57,12 +56,12 @@ const SIdeBer = () => {
       </div>
 
       <div className="side-list">
-        <Link to={""} onClick={() => setShowFootwearItem(!showFootwearItem)}>
+        <NavLink className={(isActive)=>(isActive? 'active-sideBer-link':'sideBer-Link')} to='/shop' onClick={() => setShowFootwearItem(!showFootwearItem)}>
           Footwear
           <IoChevronUpSharp
             className={`${showFootwearItem ? "close-menu" : "open-menu"}`}
           />
-        </Link>
+        </NavLink>
         <div className={`${showFootwearItem ? "hide-menu" : "shoe-menu"}`}>
           <p>Flats</p>
           <p>Casual Shoes</p>
@@ -73,12 +72,12 @@ const SIdeBer = () => {
       </div>
 
       <div className="side-list">
-        <Link to={""} onClick={() => setShowKidsItem(!showKidsItem)}>
+        <NavLink className={(isActive)=>(isActive? 'active-sideBer-link':'sideBer-Link')} to='/shop' onClick={() => setShowKidsItem(!showKidsItem)}>
           Kids
           <IoChevronUpSharp
             className={`${showKidsItem ? "close-menu" : "open-menu"}`}
           />
-        </Link>
+        </NavLink>
         <div className={`${showKidsItem ? "hide-menu" : "shoe-menu"}`}>
           <p>T-Shirt</p>
           <p>Shirts</p>
@@ -89,12 +88,12 @@ const SIdeBer = () => {
       </div>
 
       <div className="side-list">
-        <Link to={""} onClick={() => setShowIndianItem(!showIndianItem)}>
+        <NavLink className={(isActive)=>(isActive? 'active-sideBer-link':'sideBer-Link')} to='/shop' onClick={() => setShowIndianItem(!showIndianItem)}>
           Bangla & Festive Wear
           <IoChevronUpSharp
             className={`${showIndianItem ? "close-menu" : "open-menu"}`}
           />
-        </Link>
+        </NavLink>
         <div className={`${showIndianItem ? "hide-menu" : "shoe-menu"}`}>
           <p>Kurta & Kurta Set</p>
           <p>Sherwanis</p>
@@ -102,12 +101,12 @@ const SIdeBer = () => {
       </div>
 
       <div className="side-list">
-        <Link to={""} onClick={() => setShowWesternItem(!showWesternItem)}>
+        <NavLink className={(isActive)=>(isActive? 'active-sideBer-link':'sideBer-Link')} to='/shop' onClick={() => setShowWesternItem(!showWesternItem)}>
           Western Wear
           <IoChevronUpSharp
             className={`${showWesternItem ? "close-menu" : "open-menu"}`}
           />
-        </Link>
+        </NavLink>
         <div className={`${showWesternItem ? "hide-menu" : "shoe-menu"}`}>
           <p>Dresses</p>
           <p>Jumpsuits</p>
