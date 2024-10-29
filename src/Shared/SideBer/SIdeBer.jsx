@@ -1,7 +1,7 @@
 import { IoChevronUpSharp } from "react-icons/io5";
 import "./SideBer.css";
 import { useState } from "react";
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 const SIdeBer = () => {
   const [showMenItem, setShowMenItem] = useState(true);
   const [showWomenItem, setShowWomenItem] = useState(true);
@@ -24,10 +24,16 @@ const SIdeBer = () => {
       }}
     >
       <div className="side-list">
-        <NavLink className={({isActive})=>(isActive? 'active-sideBer-link':'sideBer-Link')} to="/shop/man" onClick={() => setShowMenItem(!showMenItem)}>
-        men
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "active-sideBer-link" : "sideBer-Link"
+          }
+          to="/shop/man"
+        >
+          men
           <IoChevronUpSharp
             className={`${showMenItem ? "close-menu" : "open-menu"}`}
+            onClick={() => setShowMenItem(!showMenItem)}
           />
         </NavLink>
         <div className={`${showMenItem ? "hide-menu" : "shoe-menu"}`}>
@@ -40,10 +46,16 @@ const SIdeBer = () => {
       </div>
 
       <div className="side-list">
-        <NavLink  className={(isActive)=>(isActive? 'active-sideBer-link':'sideBer-Link')} to='/shop' onClick={() => setShowWomenItem(!showWomenItem)}>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "active-sideBer-link" : "sideBer-Link"
+          }
+          to="/shop/women"
+        >
           Women
           <IoChevronUpSharp
             className={`${showWomenItem ? "close-menu" : "open-menu"}`}
+            onClick={() => setShowWomenItem(!showWomenItem)}
           />
         </NavLink>
         <div className={`${showWomenItem ? "hide-menu" : "shoe-menu"}`}>
@@ -56,10 +68,16 @@ const SIdeBer = () => {
       </div>
 
       <div className="side-list">
-        <NavLink className={(isActive)=>(isActive? 'active-sideBer-link':'sideBer-Link')} to='/shop' onClick={() => setShowFootwearItem(!showFootwearItem)}>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "active-sideBer-link" : "sideBer-Link"
+          }
+          to="/shop"
+        >
           Footwear
           <IoChevronUpSharp
             className={`${showFootwearItem ? "close-menu" : "open-menu"}`}
+            onClick={() => setShowFootwearItem(!showFootwearItem)}
           />
         </NavLink>
         <div className={`${showFootwearItem ? "hide-menu" : "shoe-menu"}`}>
@@ -72,10 +90,16 @@ const SIdeBer = () => {
       </div>
 
       <div className="side-list">
-        <NavLink className={(isActive)=>(isActive? 'active-sideBer-link':'sideBer-Link')} to='/shop' onClick={() => setShowKidsItem(!showKidsItem)}>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "active-sideBer-link" : "sideBer-Link"
+          }
+          to="/shop"
+        >
           Kids
           <IoChevronUpSharp
             className={`${showKidsItem ? "close-menu" : "open-menu"}`}
+            onClick={() => setShowKidsItem(!showKidsItem)}
           />
         </NavLink>
         <div className={`${showKidsItem ? "hide-menu" : "shoe-menu"}`}>
@@ -88,10 +112,16 @@ const SIdeBer = () => {
       </div>
 
       <div className="side-list">
-        <NavLink className={(isActive)=>(isActive? 'active-sideBer-link':'sideBer-Link')} to='/shop' onClick={() => setShowIndianItem(!showIndianItem)}>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "active-sideBer-link" : "sideBer-Link"
+          }
+          to="/shop"
+        >
           Bangla & Festive Wear
           <IoChevronUpSharp
             className={`${showIndianItem ? "close-menu" : "open-menu"}`}
+            onClick={() => setShowIndianItem(!showIndianItem)}
           />
         </NavLink>
         <div className={`${showIndianItem ? "hide-menu" : "shoe-menu"}`}>
@@ -101,10 +131,16 @@ const SIdeBer = () => {
       </div>
 
       <div className="side-list">
-        <NavLink className={(isActive)=>(isActive? 'active-sideBer-link':'sideBer-Link')} to='/shop' onClick={() => setShowWesternItem(!showWesternItem)}>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "active-sideBer-link" : "sideBer-Link"
+          }
+          to="/shop"
+        >
           Western Wear
           <IoChevronUpSharp
             className={`${showWesternItem ? "close-menu" : "open-menu"}`}
+            onClick={() => setShowWesternItem(!showWesternItem)}
           />
         </NavLink>
         <div className={`${showWesternItem ? "hide-menu" : "shoe-menu"}`}>

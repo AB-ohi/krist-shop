@@ -14,6 +14,9 @@ import Order from "../page/Profile/Order";
 import PrivetRoute from "./PrivetRoute";
 import Contact from "../page/Contact/Contact";
 import Dokan from "../page/Dokan/Dokan";
+import Woman from "../page/Shop/Woman/Woman";
+import Footwear from "../page/Shop/Footwear/Footwear";
+import Kids from "../page/Shop/Kids/Kids";
 
 const router = createBrowserRouter([
     {
@@ -61,12 +64,31 @@ const router = createBrowserRouter([
           element:<PrivetRoute><Shop/></PrivetRoute>,
           children:[
             {
+              path:'/shop',
+              element:<Cart/>
+            },
+            {
               path:'man',
               element:<Man/>
             },
             {
-              path:'/shop',
-              element:<Cart/>
+              path:'women',
+              element:<Woman/>
+            },
+            {
+              path:'footwear',
+              element:<Footwear></Footwear>
+            },
+            {
+              path:'kids',
+              element:<Kids/>
+            },
+            {
+              path:'bangla',
+              element:''
+            },
+            {
+              path:'western',
             }
           ]
         }
