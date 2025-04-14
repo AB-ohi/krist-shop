@@ -13,6 +13,7 @@
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: white;
   font-size: 30px;
   text-decoration: none;
@@ -27,6 +28,7 @@
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: white; 
   font-size: 30px;
   text-decoration: none;

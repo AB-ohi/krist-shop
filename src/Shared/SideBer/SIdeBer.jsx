@@ -72,7 +72,7 @@ const SIdeBer = () => {
           className={({ isActive }) =>
             isActive ? "active-sideBer-link" : "sideBer-Link"
           }
-          to="/shop"
+          to="/shop/footwear"
         >
           Footwear
           <IoChevronUpSharp
@@ -94,7 +94,7 @@ const SIdeBer = () => {
           className={({ isActive }) =>
             isActive ? "active-sideBer-link" : "sideBer-Link"
           }
-          to="/shop"
+          to="/shop/kids"
         >
           Kids
           <IoChevronUpSharp
@@ -116,7 +116,7 @@ const SIdeBer = () => {
           className={({ isActive }) =>
             isActive ? "active-sideBer-link" : "sideBer-Link"
           }
-          to="/shop"
+          to="/shop/bangla"
         >
           Bangla & Festive Wear
           <IoChevronUpSharp
@@ -135,7 +135,7 @@ const SIdeBer = () => {
           className={({ isActive }) =>
             isActive ? "active-sideBer-link" : "sideBer-Link"
           }
-          to="/shop"
+          to="/shop/western"
         >
           Western Wear
           <IoChevronUpSharp
