@@ -14,7 +14,7 @@ const SIdeBer = () => {
       className="sideBer-main"
       style={{
         height: "100vh",
-        backgroundImage: "url(../../../public/img/sidebarBG.jpg)",
+        backgroundColor:'#17263C',
         color: "white",
         paddingTop: "30px",
         paddingBottom: "30px",
@@ -118,7 +118,7 @@ const SIdeBer = () => {
           }
           to="/shop/bangla"
         >
-          Bangla & Festive Wear
+          B&F Wear
           <IoChevronUpSharp
             className={`${showIndianItem ? "close-menu" : "open-menu"}`}
             onClick={() => setShowIndianItem(!showIndianItem)}

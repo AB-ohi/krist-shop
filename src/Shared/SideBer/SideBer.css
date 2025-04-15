@@ -20,7 +20,9 @@
   transition: 0.5s;
 }
 .sideBer-Link:hover {
-  color: rgb(253, 113, 62);
+  color: #111526;
+  background-color: #BCB5EE;
+  padding: 0 10px;
 }
 
 .active-sideBer-link{
@@ -33,7 +35,9 @@
   font-size: 30px;
   text-decoration: none;
   transition: 0.5s;
-  background-color: blue;
+  background-color: #3CC9F5;
+  border-radius: 11px;
+  padding: 0 10px;
 }
 .side-list p {
   margin-left: 10px;
