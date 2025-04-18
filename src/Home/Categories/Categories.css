@@ -1,3 +1,7 @@
 .wear-img{
     width: 100%;
 }
+.mySwiper .swiper-pagination {
+    margin-top: 20px; /* ইচ্ছেমতো মান */
+    position: relative; /* position ঠিক রাখতে helpful */
+  }

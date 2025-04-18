@@ -28,7 +28,7 @@ const wearPic = [
   },
   {
     img: "../../../public/wearPic/banglaSari.jpg",
-    name: "Bengali & Festive Wear",
+    name: "Bengali",
     link: "https://example.com/page3",
   },
   {
@@ -99,11 +99,11 @@ const Categories = () => {
                 >
                   <button
                     style={{
-                      width: "100%",
+                      width: "90%",
                       cursor: "pointer",
                       border: "none",
                       background: "none",
-                      fontSize: "18px",
+                      fontSize: "80%",
                     }}
                   >
                     {wear.name} wear
