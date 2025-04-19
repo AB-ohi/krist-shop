@@ -28,7 +28,7 @@ const ProfileSideBer = () => {
           </NavLink>  
 
         <button className="profile_side_ber" onClick={handelLogOut}>
-         <NavLink> <RiLogoutBoxLine /> LogOut</NavLink>
+         <NavLink style={{textDecoration:'none'}}> <RiLogoutBoxLine /> LogOut</NavLink>
         </button>
       </div>
     </div>
