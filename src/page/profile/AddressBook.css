@@ -1,7 +1,7 @@
 .address_input_section{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    /* width: 50% ; */
 }
 .address_input_section select,input{
     outline: none;
@@ -18,14 +18,14 @@
     padding: 0 0 0 50px;
     display: flex; 
     gap: 30px;
-    width: 50%;
+    /* width: 50%; */
 }
 
 .left_input_area{
     display: flex;
     flex-direction: column;
     gap: 30px;
-    width: 100%;
+    width: 50%;
 }
 .right_input_area{
     display: flex;
@@ -47,8 +47,9 @@
 
 .address_body{
     position: relative;
-    width: 100%;
+    width: 80%;
     display: flex;
+    gap: 30px;
     justify-content: space-between;
 }
 

@@ -1,4 +1,4 @@
-import { useContext,} from "react";
+import { useContext } from "react";
 import "./AddressBook.css";
 import locationBG from "../../../public/img/locationBG.png";
 import emptyAddressPicture from "../../../public/img/emptyAddressPicture.webp";
@@ -9,8 +9,7 @@ import useAddress from "../../Hook/addressHook";
 const AddressBook = () => {
   const { user } = useContext(AuthContext);
   const { addressList } = useAddress();
-  const handelDelete =  (addr) => {
-    
+  const handelDelete = (addr) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -18,19 +17,19 @@ const AddressBook = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-      if(result.isConfirmed){
-        const response =  fetch(`http://localhost:5000/address/${addr._id}`, {
-        method: "DELETE",
-      });
-      if (response.ok) {
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success"
+      if (result.isConfirmed) {
+        const response = fetch(`http://localhost:5000/address/${addr._id}`, {
+          method: "DELETE",
         });
-      }
+        if (response.ok) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+        }
       }
     });
   };
@@ -70,7 +69,7 @@ const AddressBook = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          form.reset()
+          form.reset();
         } else {
           Swal.fire({
             imageUrl: "error",
@@ -127,9 +126,14 @@ const AddressBook = () => {
           <div className="address_input_section">
             <label htmlFor="">Add phone number</label>
             <input
+              inputmode="numeric"
+              pattern="[0-9]*"
               type="text"
               name="number"
               placeholder="phone number"
+              onInput={(e) => {
+                e.target.value = e.target.value.replace(/[^0-9]/g, '');
+              }}
               required
             />
           </div>
@@ -145,7 +149,7 @@ const AddressBook = () => {
           <div className="address_input_section">
             <input
               className="submit_button"
-              style={{ width: "50%", marginLeft: "50%" }}
+              style={{  marginTop:'23px'}}
               type="submit"
               value="Submit your address"
             />

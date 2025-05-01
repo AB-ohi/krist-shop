@@ -9,7 +9,6 @@ import Details from "../page/Details/Details";
 import Profile from "../Layout/Profile";
 import Cart from "../page/Shop/Cart/Cart";
 import ProfileInfo from "../page/profile/profileInfo";
-import AddressBook from "../page/Profile/AddressBook";
 import Order from "../page/Profile/Order";
 import PrivetRoute from "./PrivetRoute";
 import Contact from "../page/Contact/Contact";
@@ -17,6 +16,7 @@ import Dokan from "../page/Dokan/Dokan";
 import Woman from "../page/Shop/Woman/Woman";
 import Footwear from "../page/Shop/Footwear/Footwear";
 import Kids from "../page/Shop/Kids/Kids";
+import AddressBook from "../page/profile/AddressBook";
 
 const router = createBrowserRouter([
     {
