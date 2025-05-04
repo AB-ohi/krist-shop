@@ -16,7 +16,7 @@ const useAddress = () => {
           if (data && Array.isArray(data)) {
             const filterAddressList = data.filter((addressList)=>addressList.user_name === user.email)
             setAddressList(filterAddressList)
-            refetch()
+            // refetch()
           } else {
             console.error("Error: No data fetched");
           }
