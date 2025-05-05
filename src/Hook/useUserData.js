@@ -5,7 +5,7 @@ import { json } from "react-router-dom";
 const useUserData = () => {
     const {user} = useContext(AuthContext)
     const [User, setUser]= useState()
-    const [AllUser, setAllUser] = useState()
+    const [AllUser, setAllUser] = useState([])
     useEffect(()=>{
         if(user){
             fetch(`http://localhost:5000/user/${user.displayName}`)

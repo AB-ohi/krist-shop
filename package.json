@@ -13,8 +13,10 @@
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^5.16.7",
+    "@tailwindcss/vite": "^4.1.5",
     "@tanstack/react-query": "^4.36.1",
     "axios": "^1.7.7",
+    "daisyui": "^5.0.35",
     "dotenv": "^16.5.0",
     "firebase": "^10.7.1",
     "localforage": "^1.10.0",
@@ -30,7 +32,8 @@
     "react-tabs": "^6.0.2",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.14.1",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "tailwindcss": "^4.1.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
