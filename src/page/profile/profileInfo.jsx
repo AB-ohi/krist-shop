@@ -12,7 +12,7 @@ const ProfileInfo = () => {
   const { addressList } = useAddress();
   console.log(addressList);
   return (
-    <div style={{ position: "relative", width: "100%", paddingLeft: "30px" }}>
+    <div style={{ position: "relative", width: "80%", paddingLeft: "30px" }}>
       <img className="profileImg" src={profileInfoBG} alt="" />
       <div className="InfoBody">
         <p
