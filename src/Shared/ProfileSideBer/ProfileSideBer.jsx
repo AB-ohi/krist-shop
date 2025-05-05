@@ -42,7 +42,7 @@ const ProfileSideBer = () => {
             <TbTruckDelivery />
             Manage Orders
           </NavLink>  
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/order">
+          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/manageUser">
             <FaRegUserCircle />
             Manage Users
           </NavLink>   

@@ -17,6 +17,8 @@ import Woman from "../page/Shop/Woman/Woman";
 import Footwear from "../page/Shop/Footwear/Footwear";
 import Kids from "../page/Shop/Kids/Kids";
 import AddressBook from "../page/profile/AddressBook";
+import AdminRoute from "./AdminRoute";
+import ManageUser from "../page/Admin/ManageUser";
 
 const router = createBrowserRouter([
     {
@@ -56,6 +58,10 @@ const router = createBrowserRouter([
             {
               path:'order',
               element:<Order/>
+            },
+            {
+              path:'manageUser',
+              element:<AdminRoute><ManageUser/></AdminRoute>
             }
           ]
         },
