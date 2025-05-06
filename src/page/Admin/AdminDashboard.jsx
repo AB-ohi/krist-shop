@@ -1,6 +1,8 @@
 const AdminDashboard = ()=>{
     return(
-        <div></div>
+        <div>
+            user dashbord
+        </div>
     )
 }
 

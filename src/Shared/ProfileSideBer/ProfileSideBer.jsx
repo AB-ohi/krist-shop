@@ -26,7 +26,7 @@ const ProfileSideBer = () => {
       {
         userData?.role == 'admin'?(
           <div className="MainChild">
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to={`/profile/${user.displayName}`}>
+          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to={`/profile/dashboard/${user.displayName}`}>
           <LuLayoutDashboard />
             Dashboard
           </NavLink>

@@ -19,6 +19,7 @@ import Kids from "../page/Shop/Kids/Kids";
 import AddressBook from "../page/profile/AddressBook";
 import AdminRoute from "./AdminRoute";
 import ManageUser from "../page/Admin/ManageUser";
+import AdminDashboard from "../page/Admin/AdminDashboard";
 
 const router = createBrowserRouter([
     {
@@ -62,6 +63,11 @@ const router = createBrowserRouter([
             {
               path:'manageUser',
               element:<AdminRoute><ManageUser/></AdminRoute>
+            },
+            {
+              path:'dashboard/:displayName',
+              element:<AdminRoute><AdminDashboard/></AdminRoute>,
+              loader:({params})=>fetch(`http://localhost:5000/user/${params.displayName}`)
             }
           ]
         },
