@@ -129,7 +129,7 @@ const NavBer = () => {
           <CiHeart />
           <CiShoppingCart />
           {user ? (
-            <Link to={`/profile/${user.displayName}`}>
+            <Link to={User?.role =='admin'? (`/profile/dashboard/${user.displayName}`):(`/profile/${user.displayName}`)}>
               <img
                 className="profilePic"
                 src={
