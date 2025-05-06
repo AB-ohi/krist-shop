@@ -1,0 +1,29 @@
+.ManageUser_table_header th{
+    text-align: center;
+    border-bottom: 2px solid #6A42C7 ;
+    padding: 11px;
+}
+.ManageUser_table_header{
+    background-color:#EEDFFF;
+    border-radius: 8px ;
+}
+.manage_uaer_table_body{
+    overflow: auto;
+}
+.manage_user_table_data:nth-child(even) {
+    background-color: #D6EEEE;
+  }
+.manage_user_table_data td{
+    padding: 15px 10px;
+    border-left: 2px solid #6A42C7 ;
+}
+.role_change_btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-color: #6A42C7;
+    width: 80%;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 8px;
+}
