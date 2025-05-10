@@ -30,7 +30,7 @@ const ProfileSideBer = () => {
           <LuLayoutDashboard />
             Dashboard
           </NavLink>
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/address">
+          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/manage_Product">
           <MdOutlineProductionQuantityLimits/>
           Manage Products
           </NavLink>

@@ -20,6 +20,7 @@ import AddressBook from "../page/profile/AddressBook";
 import AdminRoute from "./AdminRoute";
 import ManageUser from "../page/Admin/ManageUser";
 import AdminDashboard from "../page/Admin/AdminDashboard";
+import ManageProduct from "../page/Admin/manageProduct";
 
 const router = createBrowserRouter([
     {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
               path:'dashboard/:displayName',
               element:<AdminRoute><AdminDashboard/></AdminRoute>,
               loader:({params})=>fetch(`http://localhost:5000/user/${params.displayName}`)
+            },
+            {
+              path:'manage_Product',
+              element:<AdminRoute><ManageProduct/></AdminRoute>
             }
           ]
         },
