@@ -1,9 +1,11 @@
 import Swal from "sweetalert2";
 import useUserData from "../../Hook/useUserData";
 import "./ManageUser.css";
+import { useForm } from "react-hook-form";
 
 const ManageUser = () => {
   const { AllUser } = useUserData();
+  const {reset} = useForm()
   console.log(AllUser);
   const handelToChangeRole = (_id, currentRole) => {
     const updateRole = currentRole === "admin" ? "customer" : "admin";
@@ -33,6 +35,8 @@ const ManageUser = () => {
                 timer: 1500,
               });
             }
+            reset()
+            window.location.reload()
           });
       }
     });
