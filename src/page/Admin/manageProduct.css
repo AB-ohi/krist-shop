@@ -10,6 +10,7 @@
     font-size: 15px;
     border-radius: 11px;
     transition: 0.5s;
+    cursor: pointer;
 }
 .imgSelectBtn:hover{
     background-color: #03787e;
@@ -37,6 +38,7 @@
     color: white;
     border-radius: 50%;
     transition: 0.5s;
+    cursor: pointer;
 }
 .image-item__btn-wrapper button:hover{
     background-color: #ff4141;
@@ -50,8 +52,16 @@
     font-size: 15px;
     border-radius: 11px;
     transition: 0.5s;
+    cursor: pointer;
 
 }
 .removeAllImgBtn:hover{
     background-color: #ff4141;
+}
+.productUpArea{
+    display: flex;
+    width: 100%;
+}
+.productDescription{
+    width: 50%;
 }

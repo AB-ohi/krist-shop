@@ -16,8 +16,9 @@ const ManageProduct = () => {
 
   return (
     <div className="manage_product_body">
-      <h1>Upload product</h1>
-      <div>
+      <h1>Add New Product</h1>
+      <div className="productUpArea">
+        
         <ImageUploading
           multiple
           value={images}
@@ -62,11 +63,11 @@ const ManageProduct = () => {
                   </div>
                 ))}
               </div>
-              {imageList?.length > 0 ? 
+              {imageList?.length > 0 ? (
                 <button className="removeAllImgBtn" onClick={onImageRemoveAll}>
                   Remove all images
                 </button>
-               : 
+              ) : (
                 <div>
                   <img
                     style={{ width: "50%", margin: "auto" }}
@@ -74,13 +75,16 @@ const ManageProduct = () => {
                     alt=""
                   />
                 </div>
-              }
+              )}
             </div>
           )}
         </ImageUploading>
-        {images?.length > 0 ? <div>
-            
+        <div>
+        {images?.length > 0 ? 
+        <div className="productDescription">
+            <h2>Description</h2>
         </div> : <div></div>}
+        </div>
       </div>
     </div>
   );
