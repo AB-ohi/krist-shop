@@ -1,0 +1,22 @@
+.manage_product_body{
+    margin-left: 20px;
+}
+.imgSelectBtn{
+    background-color: #17C1CB;
+    padding: 20px 40px;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 11px;
+    transition: 0.5s;
+}
+.imgSelectBtn:hover{
+    background-color: #03787e;
+}
+.imgArea{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
