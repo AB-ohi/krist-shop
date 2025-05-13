@@ -20,3 +20,20 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
+
+.image-item{
+    position: relative;
+}
+.image-item__btn-wrapper{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.image-item__btn-wrapper button{
+    background: #17C1CB;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 50%;
+}

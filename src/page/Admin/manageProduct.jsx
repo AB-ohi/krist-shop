@@ -1,6 +1,7 @@
 import React from "react";
 import "./manageProduct.css";
 import ImageUploading from "react-images-uploading";
+import { RxCross2 } from "react-icons/rx";
 const ManageProduct = () => {
   const [images, setImages] = React.useState([]);
   const maxNumber = 69;
@@ -47,12 +48,15 @@ const ManageProduct = () => {
                 <div key={index} className="image-item">
                   <img style={{width:'240px'}} src={image["data_url"]} alt="" width="100" />
                   <div className="image-item__btn-wrapper">
-                    <button onClick={() => onImageRemove(index)}>Remove</button>
+                    <button onClick={() => onImageRemove(index)}><RxCross2 style={{paddingTop:'5px'}}/></button>
                   </div>
                 </div>
               ))}
               </div>
-              <button onClick={onImageRemoveAll}>Remove all images</button>
+            {
+                imageList?.length > 0?(<button onClick={onImageRemoveAll}>Remove all images</button>):(<div></div>)
+            }
+              
             </div>
           )}
         </ImageUploading>
