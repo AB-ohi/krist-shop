@@ -17,7 +17,7 @@
 .imgArea{
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -36,4 +36,22 @@
     border: none;
     color: white;
     border-radius: 50%;
+    transition: 0.5s;
+}
+.image-item__btn-wrapper button:hover{
+    background-color: #ff4141;
+}
+.removeAllImgBtn{
+    background-color: #17C1CB;
+    padding: 20px 40px;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 11px;
+    transition: 0.5s;
+
+}
+.removeAllImgBtn:hover{
+    background-color: #ff4141;
 }
