@@ -1,5 +1,6 @@
 .manage_product_body{
     margin-left: 20px;
+    width: 80%;
 }
 .imgSelectBtn{
     background: none;
@@ -69,4 +70,19 @@
 }
 .productDescription{
     width: 50%;
+}
+.product_weight{
+    width: 50%;
+    background-color: #eae1ff;
+    border-radius: 5px;
+}
+.product_weight input{
+    background: none;
+    border: none;
+}
+#unit{
+    border: none;
+    outline: none;
+    background: none;
+    color: rgb(97, 97, 97);
 }
