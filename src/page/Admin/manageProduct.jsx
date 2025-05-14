@@ -18,7 +18,9 @@ const ManageProduct = () => {
     <div className="manage_product_body">
       <h1>Add New Product</h1>
       <div className="productUpArea">
-        
+        <div  style={{width:'50%'}}>
+        <div>
+        <p style={{fontSize:'20px',marginBottom:'4px'}}>product Images </p>
         <ImageUploading
           multiple
           value={images}
@@ -46,11 +48,12 @@ const ManageProduct = () => {
                 Select your product
               </button>
 
+              <div>
               <div className="imgArea">
                 {imageList.map((image, index) => (
                   <div key={index} className="image-item">
                     <img
-                      style={{ width: "200px" }}
+                      style={{ width: "100px" }}
                       src={image["data_url"]}
                       alt=""
                       width="100"
@@ -62,6 +65,7 @@ const ManageProduct = () => {
                     </div>
                   </div>
                 ))}
+              </div>
               </div>
               {imageList?.length > 0 ? (
                 <button className="removeAllImgBtn" onClick={onImageRemoveAll}>
@@ -78,7 +82,12 @@ const ManageProduct = () => {
               )}
             </div>
           )}
-        </ImageUploading>
+        </ImageUploading> 
+        </div>
+        <div>
+            cdcd
+        </div>
+        </div>
         <div>
         {images?.length > 0 ? 
         <div className="productDescription">
