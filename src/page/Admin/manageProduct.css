@@ -86,3 +86,17 @@
     background: none;
     color: rgb(97, 97, 97);
 }
+.product_size{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+    border-radius: 4px;
+    background-color: #eae1ff;
+    color: rgb(97, 97, 97);
+}
+.product_size input{
+    background: none;
+    border: none;
+    width: 33%;
+}

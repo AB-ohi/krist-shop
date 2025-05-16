@@ -56,7 +56,7 @@ const ManageProduct = () => {
                         <div key={index} className="image-item">
                           <img
                             style={{ width: "100px", borderRadius: "8px" }}
-                              src={image["data_url"]}
+                            src={image["data_url"]}
                             alt=""
                             width="100"
                           />
@@ -104,15 +104,76 @@ const ManageProduct = () => {
                 >
                   <p style={{ color: " rgb(99, 60, 192)" }}>Items Weight</p>
                   <div className="product_weight">
-                  <input pattern="[0-9]*" onInput={(e) => {
-                e.target.value = e.target.value.replace(/[^0-9.]/g, '');
-              }}type="text" name="product_weight" id="" />
-                  <select
-                    id="unit"
-                  >
-                    <option value="kg">kg</option>
-                    <option value="gm">gm</option>
-                  </select>
+                    <input
+                      onInput={(e) => {
+                        e.target.value = e.target.value.replace(/[^0-9.]/g, "");
+                      }}
+                      type="text"
+                      name="product_weight"
+                      id=""
+                    />
+                    <select id="unit">
+                      <option value="kg">kg</option>
+                      <option value="gm">gm</option>
+                    </select>
+                  </div>
+                  <div>
+                    <p>
+                      Package Size (The package you use to ship your product)
+                    </p>
+                    <div style={{display:"flex", gap:'4px'}}>
+                      <div>
+                        <p>Length</p>
+                        <div className="product_size">
+                          <input
+                            onInput={(e) => {
+                              e.target.value = e.target.value.replace(
+                                /[^0-9.]/g,
+                                ""
+                              );
+                            }}
+                            type="text"
+                            name="length"
+                            id=""
+                          />
+                          <p>in</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p>Breath</p>
+                        <div className="product_size">
+                          <input
+                            onInput={(e) => {
+                              e.target.value = e.target.value.replace(
+                                /[^0-9.]/g,
+                                ""
+                              );
+                            }}
+                            type="text"
+                            name="length"
+                            id=""
+                          />
+                          <p>in</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p>width</p>
+                        <div className="product_size">
+                          <input
+                            onInput={(e) => {
+                              e.target.value = e.target.value.replace(
+                                /[^0-9.]/g,
+                                ""
+                              );
+                            }}
+                            type="text"
+                            name="length"
+                            id=""
+                          />
+                          <p>in</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
