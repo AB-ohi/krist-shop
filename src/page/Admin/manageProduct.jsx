@@ -3,6 +3,7 @@ import "./manageProduct.css";
 import ImageUploading from "react-images-uploading";
 import { RxCross2 } from "react-icons/rx";
 import addProduct from "../../../public/img/addProduct.gif";
+import { TbCoinTaka } from "react-icons/tb";
 const ManageProduct = () => {
   const [images, setImages] = React.useState([]);
   console.log(images);
@@ -111,19 +112,21 @@ const ManageProduct = () => {
                       type="text"
                       name="product_weight"
                       id=""
+                      required
+                      placeholder="Weight"
                     />
                     <select id="unit">
                       <option value="kg">kg</option>
                       <option value="gm">gm</option>
                     </select>
                   </div>
-                  <div>
-                    <p>
+                  <div style={{marginTop:'10px', marginBottom:'5px'}}>
+                    <p style={{color:'gray'}}>
                       Package Size (The package you use to ship your product)
                     </p>
-                    <div style={{display:"flex", gap:'4px'}}>
+                    <div style={{display:"flex", gap:'5px'}}>
                       <div>
-                        <p>Length</p>
+                        <p  style={{ color: " rgba(100, 60, 192, 0.62)" }}>Length</p>
                         <div className="product_size">
                           <input
                             onInput={(e) => {
@@ -135,12 +138,13 @@ const ManageProduct = () => {
                             type="text"
                             name="length"
                             id=""
+                            placeholder="0.0"
                           />
                           <p>in</p>
                         </div>
                       </div>
                       <div>
-                        <p>Breath</p>
+                        <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>Breath</p>
                         <div className="product_size">
                           <input
                             onInput={(e) => {
@@ -152,12 +156,13 @@ const ManageProduct = () => {
                             type="text"
                             name="length"
                             id=""
+                            placeholder="0.0"
                           />
                           <p>in</p>
                         </div>
                       </div>
                       <div>
-                        <p>width</p>
+                        <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>width</p>
                         <div className="product_size">
                           <input
                             onInput={(e) => {
@@ -176,11 +181,52 @@ const ManageProduct = () => {
                     </div>
                   </div>
                 </div>
+                 <div>
+            <p style={{ marginTop: "10px", fontSize: "20px" }}>
+                  Pricing
+                </p>
+                <div style={{display:'flex', gap:'5px',justifyContent:'space-between',border: "1px solid rgb(187, 158, 254)",
+                    borderRadius: "8px",
+                    padding: "5px",}}>
+                  <div className="price_fled">
+                    <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>price</p>
+                    <div className="price_main">
+                      <TbCoinTaka />
+                      <input
+                      onInput={(e) => {
+                        e.target.value = e.target.value.replace(/[^0-9.]/g, "");
+                      }}
+                      type="text"
+                      name="price"
+                      id=""
+                      className="product_price_fled"
+                    />
+                    </div>
+                  </div>
+                  <div>
+                    <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>price</p>
+                    <div className="price_main">
+                      <TbCoinTaka />
+                      <input
+                      onInput={(e) => {
+                        e.target.value = e.target.value.replace(/[^0-9.]/g, "");
+                      }}
+                      type="text"
+                      name="price"
+                      id=""
+                      className="product_price_fled"
+                    />
+                    </div>
+                  </div>
+                  
+                </div>
+          </div>
               </div>
             ) : (
               <div></div>
             )}
           </div>
+         
         </div>
         <div>
           {images?.length > 0 ? (

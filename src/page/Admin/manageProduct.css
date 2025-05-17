@@ -1,6 +1,7 @@
 .manage_product_body{
     margin-left: 20px;
     width: 80%;
+    margin-bottom: 20px;
 }
 .imgSelectBtn{
     background: none;
@@ -99,4 +100,17 @@
     background: none;
     border: none;
     width: 33%;
+}
+.product_price_fled{
+    background: none;
+    border: none;
+
+}
+.price_main{
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #eae1ff;
+    border-radius: 5px;
 }
