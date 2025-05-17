@@ -70,7 +70,11 @@
     width: 100%;
 }
 .productDescription{
-    width: 50%;
+    width: 100%;
+}
+.productDescription h2{
+    margin: 0;
+
 }
 .product_weight{
     width: 50%;
@@ -104,13 +108,26 @@
 .product_price_fled{
     background: none;
     border: none;
+    padding: 10px 9px;
 
 }
 .price_main{
-    padding: 5px;
+    padding: 0 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
     background-color: #eae1ff;
     border-radius: 5px;
+}
+
+.Description_area{
+    width: 95%;
+    border: 1px solid #6A42C7;
+    border-radius: 8px;
+    padding: 5px;
+}
+.product_detail_area{
+    width: 50%;
+    padding: 10px 15px ;
+    resize: none;
 }

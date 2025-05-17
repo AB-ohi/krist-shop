@@ -113,20 +113,22 @@ const ManageProduct = () => {
                       name="product_weight"
                       id=""
                       required
-                      placeholder="Weight"
+                      placeholder="0.0"
                     />
                     <select id="unit">
                       <option value="kg">kg</option>
                       <option value="gm">gm</option>
                     </select>
                   </div>
-                  <div style={{marginTop:'10px', marginBottom:'5px'}}>
-                    <p style={{color:'gray'}}>
+                  <div style={{ marginTop: "10px", marginBottom: "5px" }}>
+                    <p style={{ color: "gray" }}>
                       Package Size (The package you use to ship your product)
                     </p>
-                    <div style={{display:"flex", gap:'5px'}}>
+                    <div style={{ display: "flex", gap: "5px" }}>
                       <div>
-                        <p  style={{ color: " rgba(100, 60, 192, 0.62)" }}>Length</p>
+                        <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
+                          Length
+                        </p>
                         <div className="product_size">
                           <input
                             onInput={(e) => {
@@ -144,7 +146,9 @@ const ManageProduct = () => {
                         </div>
                       </div>
                       <div>
-                        <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>Breath</p>
+                        <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
+                          Height
+                        </p>
                         <div className="product_size">
                           <input
                             onInput={(e) => {
@@ -154,7 +158,7 @@ const ManageProduct = () => {
                               );
                             }}
                             type="text"
-                            name="length"
+                            name="height"
                             id=""
                             placeholder="0.0"
                           />
@@ -162,7 +166,9 @@ const ManageProduct = () => {
                         </div>
                       </div>
                       <div>
-                        <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>width</p>
+                        <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
+                          Width
+                        </p>
                         <div className="product_size">
                           <input
                             onInput={(e) => {
@@ -172,8 +178,9 @@ const ManageProduct = () => {
                               );
                             }}
                             type="text"
-                            name="length"
+                            name="width"
                             id=""
+                            placeholder="0.0"
                           />
                           <p>in</p>
                         </div>
@@ -181,57 +188,93 @@ const ManageProduct = () => {
                     </div>
                   </div>
                 </div>
-                 <div>
-            <p style={{ marginTop: "10px", fontSize: "20px" }}>
-                  Pricing
-                </p>
-                <div style={{display:'flex', gap:'5px',justifyContent:'space-between',border: "1px solid rgb(187, 158, 254)",
-                    borderRadius: "8px",
-                    padding: "5px",}}>
-                  <div className="price_fled">
-                    <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>price</p>
-                    <div className="price_main">
-                      <TbCoinTaka />
-                      <input
-                      onInput={(e) => {
-                        e.target.value = e.target.value.replace(/[^0-9.]/g, "");
-                      }}
-                      type="text"
-                      name="price"
-                      id=""
-                      className="product_price_fled"
-                    />
+                <div>
+                  <p style={{ marginTop: "10px", fontSize: "20px" }}>Pricing</p>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "5px",
+                      justifyContent: "space-between",
+                      border: "1px solid rgb(187, 158, 254)",
+                      borderRadius: "8px",
+                      padding: "5px",
+                    }}
+                  >
+                    <div className="price_fled">
+                      <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
+                        price
+                      </p>
+                      <div className="price_main">
+                        <TbCoinTaka
+                          style={{ color: "rgba(100, 60, 192, 0.62)" }}
+                        />
+                        <input
+                          onInput={(e) => {
+                            e.target.value = e.target.value.replace(
+                              /[^0-9.]/g,
+                              ""
+                            );
+                          }}
+                          type="text"
+                          name="price"
+                          id=""
+                          className="product_price_fled"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
+                        price
+                      </p>
+                      <div className="price_main">
+                        <TbCoinTaka
+                          style={{ color: " rgba(100, 60, 192, 0.62)" }}
+                        />
+                        <input
+                          onInput={(e) => {
+                            e.target.value = e.target.value.replace(
+                              /[^0-9.]/g,
+                              ""
+                            );
+                          }}
+                          type="text"
+                          name="price"
+                          id=""
+                          className="product_price_fled"
+                        />
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>price</p>
-                    <div className="price_main">
-                      <TbCoinTaka />
-                      <input
-                      onInput={(e) => {
-                        e.target.value = e.target.value.replace(/[^0-9.]/g, "");
-                      }}
-                      type="text"
-                      name="price"
-                      id=""
-                      className="product_price_fled"
-                    />
-                    </div>
-                  </div>
-                  
                 </div>
-          </div>
               </div>
             ) : (
               <div></div>
             )}
           </div>
-         
         </div>
-        <div>
+        <div style={{ width: "50%" }}>
           {images?.length > 0 ? (
             <div className="productDescription">
-              <h2>Description</h2>
+              <p style={{ fontSize: "20px", marginBottom: "4px" }}>
+                Description
+              </p>
+              <div className="Description_area">
+                <p>Product Name</p>
+                <input
+                  style={{ width: "50%" }}
+                  type="text"
+                  name="product_name"
+                  placeholder="Item name"
+                  id=""
+                  required
+                />
+                <p>Product Name</p>
+                <textarea
+                  className="product_detail_area"
+                  name="product_detail"
+                  placeholder="Write your message here..."
+                ></textarea>  1
+              </div>
             </div>
           ) : (
             <div></div>
