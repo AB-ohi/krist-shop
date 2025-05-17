@@ -68,6 +68,7 @@
 .productUpArea{
     display: flex;
     width: 100%;
+    gap: 20px;
 }
 .productDescription{
     width: 100%;
@@ -127,7 +128,10 @@
     padding: 5px;
 }
 .product_detail_area{
-    width: 50%;
+    width: 50% !important;
+    height: 50vh !important;
     padding: 10px 15px ;
     resize: none;
+    outline: #6A42C7;
+    border: 1px solid #8a64e5;
 }

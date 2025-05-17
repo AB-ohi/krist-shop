@@ -273,7 +273,7 @@ const ManageProduct = () => {
                   className="product_detail_area"
                   name="product_detail"
                   placeholder="Write your message here..."
-                ></textarea>  1
+                ></textarea>
               </div>
             </div>
           ) : (
