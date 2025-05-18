@@ -100,7 +100,7 @@ const ManageProduct = () => {
                   style={{
                     border: "1px solid rgb(187, 158, 254)",
                     borderRadius: "8px",
-                    padding: "5px",
+                    padding: "15px",
                   }}
                 >
                   <p style={{ color: " rgb(99, 60, 192)" }}>Items Weight</p>
@@ -112,6 +112,7 @@ const ManageProduct = () => {
                       type="text"
                       name="product_weight"
                       id=""
+
                       required
                       placeholder="0.0"
                     />
@@ -197,7 +198,7 @@ const ManageProduct = () => {
                       justifyContent: "space-between",
                       border: "1px solid rgb(187, 158, 254)",
                       borderRadius: "8px",
-                      padding: "5px",
+                      padding: "15px",
                     }}
                   >
                     <div className="price_fled">
@@ -261,18 +262,18 @@ const ManageProduct = () => {
               <div className="Description_area">
                 <p>Product Name</p>
                 <input
-                  style={{ width: "50%" }}
+                  style={{ width: "50%" , border:'none'}}
                   type="text"
                   name="product_name"
                   placeholder="Item name"
                   id=""
                   required
                 />
-                <p>Product Name</p>
+                <p>Item Description</p>
                 <textarea
                   className="product_detail_area"
                   name="product_detail"
-                  placeholder="Write your message here..."
+                  placeholder="Write here..."
                 ></textarea>
               </div>
             </div>

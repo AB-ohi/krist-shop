@@ -1,7 +1,8 @@
 .manage_product_body{
     margin-left: 20px;
-    width: 80%;
+    width: 75%;
     margin-bottom: 20px;
+    margin: auto;
 }
 .imgSelectBtn{
     background: none;
@@ -78,6 +79,8 @@
 
 }
 .product_weight{
+    display: flex;
+    justify-content: space-between;
     width: 50%;
     background-color: #eae1ff;
     border-radius: 5px;
@@ -85,6 +88,7 @@
 .product_weight input{
     background: none;
     border: none;
+    width: 80%;
 }
 #unit{
     border: none;
@@ -125,13 +129,15 @@
     width: 95%;
     border: 1px solid #6A42C7;
     border-radius: 8px;
-    padding: 5px;
+    padding: 15px;
 }
 .product_detail_area{
-    width: 50% !important;
-    height: 50vh !important;
+    width: 80% !important;
+    height: 30vh !important;
     padding: 10px 15px ;
     resize: none;
-    outline: #6A42C7;
-    border: 1px solid #8a64e5;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background-color: #eae1ff;
 }
