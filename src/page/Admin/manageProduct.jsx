@@ -93,7 +93,7 @@ const ManageProduct = () => {
           <div>
             {images?.length > 0 ? (
               <div>
-                <p style={{ marginTop: "10px", fontSize: "20px" }}>
+                <p style={{ marginTop: "20px", fontSize: "20px" }}>
                   shopping and Delivery
                 </p>
                 <div
@@ -112,7 +112,6 @@ const ManageProduct = () => {
                       type="text"
                       name="product_weight"
                       id=""
-
                       required
                       placeholder="0.0"
                     />
@@ -121,7 +120,7 @@ const ManageProduct = () => {
                       <option value="gm">gm</option>
                     </select>
                   </div>
-                  <div style={{ marginTop: "10px", marginBottom: "5px" }}>
+                  <div style={{ marginTop: "20px", marginBottom: "5px" }}>
                     <p style={{ color: "gray" }}>
                       Package Size (The package you use to ship your product)
                     </p>
@@ -217,7 +216,7 @@ const ManageProduct = () => {
                             );
                           }}
                           type="text"
-                          name="price"
+                          name="main_price"
                           id=""
                           className="product_price_fled"
                         />
@@ -225,7 +224,7 @@ const ManageProduct = () => {
                     </div>
                     <div>
                       <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
-                        price
+                        Compare at price
                       </p>
                       <div className="price_main">
                         <TbCoinTaka
@@ -239,7 +238,7 @@ const ManageProduct = () => {
                             );
                           }}
                           type="text"
-                          name="price"
+                          name="compare_price"
                           id=""
                           className="product_price_fled"
                         />
@@ -256,25 +255,57 @@ const ManageProduct = () => {
         <div style={{ width: "50%" }}>
           {images?.length > 0 ? (
             <div className="productDescription">
-              <p style={{ fontSize: "20px", marginBottom: "4px" }}>
-                Description
-              </p>
-              <div className="Description_area">
-                <p>Product Name</p>
-                <input
-                  style={{ width: "50%" , border:'none'}}
-                  type="text"
-                  name="product_name"
-                  placeholder="Item name"
-                  id=""
-                  required
-                />
-                <p>Item Description</p>
-                <textarea
-                  className="product_detail_area"
-                  name="product_detail"
-                  placeholder="Write here..."
-                ></textarea>
+              <div>
+                <p style={{ fontSize: "20px", marginBottom: "4px" }}>
+                  Description
+                </p>
+                <div className="Description_area">
+                  <p>Product Name</p>
+                  <input
+                    style={{
+                      width: "50%",
+                      border: "none",
+                      backgroundColor: "#eae1ff",
+                    }}
+                    type="text"
+                    name="product_name"
+                    placeholder="Item name"
+                    id=""
+                    required
+                  />
+                  <p>Item Description</p>
+                  <textarea
+                    className="product_detail_area"
+                    name="product_detail"
+                    placeholder="Write here..."
+                  ></textarea>
+                </div>
+              </div>
+              <div style={{ marginTop: "20px" }}>
+                <p style={{ fontSize: "20px", marginBottom: "4px" }}>
+                  Category
+                </p>
+                <div className="Description_area">
+                  <p>Category</p>
+                  <select
+                    name="category"
+                    style={{
+                      width: "90%",
+                      border: "none",
+                      padding:'10px',
+                      backgroundColor: "#eae1ff",
+                    }}
+                    required
+                  >
+                    <option value="">Select Category</option>
+                    <option value="men">Men</option>
+                    <option value="women">Women</option>
+                    <option value="footwear">Footwear</option>
+                    <option value="kids">Kids</option>
+                    <option value="bfwear">B&F Wear</option>
+                    <option value="western">Western Wear</option>
+                  </select>
+                </div>
               </div>
             </div>
           ) : (
