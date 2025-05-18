@@ -292,7 +292,7 @@ const ManageProduct = () => {
                     style={{
                       width: "90%",
                       border: "none",
-                      padding:'10px',
+                      padding: "10px",
                       backgroundColor: "#eae1ff",
                     }}
                     required
@@ -305,6 +305,27 @@ const ManageProduct = () => {
                     <option value="bfwear">B&F Wear</option>
                     <option value="western">Western Wear</option>
                   </select>
+                </div>
+              </div>
+              <div>
+                <p style={{ fontSize: "20px", marginBottom: "4px" }}>
+                  Inventory
+                </p>
+                <div className="Description_area">
+                  <p>Quantity</p>
+                  <input
+                    onInput={(e) => {
+                      e.target.value = e.target.value.replace(/[^0-9.]/g,"");
+                    }}
+                    style={{
+                      outline: "none",
+                      border: "none",
+                      backgroundColor: "#eae1ff",
+                    }}
+                    type="text"
+                    name="quantity"
+                    id=""
+                  />
                 </div>
               </div>
             </div>
