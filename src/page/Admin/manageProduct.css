@@ -141,3 +141,10 @@
     border-radius: 8px;
     background-color: #eae1ff;
 }
+.inventory{
+    border: 1px solid #6A42C7;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+}

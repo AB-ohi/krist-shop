@@ -308,11 +308,12 @@ const ManageProduct = () => {
                 </div>
               </div>
               <div>
-                <p style={{ fontSize: "20px", marginBottom: "4px" }}>
+                <p style={{ fontSize: "20px", marginBottom: "4px", marginTop:'20px' }}>
                   Inventory
                 </p>
-                <div className="Description_area">
-                  <p>Quantity</p>
+                <div className="inventory">
+                  <div>
+                    <p>Quantity</p>
                   <input
                     onInput={(e) => {
                       e.target.value = e.target.value.replace(/[^0-9.]/g,"");
@@ -324,8 +325,24 @@ const ManageProduct = () => {
                     }}
                     type="text"
                     name="quantity"
+                    placeholder=""
                     id=""
                   />
+                  </div>
+                  <div>
+                    <p>Quantity</p>
+                  <input
+                    
+                    style={{
+                      outline: "none",
+                      border: "none",
+                      backgroundColor: "#eae1ff",
+                    }}
+                    type="text"
+                    name="quantity"
+                    id=""
+                  />
+                  </div>
                 </div>
               </div>
             </div>
