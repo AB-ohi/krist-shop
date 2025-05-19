@@ -104,7 +104,7 @@ const ManageProduct = () => {
                   }}
                 >
                   <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
-                    Items Weight
+                    Items Weight<span style={{ color: "red" }}>*</span>
                   </p>
                   <div className="product_weight">
                     <input
@@ -129,7 +129,7 @@ const ManageProduct = () => {
                     <div style={{ display: "flex", gap: "5px" }}>
                       <div>
                         <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
-                          Length
+                          Length<span style={{ color: "red" }}>*</span>
                         </p>
                         <div className="product_size">
                           <input
@@ -142,6 +142,7 @@ const ManageProduct = () => {
                             type="text"
                             name="length"
                             id=""
+                            required
                             placeholder="0.0"
                           />
                           <p>in</p>
@@ -169,7 +170,7 @@ const ManageProduct = () => {
                       </div>
                       <div>
                         <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
-                          Width
+                          Width<span style={{ color: "red" }}>*</span>
                         </p>
                         <div className="product_size">
                           <input
@@ -182,6 +183,7 @@ const ManageProduct = () => {
                             type="text"
                             name="width"
                             id=""
+                            required
                             placeholder="0.0"
                           />
                           <p>in</p>
@@ -204,7 +206,7 @@ const ManageProduct = () => {
                   >
                     <div className="price_fled">
                       <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
-                        price
+                        price<span style={{ color: "red" }}>*</span>
                       </p>
                       <div className="price_main">
                         <TbCoinTaka
@@ -221,13 +223,14 @@ const ManageProduct = () => {
                           name="main_price"
                           id=""
                           placeholder="0.0"
+                          required
                           className="product_price_fled"
                         />
                       </div>
                     </div>
                     <div>
                       <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
-                        Compare at price
+                        Compare at price (Optional)
                       </p>
                       <div className="price_main">
                         <TbCoinTaka
@@ -265,7 +268,7 @@ const ManageProduct = () => {
                 </p>
                 <div className="Description_area">
                   <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
-                    Product Name
+                    Product Name<span style={{ color: "red" }}>*</span>
                   </p>
                   <input
                     style={{
@@ -280,12 +283,13 @@ const ManageProduct = () => {
                     required
                   />
                   <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
-                    Item Description
+                    Item Description<span style={{ color: "red" }}>*</span>
                   </p>
                   <textarea
                     className="product_detail_area"
                     name="product_detail"
                     placeholder="Write here..."
+                    required
                   ></textarea>
                 </div>
               </div>
@@ -294,7 +298,9 @@ const ManageProduct = () => {
                   Category
                 </p>
                 <div className="Description_area">
-                  <p>Category</p>
+                  <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
+                    Category<span style={{ color: "red" }}>*</span>
+                  </p>
                   <select
                     name="category"
                     style={{
@@ -302,6 +308,8 @@ const ManageProduct = () => {
                       border: "none",
                       padding: "10px",
                       backgroundColor: "#eae1ff",
+                      outline: "none",
+                      borderRadius: "5px",
                     }}
                     required
                   >
@@ -327,7 +335,9 @@ const ManageProduct = () => {
                 </p>
                 <div className="inventory">
                   <div>
-                    <p>Quantity</p>
+                    <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
+                      Quantity<span style={{color:'red'}}>*</span>
+                    </p>
                     <input
                       onInput={(e) => {
                         e.target.value = e.target.value.replace(/[^0-9.]/g, "");
@@ -344,7 +354,9 @@ const ManageProduct = () => {
                     />
                   </div>
                   <div>
-                    <p>SKU(optional)</p>
+                    <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
+                      SKU(optional)
+                    </p>
                     <input
                       style={{
                         outline: "none",
@@ -366,7 +378,7 @@ const ManageProduct = () => {
                     marginTop: "20px",
                   }}
                 >
-                  Selling Type
+                  Selling Type<span style={{color:'red'}}>*</span>
                 </p>
                 <div className="selling_type_fled">
                   <label style={{ display: "block", marginBottom: "5px" }}>
