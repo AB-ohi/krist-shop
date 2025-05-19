@@ -148,3 +148,8 @@
     display: flex;
     justify-content: space-between;
 }
+.selling_type_fled{
+    border: 1px solid #6A42C7;
+    padding: 20px;
+    border-radius: 8px;
+}

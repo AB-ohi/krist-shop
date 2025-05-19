@@ -103,7 +103,9 @@ const ManageProduct = () => {
                     padding: "15px",
                   }}
                 >
-                  <p style={{ color: " rgb(99, 60, 192)" }}>Items Weight</p>
+                  <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
+                    Items Weight
+                  </p>
                   <div className="product_weight">
                     <input
                       onInput={(e) => {
@@ -218,6 +220,7 @@ const ManageProduct = () => {
                           type="text"
                           name="main_price"
                           id=""
+                          placeholder="0.0"
                           className="product_price_fled"
                         />
                       </div>
@@ -241,6 +244,7 @@ const ManageProduct = () => {
                           name="compare_price"
                           id=""
                           className="product_price_fled"
+                          placeholder="0.0"
                         />
                       </div>
                     </div>
@@ -260,7 +264,9 @@ const ManageProduct = () => {
                   Description
                 </p>
                 <div className="Description_area">
-                  <p>Product Name</p>
+                  <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
+                    Product Name
+                  </p>
                   <input
                     style={{
                       width: "50%",
@@ -273,7 +279,9 @@ const ManageProduct = () => {
                     id=""
                     required
                   />
-                  <p>Item Description</p>
+                  <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
+                    Item Description
+                  </p>
                   <textarea
                     className="product_detail_area"
                     name="product_detail"
@@ -308,41 +316,76 @@ const ManageProduct = () => {
                 </div>
               </div>
               <div>
-                <p style={{ fontSize: "20px", marginBottom: "4px", marginTop:'20px' }}>
+                <p
+                  style={{
+                    fontSize: "20px",
+                    marginBottom: "4px",
+                    marginTop: "20px",
+                  }}
+                >
                   Inventory
                 </p>
                 <div className="inventory">
                   <div>
                     <p>Quantity</p>
-                  <input
-                    onInput={(e) => {
-                      e.target.value = e.target.value.replace(/[^0-9.]/g,"");
-                    }}
-                    style={{
-                      outline: "none",
-                      border: "none",
-                      backgroundColor: "#eae1ff",
-                    }}
-                    type="text"
-                    name="quantity"
-                    placeholder=""
-                    id=""
-                  />
+                    <input
+                      onInput={(e) => {
+                        e.target.value = e.target.value.replace(/[^0-9.]/g, "");
+                      }}
+                      style={{
+                        outline: "none",
+                        border: "none",
+                        backgroundColor: "#eae1ff",
+                      }}
+                      type="number"
+                      name="quantity"
+                      placeholder="0"
+                      id=""
+                    />
                   </div>
                   <div>
-                    <p>Quantity</p>
-                  <input
-                    
-                    style={{
-                      outline: "none",
-                      border: "none",
-                      backgroundColor: "#eae1ff",
-                    }}
-                    type="text"
-                    name="quantity"
-                    id=""
-                  />
+                    <p>SKU(optional)</p>
+                    <input
+                      style={{
+                        outline: "none",
+                        border: "none",
+                        backgroundColor: "#eae1ff",
+                      }}
+                      type="text"
+                      name="quantity"
+                      id=""
+                    />
                   </div>
+                </div>
+              </div>
+              <div>
+                <p
+                  style={{
+                    fontSize: "20px",
+                    marginBottom: "4px",
+                    marginTop: "20px",
+                  }}
+                >
+                  Selling Type
+                </p>
+                <div className="selling_type_fled">
+                  <label style={{ display: "block", marginBottom: "5px" }}>
+                    <input
+                      type="radio"
+                      name="selling_type"
+                      value="in-store"
+                      required
+                    />
+                    &nbsp; In-store selling only
+                  </label>
+                  <label style={{ display: "block", marginBottom: "5px" }}>
+                    <input type="radio" name="selling_type" value="online" />
+                    &nbsp; Online selling only
+                  </label>
+                  <label style={{ display: "block" }}>
+                    <input type="radio" name="selling_type" value="both" />
+                    &nbsp; Available both in-store and online
+                  </label>
                 </div>
               </div>
             </div>
