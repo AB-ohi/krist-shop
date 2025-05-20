@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./manageProduct.css";
 import ImageUploading from "react-images-uploading";
 import { RxCross2 } from "react-icons/rx";
 import addProduct from "../../../public/img/addProduct.gif";
 import { TbCoinTaka } from "react-icons/tb";
 const ManageProduct = () => {
-  const [images, setImages] = React.useState([]);
+  const [images, setImages] = useState([]);
+  const [formData,setFormData]= useState({
+    product_weight:'',
+    length:'',
+    width:'',
+    main_price:'',
+    product_name:'',
+    category:'',
+    quantity:'',
+    selling_type:''
+
+
+  })
   console.log(images);
   const maxNumber = 69;
 
   const onChange = (imageList, addUpdateIndex) => {
-    // data for submit
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
@@ -18,7 +29,7 @@ const ManageProduct = () => {
   return (
     <div className="manage_product_body">
       <h1>Add New Product</h1>
-      <div className="productUpArea">
+      <form className="productUpArea">
         <div style={{ width: "50%" }}>
           <div>
             <p style={{ fontSize: "20px", marginBottom: "4px" }}>
@@ -40,16 +51,15 @@ const ManageProduct = () => {
                 isDragging,
                 dragProps,
               }) => (
-                // write your building UI
                 <div className="upload__image-wrapper">
-                  <button
-                    style={isDragging ? { color: "red" } : undefined}
+                  <p
+                    style={isDragging ? { color: "red", } : undefined}
                     className="imgSelectBtn"
                     onClick={onImageUpload}
                     {...dragProps}
                   >
                     Select your product
-                  </button>
+                  </p>
 
                   <div>
                     <div className="imgArea">
@@ -351,6 +361,7 @@ const ManageProduct = () => {
                       name="quantity"
                       placeholder="0"
                       id=""
+                      required
                     />
                   </div>
                   <div>
@@ -364,7 +375,7 @@ const ManageProduct = () => {
                         backgroundColor: "#eae1ff",
                       }}
                       type="text"
-                      name="quantity"
+                      name="SKU"
                       id=""
                     />
                   </div>
@@ -399,13 +410,16 @@ const ManageProduct = () => {
                     &nbsp; Available both in-store and online
                   </label>
                 </div>
+                <div>
+                  <input type="submit" value="Add Product" />
+                </div>
               </div>
             </div>
           ) : (
             <div></div>
           )}
         </div>
-      </div>
+      </form>
     </div>
   );
 };
