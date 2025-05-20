@@ -15,10 +15,20 @@ const ManageProduct = () => {
     category:'',
     quantity:'',
     selling_type:''
-
-
   })
-  console.log(images);
+  const isFormValue = () =>{
+    return(
+      formData.product_weight.trim()&&
+      formData.length.trim()&&
+      formData.width.trim()&&
+      formData.main_price.trim()&&
+      formData.product_name.trim()&&
+      formData.category.trim()&&
+      formData.quantity.trim()&&
+      formData.selling_type.trim()&&
+      images.length > 0
+    )
+  }
   const maxNumber = 69;
 
   const onChange = (imageList, addUpdateIndex) => {
