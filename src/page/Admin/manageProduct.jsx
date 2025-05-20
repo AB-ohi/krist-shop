@@ -121,6 +121,7 @@ const ManageProduct = () => {
                       onInput={(e) => {
                         e.target.value = e.target.value.replace(/[^0-9.]/g, "");
                       }}
+                      onChange={(e)=>setFormData({...formData, product_weight:e.target.value})}
                       type="text"
                       name="product_weight"
                       id=""
@@ -149,6 +150,7 @@ const ManageProduct = () => {
                                 ""
                               );
                             }}
+                            onChange={(e)=>setFormData({...formData, length:e.target.value})}
                             type="text"
                             name="length"
                             id=""
@@ -190,6 +192,7 @@ const ManageProduct = () => {
                                 ""
                               );
                             }}
+                            onChange={(e)=>setFormData({...formData, width:e.target.value})}
                             type="text"
                             name="width"
                             id=""
@@ -229,6 +232,7 @@ const ManageProduct = () => {
                               ""
                             );
                           }}
+                          onChange={(e)=>setFormData({...formData, main_price:e.target.value})}
                           type="text"
                           name="main_price"
                           id=""
@@ -286,6 +290,7 @@ const ManageProduct = () => {
                       border: "none",
                       backgroundColor: "#eae1ff",
                     }}
+                    onChange={(e)=>setFormData({...formData, product_name:e.target.value})}
                     type="text"
                     name="product_name"
                     placeholder="Item name"
@@ -313,6 +318,8 @@ const ManageProduct = () => {
                   </p>
                   <select
                     name="category"
+                    onChange={(e)=>setFormData({...formData, category: e.target.value})}
+                    value={formData.category}
                     style={{
                       width: "90%",
                       border: "none",
@@ -352,6 +359,7 @@ const ManageProduct = () => {
                       onInput={(e) => {
                         e.target.value = e.target.value.replace(/[^0-9.]/g, "");
                       }}
+                      onChange={(e)=>setFormData({...formData, quantity:e.target.value})}
                       style={{
                         outline: "none",
                         border: "none",
@@ -394,6 +402,7 @@ const ManageProduct = () => {
                 <div className="selling_type_fled">
                   <label style={{ display: "block", marginBottom: "5px" }}>
                     <input
+                    onChange={(e)=>setFormData({...formData, selling_type: e.target.value})}
                       type="radio"
                       name="selling_type"
                       value="in-store"
