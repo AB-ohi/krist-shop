@@ -18,7 +18,6 @@ const ManageProduct = () => {
     quantity: "",
     selling_type: "",
   });
-  console.log(formData);
   const isFormValue = () => {
     return (
       formData.product_weight.trim() &&
@@ -33,6 +32,16 @@ const ManageProduct = () => {
       images.length > 0
     );
   };
+  const handelProductSubmit =(e)=>{
+    e.preventDefault();
+    const from = e.target;
+    const height = from.height.value;
+    const compare_price = from.compare_price.value;
+    const SKU = from.SKU.value;
+    const allValueProduct = {formData, height,compare_price,SKU}
+
+    console.log(allValueProduct)
+  }
   const maxNumber = 69;
 
   const onChange = (imageList, addUpdateIndex) => {
@@ -43,7 +52,7 @@ const ManageProduct = () => {
   return (
     <div className="manage_product_body">
       <h1>Add New Product</h1>
-      <form className="productUpArea">
+      <form onSubmit={handelProductSubmit} className="productUpArea">
         <div style={{ width: "50%" }}>
           <div>
             <p style={{ fontSize: "20px", marginBottom: "4px" }}>
