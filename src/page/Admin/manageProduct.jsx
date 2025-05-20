@@ -6,16 +6,19 @@ import addProduct from "../../../public/img/addProduct.gif";
 import { TbCoinTaka } from "react-icons/tb";
 const ManageProduct = () => {
   const [images, setImages] = useState([]);
+
   const [formData,setFormData]= useState({
     product_weight:'',
     length:'',
     width:'',
     main_price:'',
     product_name:'',
+    product_detail:'',
     category:'',
     quantity:'',
     selling_type:''
   })
+  console.log(formData)
   const isFormValue = () =>{
     return(
       formData.product_weight.trim()&&
@@ -23,6 +26,7 @@ const ManageProduct = () => {
       formData.width.trim()&&
       formData.main_price.trim()&&
       formData.product_name.trim()&&
+      formData.product_detail.trim()&&
       formData.category.trim()&&
       formData.quantity.trim()&&
       formData.selling_type.trim()&&
@@ -311,6 +315,7 @@ const ManageProduct = () => {
                     Item Description<span style={{ color: "red" }}>*</span>
                   </p>
                   <textarea
+                  onChange={(e)=>setFormData({...formData, product_detail: e.target.value})}
                     className="product_detail_area"
                     name="product_detail"
                     placeholder="Write here..."
@@ -430,7 +435,14 @@ const ManageProduct = () => {
                   </label>
                 </div>
                 <div>
-                  <input disabled={!isFormValue()} type="submit" value="Add Product" />
+                  {/*  */}
+             {
+              isFormValue()? (
+                <input disabled={!isFormValue()} type="submit" value="Add Product" />
+              ):(
+                <div></div>
+              )
+             }
                 </div>
               </div>
             </div>
