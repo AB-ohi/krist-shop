@@ -7,32 +7,32 @@ import { TbCoinTaka } from "react-icons/tb";
 const ManageProduct = () => {
   const [images, setImages] = useState([]);
 
-  const [formData,setFormData]= useState({
-    product_weight:'',
-    length:'',
-    width:'',
-    main_price:'',
-    product_name:'',
-    product_detail:'',
-    category:'',
-    quantity:'',
-    selling_type:''
-  })
-  console.log(formData)
-  const isFormValue = () =>{
-    return(
-      formData.product_weight.trim()&&
-      formData.length.trim()&&
-      formData.width.trim()&&
-      formData.main_price.trim()&&
-      formData.product_name.trim()&&
-      formData.product_detail.trim()&&
-      formData.category.trim()&&
-      formData.quantity.trim()&&
-      formData.selling_type.trim()&&
+  const [formData, setFormData] = useState({
+    product_weight: "",
+    length: "",
+    width: "",
+    main_price: "",
+    product_name: "",
+    product_detail: "",
+    category: "",
+    quantity: "",
+    selling_type: "",
+  });
+  console.log(formData);
+  const isFormValue = () => {
+    return (
+      formData.product_weight.trim() &&
+      formData.length.trim() &&
+      formData.width.trim() &&
+      formData.main_price.trim() &&
+      formData.product_name.trim() &&
+      formData.product_detail.trim() &&
+      formData.category.trim() &&
+      formData.quantity.trim() &&
+      formData.selling_type.trim() &&
       images.length > 0
-    )
-  }
+    );
+  };
   const maxNumber = 69;
 
   const onChange = (imageList, addUpdateIndex) => {
@@ -67,7 +67,7 @@ const ManageProduct = () => {
               }) => (
                 <div className="upload__image-wrapper">
                   <p
-                    style={isDragging ? { color: "red", } : undefined}
+                    style={isDragging ? { color: "red" } : undefined}
                     className="imgSelectBtn"
                     onClick={onImageUpload}
                     {...dragProps}
@@ -135,7 +135,12 @@ const ManageProduct = () => {
                       onInput={(e) => {
                         e.target.value = e.target.value.replace(/[^0-9.]/g, "");
                       }}
-                      onChange={(e)=>setFormData({...formData, product_weight:e.target.value})}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          product_weight: e.target.value,
+                        })
+                      }
                       type="text"
                       name="product_weight"
                       id=""
@@ -164,7 +169,12 @@ const ManageProduct = () => {
                                 ""
                               );
                             }}
-                            onChange={(e)=>setFormData({...formData, length:e.target.value})}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                length: e.target.value,
+                              })
+                            }
                             type="text"
                             name="length"
                             id=""
@@ -206,7 +216,12 @@ const ManageProduct = () => {
                                 ""
                               );
                             }}
-                            onChange={(e)=>setFormData({...formData, width:e.target.value})}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                width: e.target.value,
+                              })
+                            }
                             type="text"
                             name="width"
                             id=""
@@ -246,7 +261,12 @@ const ManageProduct = () => {
                               ""
                             );
                           }}
-                          onChange={(e)=>setFormData({...formData, main_price:e.target.value})}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              main_price: e.target.value,
+                            })
+                          }
                           type="text"
                           name="main_price"
                           id=""
@@ -304,7 +324,9 @@ const ManageProduct = () => {
                       border: "none",
                       backgroundColor: "#eae1ff",
                     }}
-                    onChange={(e)=>setFormData({...formData, product_name:e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, product_name: e.target.value })
+                    }
                     type="text"
                     name="product_name"
                     placeholder="Item name"
@@ -315,7 +337,12 @@ const ManageProduct = () => {
                     Item Description<span style={{ color: "red" }}>*</span>
                   </p>
                   <textarea
-                  onChange={(e)=>setFormData({...formData, product_detail: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        product_detail: e.target.value,
+                      })
+                    }
                     className="product_detail_area"
                     name="product_detail"
                     placeholder="Write here..."
@@ -333,7 +360,9 @@ const ManageProduct = () => {
                   </p>
                   <select
                     name="category"
-                    onChange={(e)=>setFormData({...formData, category: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, category: e.target.value })
+                    }
                     value={formData.category}
                     style={{
                       width: "90%",
@@ -368,13 +397,15 @@ const ManageProduct = () => {
                 <div className="inventory">
                   <div>
                     <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
-                      Quantity<span style={{color:'red'}}>*</span>
+                      Quantity<span style={{ color: "red" }}>*</span>
                     </p>
                     <input
                       onInput={(e) => {
                         e.target.value = e.target.value.replace(/[^0-9.]/g, "");
                       }}
-                      onChange={(e)=>setFormData({...formData, quantity:e.target.value})}
+                      onChange={(e) =>
+                        setFormData({ ...formData, quantity: e.target.value })
+                      }
                       style={{
                         outline: "none",
                         border: "none",
@@ -412,12 +443,17 @@ const ManageProduct = () => {
                     marginTop: "20px",
                   }}
                 >
-                  Selling Type<span style={{color:'red'}}>*</span>
+                  Selling Type<span style={{ color: "red" }}>*</span>
                 </p>
                 <div className="selling_type_fled">
                   <label style={{ display: "block", marginBottom: "5px" }}>
                     <input
-                    onChange={(e)=>setFormData({...formData, selling_type: e.target.value})}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          selling_type: e.target.value,
+                        })
+                      }
                       type="radio"
                       name="selling_type"
                       value="in-store"
@@ -436,13 +472,18 @@ const ManageProduct = () => {
                 </div>
                 <div>
                   {/*  */}
-             {
-              isFormValue()? (
-                <input disabled={!isFormValue()} type="submit" value="Add Product" />
-              ):(
-                <div></div>
-              )
-             }
+                  {isFormValue() ? (
+                    <input
+                      disabled={!isFormValue()}
+                      style={{ marginTop: "20px" }}
+                      type="submit"
+                      value="Add Product"
+                    />
+                  ) : (
+                    <p style={{ color: "red", fontSize: "14px" }}>
+                      Please fill all required fields before submitting.
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
