@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./manageProduct.css";
 import ImageUploading from "react-images-uploading";
 import { RxCross2 } from "react-icons/rx";
 import addProduct from "../../../public/img/addProduct.gif";
 import { TbCoinTaka } from "react-icons/tb";
+import Swal from "sweetalert2";
 const ManageProduct = () => {
   const [images, setImages] = useState([]);
 
@@ -18,6 +19,7 @@ const ManageProduct = () => {
     quantity: "",
     selling_type: "",
   });
+  console.log(formData);
   const isFormValue = () => {
     return (
       formData.product_weight.trim() &&
@@ -32,16 +34,43 @@ const ManageProduct = () => {
       images.length > 0
     );
   };
-  const handelProductSubmit =(e)=>{
+  const handelProductSubmit = (e) => {
     e.preventDefault();
     const from = e.target;
     const height = from.height.value;
     const compare_price = from.compare_price.value;
     const SKU = from.SKU.value;
-    const allValueProduct = {formData, height,compare_price,SKU}
+    const allValueProduct = { ...formData, height, compare_price, SKU, images };
 
-    console.log(allValueProduct)
-  }
+    console.log("productDetail", allValueProduct);
+    fetch("http://localhost:5000/AllProduct", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(allValueProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+        } else {
+          Swal.fire({
+            imageUrl: "error",
+            imageHeight: 100,
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+        }
+      });
+  };
   const maxNumber = 69;
 
   const onChange = (imageList, addUpdateIndex) => {
@@ -471,11 +500,31 @@ const ManageProduct = () => {
                     &nbsp; In-store selling only
                   </label>
                   <label style={{ display: "block", marginBottom: "5px" }}>
-                    <input type="radio" name="selling_type" value="online" />
+                    <input
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          selling_type: e.target.value,
+                        })
+                      }
+                      type="radio"
+                      name="selling_type"
+                      value="online"
+                    />
                     &nbsp; Online selling only
                   </label>
                   <label style={{ display: "block" }}>
-                    <input type="radio" name="selling_type" value="both" />
+                    <input
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          selling_type: e.target.value,
+                        })
+                      }
+                      type="radio"
+                      name="selling_type"
+                      value="both"
+                    />
                     &nbsp; Available both in-store and online
                   </label>
                 </div>
