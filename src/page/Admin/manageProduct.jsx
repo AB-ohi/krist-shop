@@ -5,6 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 import addProduct from "../../../public/img/addProduct.gif";
 import { TbCoinTaka } from "react-icons/tb";
 import Swal from "sweetalert2";
+const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token;
 const ManageProduct = () => {
   const [images, setImages] = useState([]);
 
@@ -42,14 +43,26 @@ const ManageProduct = () => {
     const SKU = from.SKU.value;
     const allValueProduct = { ...formData, height, compare_price, SKU, images };
 
-    console.log("productDetail", allValueProduct);
-    fetch("http://localhost:5000/AllProduct", {
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token}`;
+    const images =(ImageData)=>{
+      const imageData = new FormData();
+      imageData.append('images', ImageData.images[0]);
+      fetch(img_hosting_url,{
+        method:'post',
+        body:imageData 
+      })
+      .then(res=>res.json())
+      .then((imageUpload)=>{
+        if(imageUpload.success){
+            fetch("http://localhost:5000/AllProduct", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(allValueProduct),
     })
+        }
+      })
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -70,6 +83,12 @@ const ManageProduct = () => {
           });
         }
       });
+    }
+    
+
+    console.log("productDetail", allValueProduct);
+  
+      
   };
   const maxNumber = 69;
 
