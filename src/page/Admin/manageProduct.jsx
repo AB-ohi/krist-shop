@@ -42,48 +42,54 @@ const ManageProduct = () => {
     const compare_price = from.compare_price.value;
     const SKU = from.SKU.value;
     const allValueProduct = { ...formData, height, compare_price, SKU, images };
+    
 
-    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token}`;
-    const images =(ImageData)=>{
-      const imageData = new FormData();
-      imageData.append('images', ImageData.images[0]);
-      fetch(img_hosting_url,{
-        method:'post',
-        body:imageData 
-      })
-      .then(res=>res.json())
-      .then((imageUpload)=>{
-        if(imageUpload.success){
-            fetch("http://localhost:5000/AllProduct", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(allValueProduct),
-    })
-        }
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your work has been saved",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          form.reset();
-        } else {
-          Swal.fire({
-            imageUrl: "error",
-            imageHeight: 100,
-            title: "Oops...",
-            text: "Something went wrong!",
-          });
-        }
-      });
+    try{
+      const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token}`;
+      const uploadImage =await Promise.all(
+        images
+      )
     }
+    // const uploadImageToServer =(imageFile)=>{
+    //   const imageData = new FormData();
+    //   imageData.append('image', imageFile.file);
+    //   fetch(img_hosting_url,{
+    //     method:'post',
+    //     body:imageData 
+    //   })
+    //   .then(res=>res.json())
+    //   .then((imageUpload)=>{
+    //     if(imageUpload.success){
+    //         fetch("http://localhost:5000/AllProduct", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(allValueProduct),
+    // })
+    //     }
+    //   })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data) {
+    //       Swal.fire({
+    //         position: "top-end",
+    //         icon: "success",
+    //         title: "Your work has been saved",
+    //         showConfirmButton: false,
+    //         timer: 1500,
+    //       });
+    //       form.reset();
+    //     } else {
+    //       Swal.fire({
+    //         imageUrl: "error",
+    //         imageHeight: 100,
+    //         title: "Oops...",
+    //         text: "Something went wrong!",
+    //       });
+    //     }
+    //   });
+    // }
     
 
     console.log("productDetail", allValueProduct);
