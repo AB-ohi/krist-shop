@@ -35,13 +35,12 @@ const ManageProduct = () => {
       images.length > 0
     );
   };
-  const handelProductSubmit = (e) => {
+  const handelProductSubmit = async(e) => {
     e.preventDefault();
     const from = e.target;
     const height = from.height.value;
     const compare_price = from.compare_price.value;
     const SKU = from.SKU.value;
-    const allValueProduct = { ...formData, height, compare_price, SKU, images };
     
 
     try{
@@ -49,14 +48,56 @@ const ManageProduct = () => {
       const uploadImage =await Promise.all(
         images.map(async(imageObj)=>{
           const imageData = new FormData();
-          imageData.append('images',imageObj.file)
+          imageData.append('image',imageObj.file)
 
           const response = await fetch(img_hosting_url,{
             method:'post',
             body:imageData
           })
+          const result = await response.json()
+          if(result.success){
+              return result.data.url
+          }else{
+            throw new Error('image upload fail')
+          }
         })
       )
+       const productData = {
+        ...formData,
+        height,
+        compare_price,
+        SKU,
+        images: uploadImage,
+      };
+      const res = fetch('http://localhost:5000/AllProduct',{
+        method:"POST",
+        headers:{
+           "content-type": "application/json",
+        },
+        body:JSON.stringify(productData)
+      });
+      const data = await res.json();
+      if(data.insertedId|| data?.acknowledged){
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Product added successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        form.reset();
+        setImages([]);
+        
+      }
+
+
+    } catch(error){
+      Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: error.message || "Something went wrong!",
+    });
+    console.error("Error while uploading product:", error);
     }
     // const uploadImageToServer =(imageFile)=>{
     //   const imageData = new FormData();
@@ -99,8 +140,6 @@ const ManageProduct = () => {
     //   });
     // }
     
-
-    console.log("productDetail", allValueProduct);
   
       
   };
