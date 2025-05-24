@@ -47,7 +47,15 @@ const ManageProduct = () => {
     try{
       const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token}`;
       const uploadImage =await Promise.all(
-        images
+        images.map(async(imageObj)=>{
+          const imageData = new FormData();
+          imageData.append('images',imageObj.file)
+
+          const response = await fetch(img_hosting_url,{
+            method:'post',
+            body:imageData
+          })
+        })
       )
     }
     // const uploadImageToServer =(imageFile)=>{
