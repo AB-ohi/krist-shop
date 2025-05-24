@@ -51,7 +51,7 @@ const ManageProduct = () => {
           imageData.append('image',imageObj.file)
 
           const response = await fetch(img_hosting_url,{
-            method:'post',
+            method:'POST',
             body:imageData
           })
           const result = await response.json()
@@ -69,7 +69,7 @@ const ManageProduct = () => {
         SKU,
         images: uploadImage,
       };
-      const res = fetch('http://localhost:5000/AllProduct',{
+      const res = await fetch('http://localhost:5000/AllProduct',{
         method:"POST",
         headers:{
            "content-type": "application/json",
@@ -85,9 +85,19 @@ const ManageProduct = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        form.reset();
-        setImages([]);
-        
+        // form.reset();
+        // setImages([])
+        // setFormData({
+        //   product_weight: "",
+        //   length: "",
+        //   width: "",
+        //   main_price: "",
+        //   product_name: "",
+        //   product_detail: "",
+        //   category: "",
+        //   quantity: "",
+        //   selling_type: "",
+        // });
       }
 
 
