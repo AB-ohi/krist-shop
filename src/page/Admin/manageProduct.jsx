@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token;
 const ManageProduct = () => {
   const [images, setImages] = useState([]);
-
+const [isUploading, setIsUploading] = useState(false);
   const [formData, setFormData] = useState({
     product_weight: "",
     length: "",
@@ -41,7 +41,8 @@ const ManageProduct = () => {
     const height = from.height.value;
     const compare_price = from.compare_price.value;
     const SKU = from.SKU.value;
-    
+    setIsUploading(true)
+    // const Delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     try{
       const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token}`;
@@ -85,19 +86,18 @@ const ManageProduct = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        // form.reset();
-        // setImages([])
-        // setFormData({
-        //   product_weight: "",
-        //   length: "",
-        //   width: "",
-        //   main_price: "",
-        //   product_name: "",
-        //   product_detail: "",
-        //   category: "",
-        //   quantity: "",
-        //   selling_type: "",
-        // });
+        setImages([])
+        setFormData({
+          product_weight: "",
+          length: "",
+          width: "",
+          main_price: "",
+          product_name: "",
+          product_detail: "",
+          category: "",
+          quantity: "",
+          selling_type: "",
+        });
       }
 
 
@@ -108,6 +108,8 @@ const ManageProduct = () => {
       text: error.message || "Something went wrong!",
     });
     console.error("Error while uploading product:", error);
+    } finally{
+      setIsUploading(false)
     }
     // const uploadImageToServer =(imageFile)=>{
     //   const imageData = new FormData();
@@ -624,6 +626,9 @@ const ManageProduct = () => {
                       Please fill all required fields before submitting.
                     </p>
                   )}
+                  {
+                    isUploading && <p>product Upload ......</p>
+                  }
                 </div>
               </div>
             </div>
