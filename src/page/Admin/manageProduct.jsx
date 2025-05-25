@@ -9,10 +9,10 @@ const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token;
 const ManageProduct = () => {
   const [images, setImages] = useState([]);
 const [isUploading, setIsUploading] = useState(false);
-const [weightValue, setWeightValue] = useState()
+const [weightValue, setWeightValue] = useState('kg')
 console.log("weightValue",weightValue)
   const [formData, setFormData] = useState({
-    product_weight: "",
+    product_weight: `` ,
     length: "",
     width: "",
     main_price: "",
@@ -22,6 +22,11 @@ console.log("weightValue",weightValue)
     quantity: "",
     selling_type: "",
   });
+  // useEffect(()=>{
+  //   setFormData((prev)=>({
+  //     ...prev, product_weight: prev.product_weight+" "+weightValue
+  //   }))
+  // },[weightValue])
   console.log(formData);
   const isFormValue = () => {
     return (
@@ -70,8 +75,10 @@ console.log("weightValue",weightValue)
         height,
         compare_price,
         SKU,
+        weightValue,
         images: uploadImage,
       };
+      console.log("product data:",productData)
       const res = await fetch('http://localhost:5000/AllProduct',{
         method:"POST",
         headers:{
@@ -232,7 +239,7 @@ console.log("weightValue",weightValue)
                       required
                       placeholder="0.0"
                     />
-                    <select onChange={(e)=>
+                    <select  value= {weightValue} onChange={(e)=>
                       setWeightValue(e.target.value)
                     }  id="unit">
                       <option value="kg">kg</option>
