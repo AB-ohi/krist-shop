@@ -9,6 +9,8 @@ const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token;
 const ManageProduct = () => {
   const [images, setImages] = useState([]);
 const [isUploading, setIsUploading] = useState(false);
+const [weightValue, setWeightValue] = useState()
+console.log("weightValue",weightValue)
   const [formData, setFormData] = useState({
     product_weight: "",
     length: "",
@@ -111,46 +113,7 @@ const [isUploading, setIsUploading] = useState(false);
     } finally{
       setIsUploading(false)
     }
-    // const uploadImageToServer =(imageFile)=>{
-    //   const imageData = new FormData();
-    //   imageData.append('image', imageFile.file);
-    //   fetch(img_hosting_url,{
-    //     method:'post',
-    //     body:imageData 
-    //   })
-    //   .then(res=>res.json())
-    //   .then((imageUpload)=>{
-    //     if(imageUpload.success){
-    //         fetch("http://localhost:5000/AllProduct", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(allValueProduct),
-    // })
-    //     }
-    //   })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data) {
-    //       Swal.fire({
-    //         position: "top-end",
-    //         icon: "success",
-    //         title: "Your work has been saved",
-    //         showConfirmButton: false,
-    //         timer: 1500,
-    //       });
-    //       form.reset();
-    //     } else {
-    //       Swal.fire({
-    //         imageUrl: "error",
-    //         imageHeight: 100,
-    //         title: "Oops...",
-    //         text: "Something went wrong!",
-    //       });
-    //     }
-    //   });
-    // }
+   
     
   
       
@@ -269,7 +232,9 @@ const [isUploading, setIsUploading] = useState(false);
                       required
                       placeholder="0.0"
                     />
-                    <select id="unit">
+                    <select onChange={(e)=>
+                      setWeightValue(e.target.value)
+                    }  id="unit">
                       <option value="kg">kg</option>
                       <option value="gm">gm</option>
                     </select>
