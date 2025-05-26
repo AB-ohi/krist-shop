@@ -5,14 +5,15 @@ import { RxCross2 } from "react-icons/rx";
 import addProduct from "../../../public/img/addProduct.gif";
 import { TbCoinTaka } from "react-icons/tb";
 import Swal from "sweetalert2";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token;
 const ManageProduct = () => {
   const [images, setImages] = useState([]);
-const [isUploading, setIsUploading] = useState(false);
-const [weightValue, setWeightValue] = useState('kg')
-console.log("weightValue",weightValue)
+  const [isUploading, setIsUploading] = useState(false);
+  const [weightValue, setWeightValue] = useState("kg");
+  console.log("weightValue", weightValue);
   const [formData, setFormData] = useState({
-    product_weight: `` ,
+    product_weight: ``,
     length: "",
     width: "",
     main_price: "",
@@ -42,35 +43,35 @@ console.log("weightValue",weightValue)
       images.length > 0
     );
   };
-  const handelProductSubmit = async(e) => {
+  const handelProductSubmit = async (e) => {
     e.preventDefault();
     const from = e.target;
     const height = from.height.value;
     const compare_price = from.compare_price.value;
     const SKU = from.SKU.value;
-    setIsUploading(true)
+    setIsUploading(true);
     // const Delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-    try{
+    try {
       const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token}`;
-      const uploadImage =await Promise.all(
-        images.map(async(imageObj)=>{
+      const uploadImage = await Promise.all(
+        images.map(async (imageObj) => {
           const imageData = new FormData();
-          imageData.append('image',imageObj.file)
+          imageData.append("image", imageObj.file);
 
-          const response = await fetch(img_hosting_url,{
-            method:'POST',
-            body:imageData
-          })
-          const result = await response.json()
-          if(result.success){
-              return result.data.url
-          }else{
-            throw new Error('image upload fail')
+          const response = await fetch(img_hosting_url, {
+            method: "POST",
+            body: imageData,
+          });
+          const result = await response.json();
+          if (result.success) {
+            return result.data.url;
+          } else {
+            throw new Error("image upload fail");
           }
         })
-      )
-       const productData = {
+      );
+      const productData = {
         ...formData,
         height,
         compare_price,
@@ -78,16 +79,16 @@ console.log("weightValue",weightValue)
         weightValue,
         images: uploadImage,
       };
-      console.log("product data:",productData)
-      const res = await fetch('http://localhost:5000/AllProduct',{
-        method:"POST",
-        headers:{
-           "content-type": "application/json",
+      console.log("product data:", productData);
+      const res = await fetch("http://localhost:5000/AllProduct", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
         },
-        body:JSON.stringify(productData)
+        body: JSON.stringify(productData),
       });
       const data = await res.json();
-      if(data.insertedId|| data?.acknowledged){
+      if (data.insertedId || data?.acknowledged) {
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -95,7 +96,7 @@ console.log("weightValue",weightValue)
           showConfirmButton: false,
           timer: 1500,
         });
-        setImages([])
+        setImages([]);
         setFormData({
           product_weight: "",
           length: "",
@@ -108,22 +109,16 @@ console.log("weightValue",weightValue)
           selling_type: "",
         });
       }
-
-
-    } catch(error){
+    } catch (error) {
       Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: error.message || "Something went wrong!",
-    });
-    console.error("Error while uploading product:", error);
-    } finally{
-      setIsUploading(false)
+        icon: "error",
+        title: "Oops...",
+        text: error.message || "Something went wrong!",
+      });
+      console.error("Error while uploading product:", error);
+    } finally {
+      setIsUploading(false);
     }
-   
-    
-  
-      
   };
   const maxNumber = 69;
 
@@ -239,9 +234,11 @@ console.log("weightValue",weightValue)
                       required
                       placeholder="0.0"
                     />
-                    <select  value= {weightValue} onChange={(e)=>
-                      setWeightValue(e.target.value)
-                    }  id="unit">
+                    <select
+                      value={weightValue}
+                      onChange={(e) => setWeightValue(e.target.value)}
+                      id="unit"
+                    >
                       <option value="kg">kg</option>
                       <option value="gm">gm</option>
                     </select>
@@ -598,9 +595,6 @@ console.log("weightValue",weightValue)
                       Please fill all required fields before submitting.
                     </p>
                   )}
-                  {
-                    isUploading && <p>product Upload ......</p>
-                  }
                 </div>
               </div>
             </div>
@@ -608,6 +602,14 @@ console.log("weightValue",weightValue)
             <div></div>
           )}
         </div>
+        {isUploading && <div className={isUploading?"uploadLoading":"uploadHold"}>
+            <DotLottieReact
+      src="https://lottie.host/cbc43357-1179-449a-af0d-372df2457da3/yOh8zGoGs9.lottie"
+      loop
+      autoplay
+      style={{width:"60%", margin:'auto'}}
+    />
+          </div>}
       </form>
     </div>
   );

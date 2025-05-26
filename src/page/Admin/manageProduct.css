@@ -1,163 +1,175 @@
-.manage_product_body{
-    margin-left: 20px;
-    width: 75%;
-    margin-bottom: 20px;
-    margin: 20px auto
+.manage_product_body {
+  margin-left: 20px;
+  width: 75%;
+  margin-bottom: 20px;
+  margin: 20px auto;
 }
-.imgSelectBtn{
-    background: none;
-    padding: 9px 24px;
-    outline: none;
-    border: none;
-    border: 1px solid #6A42C7;
-    color: #8a64e5;
-    font-size: 12px;
-    border-radius: 8px;
-    transition: 0.5s;
-    cursor: pointer;
-    width: 25%;
-    text-align: center;
+.imgSelectBtn {
+  background: none;
+  padding: 9px 24px;
+  outline: none;
+  border: none;
+  border: 1px solid #6a42c7;
+  color: #8a64e5;
+  font-size: 12px;
+  border-radius: 8px;
+  transition: 0.5s;
+  cursor: pointer;
+  width: 25%;
+  text-align: center;
 }
-.imgSelectBtn:hover{
-    background-color: #6A42C7;
-    color: white;
+.imgSelectBtn:hover {
+  background-color: #6a42c7;
+  color: white;
 }
-.imgArea{
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: 4px;
-}
-
-.image-item{
-    position: relative;
-}
-.image-item__btn-wrapper{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-.image-item__btn-wrapper button{
-    background: #6A42C7;
-    font-size: 15px;
-    outline: none;
-    border: none;
-    color: white;
-    border-radius: 50%;
-    transition: 0.5s;
-    cursor: pointer;
-}
-.image-item__btn-wrapper button:hover{
-    background-color: #ff4141;
-}
-.removeAllImgBtn{
-    background: none;
-    padding: 9px 24px;
-    outline: none;
-    border: none;
-    border: 1px solid #6A42C7;
-    color: #8a64e5;
-    font-size: 12px;
-    border-radius: 8px;
-    transition: 0.5s;
-    cursor: pointer;
-
-}
-.removeAllImgBtn:hover{
-    background-color: #ff4141;
-    color: white;
-    border:1px solid #ff4141;
-}
-.productUpArea{
-    display: flex;
-    width: 100%;
-    gap: 20px;
-}
-.productDescription{
-    width: 100%;
-}
-.productDescription h2{
-    margin: 0;
-
-}
-.product_weight{
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-    background-color: #eae1ff;
-    border-radius: 5px;
-}
-.product_weight input{
-    background: none;
-    border: none;
-    width: 80%;
-}
-#unit{
-    border: none;
-    outline: none;
-    background: none;
-    color: rgb(97, 97, 97);
-}
-.product_size{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 10px;
-    border-radius: 4px;
-    background-color: #eae1ff;
-    color: rgb(97, 97, 97);
-}
-.product_size input{
-    background: none;
-    border: none;
-    width: 33%;
-}
-.product_price_fled{
-    background: none;
-    border: none;
-    padding: 10px 9px;
-
-}
-.price_main{
-    padding: 0 5px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: #eae1ff;
-    border-radius: 5px;
+.imgArea {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 4px;
 }
 
-.Description_area{
-    width: 95%;
-    border: 1px solid rgb(187, 158, 254);
-    border-radius: 8px;
-    padding: 15px;
+.image-item {
+  position: relative;
 }
-.product_detail_area{
-    width: 80% !important;
-    height: 30vh !important;
-    padding: 10px 15px ;
-    resize: none;
-    border: none;
-    outline: none;
-    border-radius: 8px;
-    background-color: #eae1ff;
+.image-item__btn-wrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
-.inventory{
-    border: 1px solid rgb(187, 158, 254);
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
+.image-item__btn-wrapper button {
+  background: #6a42c7;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  transition: 0.5s;
+  cursor: pointer;
 }
-.selling_type_fled{
-    border: 1px solid rgb(187, 158, 254);
-    padding: 20px;
-    border-radius: 8px;
+.image-item__btn-wrapper button:hover {
+  background-color: #ff4141;
 }
-.falseBtn{
-    visibility: hidden;
+.removeAllImgBtn {
+  background: none;
+  padding: 9px 24px;
+  outline: none;
+  border: none;
+  border: 1px solid #6a42c7;
+  color: #8a64e5;
+  font-size: 12px;
+  border-radius: 8px;
+  transition: 0.5s;
+  cursor: pointer;
 }
-.trueBtn{
-    visibility: visible;
+.removeAllImgBtn:hover {
+  background-color: #ff4141;
+  color: white;
+  border: 1px solid #ff4141;
+}
+.productUpArea {
+  position: relative;
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+.productDescription {
+  width: 100%;
+}
+.productDescription h2 {
+  margin: 0;
+}
+.product_weight {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  background-color: #eae1ff;
+  border-radius: 5px;
+}
+.product_weight input {
+  background: none;
+  border: none;
+  width: 80%;
+}
+#unit {
+  border: none;
+  outline: none;
+  background: none;
+  color: rgb(97, 97, 97);
+}
+.product_size {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+  border-radius: 4px;
+  background-color: #eae1ff;
+  color: rgb(97, 97, 97);
+}
+.product_size input {
+  background: none;
+  border: none;
+  width: 33%;
+}
+.product_price_fled {
+  background: none;
+  border: none;
+  padding: 10px 9px;
+}
+.price_main {
+  padding: 0 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #eae1ff;
+  border-radius: 5px;
+}
+
+.Description_area {
+  width: 95%;
+  border: 1px solid rgb(187, 158, 254);
+  border-radius: 8px;
+  padding: 15px;
+}
+.product_detail_area {
+  width: 80% !important;
+  height: 30vh !important;
+  padding: 10px 15px;
+  resize: none;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background-color: #eae1ff;
+}
+.inventory {
+  border: 1px solid rgb(187, 158, 254);
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.selling_type_fled {
+  border: 1px solid rgb(187, 158, 254);
+  padding: 20px;
+  border-radius: 8px;
+}
+.falseBtn {
+  visibility: hidden;
+}
+.trueBtn {
+  visibility: visible;
+}
+.uploadLoading {
+  position: absolute;
+  border-radius: 11px;
+  width: 100%;
+  background-color: #133a4437;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.4s;
+}
+.uploadHold{
+    top:-100%
 }
