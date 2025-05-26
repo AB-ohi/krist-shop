@@ -23,11 +23,7 @@ const ManageProduct = () => {
     quantity: "",
     selling_type: "",
   });
-  // useEffect(()=>{
-  //   setFormData((prev)=>({
-  //     ...prev, product_weight: prev.product_weight+" "+weightValue
-  //   }))
-  // },[weightValue])
+
   console.log(formData);
   const isFormValue = () => {
     return (
@@ -90,7 +86,6 @@ const ManageProduct = () => {
       const data = await res.json();
       if (data.insertedId || data?.acknowledged) {
         Swal.fire({
-          position: "top-end",
           icon: "success",
           title: "Product added successfully",
           showConfirmButton: false,
