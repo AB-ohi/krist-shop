@@ -22,7 +22,6 @@
 #item-list:hover {
   color: rgb(106, 66, 199);
   background-color: rgb(222, 208, 255);
-
 }
 
 #nav-List-Item li a.active {
@@ -48,27 +47,31 @@
 } */
 .onMenu {
   position: absolute;
-  left: 25%;
+  left: 0;
+  /* transform: translate(-50%, -50%); */
   z-index: 20;
+  transition: 0.5s;
 }
 .ofMenu {
-  display: none;
+  position: absolute;
+  left: -100%;
+  transition: 0.5s;
 }
 
 .res-menu {
   visibility: hidden;
 }
-.ResNav{
-    display: none;
+.ResNav {
+  display: none;
 }
 
-.profilePic{
+.profilePic {
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 
-.active-link{
+.active-link {
   border-bottom: 3px solid rgb(106, 66, 199) !important;
   transform: scalex(1);
 }
@@ -92,10 +95,8 @@
     font-size: 20px;
   }
 
-
-
   /* Res-Nav Css code */
-.ResNav{
+  .ResNav {
     display: block;
     position: absolute;
     z-index: 200;
@@ -108,7 +109,7 @@
     padding: 40px 0;
     width: 100%;
   }
-  
+
   .ResNav-ul {
     display: grid;
     justify-items: center;
@@ -117,7 +118,7 @@
     margin: auto;
     padding: 0;
   }
-  
+
   .ResNav-ul li {
     list-style: none;
     width: 100px;
@@ -129,17 +130,14 @@
     border-radius: 11px;
   }
 
-
-
-  .PRasNavOpen{
+  .PRasNavOpen {
     visibility: visible;
   }
-  .PRasNavClose{
+  .PRasNavClose {
     visibility: hidden;
   }
 
- 
-  .ResNav-ul a{
+  .ResNav-ul a {
     text-decoration: none;
     color: white;
   }

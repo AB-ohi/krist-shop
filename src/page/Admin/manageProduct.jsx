@@ -46,7 +46,6 @@ const ManageProduct = () => {
     const compare_price = from.compare_price.value;
     const SKU = from.SKU.value;
     setIsUploading(true);
-    // const Delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     try {
       const img_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Upload_Token}`;
