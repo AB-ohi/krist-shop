@@ -55,7 +55,7 @@
 .ofMenu {
   position: absolute;
   left: -100%;
-  transition: 0.5s;
+  transition: 1s;
 }
 
 .res-menu {

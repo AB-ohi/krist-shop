@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./BestSeller.css";
 import { useEffect } from "react";
 import SelleCard from "./SelleCard";
+import { Link } from "react-router-dom";
 
 const Bestseller = () => {
   const [menCollections, SetMenCollections] = useState([]);
@@ -17,19 +18,21 @@ const Bestseller = () => {
       .then((data) => SetMenCollections(data));
   }, []);
   return (
-    <div style={{marginBottom:"20px"}}>
+    <div style={{ marginBottom: "20px" }}>
       <h1 style={{ textAlign: "center" }}>Our Bestseller</h1>
       <div className="best-seller-card-body">
         {menCollections.slice(2).map((menCollection) => (
-          <SelleCard style={{ border: "1px solid red" }}
-          key={menCollection._id}
-          pictureURL={menCollection.pictureURL}
-          productName= {menCollection.productName}
-          nickname = {menCollection.nickname}
-          price= {menCollection.price}
-          >
+          <div className="best-seller-single-card" key={menCollection._id}>
+              <SelleCard
+                style={{ border: "1px solid red" }}
+                className=""
+                pictureURL={menCollection.pictureURL}
+                productName={menCollection.productName}
+                nickname={menCollection.nickname}
+                price={menCollection.price}
+              ></SelleCard>
 
-          </SelleCard>
+          </div>
         ))}
       </div>
     </div>
