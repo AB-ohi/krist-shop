@@ -55,6 +55,7 @@
 .ofMenu {
   position: absolute;
   left: -100%;
+   z-index: 20;
   transition: 1s;
 }
 
