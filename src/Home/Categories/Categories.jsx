@@ -110,9 +110,9 @@ const Categories = () => {
                   style={{
                     zIndex: "1",
                     position: "absolute",
-                    bottom: "50px",
+                    bottom: "60px",
                     width: "90%",
-                    left: "65%",
+                    left: "68%",
                     transform: "translateX(-50%)",
                   }}
                 >
