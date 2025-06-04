@@ -7,6 +7,7 @@ import { TbCoinTaka } from "react-icons/tb";
 import Swal from "sweetalert2";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token;
+import { MdOutlineDiscount } from "react-icons/md";
 const ManageProduct = () => {
   const [images, setImages] = useState([]);
   const [isUploading, setIsUploading] = useState(false);
@@ -45,6 +46,7 @@ const ManageProduct = () => {
     const height = from.height.value;
     const compare_price = from.compare_price.value;
     const SKU = from.SKU.value;
+    const discount = from.discount.value
     setIsUploading(true);
 
     try {
@@ -72,6 +74,7 @@ const ManageProduct = () => {
         compare_price,
         SKU,
         weightValue,
+        discount,
         images: uploadImage,
       };
       console.log("product data:", productData);
@@ -388,7 +391,7 @@ const ManageProduct = () => {
                 </div>
                 <div>
                    <div>
-                  <p style={{ marginTop: "10px", fontSize: "20px" }}>Pricing</p>
+                  <p style={{ marginTop: "10px", fontSize: "20px" }}>% of discount</p>
                   <div
                     style={{
                       display: "flex",
@@ -401,10 +404,10 @@ const ManageProduct = () => {
                   >
                     <div className="price_fled">
                       <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
-                        price
+                        discount
                       </p>
                       <div className="price_main">
-                        <TbCoinTaka
+                        <MdOutlineDiscount
                           style={{ color: "rgba(100, 60, 192, 0.62)" }}
                         />
                         <input
@@ -416,9 +419,9 @@ const ManageProduct = () => {
                           }}
                        
                           type="text"
-                          name="main_price"
+                          name="discount"
                           id=""
-                          placeholder="0.0"
+                          placeholder="0%"
                           required
                           className="product_price_fled"
                           style={{width:'80%'}}
