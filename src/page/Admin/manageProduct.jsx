@@ -43,10 +43,12 @@ const ManageProduct = () => {
   const handelProductSubmit = async (e) => {
     e.preventDefault();
     const from = e.target;
+    const main_price = from. main_price.value
     const height = from.height.value;
     const compare_price = from.compare_price.value;
     const SKU = from.SKU.value;
     const discount = from.discount.value
+    const discount_price = main_price-(discount*10)
     setIsUploading(true);
 
     try {
@@ -75,6 +77,7 @@ const ManageProduct = () => {
         SKU,
         weightValue,
         discount,
+        discount_price,
         images: uploadImage,
       };
       console.log("product data:", productData);
