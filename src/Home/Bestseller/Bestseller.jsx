@@ -3,6 +3,7 @@ import "./BestSeller.css";
 import { useEffect } from "react";
 import SelleCard from "./SelleCard";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Bestseller = () => {
   const [menCollections, SetMenCollections] = useState([]);
@@ -21,18 +22,25 @@ const Bestseller = () => {
     <div style={{ marginBottom: "20px" }}>
       <h1 style={{ textAlign: "center" }}>Our Bestseller</h1>
       <div className="best-seller-card-body">
-        {menCollections.slice(2).map((menCollection) => (
-          <div className="best-seller-single-card" key={menCollection._id}>
-              <SelleCard
-                style={{ border: "1px solid red" }}
-                className=""
-                pictureURL={menCollection.pictureURL}
-                productName={menCollection.productName}
-                nickname={menCollection.nickname}
-                price={menCollection.price}
-              ></SelleCard>
-
-          </div>
+        {menCollections.slice(2).map((menCollection, index) => (
+           <motion.div
+            className="best-seller-single-card"
+            key={menCollection._id}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }} // left/right alternate
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.6, type: "spring" }}
+            viewport={{ once: true, amount: 0.3 }} // trigger only once, 30% visible
+            whileHover={{ scale: 1.05 }}
+          >
+            <SelleCard
+              style={{ border: "1px solid red" }}
+              className=""
+              pictureURL={menCollection.pictureURL}
+              productName={menCollection.productName}
+              nickname={menCollection.nickname}
+              price={menCollection.price}
+            ></SelleCard>
+          </motion.div>
         ))}
       </div>
     </div>

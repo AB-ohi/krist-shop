@@ -30,7 +30,7 @@ const SelleCard = ({ pictureURL, productName, nickname, price }) => {
           >
             30%
           </p>
-          <img style={{ width: "100%", zIndex: "1" }} src={pictureURL} alt="" />
+          <img style={{ width: "100%", zIndex: "1" }} className="best_sell_product_img" src={pictureURL} alt="" />
         </div>
         <h1 style={{ margin: "0", fontSize: "20px" }}>{productName}</h1>
         <p style={{ margin: "0" }}>{nickname}</p>

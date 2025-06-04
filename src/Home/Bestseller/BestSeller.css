@@ -20,9 +20,9 @@
         position: relative;
     }
 
-  .product-cart:hover .card_inside {
+  /* .product-cart:hover .card_inside {
   transform: translateY(-10px);
-}
+} */
 .best_selling_details {
   background: #50b0fa;
   width: 100%;

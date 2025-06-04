@@ -386,6 +386,50 @@ const ManageProduct = () => {
                     </div>
                   </div>
                 </div>
+                <div>
+                   <div>
+                  <p style={{ marginTop: "10px", fontSize: "20px" }}>Pricing</p>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "5px",
+                      justifyContent: "space-between",
+                      border: "1px solid rgb(187, 158, 254)",
+                      borderRadius: "8px",
+                      padding: "15px",
+                    }}
+                  >
+                    <div className="price_fled">
+                      <p style={{ color: " rgba(100, 60, 192, 0.62)" }}>
+                        price
+                      </p>
+                      <div className="price_main">
+                        <TbCoinTaka
+                          style={{ color: "rgba(100, 60, 192, 0.62)" }}
+                        />
+                        <input
+                          onInput={(e) => {
+                            e.target.value = e.target.value.replace(
+                              /[^0-9.]/g,
+                              ""
+                            );
+                          }}
+                       
+                          type="text"
+                          name="main_price"
+                          id=""
+                          placeholder="0.0"
+                          required
+                          className="product_price_fled"
+                          style={{width:'80%'}}
+                        />
+                      </div>
+                    </div>
+                   
+                  </div>
+                </div>
+                  
+                </div>
               </div>
             ) : (
               <div></div>
