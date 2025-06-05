@@ -13,12 +13,13 @@
 #item-list {
   text-decoration: none;
   color: black;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   padding: 6px 11px 3px 11px;
   border-radius: 4px 4px 0 0;
-  border-bottom: 5px solid rgba(255, 0, 0, 0);
+  border-bottom: 3px solid transparent;
+  position: relative;
+  font-weight: 500;
 }
-
 #item-list:hover {
   color: rgb(106, 66, 199);
   background-color: rgb(222, 208, 255);
@@ -73,8 +74,28 @@
 }
 
 .active-link {
-  border-bottom: 3px solid rgb(106, 66, 199) !important;
-  transform: scalex(1);
+  color: rgb(106, 66, 199);
+  font-weight: 600;
+  background-color: rgb(236, 225, 255);
+  border-bottom: 3px solid rgb(106, 66, 199);
+  position: relative;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+#item-list::after,
+.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: rgb(106, 66, 199);
+  transition: width 0.3s ease-in-out;
+}
+#item-list:hover::after,
+.active-link::after {
+  width: 100%;
 }
 
 @media only screen and (max-width: 700px) {

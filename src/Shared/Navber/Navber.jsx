@@ -11,10 +11,10 @@ import ResNav from "./ResNav";
 import useUserData from "../../Hook/useUserData";
 import emptyProfilePicture from "../../../public/img/emptyProfilePicture.png";
 import { MdOutlineLogin } from "react-icons/md";
-
+import { motion } from "framer-motion";
 const NavBer = () => {
   const { user } = useContext(AuthContext);
-  console.log(user)
+  console.log(user);
   const [shopMenu, setShopMenu] = useState(true);
   const [tabletsNavItemShow, setTabletsNavItemShow] = useState(true);
   // console.log(user.photoURL);
@@ -22,7 +22,12 @@ const NavBer = () => {
 
   return (
     <div>
-      <nav className="nav">
+      <motion.nav
+        className="nav"
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <a href="/">
           <img src="../../../public/img/logo.svg" alt="" />
         </a>
@@ -129,7 +134,13 @@ const NavBer = () => {
           <CiHeart />
           <CiShoppingCart />
           {user ? (
-            <Link to={User?.role =='admin'? (`/profile/dashboard/${user.displayName}`):(`/profile/${user.displayName}`)}>
+            <Link
+              to={
+                User?.role == "admin"
+                  ? `/profile/dashboard/${user.displayName}`
+                  : `/profile/${user.displayName}`
+              }
+            >
               <img
                 className="profilePic"
                 src={
@@ -165,7 +176,7 @@ const NavBer = () => {
             </div>
           )}
         </div>
-      </nav>
+      </motion.nav>
       {/* res-nav item */}
       <div className={`${tabletsNavItemShow ? "PRasNavClose" : "PRasNavOpen"}`}>
         <ResNav />
