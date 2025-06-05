@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 
 const allProductHook = () => {
-  const [allProduct, setAllProduct] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/AllProduct")
       .then((res) => res.json())
       .then((data) => {
         if (data) {
-          setAllProduct(data);
+          setAllProducts(data);
         } else {
           console.log("data cant recognize", error);
         }
@@ -16,7 +16,7 @@ const allProductHook = () => {
         console.error("Fetch error:", error);
       });
   }, []);
-  return allProduct;
+  return allProducts;
 };
 
 export default allProductHook;
