@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token;
 import { MdOutlineDiscount } from "react-icons/md";
+import ManageProductAdmin from "../../component/manageProductAdmin"
 const ManageProduct = () => {
   const [images, setImages] = useState([]);
   const [isUploading, setIsUploading] = useState(false);
@@ -655,6 +656,15 @@ const ManageProduct = () => {
     />
           </div>}
       </form>
+      {
+        images?.length == 0?(
+          <div>
+        <ManageProductAdmin/>
+      </div>
+        ):(
+         <div></div>
+        )
+      }
     </div>
   );
 };
