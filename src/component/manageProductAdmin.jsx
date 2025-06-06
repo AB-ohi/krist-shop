@@ -6,8 +6,8 @@ const ManageProductAdmin = () => {
   console.log(allProducts);
   return (
     <div>
-      <table>
-        <thead>
+      <table className="admin_product_table">
+        <thead className="admin_product_thead">
           <tr>
             <th>Image</th>
             <th>Product Name</th>
@@ -37,7 +37,7 @@ const ManageProductAdmin = () => {
                 <td>{allProduct.quantity}</td>
                 <td>{allProduct.discount}%</td>
                 <td>{allProduct.discount_price}৳</td>
-                <td>
+                <td className="manage_product_admin_action_btn">
                   <button>Edit</button>
                   <button>Delete</button>
                 </td>
