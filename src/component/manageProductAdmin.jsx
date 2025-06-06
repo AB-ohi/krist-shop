@@ -1,4 +1,5 @@
 import allProductHook from "../Hook/allProductHook";
+import './manageProductAdmin.css'
 
 const ManageProductAdmin = () => {
   const allProducts = allProductHook();
@@ -20,7 +21,7 @@ const ManageProductAdmin = () => {
         <tbody>
           {allProducts?.map((allProduct) => {
             return (
-              <tr style={{ backgroundColor: "pink" }} key={allProduct._id}>
+              <tr className="admin_manage_product_details" key={allProduct._id}>
                 <td>
                   <img
                     style={{ width: "50px" }}
