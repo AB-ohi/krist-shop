@@ -31,7 +31,7 @@
   background-color: rgba(222, 120, 253, 0.2);
 }
 
-button {
+.manage_product_admin_action_btn button {
   margin-right: 8px;
   padding: 6px 12px;
   background-color: #6200ee;
@@ -41,7 +41,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.manage_product_admin_action_btn button:hover {
   background-color: #4500b5;
 }
 .admin_manage_product_details img {
@@ -61,5 +61,5 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-   height: 90px;
+   height: 80px;
 }
