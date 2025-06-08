@@ -20,7 +20,7 @@ const AddressBook = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        const response = fetch(`http://localhost:5000/address/${addr._id}`, {
+        const response = fetch (`http://localhost:5000/address/${addr._id}`, {
           method: "DELETE",
         });
         if (response.ok) {
