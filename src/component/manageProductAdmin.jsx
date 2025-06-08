@@ -1,10 +1,26 @@
 import Swal from "sweetalert2";
 import allProductHook from "../Hook/allProductHook";
 import "./manageProductAdmin.css";
+import { motion } from "framer-motion";
+
 
 const ManageProductAdmin = () => {
   const allProducts = allProductHook();
   console.log(allProducts);
+  const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
   const handelDelete = (de) => {
     Swal.fire({
       title: "Are you sure?",
