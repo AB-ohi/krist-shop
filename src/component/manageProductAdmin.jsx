@@ -1,34 +1,34 @@
 import Swal from "sweetalert2";
 import allProductHook from "../Hook/allProductHook";
-import './manageProductAdmin.css'
+import "./manageProductAdmin.css";
 
 const ManageProductAdmin = () => {
   const allProducts = allProductHook();
   console.log(allProducts);
   const handelDelete = (de) => {
     Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        }).then((result)=>{
-          if(result.isConfirmed){
-            const response = fetch(`http://localhost:5000/AllProduct/${de._id}`, {
-              method:"DELETE"
-            })
-          }
-        })
-        if(response.ok){
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const response = fetch(`http://localhost:5000/AllProduct/${de._id}`, {
+          method: "DELETE",
+        });
+        if (response.ok) {
           Swal.fire({
-                      title: "Deleted!",
-                      text: "Your file has been deleted.",
-                      icon: "success",
-                    });
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
         }
-  }
+      }
+    });
+  };
   return (
     <div>
       <table className="admin_product_table">
@@ -64,7 +64,9 @@ const ManageProductAdmin = () => {
                 <td>{allProduct.discount_price}৳</td>
                 <td className="manage_product_admin_action_btn">
                   <button className="action_edit_btn">Edit</button>
-                  <button onClick={handelDelete} className="action_delete_btn">Delete</button>
+                  <button onClick={handelDelete} className="action_delete_btn">
+                    Delete
+                  </button>
                 </td>
               </tr>
             );
