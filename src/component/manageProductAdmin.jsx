@@ -38,8 +38,8 @@ const ManageProductAdmin = () => {
                 <td>{allProduct.discount}%</td>
                 <td>{allProduct.discount_price}৳</td>
                 <td className="manage_product_admin_action_btn">
-                  <button>Edit</button>
-                  <button>Delete</button>
+                  <button className="action_edit_btn">Edit</button>
+                  <button className="action_delete_btn">Delete</button>
                 </td>
               </tr>
             );
