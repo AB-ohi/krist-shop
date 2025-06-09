@@ -16,7 +16,7 @@ const allProductHook = () => {
         console.error("Fetch error:", error);
       });
   }, []);
-  return allProducts;
+  return [allProducts, setAllProducts];
 };
 
 export default allProductHook;

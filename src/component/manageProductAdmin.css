@@ -3,13 +3,14 @@
   border-collapse: collapse;
   text-align: left;
   margin-top: 20px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .admin_product_thead {
   background-color: #f2f2f2;
 }
-.admin_product_thead tr{
+.admin_product_thead tr {
   border-radius: 11px 11px 0 0;
 }
 
@@ -24,13 +25,13 @@
 
 .admin_manage_product_details {
   background-color: rgba(222, 120, 253, 0.1);
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .admin_manage_product_details:hover {
-  background-color: rgba(222, 120, 253, 0.2);
+  background-color: #f9f9f9;
 }
-.action_edit_btn {
+/* .action_edit_btn {
   background-color: rgba(192, 254, 98, 0.454);
   outline: none;
   padding: 5px 8px;
@@ -38,14 +39,47 @@
   border: 1px rgb(69, 116, 0) solid;
   color: rgb(69, 116, 0);
   transition: 0.3s;
+} */
+ .action_edit_btn {
+  background-color: rgba(192, 254, 98, 0.454);
+  outline: none;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px rgb(69, 116, 0) solid;
+  color: rgb(69, 116, 0);
+  transition: 0.3s;
+  transform: scale(1);
 }
-.action_edit_btn:hover {
+/* .action_edit_btn:hover {
   color: white;
   border: 1px rgb(153, 255, 0) solid;
   background-color: rgb(153, 255, 0);
 
   zoom: 1.1;
   z-index: 10;
+} */
+.action_edit_btn:hover {
+  color: white;
+  border: 1px rgb(0, 180, 0) solid;
+  background-color: rgb(0, 180, 0);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 180, 0, 0.5),
+              0 0 30px rgba(0, 180, 0, 0.3);
+  animation: pulseGlow 0.6s ease-in-out;
+}
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 180, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 180, 0, 0.4);
+  }
 }
 .action_delete_btn {
   background-color: rgba(254, 98, 98, 0.454);
@@ -58,12 +92,30 @@
   zoom: 0;
 }
 
-.action_delete_btn:hover {
+/* .action_delete_btn:hover {
   color: white;
   border: 1px rgb(255, 0, 0) solid;
   background-color: rgb(255, 0, 0);
   zoom: 1.1;
   z-index: 10;
+} */
+
+.action_delete_btn:hover {
+  color: white;
+  border: 1px rgb(255, 0, 0) solid;
+  background-color: rgb(255, 0, 0);
+  transform: scale(1.1) rotate(-1deg);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.6),
+              0 0 20px rgba(255, 0, 0, 0.4);
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0% { transform: scale(1.1) rotate(-1deg) translateX(0); }
+  25% { transform: scale(1.1) rotate(-1deg) translateX(-2px); }
+  50% { transform: scale(1.1) rotate(-1deg) translateX(2px); }
+  75% { transform: scale(1.1) rotate(-1deg) translateX(-1px); }
+  100% { transform: scale(1.1) rotate(-1deg) translateX(0); }
 }
 
 /* .manage_product_admin_action_btn button {
