@@ -51,6 +51,10 @@ const ManageProductAdmin = () => {
       }
     });
   };
+  const updateSingleProduct = (UP) =>{
+    const id = UP._id
+    console.log("id:", id)
+  }
   return (
     <div>
       <table className="admin_product_table">
