@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import allProductHook from "../Hook/allProductHook";
 import "./manageProductAdmin.css";
+import UpdateProduct from './updateProduct.jsx'
 import { motion } from "framer-motion";
 
 const ManageProductAdmin = () => {
@@ -92,7 +93,7 @@ const ManageProductAdmin = () => {
                 <td>{allProduct.discount}%</td>
                 <td>{allProduct.discount_price}৳</td>
                 <td className="manage_product_admin_action_btn">
-                  <button className="action_edit_btn">Edit</button>
+                  <button onClick={()=> updateSingleProduct(allProduct)} className="action_edit_btn">Edit</button>
                   <button
                     onClick={() => handelDelete(allProduct)}
                     className="action_delete_btn"
@@ -105,6 +106,9 @@ const ManageProductAdmin = () => {
           })}
         </motion.tbody>
       </table>
+      <div>
+        <UpdateProduct/>
+      </div>
     </div>
   );
 };
