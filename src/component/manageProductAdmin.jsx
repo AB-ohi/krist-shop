@@ -52,8 +52,8 @@ const ManageProductAdmin = () => {
     });
   };
   const updateSingleProduct = (UP) =>{
-    const id = UP._id
-    console.log("id:", id)
+    const editProduct = allProducts.filter((product)=> product._id === UP._id)
+    console.log(editProduct)
   }
   return (
     <div>
@@ -111,7 +111,9 @@ const ManageProductAdmin = () => {
         </motion.tbody>
       </table>
       <div>
-        <UpdateProduct/>
+        <UpdateProduct 
+        editProduct= {editProduct}
+        />
       </div>
     </div>
   );
