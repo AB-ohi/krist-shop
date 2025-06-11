@@ -53,7 +53,7 @@ const ManageProductAdmin = () => {
     });
   };
   const updateSingleProduct = (UP) => {
-    const foundProduct = allProducts.filter(
+    const foundProduct = allProducts.find(
       (product) => product._id === UP._id
     );
     setEditProduct(foundProduct);
