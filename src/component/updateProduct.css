@@ -6,14 +6,30 @@
   background-color: rgb(222, 208, 255);
   color: rgb(106, 66, 199);
   padding: 20px;
-  border-radius: 11px;
+  border-radius: 10px;
+  box-shadow: rgba(227, 216, 252, 0.683) 0px 22px 70px 4px;
   z-index: 1000;
-  box-shadow: rgba(227, 216, 252, 0.441) 0px 22px 70px 4px;
+  animation: popFadeIn 0.4s ease-out forwards;
+  overflow: auto;
   max-height: 90vh;
-  overflow-y: auto;
-  width: 90%;
-  max-width: 500px;
 }
+
+@keyframes popFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+/* color: rgb(106, 66, 199); */
+/* background-color: rgb(222, 208, 255); */
 .update_product_from {
 }
 
@@ -22,11 +38,11 @@
   flex-direction: column;
 }
 .update_product_form::-webkit-scrollbar {
-    width: 5px;
-  }
+  width: 5px;
+}
 
-  .update_product_form::-webkit-scrollbar-thumb {
-    background-color: rgb(106, 66, 199); 
-    border-radius: 20px; 
-    border: 3px solid none;
-  }
+.update_product_form::-webkit-scrollbar-thumb {
+  background-color: rgb(106, 66, 199);
+  border-radius: 20px;
+  border: 3px solid none;
+}
