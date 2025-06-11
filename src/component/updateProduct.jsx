@@ -9,8 +9,8 @@ const UpdateProduct = ( {editProduct, setEditProduct}) => {
   return (
     <div className="update_product_form">
       <h2>Update Product: {editProduct?.product_name}</h2>
-      <p style={{color:'wheat'}}>Id: {editProduct?._id}</p>
-      <form>
+      <p>Id: {editProduct?._id}</p>
+      <form className='update_product_from'>
         <label>
           Product Name:
           <input type="text" defaultValue={editProduct.product_name} />

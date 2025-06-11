@@ -53,9 +53,7 @@ const ManageProductAdmin = () => {
     });
   };
   const updateSingleProduct = (UP) => {
-    const foundProduct = allProducts.find(
-      (product) => product._id === UP._id
-    );
+    const foundProduct = allProducts.find((product) => product._id === UP._id);
     setEditProduct(foundProduct);
     console.log(foundProduct);
   };
@@ -119,12 +117,20 @@ const ManageProductAdmin = () => {
           })}
         </motion.tbody>
       </table>
-        <div>
-          <UpdateProduct
-            editProduct={editProduct}
-            setEditProduct={setEditProduct}
-          />
-        </div>
+      <div>
+        {editProduct && (
+          <>
+            <div
+              className="backdrop"
+              onClick={() => setEditProduct(null)}
+            ></div>
+            <UpdateProduct
+              editProduct={editProduct}
+              setEditProduct={setEditProduct}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 };
