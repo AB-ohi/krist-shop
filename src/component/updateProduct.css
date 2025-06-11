@@ -3,23 +3,30 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(222, 208, 255); 
-  color: rgb(106, 66, 199);             
+  background-color: rgb(222, 208, 255);
+  color: rgb(106, 66, 199);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 11px;
   z-index: 1000;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-
-  max-height: 90vh;        
-  overflow-y: auto;        
-  width: 90%;              
-  max-width: 500px;        
+  box-shadow: rgba(227, 216, 252, 0.441) 0px 22px 70px 4px;
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 90%;
+  max-width: 500px;
 }
-.update_product_from{
-
+.update_product_from {
 }
 
-.update_product_from label{
-    display: flex;
-    flex-direction: column;
+.update_product_from label {
+  display: flex;
+  flex-direction: column;
 }
+.update_product_form::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .update_product_form::-webkit-scrollbar-thumb {
+    background-color: rgb(106, 66, 199); 
+    border-radius: 20px; 
+    border: 3px solid none;
+  }
