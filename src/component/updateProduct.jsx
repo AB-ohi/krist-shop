@@ -49,8 +49,10 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
           />
         </label>
       </form>
-      <button type="submit">Update</button>
+      <div>
+        <button type="submit">Update</button>
       <button onClick={() => setEditProduct(null)}>cancel</button>
+      </div>
     </div>
   );
 };
