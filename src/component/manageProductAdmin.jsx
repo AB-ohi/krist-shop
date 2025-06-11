@@ -1,11 +1,13 @@
 import Swal from "sweetalert2";
 import allProductHook from "../Hook/allProductHook";
 import "./manageProductAdmin.css";
-import UpdateProduct from './updateProduct.jsx'
+import UpdateProduct from "./updateProduct.jsx";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const ManageProductAdmin = () => {
   const [allProducts, setAllProducts] = allProductHook();
+  const [editProduct, setEditProduct] = useState(null);
   console.log(allProducts);
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -40,8 +42,7 @@ const ManageProductAdmin = () => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5000/AllProduct/${productId._id}`, {
           method: "DELETE",
-        })
-        .then((response) => {
+        }).then((response) => {
           if (response.ok) {
             setAllProducts((prev) =>
               prev.filter((product) => product._id !== productId._id)
@@ -51,12 +52,15 @@ const ManageProductAdmin = () => {
       }
     });
   };
-  const updateSingleProduct = (UP) =>{
-    const editProduct = allProducts.filter((product)=> product._id === UP._id)
-    console.log(editProduct)
-  }
+  const updateSingleProduct = (UP) => {
+    const foundProduct = allProducts.filter(
+      (product) => product._id === UP._id
+    );
+    setEditProduct(foundProduct);
+    console.log(foundProduct);
+  };
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <table className="admin_product_table">
         <thead className="admin_product_thead">
           <tr>
@@ -97,7 +101,12 @@ const ManageProductAdmin = () => {
                 <td>{allProduct.discount}%</td>
                 <td>{allProduct.discount_price}৳</td>
                 <td className="manage_product_admin_action_btn">
-                  <button onClick={()=> updateSingleProduct(allProduct)} className="action_edit_btn">Edit</button>
+                  <button
+                    onClick={() => updateSingleProduct(allProduct)}
+                    className="action_edit_btn"
+                  >
+                    Edit
+                  </button>
                   <button
                     onClick={() => handelDelete(allProduct)}
                     className="action_delete_btn"
@@ -110,11 +119,12 @@ const ManageProductAdmin = () => {
           })}
         </motion.tbody>
       </table>
-      <div>
-        <UpdateProduct 
-        editProduct= {editProduct}
-        />
-      </div>
+        <div>
+          <UpdateProduct
+            editProduct={editProduct}
+            setEditProduct={setEditProduct}
+          />
+        </div>
     </div>
   );
 };
