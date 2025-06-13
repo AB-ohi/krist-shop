@@ -9,15 +9,17 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
   return (
     <div className="update_product_form">
       <h2>Update Product: {editProduct?.product_name}</h2>
-      {
+      <div style={{display:'flex', }}>
+        {
         editProduct.images.length === 1 ?(
-          <img src={editProduct.images[0]} alt="" />
+          <img className='product_update_img' src={editProduct.images[0]} alt="" />
         ):(
           editProduct?.images?.map((img, index)=>{
            return <img key={index} src={img} alt={`product-${index}`}/>
           }) 
         )
       }
+      </div>
       <form className="update_product_from">
         <label>
           Product Name:
