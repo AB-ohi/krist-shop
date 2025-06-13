@@ -46,3 +46,36 @@
   border-radius: 20px;
   border: 3px solid none;
 }
+.update_btn {
+  padding: 8px 16px;
+  border: 1px solid rgb(69, 116, 0);
+  color: rgb(69, 116, 0);
+  background-color: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.update_btn:hover {
+  color: white;
+  background-color: rgb(0, 180, 0);
+  border: 1px solid rgb(0, 180, 0);
+  transform: scale(1.05);
+}
+
+.cancel_btn {
+  padding: 8px 16px;
+  background-color: rgba(254, 98, 98, 0.454);
+  border: 1px solid rgb(255, 0, 0);
+  color: rgb(255, 0, 0);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.cancel_btn:hover {
+  color: white;
+  background-color: rgb(255, 0, 0);
+  border: 1px solid rgb(255, 0, 0);
+  transform: scale(1.05);
+}
