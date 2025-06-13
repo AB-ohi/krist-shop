@@ -9,7 +9,15 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
   return (
     <div className="update_product_form">
       <h2>Update Product: {editProduct?.product_name}</h2>
-      <img src={editProduct?.images[0,1]} alt="" />
+      {
+        editProduct.images.length === 1 ?(
+          <img src={editProduct.images[0]} alt="" />
+        ):(
+          editProduct?.images?.map((img, index)=>{
+           return <img key={index} src={img} alt={`product-${index}`}/>
+          }) 
+        )
+      }
       <form className="update_product_from">
         <label>
           Product Name:
@@ -19,9 +27,9 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
         <label>
           Price:
           <input
-              onInput={(e) => {
-                        e.target.value = e.target.value.replace(/[^0-9.]/g, "");
-                      }}
+            onInput={(e) => {
+              e.target.value = e.target.value.replace(/[^0-9.]/g, "");
+            }}
             type="text"
             placeholder={editProduct.main_price}
           />
@@ -30,9 +38,9 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
         <label>
           Quantity:
           <input
-           onInput={(e) => {
-                        e.target.value = e.target.value.replace(/[^0-9.]/g, "");
-                      }}
+            onInput={(e) => {
+              e.target.value = e.target.value.replace(/[^0-9.]/g, "");
+            }}
             type="text"
             placeholder={editProduct.quantity}
           />
@@ -49,9 +57,13 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
           />
         </label>
       </form>
-      <div style={{display:'flex', gap:'10px', marginTop:'10px'}}>
-        <button className="update_btn" type="submit">Update</button>
-      <button className="cancel_btn" onClick={() => setEditProduct(null)}>cancel</button>
+      <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+        <button className="update_btn" type="submit">
+          Update
+        </button>
+        <button className="cancel_btn" onClick={() => setEditProduct(null)}>
+          cancel
+        </button>
       </div>
     </div>
   );
