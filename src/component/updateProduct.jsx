@@ -9,7 +9,7 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
   return (
     <div className="update_product_form">
       <h2>Update Product: {editProduct?.product_name}</h2>
-      <p>Id: {editProduct?._id}</p>
+      <img src={editProduct?.images[0,1]} alt="" />
       <form className="update_product_from">
         <label>
           Product Name:
