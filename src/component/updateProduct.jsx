@@ -76,39 +76,44 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
         <label>
           Price:
           <input
-           
             type="text"
             placeholder={editProduct.main_price}
-            onChange={(e) =>{
-              const changeValue = e.target.value.replace(/[^0-9.]/g,"");
-              setFormData({ ...formData, main_price: changeValue })}
-            }
+            inputMode="numeric"
+            value={formData.main_price}
+            onChange={(e) => {
+              const changeValue = e.target.value.replace(/[^0-9]/g, "");
+              setFormData({ ...formData, main_price: changeValue });
+            }}
           />
         </label>
         <br />
         <label>
           Quantity:
           <input
-           
             type="text"
             placeholder={editProduct.quantity}
-            onChange={(e) =>{
-                const changeValue = e.target.value.replace(/[^0-9.]/g,"");
-              setFormData({ ...formData, quantity:changeValue })}
-            }
+            inputMode="numeric"
+            pattern="[0-9]*"
+            value={formData.quantity}
+            onChange={(e) => {
+              const changeValue = e.target.value.replace(/[^0-9.]/g, "");
+              setFormData({ ...formData, quantity: changeValue });
+            }}
           />
         </label>
         <br />
         <label>
           Discount:
           <input
-         
             type="text"
             placeholder={editProduct.discount}
-            onChange={(e) =>{
-               const changeValue = e.target.value.replace(/[^0-9.]/g,"");
-              setFormData({ ...formData, discount: changeValue })}
-            }
+            inputMode="numeric"
+            pattern="[0-9]*"
+            value={formData.discount}
+            onChange={(e) => {
+              const changeValue = e.target.value.replace(/[^0-9.]/g, "");
+              setFormData({ ...formData, discount: changeValue });
+            }}
           />
         </label>
       </form>
