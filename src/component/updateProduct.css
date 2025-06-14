@@ -7,7 +7,7 @@
   color: rgb(106, 66, 199);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: rgba(227, 216, 252, 0.683) 0px 22px 70px 4px;
+  box-shadow: rgb(227, 216, 252) 0px 22px 70px 4px;
   z-index: 1000;
   animation: popFadeIn 0.4s ease-out forwards;
   overflow: auto;
@@ -30,8 +30,8 @@
 }
 /* color: rgb(106, 66, 199); */
 /* background-color: rgb(222, 208, 255); */
-.update_product_from {
-}
+/* .update_product_from {
+} */
 
 .update_product_from label {
   display: flex;
@@ -71,6 +71,10 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease, transform 0.2s ease;
+}
+.update_btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .cancel_btn:hover {

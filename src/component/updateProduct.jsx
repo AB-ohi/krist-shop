@@ -5,7 +5,15 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
   if (!editProduct) {
     return null;
   }
-
+  const [formData, setFormData] = useState({
+    product_name: "",
+    main_price: "",
+    quantity: "",
+    discount: "",
+  });
+  const isAnyFieldFilled = Object.values(formData).some(
+    (val) => val.trim() !== ""
+  );
   console.log("product", editProduct?._id);
   return (
     <motion.div
@@ -55,44 +63,61 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
       <form className="update_product_from">
         <label>
           Product Name:
-          <input type="text" placeholder={editProduct.product_name} />
+          <input
+            type="text"
+            placeholder={editProduct.product_name}
+            onChange={(e) => {
+              const cleanedValue = e.target.value;
+              setFormData({ ...formData, product_name: cleanedValue });
+            }}
+          />
         </label>
         <br />
         <label>
           Price:
           <input
-            onInput={(e) => {
-              e.target.value = e.target.value.replace(/[^0-9.]/g, "");
-            }}
+           
             type="text"
             placeholder={editProduct.main_price}
+            onChange={(e) =>{
+              const changeValue = e.target.value.replace(/[^0-9.]/g,"");
+              setFormData({ ...formData, main_price: changeValue })}
+            }
           />
         </label>
         <br />
         <label>
           Quantity:
           <input
-            onInput={(e) => {
-              e.target.value = e.target.value.replace(/[^0-9.]/g, "");
-            }}
+           
             type="text"
             placeholder={editProduct.quantity}
+            onChange={(e) =>{
+                const changeValue = e.target.value.replace(/[^0-9.]/g,"");
+              setFormData({ ...formData, quantity:changeValue })}
+            }
           />
         </label>
         <br />
         <label>
           Discount:
           <input
-            onInput={(e) => {
-              e.target.value = e.target.value.replace(/[^0-9.]/g, "");
-            }}
+         
             type="text"
             placeholder={editProduct.discount}
+            onChange={(e) =>{
+               const changeValue = e.target.value.replace(/[^0-9.]/g,"");
+              setFormData({ ...formData, discount: changeValue })}
+            }
           />
         </label>
       </form>
       <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-        <button className="update_btn" type="submit">
+        <button
+          className="update_btn"
+          type="submit"
+          disabled={!isAnyFieldFilled}
+        >
           Update
         </button>
         <button className="cancel_btn" onClick={() => setEditProduct(null)}>
