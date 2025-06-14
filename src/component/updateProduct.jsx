@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import "./updateProduct.css";
 const UpdateProduct = ({ editProduct, setEditProduct }) => {
   if (!editProduct) {
@@ -7,19 +8,50 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
 
   console.log("product", editProduct?._id);
   return (
-    <div className="update_product_form">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="update_product_form"
+    >
       <h2>Update Product: {editProduct?.product_name}</h2>
-      <div style={{display:'flex', }}>
-        {
-        editProduct.images.length === 1 ?(
-          <img className='product_update_img' src={editProduct.images[0]} alt="" />
-        ):(
-          editProduct?.images?.map((img, index)=>{
-           return <img key={index} src={img} alt={`product-${index}`}/>
-          }) 
-        )
-      }
-      </div>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 1.5,
+            },
+          },
+        }}
+        style={{ display: "flex", gap: "20px" }}
+      >
+        {editProduct.images.length === 1 ? (
+          <motion.img
+            className="product_update_img"
+            src={editProduct.images[0]}
+            alt=""
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.5 }}
+          />
+        ) : (
+          editProduct?.images?.map((img, index) => {
+            return (
+              <motion.img
+                className="product_update_img"
+                key={index}
+                src={img}
+                alt={`product-${index}`}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1.5 }}
+              />
+            );
+          })
+        )}
+      </motion.div>
       <form className="update_product_from">
         <label>
           Product Name:
@@ -67,7 +99,7 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
           cancel
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
