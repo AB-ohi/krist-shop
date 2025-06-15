@@ -6,9 +6,10 @@ import addProduct from "../../../public/img/addProduct.gif";
 import { TbCoinTaka } from "react-icons/tb";
 import Swal from "sweetalert2";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { motion } from "framer-motion";
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token;
 import { MdOutlineDiscount } from "react-icons/md";
-import ManageProductAdmin from "../../component/manageProductAdmin"
+import ManageProductAdmin from "../../component/manageProductAdmin";
 const ManageProduct = () => {
   const [images, setImages] = useState([]);
   const [isUploading, setIsUploading] = useState(false);
@@ -44,12 +45,12 @@ const ManageProduct = () => {
   const handelProductSubmit = async (e) => {
     e.preventDefault();
     const from = e.target;
-    const main_price = from. main_price.value
+    const main_price = from.main_price.value;
     const height = from.height.value;
     const compare_price = from.compare_price.value;
     const SKU = from.SKU.value;
-    const discount = from.discount.value
-    const discount_price = main_price-(discount*10)
+    const discount = from.discount.value;
+    const discount_price = main_price - discount * 10;
     setIsUploading(true);
 
     try {
@@ -131,7 +132,13 @@ const ManageProduct = () => {
   return (
     <div className="manage_product_body">
       <h1>Add New Product</h1>
-      <form onSubmit={handelProductSubmit} className="productUpArea">
+      <motion.form
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        onSubmit={handelProductSubmit}
+        className="productUpArea"
+      >
         <div style={{ width: "50%" }}>
           <div>
             <p style={{ fontSize: "20px", marginBottom: "4px" }}>
@@ -166,7 +173,13 @@ const ManageProduct = () => {
                   <div>
                     <div className="imgArea">
                       {imageList.map((image, index) => (
-                        <div key={index} className="image-item">
+                        <motion.div
+                          key={index}
+                          className="image-item"
+                          initial={{ scale: 0.8, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ duration: 0.4, delay: index * 0.1 }}
+                        >
                           <img
                             style={{ width: "100px", borderRadius: "8px" }}
                             src={image["data_url"]}
@@ -178,7 +191,7 @@ const ManageProduct = () => {
                               <RxCross2 style={{ paddingTop: "5px" }} />
                             </button>
                           </div>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
                   </div>
@@ -443,9 +456,22 @@ const ManageProduct = () => {
             )}
           </div>
         </div>
-        <div style={{ width: "50%" }}>
+        <motion.div
+          style={{ width: "50%" }}
+          initial="hidden"
+          animate="visible"
+          variants={{
+            visible: { transition: { staggerChildren: 0.2 } },
+          }}
+        >
           {images?.length > 0 ? (
-            <div className="productDescription">
+            <motion.div
+              className="productDescription"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
               <div>
                 <p style={{ fontSize: "20px", marginBottom: "4px" }}>
                   Description
@@ -642,29 +668,29 @@ const ManageProduct = () => {
                   )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ) : (
             <div></div>
           )}
-        </div>
-        {isUploading && <div className={isUploading?"uploadLoading":"uploadHold"}>
+        </motion.div>
+        {isUploading && (
+          <div className={isUploading ? "uploadLoading" : "uploadHold"}>
             <DotLottieReact
-      src="https://lottie.host/cbc43357-1179-449a-af0d-372df2457da3/yOh8zGoGs9.lottie"
-      loop
-      autoplay
-      style={{width:"60%", margin:'auto'}}
-    />
-          </div>}
-      </form>
-      {
-        images?.length == 0?(
-          <div>
-        <ManageProductAdmin/>
-      </div>
-        ):(
-         <div></div>
-        )
-      }
+              src="https://lottie.host/cbc43357-1179-449a-af0d-372df2457da3/yOh8zGoGs9.lottie"
+              loop
+              autoplay
+              style={{ width: "60%", margin: "auto" }}
+            />
+          </div>
+        )}
+      </motion.form>
+      {images?.length == 0 ? (
+        <div>
+          <ManageProductAdmin />
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
