@@ -3,13 +3,34 @@
   align-items: center;
   justify-content: space-around;
   font-family: "Jost", sans-serif;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  animation: navFadeSlide 0.6s ease-out;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s ease-in-out;
 }
+
+@keyframes navFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .nav-List-Item {
   display: flex;
   align-items: center;
   gap: 30px;
   list-style: none;
 }
+
 #item-list {
   text-decoration: none;
   color: black;
@@ -19,21 +40,29 @@
   border-bottom: 3px solid transparent;
   position: relative;
   font-weight: 500;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  z-index: 1;
 }
+
 #item-list:hover {
   color: rgb(106, 66, 199);
   background-color: rgb(222, 208, 255);
+  transform: translateY(-3px);
+  z-index: 3;
 }
 
 #nav-List-Item li a.active {
   color: aqua;
 }
+
 .nav-item {
   display: flex;
   gap: 20px;
   align-items: center;
   font-size: 25px;
 }
+
 #nev-btn {
   background-color: #131118;
   outline: none;
@@ -42,27 +71,38 @@
   padding: 15px 20px;
   border-radius: 8px;
 }
-/* .show-menu{
-    display: flex;
-    justify-content: center;
-} */
+
 .onMenu {
   position: absolute;
   left: 0;
-  /* transform: translate(-50%, -50%); */
   z-index: 20;
   transition: 0.5s;
+  animation: slideInFromLeft 0.5s ease-in-out;
 }
+
 .ofMenu {
   position: absolute;
   left: -100%;
-   z-index: 20;
+  z-index: 20;
   transition: 1s;
+  opacity: 0;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .res-menu {
   visibility: hidden;
 }
+
 .ResNav {
   display: none;
 }
@@ -79,9 +119,12 @@
   background-color: rgb(236, 225, 255);
   border-bottom: 3px solid rgb(106, 66, 199);
   position: relative;
-  transform: scale(1.05);
-  transition: all 0.3s ease-in-out;
+  transform: translateY(-6px) scale(1.1);
+  transition: all 0.4s ease-in-out;
+  z-index: 4;
+  box-shadow: 0 6px 12px rgba(106, 66, 199, 0.2);
 }
+
 #item-list::after,
 .active-link::after {
   content: '';
@@ -93,6 +136,7 @@
   background-color: rgb(106, 66, 199);
   transition: width 0.3s ease-in-out;
 }
+
 #item-list:hover::after,
 .active-link::after {
   width: 100%;
@@ -108,16 +152,11 @@
     top: 0;
   }
 
-  /* .nav-List-Item-hidden{
-
-    } */
-
   .res-menu {
     visibility: visible;
     font-size: 20px;
   }
 
-  /* Res-Nav Css code */
   .ResNav {
     display: block;
     position: absolute;
