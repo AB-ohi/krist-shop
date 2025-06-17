@@ -15,6 +15,18 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
     (val) => val.trim() !== ""
   );
   console.log("product", editProduct?._id);
+
+  const handelUpdate =(e)=>{
+    e.preventDefault()
+    const from = e.target
+    const product_name = from.product_name.value;
+    const main_price = from.main_price.value;
+    const quantity = from.quantity.value;
+    const discount = from.discount.value;
+    const updateValue = {product_name, main_price, quantity, discount}
+    console.log(updateValue)
+
+  }
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -60,12 +72,13 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
           })
         )}
       </motion.div>
-      <form className="update_product_from">
+      <form  onSubmit={handelUpdate} className="update_product_from">
         <label>
           Product Name:
           <input
             type="text"
             placeholder={editProduct.product_name}
+            name="product_name"
             onChange={(e) => {
               const cleanedValue = e.target.value;
               setFormData({ ...formData, product_name: cleanedValue });
@@ -79,6 +92,7 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
             type="text"
             placeholder={editProduct.main_price}
             inputMode="numeric"
+            name="main_price"
             value={formData.main_price}
             onChange={(e) => {
               const changeValue = e.target.value.replace(/[^0-9]/g, "");
@@ -94,6 +108,7 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
             placeholder={editProduct.quantity}
             inputMode="numeric"
             pattern="[0-9]*"
+            name="quantity"
             value={formData.quantity}
             onChange={(e) => {
               const changeValue = e.target.value.replace(/[^0-9.]/g, "");
@@ -109,6 +124,7 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
             placeholder={editProduct.discount}
             inputMode="numeric"
             pattern="[0-9]*"
+            name="discount"
             value={formData.discount}
             onChange={(e) => {
               const changeValue = e.target.value.replace(/[^0-9.]/g, "");
@@ -116,8 +132,7 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
             }}
           />
         </label>
-      </form>
-      <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+        <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
         <button
           className="update_btn"
           type="submit"
@@ -129,6 +144,8 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
           cancel
         </button>
       </div>
+      </form>
+      
     </motion.div>
   );
 };

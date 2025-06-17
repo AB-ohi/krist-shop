@@ -16,7 +16,7 @@ const ManageProduct = () => {
   const [weightValue, setWeightValue] = useState("kg");
   console.log("weightValue", weightValue);
   const [formData, setFormData] = useState({
-    product_weight: ``,
+    product_weight: "",
     length: "",
     width: "",
     main_price: "",
