@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import "./updateProduct.css";
+import allProductHook from "../Hook/allProductHook";
+import Swal from "sweetalert2";
 const UpdateProduct = ({ editProduct, setEditProduct }) => {
+  const [allProducts, setAllProducts] = allProductHook();
   if (!editProduct) {
     return null;
   }
@@ -23,28 +26,50 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
     const main_price = from.main_price.value;
     const quantity = from.quantity.value;
     const discount = from.discount.value;
-    const updateValue = { product_name, main_price, quantity, discount };
+    const updateValue = {
+      product_name: product_name || editProduct.product_name,
+      main_price: main_price || editProduct.main_price,
+      quantity: quantity || editProduct.quantity,
+      discount: discount || editProduct.discount,
+    };
     console.log(updateValue);
-
-    const res = await fetch(
-      `http://localhost:5000/AllProduct/${editProduct?._id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          product_name: product_name,
-          main_price: main_price,
-          quantity: quantity,
-          discount: discount,
-        })
-      }
-    )
-    .then(res=>res.json())
-    .then(data =>{
-      data
+    await fetch(`http://localhost:5000/AllProduct/${editProduct?._id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(updateValue),
     })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire({
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          const updatedProduct = {
+            ...editProduct,
+            ...updateValue,
+          };
+          setAllProducts((prev) =>
+            prev.map((product) =>
+              product._id === editProduct._id ? updatedProduct : product
+            )
+          );
+
+          setEditProduct(null);
+          setFormData({
+            product_name: "",
+            main_price: "",
+            quantity: "",
+            discount: "",
+          });
+        } else {
+          console.log(error, "product cna not update");
+        }
+      });
   };
   return (
     <motion.div
