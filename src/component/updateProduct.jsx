@@ -16,17 +16,36 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
   );
   console.log("product", editProduct?._id);
 
-  const handelUpdate =(e)=>{
-    e.preventDefault()
-    const from = e.target
+  const handelUpdate = async (e) => {
+    e.preventDefault();
+    const from = e.target;
     const product_name = from.product_name.value;
     const main_price = from.main_price.value;
     const quantity = from.quantity.value;
     const discount = from.discount.value;
-    const updateValue = {product_name, main_price, quantity, discount}
-    console.log(updateValue)
+    const updateValue = { product_name, main_price, quantity, discount };
+    console.log(updateValue);
 
-  }
+    const res = await fetch(
+      `http://localhost:5000/AllProduct/${editProduct?._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          product_name: product_name,
+          main_price: main_price,
+          quantity: quantity,
+          discount: discount,
+        })
+      }
+    )
+    .then(res=>res.json())
+    .then(data =>{
+      data
+    })
+  };
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -72,7 +91,7 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
           })
         )}
       </motion.div>
-      <form  onSubmit={handelUpdate} className="update_product_from">
+      <form onSubmit={handelUpdate} className="update_product_from">
         <label>
           Product Name:
           <input
@@ -133,19 +152,18 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
           />
         </label>
         <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-        <button
-          className="update_btn"
-          type="submit"
-          disabled={!isAnyFieldFilled}
-        >
-          Update
-        </button>
-        <button className="cancel_btn" onClick={() => setEditProduct(null)}>
-          cancel
-        </button>
-      </div>
+          <button
+            className="update_btn"
+            type="submit"
+            disabled={!isAnyFieldFilled}
+          >
+            Update
+          </button>
+          <button className="cancel_btn" onClick={() => setEditProduct(null)}>
+            cancel
+          </button>
+        </div>
       </form>
-      
     </motion.div>
   );
 };
