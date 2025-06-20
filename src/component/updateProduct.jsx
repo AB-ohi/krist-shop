@@ -30,10 +30,10 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
     const discount_price =
       (mainPrice ? parseFloat(mainPrice) : parseFloat(editProduct.main_price)) -
       (parseFloat(discount) || parseFloat(editProduct.discount)) * 10;
-    // const
+      
     const updateValue = {
       product_name: product_name || editProduct.product_name,
-      main_price: main_price || editProduct.main_price,
+      main_price: mainPrice || editProduct.main_price,
       quantity: quantity || editProduct.quantity,
       discount: discount || editProduct.discount,
       discount_price: discount_price,
@@ -54,23 +54,19 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
             title: "Your work has been saved",
             showConfirmButton: false,
             timer: 1500,
-          });
+          })
+          .then(() => {
+          window.location.reload();
+        })
           setEditProduct(null);
           setFormData({
             product_name: "",
             main_price: "",
             quantity: "",
             discount: "",
-          });
-          const updatedProduct = {
-            ...editProduct,
-            ...updateValue,
-          };
-          setAllProducts((prev) =>
-            prev.map((product) =>
-              product._id === editProduct._id ? updatedProduct : product
-            )
-          );
+          })
+          
+         
         } else {
           console.log(error, "product cna not update");
         }
