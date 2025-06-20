@@ -57,6 +57,7 @@ const ManageProductAdmin = () => {
     setEditProduct(foundProduct);
     console.log(foundProduct);
   };
+
   return (
     <div style={{ position: "relative" }}>
       <table className="admin_product_table">

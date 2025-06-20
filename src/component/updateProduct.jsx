@@ -49,6 +49,13 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
             showConfirmButton: false,
             timer: 1500,
           });
+          setEditProduct(null);
+          setFormData({
+            product_name: "",
+            main_price: "",
+            quantity: "",
+            discount: "",
+          });
           const updatedProduct = {
             ...editProduct,
             ...updateValue,
@@ -58,14 +65,6 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
               product._id === editProduct._id ? updatedProduct : product
             )
           );
-
-          setEditProduct(null);
-          setFormData({
-            product_name: "",
-            main_price: "",
-            quantity: "",
-            discount: "",
-          });
         } else {
           console.log(error, "product cna not update");
         }
