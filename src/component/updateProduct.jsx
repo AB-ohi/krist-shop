@@ -5,6 +5,7 @@ import allProductHook from "../Hook/allProductHook";
 import Swal from "sweetalert2";
 const UpdateProduct = ({ editProduct, setEditProduct }) => {
   const [allProducts, setAllProducts] = allProductHook();
+  console.log(allProducts);
   if (!editProduct) {
     return null;
   }
@@ -23,14 +24,19 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
     e.preventDefault();
     const from = e.target;
     const product_name = from.product_name.value;
-    const main_price = from.main_price.value;
+    const mainPrice = from.main_price.value;
     const quantity = from.quantity.value;
     const discount = from.discount.value;
+    const discount_price =
+      (mainPrice ? parseFloat(mainPrice) : parseFloat(editProduct.main_price)) -
+      (parseFloat(discount) || parseFloat(editProduct.discount)) * 10;
+    // const
     const updateValue = {
       product_name: product_name || editProduct.product_name,
       main_price: main_price || editProduct.main_price,
       quantity: quantity || editProduct.quantity,
       discount: discount || editProduct.discount,
+      discount_price: discount_price,
     };
     console.log(updateValue);
     await fetch(`http://localhost:5000/AllProduct/${editProduct?._id}`, {
