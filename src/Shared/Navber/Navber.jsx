@@ -21,7 +21,7 @@ const NavBer = () => {
   const { User } = useUserData();
 
   return (
-    <div>
+    <div className="page-wrapper">
       <motion.nav
         className="nav"
         initial={{ y: -80, opacity: 0 }}

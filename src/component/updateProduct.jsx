@@ -34,7 +34,7 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
         ? parseFloat(mainPrice)
         : parseFloat(editProduct.main_price);
 
-    const discount_price = mainPriceVal - ((discount*mainPriceVal)/100);
+    const discount_price = Math.round(mainPriceVal - ((discount*mainPriceVal)/100));
     const updateValue = {
       product_name: product_name || editProduct.product_name,
       main_price: mainPrice || editProduct.main_price,

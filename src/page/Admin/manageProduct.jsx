@@ -50,7 +50,7 @@ const ManageProduct = () => {
     const compare_price = from.compare_price.value;
     const SKU = from.SKU.value;
     const discount = from.discount.value;
-    const discount_price = main_price -((discount*main_price)/100);
+    const discount_price = Math.round(main_price -((discount*main_price)/100));
     setIsUploading(true);
 
     try {

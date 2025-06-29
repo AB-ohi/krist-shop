@@ -11,6 +11,16 @@
   top: 0;
   z-index: 1000;
   transition: all 0.4s ease-in-out;
+  
+  background: rgba(255, 255, 255, 0.9); /* light opaque */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.page-wrapper {
+  overflow: visible;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 @keyframes navFadeSlide {
@@ -127,7 +137,7 @@
 
 #item-list::after,
 .active-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
