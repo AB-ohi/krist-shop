@@ -4,7 +4,6 @@ import Login from "../Login/Login";
 import SignUp from "../Signup/SignUp";
 import Home from "../Home/Home/Home";
 import Shop from "../Layout/Shop";
-import Man from "../page/Shop/Men/man";
 import Details from "../page/Details/Details";
 import Profile from "../Layout/Profile";
 import Cart from "../page/Shop/Cart/Cart";
@@ -21,6 +20,8 @@ import AdminRoute from "./AdminRoute";
 import ManageUser from "../page/Admin/ManageUser";
 import AdminDashboard from "../page/Admin/AdminDashboard";
 import ManageProduct from "../page/Admin/manageProduct";
+import Man from "../page/Shop/Men/Man";
+import CategoryProduct from "../page/Shop/CategoryProduct/CategoryProduct";
 
 const router = createBrowserRouter([
     {
@@ -85,28 +86,11 @@ const router = createBrowserRouter([
               element:<Cart/>
             },
             {
-              path:'man',
-              element:<Man/>
-            },
-            {
-              path:'women',
-              element:<Woman/>
-            },
-            {
-              path:'footwear',
-              element:<Footwear></Footwear>
-            },
-            {
-              path:'kids',
-              element:<Kids/>
-            },
-            {
-              path:'bangla',
-              element:''
-            },
-            {
-              path:'western',
+              path:':category',
+              element:<CategoryProduct/>,
+              loader:({params})=>fetch(`http://localhost:5000/AllProduct/${params.category}`)
             }
+           
           ]
         }
       ]
