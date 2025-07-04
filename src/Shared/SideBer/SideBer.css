@@ -21,22 +21,22 @@
 }
 .sideBer-Link:hover {
   color: #111526;
-  background-color: #BCB5EE;
+  background-color: #bcb5ee;
   padding: 0 10px;
   font-size: 28px;
 }
 
-.active-sideBer-link{
+.active-sideBer-link {
   margin: 30px 10px 30px 20px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white; 
+  color: white;
   font-size: 25px;
   text-decoration: none;
   transition: 0.5s;
-  background-color: #3CC9F5;
+  background-color: #3cc9f5;
   border-radius: 11px;
   padding: 0 10px;
 }
@@ -72,17 +72,20 @@
   transition: 0.5s;
 }
 
-.sideBer-main{
-  width: 20%
-
+.sideBerMain {
+  width: 20%;
+  overflow: auto;
+  background-color: #17263C;
+  color: white;
+}
+.sideBerMain::-webkit-scrollbar {
+  width: 0px;
 }
 
-
-@media only screen and (max-width: 1200px){
-  .sideBer-main{
-    width: 2  5%;
+@media only screen and (max-width: 1200px) {
+  .sideBerMain {
+    width: 2 5%;
   }
 }
-@media only screen and (max-width: 700px){
-  
+@media only screen and (max-width: 700px) {
 }

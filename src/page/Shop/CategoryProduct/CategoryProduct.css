@@ -1,0 +1,9 @@
+.shopDisplayProductImg{
+    width: 20%;
+}
+
+.shopDisplayProductCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

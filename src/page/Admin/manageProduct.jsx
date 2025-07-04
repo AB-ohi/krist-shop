@@ -539,9 +539,9 @@ const ManageProduct = () => {
                     <option value="">Select Category</option>
                     <option value="men">Men</option>
                     <option value="women">Women</option>
-                    <option value="footwear">Footwear</option>
+                    <option value="foot">Footwear</option>
                     <option value="kids">Kids</option>
-                    <option value="bfwear">B&F Wear</option>
+                    <option value="bangla">B&F Wear</option>
                     <option value="western">Western Wear</option>
                   </select>
                 </div>

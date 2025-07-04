@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom"
+import "./CategoryProduct.css"
 
 const CategoryProduct = () =>{
     const {category} = useParams();
@@ -10,8 +11,13 @@ const CategoryProduct = () =>{
                 {
                     products?.map((product)=>{
                         return(
-                            <div key={product._id}>
-                                <img style={{width:'100%'}} src={product.images[0]} alt="" />
+                            <div className="shopDisplayProductCard" key={product._id}>
+                                <div className="shopDisplayProductImg">
+                                    <img style={{width:'100%'}} src={product.images[0]} alt="" />
+                                </div>
+                                <div>
+                            <p>{product.product_detail}</p>
+                                </div>
                             </div>
                         )
                     })

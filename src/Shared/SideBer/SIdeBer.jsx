@@ -11,17 +11,8 @@ const SIdeBer = () => {
   const [showWesternItem, setShowWesternItem] = useState(true);
   return (
     <div
-      className="sideBer-main"
-      style={{
-        height: "100vh",
-        backgroundColor:'#17263C',
-        color: "white",
-        paddingTop: "30px",
-        paddingBottom: "30px",
-        position: "static",
-        top: "10px",
-        overflow: "auto",
-      }}
+      className="sideBerMain"
+
     >
       <div className="side-list">
         <NavLink
@@ -72,7 +63,7 @@ const SIdeBer = () => {
           className={({ isActive }) =>
             isActive ? "active-sideBer-link" : "sideBer-Link"
           }
-          to="/shop/footwear"
+          to="/shop/foot"
         >
           Footwear
           <IoChevronUpSharp
