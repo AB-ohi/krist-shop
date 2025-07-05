@@ -5,6 +5,10 @@
   overflow: hidden;
   border-radius: 5px;
 }
+.shopDisplayProductCard{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    border-radius: 5px;
+}
 
 .shopDisplayProductImgWrapper img {
   width: 100%;
@@ -12,9 +16,19 @@
   object-fit: cover;
   display: block;
   border-radius: 5px;
+  color: #007180;
 }
 
-/* Overlay black effect */
+.discountInProduct{
+    position: absolute;
+    background-color: red;
+    left: -9PX;
+    padding: 6px 8px;
+    top: -245PX;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px 0 0 0;
+}
 .imgOverlay {
   position: absolute;
   top: 0;
