@@ -1,20 +1,51 @@
-.shopDisplayProductImg {
-  width: 60%;
-  margin: 0 auto;
+.shopDisplayProductImgWrapper {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
 }
 
-.shopDisplayProductCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #ffffff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-.shopDisplayProductImg img {
+.shopDisplayProductImgWrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   border-radius: 5px;
+}
+
+/* Overlay black effect */
+.imgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+  border-radius: 5px;
+}
+
+/* Button style */
+.detailsButton {
+  padding: 8px 16px;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.shopDisplayProductCard:hover .imgOverlay {
+  opacity: 1;
+}
+
+.shopDisplayProductCard:hover .detailsButton {
+  transform: scale(1);
 }
