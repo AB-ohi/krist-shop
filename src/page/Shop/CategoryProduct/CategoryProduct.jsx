@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import "./CategoryProduct.css";
 
 const CategoryProduct = () => {
@@ -33,7 +33,7 @@ const CategoryProduct = () => {
             <div className="shopDisplayProductImgWrapper">
               <img src={product.images?.[0]} alt={product.product_name} />
               <div className="imgOverlay">
-                <button className="detailsButton">Details</button>
+                <button className="detailsButton"><Link to={`/detail/${product._id}`}>Details</Link></button>
               </div>
             </div>
 

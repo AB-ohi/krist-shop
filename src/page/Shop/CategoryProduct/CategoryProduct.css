@@ -22,9 +22,9 @@
 .discountInProduct{
     position: absolute;
     background-color: red;
-    left: -9PX;
+    left: -10PX;
     padding: 6px 8px;
-    top: -245PX;
+    top: -246PX;
     color: white;
     font-weight: bold;
     border-radius: 5px 0 0 0;
@@ -54,6 +54,10 @@
   cursor: pointer;
   transform: scale(0.95);
   transition: transform 0.3s ease;
+}
+.detailsButton a{
+    text-decoration: none;
+    color: white;
 }
 
 .shopDisplayProductCard:hover .imgOverlay {
