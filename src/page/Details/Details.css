@@ -30,3 +30,73 @@
     width: 40%;
 }
 
+.carouselContainer {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.carouselImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 22px;
+  padding: 7px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  z-index: 10;
+}
+
+.navButton:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.navButton.left {
+  left: 10px;
+}
+
+.navButton.right {
+  right: 10px;
+}
+
+.dotContainer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active,
+.dot:hover {
+  background-color: #007180;
+}

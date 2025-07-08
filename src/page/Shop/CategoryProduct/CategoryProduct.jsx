@@ -18,7 +18,13 @@ const CategoryProduct = () => {
         Category: {category}
       </h1>
 
-      <div
+      {
+        products?.length === 0 ? (
+            <div>
+                <p>sfvnjdfnvs</p>
+            </div>
+        ):(
+            <div
         style={{
           height: "100vh",
           overflowY: "auto",
@@ -68,6 +74,8 @@ const CategoryProduct = () => {
           </div>
         ))}
       </div>
+        )
+      }
     </div>
   );
 };

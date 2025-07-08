@@ -1,27 +1,52 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import './Details.css'
 import ReactStars from 'react-rating-star-with-type'
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { useState } from "react";
 
 
 const Details = () => {
     const detail = useLoaderData()
+      const navigate = useNavigate();
     console.log(detail)
 
-   
+    const [current, setCurrent] = useState(0);
+
+  const handlePrev = () => {
+    setCurrent((prev) => (prev === 0 ? detail.images.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrent((prev) => (prev === detail.images.length - 1 ? 0 : prev + 1));
+  };
     return (
         <div className="detailMain">
             <div style={{display:'flex', alignItems:'center', gap:'7px'}}>
                 <Link className="linkDeration" to='/' rel="stylesheet">home</Link>
                 <samp>{">"}</samp>
-                <Link className="linkDeration" to='/shop' rel="stylesheet" >shop</Link>
+                <Link className="linkDeration" onClick={()=>{
+                  navigate(-1)
+                }} rel="stylesheet" >shop</Link>
                 <samp>{">"}</samp>
                 <p style={{fontSize:'20px', fontWeight:'700', color:'rgb(92, 92, 92)'}}>{detail.category}</p>
             </div>
             <div className="detailMainBody">
-            <div className="detailImg">
-                <img style={{width:'100%'}} src={detail.pictureURL} alt="" />
-            </div>
+             <div className="carouselContainer">
+      <div className="carouselImageWrapper">
+        <img src={detail.images[current]} alt={`carousel-${current}`} className="carouselImage" />
+        <button className="navButton left" onClick={handlePrev}>❮</button>
+        <button className="navButton right" onClick={handleNext}>❯</button>
+      </div>
+      <div className="dotContainer">
+        {detail?.images.map((_, idx) => (
+          <span
+            key={idx}
+            className={`dot ${idx === current ? "active" : ""}`}
+            onClick={() => setCurrent(idx)}
+          ></span>
+        ))}
+      </div>
+      </div>
             <div className="detailAria">
                 <p style={{fontSize:'42px', fontWeight:'700', marginBottom:'10px'}}>{detail.productName}</p>
                 <p style={{fontSize:'20px'}}>{detail.nickname}</p>

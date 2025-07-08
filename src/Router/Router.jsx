@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         {
           path:'/detail/:id',
           element:<PrivetRoute><Details/></PrivetRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/men/${params.id}`)
+          loader:({params})=>fetch(`http://localhost:5000/AllProduct/detail/${params.id}`)
         },
         {
           path:"/contact",
@@ -88,7 +88,7 @@ const router = createBrowserRouter([
             {
               path:':category',
               element:<CategoryProduct/>,
-              loader:({params})=>fetch(`http://localhost:5000/AllProduct/${params.category}`)
+              loader:({params})=>fetch(`http://localhost:5000/AllProduct/category/${params.category}`)
             }
            
           ]
