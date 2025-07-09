@@ -100,3 +100,44 @@
 .dot:hover {
   background-color: #007180;
 }
+.spinner {
+    display: flex;
+    justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #007180;
+  border-right: 8px solid #ff8c00;
+  border-bottom: 8px solid #ff3c3c;
+  border-left: 8px solid #00c292;
+  animation: spin 1s linear infinite, colorChange 3s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+@keyframes colorChange {
+  0% {
+    border-top-color: #007180;
+    border-right-color: #ff8c00;
+    border-bottom-color: #ff3c3c;
+    border-left-color: #00c292;
+  }
+  50% {
+    border-top-color: #00c292;
+    border-right-color: #007180;
+    border-bottom-color: #ff8c00;
+    border-left-color: #ff3c3c;
+  }
+  100% {
+    border-top-color: #007180;
+    border-right-color: #ff8c00;
+    border-bottom-color: #ff3c3c;
+    border-left-color: #00c292;
+  }
+}

@@ -7,13 +7,13 @@ import { useState } from "react";
 const Details = () => {
   const detail = useLoaderData();
   const navigate = useNavigate();
-  const [loading, isLoading] = useState();
+  const [loading, isLoading] = useState(false);
   console.log(detail);
   const handelBack = () => {
     isLoading(true);
     setTimeout(() => {
       navigate(-1);
-    });
+    }, 600);
   };
 
   const [current, setCurrent] = useState(0);
@@ -26,96 +26,110 @@ const Details = () => {
     setCurrent((prev) => (prev === detail.images.length - 1 ? 0 : prev + 1));
   };
   return (
-    <div className="detailMain">
-      <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
-        <Link className="linkDeration" to="/" rel="stylesheet">
-          home
-        </Link>
-        <samp>{">"}</samp>
-        {
-          loading? (
-            <div>
+    <div  className="detailMain">
+      {loading ? (
+        <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+        <img src="../../public/img/loading.gif" alt="" />
+      </div>
+      ) : (
+        <div>
+          <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
+            <Link className="linkDeration" to="/" rel="stylesheet">
+              home
+            </Link>
+            <samp>{">"}</samp>
+            {loading ? (
+              <div></div>
+            ) : (
+              <Link
+                className="linkDeration"
+                onClick={handelBack}
+                rel="stylesheet"
+              >
+                shop
+              </Link>
+            )}
+            <samp>{">"}</samp>
+            <p
+              style={{
+                fontSize: "20px",
+                fontWeight: "700",
+                color: "rgb(92, 92, 92)",
+              }}
+            >
+              {detail.category}
+            </p>
+          </div>
+          <div className="detailMainBody">
+            <div className="carouselContainer">
+              <div className="carouselImageWrapper">
+                <img
+                  src={detail.images[current]}
+                  alt={`carousel-${current}`}
+                  className="carouselImage"
+                />
+                <button className="navButton left" onClick={handlePrev}>
+                  ❮
+                </button>
+                <button className="navButton right" onClick={handleNext}>
+                  ❯
+                </button>
+              </div>
+              <div className="dotContainer">
+                {detail?.images.map((_, idx) => (
+                  <span
+                    key={idx}
+                    className={`dot ${idx === current ? "active" : ""}`}
+                    onClick={() => setCurrent(idx)}
+                  ></span>
+                ))}
+              </div>
             </div>
-          ):(
-            <Link className="linkDeration" onClick={handelBack} rel="stylesheet">
-          shop
-        </Link>
-          )
-        }
-        <samp>{">"}</samp>
-        <p
-          style={{
-            fontSize: "20px",
-            fontWeight: "700",
-            color: "rgb(92, 92, 92)",
-          }}
-        >
-          {detail.category}
-        </p>
-      </div>
-      <div className="detailMainBody">
-        <div className="carouselContainer">
-          <div className="carouselImageWrapper">
-            <img
-              src={detail.images[current]}
-              alt={`carousel-${current}`}
-              className="carouselImage"
-            />
-            <button className="navButton left" onClick={handlePrev}>
-              ❮
-            </button>
-            <button className="navButton right" onClick={handleNext}>
-              ❯
-            </button>
+            <div className="detailAria">
+              <p
+                style={{
+                  fontSize: "42px",
+                  fontWeight: "700",
+                  marginBottom: "10px",
+                }}
+              >
+                {detail.productName}
+              </p>
+              <p style={{ fontSize: "20px" }}>{detail.nickname}</p>
+              <div style={{ display: "flex", gap: "10px" }}>
+                <ReactStars
+                  value={detail.rating}
+                  edit={true}
+                  activeColors={[
+                    "red",
+                    "orange",
+                    "#FFCE00",
+                    "#9177FF",
+                    "#8568FC",
+                  ]}
+                />
+                <p>{detail.rating}</p>
+              </div>
+            </div>
           </div>
-          <div className="dotContainer">
-            {detail?.images.map((_, idx) => (
-              <span
-                key={idx}
-                className={`dot ${idx === current ? "active" : ""}`}
-                onClick={() => setCurrent(idx)}
-              ></span>
-            ))}
-          </div>
-        </div>
-        <div className="detailAria">
-          <p
-            style={{
-              fontSize: "42px",
-              fontWeight: "700",
-              marginBottom: "10px",
-            }}
-          >
-            {detail.productName}
-          </p>
-          <p style={{ fontSize: "20px" }}>{detail.nickname}</p>
-          <div style={{ display: "flex", gap: "10px" }}>
-            <ReactStars
-              value={detail.rating}
-              edit={true}
-              activeColors={["red", "orange", "#FFCE00", "#9177FF", "#8568FC"]}
-            />
-            <p>{detail.rating}</p>
-          </div>
-        </div>
-      </div>
-      <div>
-        <Tabs>
-          <TabList style={{ display: "flex" }}>
-            <Tab>Title 1</Tab>
-            <Tab>Title 2</Tab>
-          </TabList>
+          <div>
+            <Tabs>
+              <TabList style={{ display: "flex" }}>
+                <Tab>Title 1</Tab>
+                <Tab>Title 2</Tab>
+              </TabList>
 
-          <TabPanel>
-            <h2>Any content 1</h2>
-          </TabPanel>
-          <TabPanel>
-            <h2>Any content 2</h2>
-          </TabPanel>
-        </Tabs>
-      </div>
+              <TabPanel>
+                <h2>Any content 1</h2>
+              </TabPanel>
+              <TabPanel>
+                <h2>Any content 2</h2>
+              </TabPanel>
+            </Tabs>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
-
 export default Details;
