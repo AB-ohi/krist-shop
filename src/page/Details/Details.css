@@ -20,11 +20,9 @@
 .detailMainBody{
     display: flex;
     gap: 100px;
-    margin: auto;
+    margin: 20px auto;
 }
-.detailAria{
-    /* width: 60%; */
-}
+
 
 .detailImg{
     width: 40%;
@@ -33,7 +31,7 @@
 .carouselContainer {
   width: 100%;
   max-width: 500px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .carouselImageWrapper {
@@ -113,7 +111,7 @@
   border-left: 8px solid #00c292;
   animation: spin 1s linear infinite, colorChange 3s ease-in-out infinite;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
+
 }
 
 @keyframes spin {

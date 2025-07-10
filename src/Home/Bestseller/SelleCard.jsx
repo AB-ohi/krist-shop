@@ -4,38 +4,57 @@ import { Link } from "react-router-dom";
 export const calculateDiscountPrice = (price) => {
   return price - (price - 0.3);
 };
-const SelleCard = ({ pictureURL, productName, nickname, price }) => {
-  const originalPrice = price;
-  // console.log(originalPrice)
-
-  const discountPrice = parseInt(originalPrice - originalPrice * 0.3);
-
-  console.log(discountPrice);
-
+const SelleCard = ({
+  pictureURL,
+  productName,
+  nickname,
+  price,
+  discount,
+  discount_price,
+}) => {
   return (
     <div className="product-cart">
       <div className="card_inside">
         <div style={{ position: "relative" }}>
-          <p
+          {
+            discount == 0? (
+              <div></div>
+            ):
+            (
+              <p
             style={{
-              zIndex: "10",
               position: "absolute",
+              top: "67px",
+              left: "-20px",
               backgroundColor: "red",
               color: "white",
-              padding: "5px 8px",
-              margin: "0",
-              left: "-20px",
-              borderRadius: "11px 0 0 0 ",
+              padding: "5px 10px",
+              borderRadius: "8px 0 0 0",
+              fontSize: "14px",
+              zIndex: 10,
             }}
           >
-            30%
+            {discount}%
           </p>
-          <img style={{ width: "100%", zIndex: "1" }} className="best_sell_product_img" src={pictureURL} alt="" />
+            )
+          }
+          <img
+            style={{
+              width: "100%",
+              height: "250px",
+              objectFit: "cover",
+              display: "block",
+              borderRadius: "10px",
+            }}
+            className="best_sell_product_img"
+            src={pictureURL}
+            alt=""
+          />
         </div>
         <h1 style={{ margin: "0", fontSize: "20px" }}>{productName}</h1>
         <p style={{ margin: "0" }}>{nickname}</p>
         <div>
-          <p>Discount price: {discountPrice}</p>
+          <p>Discount price: {discount_price}</p>
           <p>
             Price: <span style={{ color: "rgb(196, 196, 196)" }}>{price}</span>
           </p>
