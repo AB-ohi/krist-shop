@@ -1,12 +1,30 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import "./CategoryProduct.css";
+import { useState } from "react";
 
 const CategoryProduct = () => {
   const { category } = useParams();
   const products = useLoaderData();
+  const [loading, isLoading] = useState(false);
+
+  const handelDetailBtn = () =>{
+    isLoading(true)
+    setTimeout(()=>{
+        isLoading(false)
+    }, 600)
+  }
 
   return (
-    <div style={{ width: "80%", padding: "20px" }}>
+    <div  style={{ width: "80%", padding: "20px" }}>
+        
+   {
+    loading? (
+         <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+        <img src="../../public/img/loading.gif" alt="" />
+      </div>
+    ):
+    (
+         <div>
       <h1
         style={{
           fontSize: "24px",
@@ -39,7 +57,7 @@ const CategoryProduct = () => {
             <div className="shopDisplayProductImgWrapper">
               <img src={product.images?.[0]} alt={product.product_name} />
               <div className="imgOverlay">
-                <button className="detailsButton"><Link to={`/detail/${product._id}`}>Details</Link></button>
+                <button className="detailsButton"><Link  onClick={handelDetailBtn}  to={`/detail/${product._id}`}>Details</Link></button>
               </div>
             </div>
 
@@ -76,6 +94,9 @@ const CategoryProduct = () => {
       </div>
         )
       }
+    </div>
+    )
+   }
     </div>
   );
 };

@@ -3,6 +3,7 @@ import "./Details.css";
 import ReactStars from "react-rating-star-with-type";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { useState } from "react";
+import DetailOfProduct from "../../component/Details/DetailOfproduct";
 
 const Details = () => {
   const detail = useLoaderData();
@@ -13,7 +14,7 @@ const Details = () => {
     isLoading(true);
     setTimeout(() => {
       navigate(-1);
-    }, 600);
+    },600);
   };
 
   const [current, setCurrent] = useState(0);
@@ -85,47 +86,7 @@ const Details = () => {
                 ))}
               </div>
             </div>
-            <div className="detailAria">
-              <p
-                style={{
-                  fontSize: "42px",
-                  fontWeight: "700",
-                  marginBottom: "10px",
-                }}
-              >
-                {detail.productName}
-              </p>
-              <p style={{ fontSize: "20px" }}>{detail.nickname}</p>
-              <div style={{ display: "flex", gap: "10px" }}>
-                <ReactStars
-                  value={detail.rating}
-                  edit={true}
-                  activeColors={[
-                    "red",
-                    "orange",
-                    "#FFCE00",
-                    "#9177FF",
-                    "#8568FC",
-                  ]}
-                />
-                <p>{detail.rating}</p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <Tabs>
-              <TabList style={{ display: "flex" }}>
-                <Tab>Title 1</Tab>
-                <Tab>Title 2</Tab>
-              </TabList>
-
-              <TabPanel>
-                <h2>Any content 1</h2>
-              </TabPanel>
-              <TabPanel>
-                <h2>Any content 2</h2>
-              </TabPanel>
-            </Tabs>
+           <DetailOfProduct/>
           </div>
         </div>
       )}
