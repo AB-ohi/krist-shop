@@ -20,7 +20,7 @@ const SelleCard = ({
                 position: "absolute",
                 top: "94px",
               left: "-20px",
-                backgroundColor: "#007BFF", // নীল রঙ (Bootstrap Blue)
+                backgroundColor: "#007BFF",
                 color: "white",
                 padding: "5px 12px",
                 borderRadius: "0 0 8px 0",

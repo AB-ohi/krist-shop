@@ -22,6 +22,7 @@ import AdminDashboard from "../page/Admin/AdminDashboard";
 import ManageProduct from "../page/Admin/manageProduct";
 import Man from "../page/Shop/Men/Man";
 import CategoryProduct from "../page/Shop/CategoryProduct/CategoryProduct";
+import NotFound from "../page/404/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -92,7 +93,11 @@ const router = createBrowserRouter([
             }
            
           ]
-        }
+        },
+    {
+      path:'*',
+      element:<NotFound/>
+    }
       ]
     },
     {

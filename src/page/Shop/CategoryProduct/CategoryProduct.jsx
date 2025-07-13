@@ -19,9 +19,14 @@ const CategoryProduct = () => {
         
    {
     loading? (
-         <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-        <img src="../../public/img/loading.gif" alt="" />
-      </div>
+        <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '80vh'
+    }}>
+      <img src="../../public/img/loading.gif" alt="Loading..." style={{ width: '80px' }} />
+    </div>
     ):
     (
          <div>
@@ -53,7 +58,7 @@ const CategoryProduct = () => {
         }}
       >
         {products?.map((product) => (
-          <div className="shopDisplayProductCard" key={product._id}>
+          <div className="shopDisplayProductCard card-animate" key={product._id}>
             <div className="shopDisplayProductImgWrapper">
               <img src={product.images?.[0]} alt={product.product_name} />
               <div className="imgOverlay">

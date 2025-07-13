@@ -21,13 +21,13 @@
 
 .discountInProduct{
     position: absolute;
-    background-color: red;
+    background-color: #00bcd4;
     left: -10PX;
     padding: 6px 8px;
     top: -246PX;
     color: white;
     font-weight: bold;
-    border-radius: 5px 0 0 0;
+    border-radius: 5px 0 5px 0;
 }
 .imgOverlay {
   position: absolute;
@@ -43,8 +43,6 @@
   transition: opacity 0.3s ease;
   border-radius: 5px;
 }
-
-/* Button style */
 .detailsButton {
   padding: 8px 16px;
   background-color: #00bcd4;
@@ -66,4 +64,18 @@
 
 .shopDisplayProductCard:hover .detailsButton {
   transform: scale(1);
+}
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.card-animate {
+  animation: scaleIn 0.4s ease-in-out;
 }
