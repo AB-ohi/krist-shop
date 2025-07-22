@@ -1,0 +1,16 @@
+.backBtn{
+    display: flex;
+   justify-content: center;
+}
+.backBtn button{
+    background-color: #655588;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.NodeFoundFullPage{
+    margin: 0 0 20px 0;
+}

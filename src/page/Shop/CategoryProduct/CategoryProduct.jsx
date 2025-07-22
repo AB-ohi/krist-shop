@@ -48,9 +48,7 @@ const CategoryProduct = () => {
             </div>
         ):(
             <div
-        style={{
-          height: "100vh",
-          overflowY: "auto",
+        style={{  
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
           gap: "20px",
