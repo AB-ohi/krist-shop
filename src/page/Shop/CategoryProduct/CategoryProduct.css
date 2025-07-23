@@ -44,7 +44,7 @@
   border-radius: 5px;
 }
 .detailsButton {
-  padding: 8px 16px;
+  padding: 5px 14px;
   background-color: #00bcd4;
   color: white;
   border: none;
@@ -52,10 +52,8 @@
   cursor: pointer;
   transform: scale(0.95);
   transition: transform 0.3s ease;
-}
-.detailsButton a{
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .shopDisplayProductCard:hover .imgOverlay {

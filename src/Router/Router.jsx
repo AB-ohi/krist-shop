@@ -23,6 +23,7 @@ import ManageProduct from "../page/Admin/manageProduct";
 import Man from "../page/Shop/Men/Man";
 import CategoryProduct from "../page/Shop/CategoryProduct/CategoryProduct";
 import NotFound from "../page/404/NotFound";
+import SelectItem from "../page/SelectItem/SelectItem";
 
 const router = createBrowserRouter([
     {
@@ -78,22 +79,27 @@ const router = createBrowserRouter([
             }
           ]
         },
+
+        // shop rout head
         {
-          path:'/shop',
-          element:<PrivetRoute><Shop/></PrivetRoute>,
-          children:[
-            {
-              path:'/shop',
-              element:<Cart/>
-            },
-            {
-              path:':category',
-              element:<CategoryProduct/>,
-              loader:({params})=>fetch(`http://localhost:5000/AllProduct/category/${params.category}`)
-            }
-           
-          ]
-        },
+  path: '/shop',
+  element: <PrivetRoute><SelectItem /></PrivetRoute>,
+  children: [
+    { 
+      element: <PrivetRoute><Shop /></PrivetRoute>,
+      children: [
+        {
+          path: ':category', 
+          element: <CategoryProduct />,
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/AllProduct/category/${params.category}`)
+        }
+      ]
+    }
+  ]
+},
+// shop rout end
+        
     {
       path:'*',
       element:<NotFound/>

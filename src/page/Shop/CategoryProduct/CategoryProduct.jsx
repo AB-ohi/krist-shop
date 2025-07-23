@@ -60,7 +60,7 @@ const CategoryProduct = () => {
             <div className="shopDisplayProductImgWrapper">
               <img src={product.images?.[0]} alt={product.product_name} />
               <div className="imgOverlay">
-                <button className="detailsButton"><Link  onClick={handelDetailBtn}  to={`/detail/${product._id}`}>Details</Link></button>
+                <Link  onClick={handelDetailBtn} className="detailsButton" to={`/detail/${product._id}`}>Details</Link>
               </div>
             </div>
 
