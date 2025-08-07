@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import SIdeBer from "../Shared/SideBer/SIdeBer";
-// import Cart from "../page/Shop/Cart/Cart";
 
 const Shop = () => {
     return (

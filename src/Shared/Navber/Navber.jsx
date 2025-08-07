@@ -12,6 +12,10 @@ import useUserData from "../../Hook/useUserData";
 import emptyProfilePicture from "../../../public/img/emptyProfilePicture.png";
 import { MdOutlineLogin } from "react-icons/md";
 import { motion } from "framer-motion";
+
+
+
+
 const NavBer = () => {
   const { user } = useContext(AuthContext);
   console.log(user);

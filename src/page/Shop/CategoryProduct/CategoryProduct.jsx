@@ -2,7 +2,7 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 import "./CategoryProduct.css";
 import { useState } from "react";
 
-const CategoryProduct = () => {
+const  CategoryProduct = () => {
   const { category } = useParams();
   const products = useLoaderData();
   const [loading, isLoading] = useState(false);

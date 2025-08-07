@@ -6,7 +6,6 @@ import Home from "../Home/Home/Home";
 import Shop from "../Layout/Shop";
 import Details from "../page/Details/Details";
 import Profile from "../Layout/Profile";
-import Cart from "../page/Shop/Cart/Cart";
 import ProfileInfo from "../page/profile/profileInfo";
 import Order from "../page/Profile/Order";
 import PrivetRoute from "./PrivetRoute";
@@ -83,19 +82,16 @@ const router = createBrowserRouter([
         // shop rout head
         {
   path: '/shop',
-  element: <PrivetRoute><SelectItem /></PrivetRoute>,
+ element: <PrivetRoute><Shop /></PrivetRoute>,
   children: [
-    { 
-      element: <PrivetRoute><Shop /></PrivetRoute>,
-      children: [
+    
         {
           path: ':category', 
           element: <CategoryProduct />,
           loader: ({ params }) =>
             fetch(`http://localhost:5000/AllProduct/category/${params.category}`)
         }
-      ]
-    }
+      
   ]
 },
 // shop rout end
