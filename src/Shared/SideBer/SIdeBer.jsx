@@ -12,7 +12,6 @@ const SIdeBer = () => {
   return (
     <div
       className="sideBerMain"
-
     >
       <div className="side-list">
         <NavLink
