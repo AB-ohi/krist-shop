@@ -5,14 +5,14 @@ import { useState } from "react";
 const  CategoryProduct = () => {
   const { category } = useParams();
   const products = useLoaderData();
-  const [loading, isLoading] = useState(false);
+  const [loading, setIsLoading] = useState(false);
 
-  const handelDetailBtn = () =>{
-    isLoading(true)
-    setTimeout(()=>{
-        isLoading(false)
-    }, 600)
-  }
+  const handelDetailBtn = () => {
+  setIsLoading(true);
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 600);
+};
 
   return (
     <div  style={{ width: "80%", padding: "20px" }}>
@@ -25,7 +25,7 @@ const  CategoryProduct = () => {
       alignItems: 'center',
       height: '80vh'
     }}>
-      <img src="../../public/img/loading.gif" alt="Loading..." style={{ width: '80px' }} />
+      <img src="../../public/img/loading.gif" alt="Loading..." style={{ width: '50%' }} />
     </div>
     ):
     (
