@@ -1,7 +1,4 @@
-.shoe-menu {
-  visibility: visible;
-  transition: 0.5s;
-}
+
 .side-list {
   color: white;
   border-radius: 11px;
@@ -9,7 +6,7 @@
   position: relative;
 }
 .sideBer-Link {
-  margin: 30px 10px 30px 20px;
+  margin: 10px 10px 10px 20px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -27,7 +24,7 @@
 }
 
 .active-sideBer-link {
-  margin: 30px 10px 30px 20px;
+  margin: 15px 10px 15px 20px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -37,31 +34,43 @@
   text-decoration: none;
   transition: 0.5s;
   background-color: #3cc9f5;
-  border-radius: 11px;
+  border-radius: 8px;
   padding: 0 10px;
 }
-.side-list p {
+.mainItemMenu {
   margin-left: 10px;
   cursor: pointer;
 
   transition: 0.5s;
   /* background: red; */
-  padding: 15px 10px;
+  padding: 15px 0 15px 30px;
   margin: 0;
   border-radius: 11px 0 0 11px;
 }
 
-.side-list p:hover {
+.mainItemMenu:hover {
   background-color: rgba(51, 51, 51, 0.562);
   color: darkorange;
 }
 
-.hide-menu {
-  display: none;
-  transition: 0.5s;
-  z-index: 1;
+
+.show-menu {
+  max-height: 500px; 
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition: all 0.5s ease;
+  overflow: hidden;
 }
 
+.hide-menu {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
 .close-menu {
   transform: rotate(540deg);
   transition: 0.5s;

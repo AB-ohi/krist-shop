@@ -12,11 +12,13 @@ import useUserData from "../../Hook/useUserData";
 import emptyProfilePicture from "../../../public/img/emptyProfilePicture.png";
 import { MdOutlineLogin } from "react-icons/md";
 import { motion } from "framer-motion";
+import { useEvent } from "../../Context/EventContext";
 
 
 
 
 const NavBer = () => {
+  const { setShowEvent } = useEvent();
   const { user } = useContext(AuthContext);
   console.log(user);
   const [shopMenu, setShopMenu] = useState(true);
@@ -32,9 +34,9 @@ const NavBer = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <a href="/">
+        <Link to="/">
           <img src="../../../public/img/logo.svg" alt="" />
-        </a>
+        </Link>
         <div>
           <ul className="nav-List-Item ">
             <li>
@@ -60,7 +62,7 @@ const NavBer = () => {
                     style={{ display: "flex", alignItems: "center" }}
                     id="item-list"
                     to="/shop"
-                    onClick={() => setShopMenu(true)}
+                    onClick={() => setShowEvent(true)}
                     className={({ isActive }) =>
                       isActive ? "active-link" : ""
                     }

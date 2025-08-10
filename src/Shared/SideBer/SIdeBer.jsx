@@ -2,14 +2,11 @@ import { useState } from "react";
 import { IoChevronUpSharp } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import "./SideBer.css";
-import eventHook from "../../Hook/eventHook";
+import { useEvent } from "../../Context/EventContext";
 
 const SideBer = () => {
+  const { setShowEvent } = useEvent();
   const [openMenu, setOpenMenu] = useState(null);
-  const [showEvent, setShowEvent] = eventHook();
-  // const handleMenuToggle = (index) => {
-  //   setOpenMenu((prev) => (prev === index ? null : index));
-  // };
   const categories = [
     {
       name: "Men",
@@ -64,14 +61,15 @@ const SideBer = () => {
   return (
     <div className="sideBerMain">
       {categories.map((cat, index) => (
-        <div onClick={()=>setShowEvent(false)} key={index}>
+        <div key={index}>
            <NavLink
-          //  onClick={()=>handleMenuToggle(index)}
             className={({ isActive }) =>
               isActive ? "active-sideBer-link" : "sideBer-Link"
             }
             to={cat.path}
-            onClick={() => setOpenMenu(openMenu === index ? null : index)} 
+            onClick={() =>{ setOpenMenu(openMenu === index ? null : index);
+               setShowEvent(false);
+            }} 
           >
             {cat.name}
             <IoChevronUpSharp
@@ -80,7 +78,7 @@ const SideBer = () => {
           </NavLink>
           <div className={`${openMenu === index ? "show-menu" : "hide-menu"}`}>
             {cat.items.map((item, i) => (
-              <p key={i}>{item}</p>
+              <p className="mainItemMenu" key={i}>{item}</p>
             ))}
           </div>
         </div>

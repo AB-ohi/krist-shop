@@ -23,6 +23,7 @@ import Man from "../page/Shop/Men/Man";
 import CategoryProduct from "../page/Shop/CategoryProduct/CategoryProduct";
 import NotFound from "../page/404/NotFound";
 import SelectItem from "../page/SelectItem/SelectItem";
+import { EventProvider } from "../Context/EventContext";
 
 const router = createBrowserRouter([
     {
