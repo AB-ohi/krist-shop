@@ -7,10 +7,12 @@
 .event-image-item__btn-wrapper {
   position: absolute;
   top: 10px;
+  left: 10px;
 }
 
 .event-image-item__btn-wrapper button {
-  background: #6a42c7;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  background: #FBDD46;
   font-size: 15px;
   outline: none;
   border: none;
@@ -21,20 +23,21 @@
 }
 .even_image-item{
     position: relative;
+    margin: 10px 0;
 }
 .picAddBtn{
  outline: none;   
  background-color: white;
- color: rgb(104, 196, 254);
- border: 1px solid rgb(104, 196, 254);
+ color: #F67E52;
+ border: 1px solid #F67E52;
  padding: 9px 22px;
  border-radius: 8px;
  transition: 0.5s;
 }
 
 .picAddBtn:hover{
-    background-color: rgba(104, 197, 254, 0.58);
-    border: 1px solid rgba(104, 197, 254, 0.58);
+    background-color: #FBDD46;
+    border: 1px solid #FBDD46;
     color: white;
 
 }
@@ -43,12 +46,13 @@
      background: none;
   padding: 9px 24px;
   outline: none;
-  border: 1px solid #6a42c7;
-  color: #8a64e5;
+  border: 1px solid #F67E52;
+  color: #F67E52;
   font-size: 12px;
   border-radius: 8px;
   transition: 0.5s;
   cursor: pointer;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .removeEventPicBtn:hover{
