@@ -24,6 +24,7 @@ import CategoryProduct from "../page/Shop/CategoryProduct/CategoryProduct";
 import NotFound from "../page/404/NotFound";
 import SelectItem from "../page/SelectItem/SelectItem";
 import { EventProvider } from "../Context/EventContext";
+import ManageEvent from "../page/Admin/ManageEvent";
 
 const router = createBrowserRouter([
     {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
             {
               path:'manage_Product',
               element:<AdminRoute><ManageProduct/></AdminRoute>
+            },
+            {
+              path:'event',
+              element:<AdminRoute><ManageEvent/></AdminRoute>
             }
           ]
         },

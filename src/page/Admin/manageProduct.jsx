@@ -142,7 +142,7 @@ const ManageProduct = () => {
         <div style={{ width: "50%" }}>
           <div>
             <p style={{ fontSize: "20px", marginBottom: "4px" }}>
-              product Images{" "}
+              product Images
             </p>
             <ImageUploading
               multiple
