@@ -1,10 +1,27 @@
 .evenMain{
     margin-left: 10px;
+    width: 75%;
+    /* height: calc(100vh - 50px); */
+  
 }
-.evenMain h1{
-
+.event-image-item__btn-wrapper {
+  position: absolute;
+  top: 10px;
 }
 
+.event-image-item__btn-wrapper button {
+  background: #6a42c7;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.even_image-item{
+    position: relative;
+}
 .picAddBtn{
  outline: none;   
  background-color: white;
@@ -40,3 +57,11 @@
   color: white;
   border: 1px solid #ff4141;
 }
+
+.emptyEvent {
+  width: 70%;
+  margin: auto;
+ 
+  
+}
+

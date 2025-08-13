@@ -67,16 +67,16 @@
   top: 10px;
   right: 10px;
 }
-.image-item__btn-wrapper button {
-  background: #6a42c7;
-  font-size: 15px;
-  outline: none;
-  border: none;
-  color: white;
-  border-radius: 50%;
-  transition: 0.5s;
-  cursor: pointer;
-}
+  .image-item__btn-wrapper button {
+    background: #6a42c7;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    transition: 0.5s;
+    cursor: pointer;
+  }
 .image-item__btn-wrapper button:hover {
   background-color: #ff4141;
 }

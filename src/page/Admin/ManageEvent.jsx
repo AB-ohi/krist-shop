@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ImageUploading from "react-images-uploading";
+import event from "../../../public/img/event.png"
 import './ManageEvent.css'
 import { RxCross2 } from "react-icons/rx";
 
@@ -39,11 +40,10 @@ const ManageEvent = () => {
             >
               Add Event Picture
             </button>
-            &nbsp;
             {imageList.map((image, index) => (
-                <div key={index} className="image-item">
-                <img src={image['data_url']} alt=""/>
-                <div className="image-item__btn-wrapper">
+                <div key={index} className="even_image-item">
+                <img src={image['data_url']} alt=""  width="100%" />
+                <div className="event-image-item__btn-wrapper">
                   <button onClick={() => onImageRemove(index)}><RxCross2 style={{ paddingTop: "5px" }} /></button>
                 </div>
               </div>
@@ -54,12 +54,13 @@ const ManageEvent = () => {
                 <div>
                     <button className="removeEventPicBtn" onClick={onImageRemoveAll}>Remove all images</button>
                     <div>
-                        
+
                     </div>
                 </div>
             ):
-                (<div>
-                    <img src="" alt="" />
+                (<div className="emptyEvent">
+                    <img src={event} alt="" />
+                    <div></div>
                 </div>)
             }
             
