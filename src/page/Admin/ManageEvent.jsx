@@ -16,7 +16,8 @@ const ManageEvent = () => {
   return (
     <div className="evenMain">
       <h1>Manage Event</h1>
-      <ImageUploading
+      <form action="">
+        <ImageUploading
         multiple
         value={images}
         onChange={onChange}
@@ -33,13 +34,13 @@ const ManageEvent = () => {
           dragProps,
         }) => (
           <div className={images?.length > 0 ? "upload__image-wrapper hasImages" : "upload__image-wrapper"}>
-            <button
+            <p
               className="picAddBtn"
               onClick={onImageUpload}
               {...dragProps}
             >
               Add Event Picture
-            </button>
+            </p>
             {imageList.map((image, index) => (
               <div key={index} className="even_image-item">
                 <img src={image["data_url"]} alt="" />
@@ -70,6 +71,35 @@ const ManageEvent = () => {
           </div>
         )}
       </ImageUploading>
+      {
+        images?.length> 0?(
+            <div>
+                <div>
+                    <label>Event title</label>
+                <input type="text" name="title" id="" />
+                </div>
+                <div>
+                    <label>Event details</label>
+                <input type="text" name="details" id="" />
+                </div>
+                <div>
+                    <label>Event condition</label>
+                <input type="text" name="condition" id="" />
+                </div>
+                <div>
+                    <label>Discount</label>
+                <input type="text" name="discount" id="" />
+                </div>
+
+            </div>
+        ):(
+            <div>
+
+            </div>
+        )
+      }
+      
+      </form>
     </div>
   );
 };
