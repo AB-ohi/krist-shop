@@ -35,7 +35,7 @@ const ManageEvent = () => {
         }) => (
           <div className={images?.length > 0 ? "upload__image-wrapper hasImages" : "upload__image-wrapper"}>
             <p
-              className="picAddBtn"
+              className={images?.length>0?"againAdd":"picAddBtn"}
               onClick={onImageUpload}
               {...dragProps}
             >
@@ -45,9 +45,9 @@ const ManageEvent = () => {
               <div key={index} className="even_image-item">
                 <img src={image["data_url"]} alt="" />
                 <div className="event-image-item__btn-wrapper">
-                  <button onClick={() => onImageRemove(index)}>
+                  <p onClick={() => onImageRemove(index)}>
                     <RxCross2 style={{ paddingTop: "5px" }} />
-                  </button>
+                  </p>
                 </div>
               </div>
             ))}
@@ -74,6 +74,7 @@ const ManageEvent = () => {
       {
         images?.length> 0?(
             <div>
+                <h1>Event description</h1>
                 <div>
                     <label>Event title</label>
                 <input type="text" name="title" id="" />

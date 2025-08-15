@@ -13,6 +13,7 @@
 
 .upload__image-wrapper.hasImages {
   display: grid;
+  cursor: pointer;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 15px;
 }
@@ -26,6 +27,7 @@
   border-radius: 50%;
   transition: 0.5s;
   cursor: pointer;
+  padding: 0 5px;
 }
 .even_image-item{
     position: relative;
@@ -39,7 +41,7 @@
     object-fit: cover; 
 }
 .picAddBtn{
-    outline: none;   
+     outline: none;   
     background-color: white;
     color: #F67E52;
     border: 1px solid #F67E52;
@@ -48,6 +50,22 @@
     transition: 0.5s;
     width: 20%;
     text-align: center;
+    cursor: pointer;
+    
+}
+.againAdd{
+     outline: none;   
+    background-color: white;
+    color: #F67E52;
+    border: 1px solid #F67E52;
+    padding: 9px 22px;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .picAddBtn:hover{
@@ -55,6 +73,12 @@
     border: 1px solid #FBDD46;
     color: white;
 
+}
+
+.againAdd:hover{
+ background-color: #FBDD46;
+    border: 1px solid #FBDD46;
+    color: white;
 }
 
 .removeEventPicBtn{
