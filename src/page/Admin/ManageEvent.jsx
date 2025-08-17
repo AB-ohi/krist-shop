@@ -5,7 +5,16 @@ import "./ManageEvent.css";
 import { RxCross2 } from "react-icons/rx";
 const ManageEvent = () => {
   const [images, setImages] = useState([]);
-  const [eventData, setEvenData] = useState();
+  const [eventData, setEvenData] = useState({
+    title:"",
+    details:"",
+    condition:"",
+    discount:""
+  });
+
+  const isEventData =()=>{
+    eventData.
+  }
   const onChange = (imageList, addUpdateIndex) => {
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
