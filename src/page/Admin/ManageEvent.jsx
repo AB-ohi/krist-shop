@@ -13,7 +13,12 @@ const ManageEvent = () => {
   });
 
   const isEventData =()=>{
-    eventData.
+    return
+    (eventData.title.trim()&&
+    eventData.details.trim()&&
+    event.condition.trim()&&
+    event.discount.trim()
+)
   }
   const onChange = (imageList, addUpdateIndex) => {
     console.log(imageList, addUpdateIndex);
@@ -133,6 +138,13 @@ const ManageEvent = () => {
                 id=""
               />
             </div>
+            {
+                isEventData()? (
+                    <div></div>
+                ):(
+                    <div></div>
+                )
+            }
           </div>
         ) : (
           <div></div>
