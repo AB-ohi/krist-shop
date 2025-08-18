@@ -6,20 +6,20 @@ import { RxCross2 } from "react-icons/rx";
 const ManageEvent = () => {
   const [images, setImages] = useState([]);
   const [eventData, setEvenData] = useState({
-    title:"",
-    details:"",
-    condition:"",
-    discount:""
+    title: "",
+    details: "",
+    condition: "",
+    discount: "",
   });
 
-  const isEventData =()=>{
-    return
-    (eventData.title.trim()&&
-    eventData.details.trim()&&
-    event.condition.trim()&&
-    event.discount.trim()
-)
-  }
+  const isEventData = () => {
+    return(
+      eventData.title.trim()&&
+      eventData.details.trim()&&
+      eventData.condition.trim()&&
+      eventData.discount.trim()
+    );
+  };
   const onChange = (imageList, addUpdateIndex) => {
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
@@ -138,13 +138,13 @@ const ManageEvent = () => {
                 id=""
               />
             </div>
-            {
-                isEventData()? (
-                    <div></div>
-                ):(
-                    <div></div>
-                )
-            }
+            {isEventData() ? (
+              <div>
+                <input disabled={!isEventData()} type="submit" value="" />
+              </div>
+            ) : (
+              <div>fvf</div>
+            )}
           </div>
         ) : (
           <div></div>
