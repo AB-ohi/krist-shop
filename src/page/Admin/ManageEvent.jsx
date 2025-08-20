@@ -13,10 +13,10 @@ const ManageEvent = () => {
   });
 
   const isEventData = () => {
-    return(
-      eventData.title.trim()&&
-      eventData.details.trim()&&
-      eventData.condition.trim()&&
+    return (
+      eventData.title.trim() &&
+      eventData.details.trim() &&
+      eventData.condition.trim() &&
       eventData.discount.trim()
     );
   };
@@ -95,7 +95,10 @@ const ManageEvent = () => {
           <div>
             <h1>Event description</h1>
             <div>
-              <label>Event title</label>
+              <label>
+                Event title<span style={{ color: "red" }}>*</span>
+              </label>
+              <br />
               <input
                 type="text"
                 name="title"
@@ -106,9 +109,12 @@ const ManageEvent = () => {
               />
             </div>
             <div>
-              <label>Event details</label>
-              <input
-                type="text"
+              <label>
+                Event details<span style={{ color: "red" }}>*</span>
+              </label>
+              <br />
+              <textarea
+                className="eventDetailsArea"
                 name="details"
                 onChange={(e) =>
                   setEvenData({ ...eventData, details: e.target.value })
@@ -117,7 +123,10 @@ const ManageEvent = () => {
               />
             </div>
             <div>
-              <label>Event condition</label>
+              <label>
+                Event condition<span style={{ color: "red" }}>*</span>
+              </label>
+              <br />
               <input
                 type="text"
                 name="condition"
@@ -128,7 +137,10 @@ const ManageEvent = () => {
               />
             </div>
             <div>
-              <label>Discount</label>
+              <label>
+                Discount<span style={{ color: "red" }}>*</span>
+              </label>
+              <br />
               <input
                 type="text"
                 name="discount"
@@ -140,10 +152,12 @@ const ManageEvent = () => {
             </div>
             {isEventData() ? (
               <div>
-                <input disabled={!isEventData()} type="submit" value="" />
+                <input className="eventSubmitBtn"  disabled={!isEventData()} type="submit" value="Add Event" />
               </div>
             ) : (
-              <div>fvf</div>
+              <p style={{ color: "red", fontSize: "14px", marginTop:'10px' }}>
+                Please fill all required fields before submitting.
+              </p>
             )}
           </div>
         ) : (

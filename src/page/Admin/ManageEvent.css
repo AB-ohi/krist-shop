@@ -108,3 +108,17 @@
   
 }
 
+.eventDetailsArea{
+  width: 50% !important;
+  height: 30vh !important;
+}
+
+.eventSubmitBtn{
+  cursor: pointer;
+  margin-top: 10px;
+  
+}
+.eventSubmitBtn:hover{
+  color: white;
+  background-color: ;
+}
