@@ -103,6 +103,7 @@ const ManageEvent = () => {
                 type="text"
                 name="title"
                 id=""
+                className="eventInput"
                 onChange={(e) =>
                   setEvenData({ ...eventData, title: e.target.value })
                 }
@@ -116,6 +117,7 @@ const ManageEvent = () => {
               <textarea
                 className="eventDetailsArea"
                 name="details"
+
                 onChange={(e) =>
                   setEvenData({ ...eventData, details: e.target.value })
                 }
@@ -128,6 +130,7 @@ const ManageEvent = () => {
               </label>
               <br />
               <input
+              className="eventInput"
                 type="text"
                 name="condition"
                 onChange={(e) =>
@@ -142,6 +145,7 @@ const ManageEvent = () => {
               </label>
               <br />
               <input
+              className="eventInput"
                 type="text"
                 name="discount"
                 onChange={(e) =>

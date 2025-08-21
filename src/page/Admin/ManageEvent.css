@@ -112,13 +112,21 @@
   width: 50% !important;
   height: 30vh !important;
 }
-
+.eventInput{
+  background-color: #fae3727d;
+  border: 1px solid #ffde36;
+  color: #705d00;
+}
 .eventSubmitBtn{
+  color: #705d00;
   cursor: pointer;
   margin-top: 10px;
+  background-color: #fae3727d;
+  border: 1px solid #ffde36;
+  transition: 0.3s;
   
 }
 .eventSubmitBtn:hover{
   color: white;
-  background-color: ;
+  background-color: #ffde36;
 }
