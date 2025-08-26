@@ -20,6 +20,17 @@ const ManageEvent = () => {
       eventData.discount.trim()
     );
   };
+
+  const handelEvent =async(e)=>{
+    e.preventDefault()
+    const from = e.target;
+    const title = from.title.value;
+    const details = from.details.value;
+    const condition = from.condition.value;
+    const discount = from.discount.value;
+    const eventData = {title, details, condition, discount}
+    console.log(eventData);
+  }
   const onChange = (imageList, addUpdateIndex) => {
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
@@ -30,7 +41,7 @@ const ManageEvent = () => {
   return (
     <div className="evenMain">
       <h1>Manage Event</h1>
-      <form action="">
+      <form action="" onSubmit={handelEvent}>
         <ImageUploading
           multiple
           value={images}

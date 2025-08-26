@@ -4,6 +4,10 @@
     /* height: calc(100vh - 50px); */
   
 }
+
+.evenMain input{
+  margin-bottom: 10px;
+}
 .event-image-item__btn-wrapper {
   position: absolute;
   top: 10px;
@@ -111,6 +115,7 @@
 .eventDetailsArea{
   width: 50% !important;
   height: 30vh !important;
+  margin-bottom: 10px;
 }
 .eventInput{
   background-color: #fae3727d;
