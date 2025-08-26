@@ -30,6 +30,8 @@ const ManageEvent = () => {
     const discount = from.discount.value;
     const eventData = {title, details, condition, discount}
     console.log(eventData);
+
+    
   }
   const onChange = (imageList, addUpdateIndex) => {
     console.log(imageList, addUpdateIndex);
