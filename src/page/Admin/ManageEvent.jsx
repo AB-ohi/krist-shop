@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token;
 const ManageEvent = () => {
   const [images, setImages] = useState([]);
-  const [uploadData, setUploadData] = useState(false)
+  const [uploadData, setUploadData] = useState(false);
   const [eventData, setEvenData] = useState({
     title: "",
     details: "",
@@ -32,6 +32,7 @@ const ManageEvent = () => {
     const condition = from.condition.value;
     const discount = from.discount.value;
     const eventData = { title, details, condition, discount };
+    setUploadData(true);
     console.log(eventData);
 
     try {
@@ -52,7 +53,7 @@ const ManageEvent = () => {
           }
         })
       );
-      const eventData = {
+      const finalEventData = {
         ...eventData,
         eventImage: uploadImage,
       };
@@ -61,7 +62,7 @@ const ManageEvent = () => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(eventData),
+        body: JSON.stringify(finalEventData),
       });
       const data = await res.json();
       if (data.insertedId || data?.acknowledged) {
@@ -86,6 +87,8 @@ const ManageEvent = () => {
         text: error.message || "Something went wrong!",
       });
       console.error("Error while uploading product:", error);
+    } finally {
+        setUploadData(false);
     }
   };
   const onChange = (imageList, addUpdateIndex) => {
@@ -241,7 +244,7 @@ const ManageEvent = () => {
         )}
       </form>
       <div>
-        <h1>is loading ...</h1>
+        <h1 className={uploadData ? "loading" : "hold"}>is loading ...</h1>
       </div>
     </div>
   );
