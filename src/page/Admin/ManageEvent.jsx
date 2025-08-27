@@ -4,10 +4,11 @@ import event from "../../../public/img/event.png";
 import "./ManageEvent.css";
 import { RxCross2 } from "react-icons/rx";
 import Swal from "sweetalert2";
+import EventList from "../../component/EvemtList/EventList";
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token;
 const ManageEvent = () => {
   const [images, setImages] = useState([]);
-  const [uploadData, setUploadData] = useState(true);
+  const [uploadData, setUploadData] = useState(false);
   const [eventData, setEvenData] = useState({
     title: "",
     details: "",
@@ -155,8 +156,7 @@ const ManageEvent = () => {
                 </div>
               ) : (
                 <div className="emptyEvent">
-                  <img src={event} alt="" />
-                  <div></div>
+                  <EventList/>
                 </div>
               )}
             </div>

@@ -439,7 +439,6 @@ const ManageProduct = () => {
                           name="discount"
                           id=""
                           placeholder="0%"
-                          required
                           className="product_price_fled"
                           style={{width:'80%'}}
                         />
