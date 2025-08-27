@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token;
 const ManageEvent = () => {
   const [images, setImages] = useState([]);
-  const [uploadData, setUploadData] = useState(false);
+  const [uploadData, setUploadData] = useState(true);
   const [eventData, setEvenData] = useState({
     title: "",
     details: "",
