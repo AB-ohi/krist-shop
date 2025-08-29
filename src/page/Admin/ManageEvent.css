@@ -108,14 +108,29 @@
 
 
 .eventDetailsArea{
-  width: 50% !important;
-  height: 30vh !important;
+  font-family: "Libertinus Serif Display", system-ui;
+  width: 50%;
+  height: 20vh ;
   margin-bottom: 10px;
-}
-.eventInput{
   background-color: #fae3727d;
   border: 1px solid #ffde36;
   color: #705d00;
+  outline: none;
+}
+.eventInput{
+  font-family: "Libertinus Serif Display", system-ui;
+  background-color: #fae3727d;
+  border: 1px solid #ffde36;
+  color: #705d00;
+}
+.event-condition-area{
+  font-family: "Libertinus Serif Display", system-ui;
+    width: 30%;
+  height: 20vh ;
+  background-color: #fae3727d;
+  border: 1px solid #ffde36;
+  color: #705d00;
+  outline: none;
 }
 .eventSubmitBtn{
   color: #705d00;
@@ -147,5 +162,5 @@
   font-weight: bold;
 }
 .hold{
-  visibility: hidden;
+  display: none;
 }

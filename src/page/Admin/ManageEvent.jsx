@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import ImageUploading from "react-images-uploading";
-import event from "../../../public/img/event.png";
 import "./ManageEvent.css";
 import { RxCross2 } from "react-icons/rx";
 import Swal from "sweetalert2";
 import EventList from "../../component/EvemtList/EventList";
+
 const Image_Upload_Token = import.meta.env.VITE_Image_Upload_Token;
 const ManageEvent = () => {
   const [images, setImages] = useState([]);
@@ -199,9 +199,8 @@ const ManageEvent = () => {
                 Event condition<span style={{ color: "red" }}>*</span>
               </label>
               <br />
-              <input
-                className="eventInput"
-                type="text"
+              <textarea
+                className="event-condition-area"
                 name="condition"
                 onChange={(e) =>
                   setEvenData({ ...eventData, condition: e.target.value })
@@ -218,6 +217,12 @@ const ManageEvent = () => {
                 className="eventInput"
                 type="text"
                 name="discount"
+                 onInput={(e) => {
+                            e.target.value = e.target.value.replace(
+                              /[^0-9.]/g,
+                              ""
+                            );
+                          }}
                 onChange={(e) =>
                   setEvenData({ ...eventData, discount: e.target.value })
                 }
