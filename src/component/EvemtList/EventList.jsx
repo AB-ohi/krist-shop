@@ -1,20 +1,31 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import { MdOutlineEvent } from "react-icons/md";
 
 const EventList = () => {
-    const [eventData, setEventData] = useState();
-useEffect(()=>{
+  const [eventData, setEventData] = useState();
+  console.log(eventData);
+  useEffect(() => {
     fetch("http://localhost:5000/events")
-    .then(res => res.json())
-    .then(data => {
-      setEventData(data)
-    })
-},[])
+      .then((res) => res.json())
+      .then((data) => {
+        setEventData(data);
+      });
+  }, []);
 
   return (
-    <div>
-      
+    <div >
+      {eventData?.map((singleDat, index) => {
+        return (
+          <div style={{marginBottom:'10px'}} id={index}>
+            <div style={{display:"flex", alignItems:"center"}}>
+              <MdOutlineEvent />
+              <p style={{}}>{singleDat.title}</p>
+            </div>
+          </div>
+        );
+      })}
     </div>
-  )
-}
+  );
+};
 
-export default EventList
+export default EventList;
