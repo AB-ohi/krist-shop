@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { MdOutlineEvent } from "react-icons/md";
 import "./EventList.css"
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/autoplay";
 
 const EventList = () => {
   const [eventData, setEventData] = useState();
@@ -24,18 +26,19 @@ const EventList = () => {
               <MdOutlineEvent />
               <p>{singleData.title}</p>
             </div>
-            <div>
-               <Carousel>
-                {
-                  singleData.eventImage?.map((image,i)=>{
-                  return( <div id={i}>
-                      <img src={image} alt={`event-${index}-${i}`} />
-                    </div>)
-                  })
-                }
-                
-            </Carousel>
-            </div>
+               <Swiper
+              modules={[Autoplay]}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              loop={true}
+              className="event_img"
+            >
+              {singleData.eventImage?.map((image, i) => (
+                <SwiperSlide key={i}>
+                  <img src={image} alt={`event-${index}-${i}`} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          
             <div></div>
           </div>
         );
