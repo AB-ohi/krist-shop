@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { MdOutlineEvent } from "react-icons/md";
+import "./EventList.css"
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 const EventList = () => {
   const [eventData, setEventData] = useState();
@@ -13,14 +16,27 @@ const EventList = () => {
   }, []);
 
   return (
-    <div >
-      {eventData?.map((singleDat, index) => {
+    <div className="event_list_main">
+      {eventData?.map((singleData, index) => {
         return (
-          <div style={{marginBottom:'10px'}} id={index}>
-            <div style={{display:"flex", alignItems:"center"}}>
+          <div className="event_list" id={index}>
+            <div className="event_title_area">
               <MdOutlineEvent />
-              <p style={{}}>{singleDat.title}</p>
+              <p>{singleData.title}</p>
             </div>
+            <div>
+               <Carousel>
+                {
+                  singleData.eventImage?.map((image,i)=>{
+                  return( <div id={i}>
+                      <img src={image} alt={`event-${index}-${i}`} />
+                    </div>)
+                  })
+                }
+                
+            </Carousel>
+            </div>
+            <div></div>
           </div>
         );
       })}

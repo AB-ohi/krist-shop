@@ -1,0 +1,17 @@
+.event_list_main{
+    margin-top: 10px;
+}
+
+.event_list{
+    margin-bottom: 10px;
+}
+
+.event_title_area{
+    display: flex;
+    gap: 10px;
+}
+
+.event_title_area p{
+    font-size: 20px;
+    font-weight: bold;
+}
