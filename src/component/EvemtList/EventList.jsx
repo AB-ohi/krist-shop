@@ -26,7 +26,8 @@ const EventList = () => {
               <MdOutlineEvent />
               <p>{singleData.title}</p>
             </div>
-               <Swiper
+               <div className="event_content">
+                <Swiper
               modules={[Autoplay]}
               autoplay={{ delay: 3000, disableOnInteraction: false }}
               loop={true}
@@ -39,7 +40,15 @@ const EventList = () => {
               ))}
             </Swiper>
           
-            <div></div>
+            <div className="details_area">
+              
+                <h1 style={{margin:"0 0 10px 0"}}>Detail</h1>
+                <p style={{fontWeight:'bolder', fontSize:'15px'}}>{singleData.details}</p>
+              <div>
+                <p style={{marginTop:'10px'}}>{singleData.condition}</p>
+              </div>
+            </div>
+               </div>
           </div>
         );
       })}
