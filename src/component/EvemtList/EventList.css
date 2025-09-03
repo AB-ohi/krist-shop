@@ -11,8 +11,26 @@
   gap: 10px;
 }
 
+.event_Condition_area{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.delete-btn {
+   border: 1px solid lightcoral;
+  background: transparent;
+  color: lightcoral;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 33px;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
 
-
+.delete-btn:hover {
+  background: lightcoral;
+  color: white;
+}
 .event_title_area{
     display: flex;
     gap: 10px;

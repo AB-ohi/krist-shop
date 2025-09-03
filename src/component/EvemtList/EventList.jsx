@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { MdOutlineEvent } from "react-icons/md";
-import "./EventList.css"
+import "./EventList.css";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -26,29 +26,40 @@ const EventList = () => {
               <MdOutlineEvent />
               <p>{singleData.title}</p>
             </div>
-               <div className="event_content">
-                <Swiper
-              modules={[Autoplay]}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
-              loop={true}
-              className="event_img"
-            >
-              {singleData.eventImage?.map((image, i) => (
-                <SwiperSlide key={i}>
-                  <img src={image} alt={`event-${index}-${i}`} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          
-            <div className="details_area">
-              
-                <h1 style={{margin:"0 0 10px 0"}}>Detail</h1>
-                <p style={{fontWeight:'bolder', fontSize:'15px'}}>{singleData.details}</p>
-              <div>
-                <p style={{marginTop:'10px'}}>{singleData.condition}</p>
+            <div className="event_content">
+              <Swiper
+                modules={[Autoplay]}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                loop={true}
+                className="event_img"
+              >
+                {singleData.eventImage?.map((image, i) => (
+                  <SwiperSlide key={i}>
+                    <img src={image} alt={`event-${index}-${i}`} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              <div className="details_area">
+                <p style={{ fontWeight: "bolder", fontSize: "15px" }}>
+                  {singleData.details}
+                </p>
+                <div className="event_Condition_area">
+                  <div>
+                    <p style={{ marginTop: "10px" }}>
+                      Discount:{" "}
+                      <span style={{ color: "green" }}>
+                        {singleData.discount}%
+                      </span>
+                    </p>
+                    <p style={{ marginTop: "10px", fontSize: "10px" }}>
+                      {singleData.condition}
+                    </p>
+                  </div>
+                  <button className="delete-btn">Delete</button>
+                </div>
               </div>
             </div>
-               </div>
           </div>
         );
       })}
