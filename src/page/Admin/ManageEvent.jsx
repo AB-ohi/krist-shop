@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ImageUploading from "react-images-uploading";
 import "./ManageEvent.css";
 import { RxCross2 } from "react-icons/rx";
@@ -15,6 +15,15 @@ const ManageEvent = () => {
     condition: "",
     discount: "",
   });
+    const [eventDataValue, setEventDataValue] = useState();
+    console.log(eventData);
+    useEffect(() => {
+      fetch("http://localhost:5000/events")
+      .then((res) => res.json())
+      .then((data) => {
+        setEventDataValue(data);
+      });
+    }, []);
 
   const isEventData = () => {
     return (
@@ -126,13 +135,19 @@ const ManageEvent = () => {
                   : "upload__image-wrapper"
               }
             >
-              <p
+             {
+              eventDataValue?.length <= 1?(
+                 <p
                 className={images?.length > 0 ? "againAdd" : "picAddBtn"}
                 onClick={onImageUpload}
                 {...dragProps}
               >
                 Add Event Picture
               </p>
+              ) :(
+                <p>you have already 2 event</p>
+              )
+             }
               {imageList.map((image, index) => (
                 <div key={index} className="even_image-item">
                   <img src={image["data_url"]} alt="" />
@@ -156,7 +171,7 @@ const ManageEvent = () => {
                 </div>
               ) : (
                 <div className="emptyEvent">
-                  <EventList/>
+                  <EventList eventData={eventDataValue} setEventData={setEventDataValue}/>
                 </div>
               )}
             </div>

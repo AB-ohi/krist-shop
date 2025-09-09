@@ -5,17 +5,43 @@ import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
+import Swal from "sweetalert2";
 
-const EventList = () => {
-  const [eventData, setEventData] = useState();
-  console.log(eventData);
-  useEffect(() => {
-    fetch("http://localhost:5000/events")
-      .then((res) => res.json())
-      .then((data) => {
-        setEventData(data);
-      });
-  }, []);
+const EventList = ({eventData, setEventData}) => {
+
+
+  const handelDeleteEvent = (EventId)=>{
+      Swal.fire({
+         title: "Are you sure?",
+         text: "You won't be able to revert this!",
+         icon: "warning",
+         showCancelButton: true,
+         confirmButtonColor: "#3085d6",
+         cancelButtonColor: "#d33",
+         confirmButtonText: "Yes, delete it!",
+         showClass: {
+           popup: "animate__animated animate__fadeInDown animate__faster",
+         },
+         hideClass: {
+           popup: "animate__animated animate__fadeOutUp animate__faster",
+         },
+       }).then((result) =>{
+        if(result.isConfirmed){
+          fetch(`http://localhost:5000/events/${EventId._id}`,{
+            method:"DELETE",
+          }).then((response)=>{
+            if(response.ok){
+              setEventData((prev)=>
+                prev.filter((events)=> events._id !==EventId._id)
+              )
+            }
+          })
+        }
+        else{
+          
+        }
+       })
+  }
 
   return (
     <div className="event_list_main">
@@ -56,7 +82,7 @@ const EventList = () => {
                       {singleData.condition}
                     </p>
                   </div>
-                  <button className="delete-btn">Delete</button>
+                  <button onClick={()=>handelDeleteEvent(singleData)} className="delete-btn">Delete</button>
                 </div>
               </div>
             </div>
