@@ -10,7 +10,7 @@ const SideBer = () => {
   const categories = [
     {
       name: "Men",
-      path: "/shop/man",
+      path: "/shop/men",
       items: [
         "T-Shirt",
         "Casual Shirt",

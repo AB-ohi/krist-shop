@@ -5,12 +5,11 @@ import { useForm } from "react-hook-form";
 
 const ManageUser = () => {
   const { AllUser } = useUserData();
-  const {reset} = useForm()
+  const { reset } = useForm();
   console.log(AllUser);
-  const handelToChangeRole = (_id, currentRole) => {
-    const updateRole = currentRole === "admin" ? "customer" : "admin";
+  const handelToChangeRole = (_id, newRole) => {
     Swal.fire({
-      title: `Change role to "${updateRole}"?`,
+      title: `Change role to "${newRole}"?`,
       icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -23,7 +22,7 @@ const ManageUser = () => {
           headers: {
             "Content-type": "application/json",
           },
-          body: JSON.stringify({ role: updateRole }),
+          body: JSON.stringify({ role: newRole }),
         })
           .then((res) => res.json())
           .then((data) => {
@@ -35,8 +34,8 @@ const ManageUser = () => {
                 timer: 1500,
               });
             }
-            reset()
-            window.location.reload()
+            reset();
+            window.location.reload();
           });
       }
     });
@@ -69,12 +68,27 @@ const ManageUser = () => {
                 <td>{allUser.role}</td>
 
                 <td style={{ borderRight: "2px solid #6A42C7" }}>
-                  <button
-                    onClick={()=> handelToChangeRole(allUser._id,allUser.role)}
-                    className="role_change_btn"
+                  <select
+                    defaultValue=""
+                    onChange={(e) => {
+                      if (e.target.value) {
+                        handelToChangeRole(allUser._id, e.target.value);
+                      }
+                    }}
+                    className="role_change_dropdown"
                   >
-                    Make {allUser.role === "admin" ? "Customer" : "Admin"}
-                  </button>
+                    <option className="role_option" value="" disabled>
+                      Change Role
+                    </option>
+
+                    {["admin", "customer", "shop owner", "outlet", "manager"]
+                      .filter((role) => role !== allUser.role) 
+                      .map((role) => (
+                        <option key={role} value={role}>
+                          {role.charAt(0).toUpperCase() + role.slice(1)}
+                        </option>
+                      ))}
+                  </select>
                 </td>
               </tr>
             ))}

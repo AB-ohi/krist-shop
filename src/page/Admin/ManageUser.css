@@ -17,13 +17,18 @@
     padding: 15px 10px;
     border-left: 2px solid #6A42C7 ;
 }
-.role_change_btn{
+.role_change_dropdown{
     background: none;
     border: none;
     cursor: pointer;
-    background-color: #6A42C7;
     width: 80%;
     padding: 5px 10px;
-    color: white;
-    border-radius: 8px;
+    border: 1px solid #6A42C7;
+    background-color: #EEDFFF;
+    outline: none;
+    color: #6A42C7;
+    border-radius: 4px 4px 0 0;
+}
+
+.role_option{
 }

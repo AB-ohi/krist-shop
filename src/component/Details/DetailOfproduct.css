@@ -1,0 +1,8 @@
+.detailAria{
+    width: 50%;
+}
+.Discount_price_all_detail{
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}

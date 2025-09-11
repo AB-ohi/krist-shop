@@ -86,7 +86,7 @@ const Details = () => {
                 ))}
               </div>
             </div>
-           <DetailOfProduct/>
+           <DetailOfProduct detail={detail}/>
           </div>
         </div>
       )}
