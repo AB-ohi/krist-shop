@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import "./DetailOfProduct.css";
+import { useState } from "react";
 
 const DetailOfProduct = ({ detail }) => {
-  console.log(detail?.main_price);
+  const [addProduct, setAddProduct] = useState(1);
   return (
     <div className="detailAria">
       <p
@@ -46,9 +48,16 @@ const DetailOfProduct = ({ detail }) => {
           <div>Price: {detail.main_price}৳</div>
         )}
       </div>
-      {
-        detail.qua
-      }
+      <div className="product_add_count">
+        <button onClick={()=>setAddProduct(addProduct + 1)}>+</button>
+        <p>{addProduct}</p>
+        <button onClick={() => setAddProduct(Math.max(1, addProduct - 1))}>-</button>
+      </div>
+      <div className="order_cart_btn">
+        <Link className="cart_btn">Add to cart</Link>
+        <Link>Bye naw</Link>
+
+      </div>
     </div>
   );
 };

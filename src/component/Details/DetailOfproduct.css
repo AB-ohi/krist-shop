@@ -6,3 +6,16 @@
     display: flex;
     gap: 20px;
 }
+.order_cart_btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart_btn{
+
+}
+.product_add_count{
+    display: flex;
+}
