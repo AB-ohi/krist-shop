@@ -16,6 +16,50 @@
 .cart_btn{
 
 }
-.product_add_count{
-    display: flex;
+.product_add_count {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.product_add_count button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: #6a42c7; /* বেগুনি রঙ */
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.product_add_count button:hover {
+  background: #5835a3; 
+  /* transform: translateY(-2px); */
+}
+
+.product_add_count button:active {
+  transform: scale(0.95);
+}
+
+.product_add_count p {
+  font-size: 22px;
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.product_add_count p.up {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.product_add_count p.down {
+  transform: translateY(20px);
+  opacity: 0;
 }

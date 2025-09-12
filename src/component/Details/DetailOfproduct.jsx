@@ -1,9 +1,29 @@
 import { Link } from "react-router-dom";
 import "./DetailOfProduct.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const DetailOfProduct = ({ detail }) => {
   const [addProduct, setAddProduct] = useState(1);
+  const [direction, setDirection] = useState("");
+
+const increase = () => {
+  setDirection("up");
+  setTimeout(() => {
+    setAddProduct((prev) => prev + 1);
+    setDirection("");
+  }, 200);
+};
+
+const decrease = () => {
+  if (addProduct > 1) {
+    setDirection("down");
+    setTimeout(() => {
+      setAddProduct((prev) => prev - 1);
+      setDirection("");
+    }, 200);
+  }
+};
+
   return (
     <div className="detailAria">
       <p
@@ -49,9 +69,9 @@ const DetailOfProduct = ({ detail }) => {
         )}
       </div>
       <div className="product_add_count">
-        <button onClick={()=>setAddProduct(addProduct + 1)}>+</button>
-        <p>{addProduct}</p>
-        <button onClick={() => setAddProduct(Math.max(1, addProduct - 1))}>-</button>
+        <button onClick={increase}>+</button>
+  <p className={direction}>{addProduct}</p>
+  <button onClick={decrease}>-</button>
       </div>
       <div className="order_cart_btn">
         <Link className="cart_btn">Add to cart</Link>
