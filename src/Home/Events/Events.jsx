@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import './Events.css'
 import { GoArrowRight } from "react-icons/go";
+import adminEventHook from "../../Hook/adminEventHook";
 
 const Events = () => {
+  const [adminEvent] = adminEventHook()
+  console.log(adminEvent)
   return (
     <div className="Event-main">
       <div className="event-details">
