@@ -1,31 +1,93 @@
-import { Link } from "react-router-dom";
-import './Events.css'
-import { GoArrowRight } from "react-icons/go";
+import React, { useState } from "react";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import adminEventHook from "../../Hook/adminEventHook";
 
-const Events = () => {
-  const [adminEvent] = adminEventHook()
-  console.log(adminEvent)
-  return (
-    <div className="Event-main">
-      <div className="event-details">
-        <h1 style={{fontSize:'40px'}}>Valentine Day Events</h1>
-        <p style={{fontSize:'20px', marginBottom:'30px'}}>
-          {/*  eslint-disable-next-line react/no-unescaped-entities */}
-          Make this Valentine's Day unforgettable with a wardrobe that mirrors
-          {/*  eslint-disable-next-line react/no-unescaped-entities */}
-          the beauty of your love story. Shop the Valentine's Day Collection at
-          Krist and create moments that will be cherished forever. Love is in
-          the air, and so is style!
-        </p>
+const EventDetail = () => {
+  const [adminEvent] = adminEventHook();
+  const [currentImg, setCurrentImg] = useState(0);
 
-        <Link to='product' className="event-all-product">view all product <GoArrowRight /></Link>
+  if (!adminEvent || adminEvent.length === 0) {
+    return <p>Loading event...</p>;
+  }
+
+  const event = adminEvent[0];
+  const totalImages = event.eventImage.length;
+
+  const nextImage = () => setCurrentImg((prev) => (prev + 1) % totalImages);
+  const prevImage = () =>
+    setCurrentImg((prev) => (prev - 1 + totalImages) % totalImages);
+
+  return (
+    <div
+      className="event-detail-container"
+      style={{
+        display: "flex",
+        gap: "40px",
+        padding: "20px",
+        alignItems: "center",
+      }}
+    >
+      {/* Left side details */}
+      <div className="event-details" style={{ flex: 1 }}>
+        <h1 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "15px" }}>
+          {event.title}
+        </h1>
+        <p style={{ fontSize: "18px", marginBottom: "15px" }}>{event.details}</p>
+        <p style={{ fontSize: "16px", marginBottom: "15px" }}>
+          <strong>Condition:</strong> {event.condition}
+        </p>
+        <p style={{ fontSize: "16px", marginBottom: "15px" }}>
+          <strong>Discount:</strong> {event.discount}%
+        </p>
       </div>
-      <div className="event-pic">
-        <img style={{width:'100%'}} src="../../../public/img/event.jpg" alt="" />
+
+      {/* Right side carousel */}
+      <div className="event-images" style={{ flex: 1, position: "relative" }}>
+        <img
+          src={event.eventImage[currentImg]}
+          alt={event.title}
+          style={{ width: "100%", borderRadius: "8px" }}
+        />
+        {/* Carousel arrows */}
+        <button
+          onClick={prevImage}
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "10px",
+            transform: "translateY(-50%)",
+            background: "rgba(0,0,0,0.5)",
+            border: "none",
+            color: "white",
+            fontSize: "24px",
+            borderRadius: "50%",
+            padding: "5px",
+            cursor: "pointer",
+          }}
+        >
+          <GoArrowLeft />
+        </button>
+        <button
+          onClick={nextImage}
+          style={{
+            position: "absolute",
+            top: "50%",
+            right: "10px",
+            transform: "translateY(-50%)",
+            background: "rgba(0,0,0,0.5)",
+            border: "none",
+            color: "white",
+            fontSize: "24px",
+            borderRadius: "50%",
+            padding: "5px",
+            cursor: "pointer",
+          }}
+        >
+          <GoArrowRight />
+        </button>
       </div>
     </div>
   );
 };
 
-export default Events;
+export default EventDetail;
