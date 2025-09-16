@@ -1,22 +1,47 @@
 import React from "react";
+import { motion } from "framer-motion";
+import adminEventHook from "../../Hook/adminEventHook";
 import "./events.css";
-import ShopEvent from "../../../public/demoImg/shopEvent.jpg";
+
 const ShopEvents = () => {
+  const [adminEvent] = adminEventHook();
+
+  if (!adminEvent || adminEvent.length === 0) {
+    return <p>Loading events...</p>;
+  }
+
   return (
-    <div className="eventBody">
-      <div className="eventImg">
-        <img src={ShopEvent} alt="" />
-      </div>
-      <div className="eventDetails">
-        <div>
-          <h1 className="eventsHeading">heating</h1>
-        </div>
-        <div className="eventDescription">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-          soluta aut, nihil, ipsam reprehenderit nobis enim, cum officia porro
-          quae non! Eum sunt nulla adipisci veniam labore sit corrupti natus.
-        </div>
-      </div>
+    <div className="eventsContainer">
+      {adminEvent.map((event, index) => (
+        <motion.div
+          className="eventBody"
+          key={event._id || index}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.2 }}
+        >
+          {/* বাম পাশে image */}
+          <div className="eventImg">
+            {event.eventImage?.[0] ? (
+              <div className="eventImgWrapper">
+                <img src={event.eventImage[0]} alt={event.title} />
+                <span className="discountBadge">-{event.discount}%</span>
+              </div>
+            ) : (
+              <div className="noImg">No Image</div>
+            )}
+          </div>
+
+          {/* ডান পাশে details */}
+          <div className="eventDetails">
+            <h1 className="eventsHeading">{event.title}</h1>
+            <p className="eventDescription">{event.details}</p>
+            <p className="eventCondition">
+              <strong>Condition:</strong> {event.condition}
+            </p>
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
 };

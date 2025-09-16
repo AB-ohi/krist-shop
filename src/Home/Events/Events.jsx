@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import adminEventHook from "../../Hook/adminEventHook";
-import discount_BG from "../../../public/img/discount_background.png"
+import discount_BG from "../../../public/img/discount_background.png";
 
 const EventDetail = () => {
   const [adminEvent] = adminEventHook();
@@ -47,10 +47,33 @@ const EventDetail = () => {
 
       <div style={{ flex: 1, position: "relative" }}>
         <div>
-            <img src={discount_BG} style={{position:"absolute", width:"100px", zIndex:'0'}} alt="" />
-          <p style={{ fontSize: "16px", marginBottom: "15px", position:'absolute', zIndex:'10' }}>
-           {event.discount} <br />%
-          </p>  
+          <img
+            src={discount_BG}
+            style={{
+              position: "absolute",
+              width: "142px",
+              zIndex: "0",
+              left: "-40px",
+              top: "-21px",
+              transform: "rotate(342deg)",
+            }}
+            alt=""
+          />
+          <p
+            style={{
+              fontSize: "16px",
+              marginBottom: "15px",
+              position: "absolute",
+              zIndex: "10",
+              color: "white",
+              left: "16px",
+              top: "-14px",
+              transform: "rotate(329deg)",
+              fontWeight: "bold",
+            }}
+          >
+            {event.discount} <br />%
+          </p>
         </div>
         {totalImages > 0 && (
           <img
