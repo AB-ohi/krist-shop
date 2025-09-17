@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./DetailOfProduct.css";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const DetailOfProduct = ({ detail }) => {
   const [addProduct, setAddProduct] = useState(1);
@@ -27,14 +28,25 @@ const handleAddToCart =()=>{
   let cart = JSON.parse(localStorage.getItem("cart"))||[];
   const existingItems = cart.findIndex((item)=> item._id === detail._id);
   if (existingItems >=  0){
+    const addedPrice =
+      detail.discount > 0
+        ? detail.discount_price * addProduct
+        : detail.main_price * addProduct;
+
+
     cart [existingItems].quantity += addProduct;
+    cart [existingItems].total_price +=addedPrice;
 
   }else{
     const newProduct ={
         _id: detail._id,
         product_name: detail.product_name,
-        price: detail.discount > 0 ? detail.discount_price * addProduct : detail.main_price * quantity,
+        main_price: detail.discount > 0 ? detail.discount_price  : detail.main_price,
+        total_price: detail.discount > 0 ? detail.discount_price * addProduct : detail.main_price * quantity,
         quantity: addProduct,
+        discount: detail.discount,
+        image:detail.images,
+        category:detail.category
     };
     cart.push(newProduct)
   }
