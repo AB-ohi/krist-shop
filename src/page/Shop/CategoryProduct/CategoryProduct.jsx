@@ -38,7 +38,7 @@ const  CategoryProduct = () => {
           textTransform: "capitalize",
         }}
       >
-        Category: {category}
+        {category}
       </h1>
 
       {

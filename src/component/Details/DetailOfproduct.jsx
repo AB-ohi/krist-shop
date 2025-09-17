@@ -23,14 +23,54 @@ const DetailOfProduct = ({ detail }) => {
       }, 200);
     }
   };
+const handleAddToCart =()=>{
+  let cart = JSON.parse(localStorage.getItem("cart"))||[];
+  const existingItems = cart.findIndex((item)=> item._id === detail._id);
+  if (existingItems >=  0){
+    cart [existingItems].quantity += addProduct;
+
+  }else{
+    const newProduct ={
+        _id: detail._id,
+        product_name: detail.product_name,
+        price: detail.discount > 0 ? detail.discount_price * addProduct : detail.main_price * quantity,
+        quantity: addProduct,
+    };
+    cart.push(newProduct)
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+   Swal.fire({
+      title: "✅ Product added to cart!",
+      html: `
+        <div style="text-align:left">
+          <p><strong>Product:</strong> ${detail.product_name}</p>
+          <p><strong>Price:</strong> ${
+           detail.discount > 0 ? detail.discount_price * addProduct : detail.main_price * quantity
+          }৳</p>
+          <p><strong>Quantity:</strong> ${addProduct}</p>
+          ${
+            detail.discount > 0
+              ? `<p><strong>Discount:</strong> ${detail.discount}%</p>`
+              : ""
+          }
+        </div>
+      `,
+      showCancelButton: true,
+      confirmButtonText: "OK",
+      cancelButtonText: "Cancel",
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      background: "#fff",
+      customClass: {
+        popup: "popup-style",
+      },
+    });
+}
 
   return (
     <div className="detailAria">
-      {/* Product Name & Detail */}
       <p className="product_name">{detail.product_name}</p>
       <p className="product_detail">{detail.product_detail}</p>
-
-      {/* Price & Discount */}
       <div className="product_price">
         {detail?.discount > 0 ? (
           <div>
@@ -75,28 +115,22 @@ const DetailOfProduct = ({ detail }) => {
           </p>
         )}
       </div>
-
-      {/* Quantity Selector */}
       <div className="product_add_count">
         <button onClick={increase}>+</button>
         <p className={direction}>{addProduct}</p>
         <button onClick={decrease}>-</button>
       </div>
 
-      {/* Buttons */}
       <div className="order_cart_btn">
-        <Link className="cart_btn">Add to cart</Link>
+        <Link className="cart_btn" onClick={handleAddToCart}>Add to cart</Link>
         <Link className="buy_btn">Buy now</Link>
       </div>
-
-      {/* Optional Notes */}
       <div className="product_notes">
         <p>
           <strong>Note:</strong> High quality lawn fabric, hand embroidery.
         </p>
       </div>
 
-      {/* Optional Tags */}
       <div className="product_tags">
         {["Women", "Lawn", "Embroidered", "3PC"].map((tag, i) => (
           <span key={i} className="tag">
@@ -105,7 +139,6 @@ const DetailOfProduct = ({ detail }) => {
         ))}
       </div>
 
-      {/* Optional Rating */}
       <div className="product_rating">
         <span>⭐⭐⭐⭐☆</span>
         <span>(24 reviews)</span>
