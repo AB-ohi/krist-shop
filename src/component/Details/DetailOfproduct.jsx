@@ -50,33 +50,37 @@ const handleAddToCart =()=>{
     };
     cart.push(newProduct)
   }
-  localStorage.setItem("cart", JSON.stringify(cart));
-   Swal.fire({
-      title: "✅ Product added to cart!",
-      html: `
-        <div style="text-align:left">
-          <p><strong>Product:</strong> ${detail.product_name}</p>
-          <p><strong>Price:</strong> ${
-           detail.discount > 0 ? detail.discount_price * addProduct : detail.main_price * quantity
-          }৳</p>
-          <p><strong>Quantity:</strong> ${addProduct}</p>
-          ${
-            detail.discount > 0
-              ? `<p><strong>Discount:</strong> ${detail.discount}%</p>`
-              : ""
-          }
-        </div>
-      `,
-      showCancelButton: true,
-      confirmButtonText: "OK",
-      cancelButtonText: "Cancel",
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      background: "#fff",
-      customClass: {
-        popup: "popup-style",
-      },
-    });
+  Swal.fire({
+    title: "✅ Product added to cart!",
+    html: `
+    <div style="text-align:left">
+    <p><strong>Product:</strong> ${detail.product_name}</p>
+    <p><strong>Price:</strong> ${
+      detail.discount > 0 ? detail.discount_price * addProduct : detail.main_price * quantity
+    }৳</p>
+    <p><strong>Quantity:</strong> ${addProduct}</p>
+    ${
+      detail.discount > 0
+      ? `<p><strong>Discount:</strong> ${detail.discount}%</p>`
+      : ""
+    }
+    </div>
+    `,
+    showCancelButton: true,
+    confirmButtonText: "OK",
+    cancelButtonText: "Cancel",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    background: "#fff",
+    customClass: {
+      popup: "popup-style",
+    },
+  }
+).then((result) => {
+    if (result.isConfirmed) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  });
 }
 
   return (

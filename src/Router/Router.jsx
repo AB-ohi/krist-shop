@@ -25,6 +25,7 @@ import NotFound from "../page/404/NotFound";
 import SelectItem from "../page/SelectItem/SelectItem";
 import { EventProvider } from "../Context/EventContext";
 import ManageEvent from "../page/Admin/ManageEvent";
+import Cart from "../page/Cart/Cart";
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         {
           path:'/dokan',
           element:<Dokan/>
+        },
+        {
+          path:'/MyCart',
+          element:<Cart/>
         },
         {
           path:'/profile',

@@ -15,8 +15,6 @@ import { motion } from "framer-motion";
 import { useEvent } from "../../Context/EventContext";
 
 
-
-
 const NavBer = () => {
   const { setShowEvent } = useEvent();
   const { user } = useContext(AuthContext);
@@ -138,7 +136,7 @@ const NavBer = () => {
 
           <CiSearch />
           <CiHeart />
-          <CiShoppingCart />
+          <Link to="/MyCart"><CiShoppingCart /></Link>
           {user ? (
             <Link
               to={
