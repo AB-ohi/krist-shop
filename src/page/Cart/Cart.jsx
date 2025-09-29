@@ -18,7 +18,8 @@ const Cart = () => {
     const updatedItems = [...cartItems];
     const newQuantity = Math.max(1, updatedItems[index].quantity + change);
     updatedItems[index].quantity = newQuantity;
-    updatedItems[index].total_price = updatedItems[index].main_price * newQuantity;
+    updatedItems[index].total_price =
+      updatedItems[index].main_price * newQuantity;
     setCartItems(updatedItems);
   };
 
@@ -35,20 +36,18 @@ const Cart = () => {
     <div className="cart-container">
       <div className="cart-max-width">
         {/* Header */}
-        <div className="cart-header">
-          <div className="cart-header-content">
-            <div className="cart-icon-wrapper">
-              <ShoppingCart className="cart-icon-white" size={24} />
-            </div>
-            <h1 className="cart-title">
-              Your Shopping Cart
-            </h1>
-          </div>
-          <p className="cart-subtitle">Review your items before checkout</p>
-        </div>
 
         {cartItems.length === 0 ? (
           <div className="empty-cart">
+            <div className="cart-header">
+              <div className="cart-header-content">
+                <div className="cart-icon-wrapper">
+                  <ShoppingCart className="cart-icon-white" size={24} />
+                </div>
+                <h1 className="cart-title">Your Shopping Cart</h1>
+              </div>
+              <p className="cart-subtitle">Review your items before checkout</p>
+            </div>
             <div className="empty-cart-icon">
               <ShoppingCart className="empty-cart-icon-gray" size={40} />
             </div>
@@ -57,6 +56,16 @@ const Cart = () => {
           </div>
         ) : (
           <div className="cart-items-container">
+          <div>
+              <div className="cart-header">
+              <div className="cart-header-content">
+                <div className="cart-icon-wrapper">
+                  <ShoppingCart className="cart-icon-white" size={24} />
+                </div>
+                <h1 className="cart-title">Your Shopping Cart</h1>
+              </div>
+              <p className="cart-subtitle">Review your items before checkout</p>
+            </div>
             {/* Cart Items */}
             <div className="cart-items-list">
               {cartItems.map((item, index) => (
@@ -70,24 +79,23 @@ const Cart = () => {
                         className="product-image"
                       />
                       {item.discount > 0 && (
-                        <div className="discount-badge">
-                          -{item.discount}%
-                        </div>
+                        <div className="discount-badge">-{item.discount}%</div>
                       )}
                     </div>
 
                     {/* Product Details */}
                     <div className="product-details">
-                      <h3 className="product-name">
-                        {item.product_name}
-                      </h3>
+                      <h3 className="product-name">{item.product_name}</h3>
                       <div className="product-price-wrapper">
                         <span className="product-price">
                           {item.main_price}৳
                         </span>
                         {item.discount > 0 && (
                           <span className="product-original-price">
-                            {Math.round(item.main_price / (1 - item.discount / 100))}৳
+                            {Math.round(
+                              item.main_price / (1 - item.discount / 100)
+                            )}
+                            ৳
                           </span>
                         )}
                       </div>
@@ -101,9 +109,7 @@ const Cart = () => {
                       >
                         <Minus size={16} />
                       </button>
-                      <span className="quantity-display">
-                        {item.quantity}
-                      </span>
+                      <span className="quantity-display">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(index, 1)}
                         className="quantity-btn"
@@ -128,6 +134,7 @@ const Cart = () => {
                 </div>
               ))}
             </div>
+          </div>
 
             {/* Order Summary */}
             <div className="order-summary">
@@ -154,12 +161,9 @@ const Cart = () => {
                     </span>
                   </div>
                 </div>
-                
+
                 {/* Buy Now Button */}
-                <button
-                  onClick={handleBuyNow}
-                  className="buy-now-btn"
-                >
+                <button onClick={handleBuyNow} className="buy-now-btn">
                   <CreditCard size={20} />
                   Buy Now - {getTotalPrice()}৳
                 </button>
