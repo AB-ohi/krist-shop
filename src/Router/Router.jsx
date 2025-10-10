@@ -26,101 +26,137 @@ import SelectItem from "../page/SelectItem/SelectItem";
 import { EventProvider } from "../Context/EventContext";
 import ManageEvent from "../page/Admin/ManageEvent";
 import Cart from "../page/Cart/Cart";
+import Payment from "../page/payment/Payment";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main/>,
-      children:[
-        {
-          path:"/",
-          element:<Home/>
-        },
-        {
-          path:'/detail/:id',
-          element:<PrivetRoute><Details/></PrivetRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/AllProduct/detail/${params.id}`)
-        },
-        {
-          path:"/contact",
-          element:<Contact/>
-        },
-        {
-          path:'/dokan',
-          element:<Dokan/>
-        },
-        {
-          path:'/MyCart',
-          element:<Cart/>
-        },
-        {
-          path:'/profile',
-          element:<PrivetRoute><Profile/></PrivetRoute>,
-          children:[
-            {
-              path:':displayName',
-              element:<ProfileInfo/>,
-              loader:({params})=>fetch(`http://localhost:5000/user/${params.displayName}`)
-            },
-            {
-              path:'address',
-              element:<AddressBook/>
-            },
-            {
-              path:'order',
-              element:<Order/>
-            },
-            {
-              path:'manageUser',
-              element:<AdminRoute><ManageUser/></AdminRoute>
-            },
-            {
-              path:'dashboard/:displayName',
-              element:<AdminRoute><AdminDashboard/></AdminRoute>,
-              loader:({params})=>fetch(`http://localhost:5000/user/${params.displayName}`)
-            },
-            {
-              path:'manage_Product',
-              element:<AdminRoute><ManageProduct/></AdminRoute>
-            },
-            {
-              path:'event',
-              element:<AdminRoute><ManageEvent/></AdminRoute>
-            }
-          ]
-        },
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/detail/:id",
+        element: (
+          <PrivetRoute>
+            <Details />
+          </PrivetRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/AllProduct/detail/${params.id}`),
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/dokan",
+        element: <Dokan />,
+      },
+      {
+        path: "/MyCart",
+        element: <Cart />,
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivetRoute>
+            <Profile />
+          </PrivetRoute>
+        ),
+        children: [
+          {
+            path: ":displayName",
+            element: <ProfileInfo />,
+            loader: ({ params }) =>
+              fetch(`http://localhost:5000/user/${params.displayName}`),
+          },
+          {
+            path: "address",
+            element: <AddressBook />,
+          },
+          {
+            path: "order",
+            element: <Order />,
+          },
+          {
+            path: "manageUser",
+            element: (
+              <AdminRoute>
+                <ManageUser />
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "dashboard/:displayName",
+            element: (
+              <AdminRoute>
+                <AdminDashboard />
+              </AdminRoute>
+            ),
+            loader: ({ params }) =>
+              fetch(`http://localhost:5000/user/${params.displayName}`),
+          },
+          {
+            path: "manage_Product",
+            element: (
+              <AdminRoute>
+                <ManageProduct />
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "event",
+            element: (
+              <AdminRoute>
+                <ManageEvent />
+              </AdminRoute>
+            ),
+          },
+        ],
+      },
 
-        // shop rout head
-        {
-  path: '/shop',
- element: <PrivetRoute><Shop /></PrivetRoute>,
-  children: [
-    
-        {
-          path: ':category', 
-          element: <CategoryProduct />,
-          loader: ({ params }) =>
-            fetch(`http://localhost:5000/AllProduct/category/${params.category}`)
-        }
-      
-  ]
-},
-// shop rout end
-        
-    {
-      path:'*',
-      element:<NotFound/>
-    }
-      ]
-    },
-    {
-      path:"/login",
-      element:<Login/>
-    },
-    {
-      path:"registration",
-      element:<SignUp/>
-    }
-  ]);
+      // shop rout head
+      {
+        path: "/shop",
+        element: (
+          <PrivetRoute>
+            <Shop />
+          </PrivetRoute>
+        ),
+        children: [
+          {
+            path: ":category",
+            element: <CategoryProduct />,
+            loader: ({ params }) =>
+              fetch(
+                `http://localhost:5000/AllProduct/category/${params.category}`
+              ),
+          },
+        ],
+      },
+      // shop rout end
 
-export default router
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "registration",
+    element: <SignUp />,
+  },
+]);
+
+export default router;

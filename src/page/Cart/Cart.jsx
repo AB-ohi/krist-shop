@@ -28,9 +28,6 @@ const Cart = () => {
     setCartItems(updatedItems);
   };
 
-  const handleBuyNow = () => {
-    alert(`অর্ডার সফল হয়েছে! মোট: ${getTotalPrice()}৳`);
-  };
 
   return (
     <div className="cart-container">
@@ -163,7 +160,7 @@ const Cart = () => {
                 </div>
 
                 {/* Buy Now Button */}
-                <button onClick={handleBuyNow} className="buy-now-btn">
+                <button className="buy-now-btn">
                   <CreditCard size={20} />
                   Buy Now - {getTotalPrice()}৳
                 </button>
