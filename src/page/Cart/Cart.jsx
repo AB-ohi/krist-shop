@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ShoppingCart, Plus, Minus, Trash2, CreditCard } from "lucide-react";
 import "./Cart.css";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
-
+ const navigate = useNavigate();
+ 
   useEffect(() => {
     const cartData = JSON.parse(localStorage.getItem("cart")) || [];
     setCartItems(cartData);
@@ -26,6 +28,19 @@ const Cart = () => {
   const removeItem = (index) => {
     const updatedItems = cartItems.filter((_, i) => i !== index);
     setCartItems(updatedItems);
+  };
+
+  const handleBuyNow = () => {
+    if (cartItems.length === 0) {
+      alert("আপনার কার্টে কোন পণ্য নেই!");
+      return;
+    }
+    
+    // Total price localStorage এ save করুন
+    localStorage.setItem("totalAmount", getTotalPrice());
+    
+    // Payment page এ redirect করুন
+    navigate("/payment");
   };
 
 
@@ -160,7 +175,7 @@ const Cart = () => {
                 </div>
 
                 {/* Buy Now Button */}
-                <button className="buy-now-btn">
+                <button onClick={handleBuyNow} className="buy-now-btn">
                   <CreditCard size={20} />
                   Buy Now - {getTotalPrice()}৳
                 </button>
