@@ -14,6 +14,7 @@
 
 /* Header Styles */
 .cart-header {
+  height: 100px;
   background: white;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
@@ -28,7 +29,7 @@
 }
 
 .cart-icon-wrapper {
-  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  background: #DED0FF;
   padding: 0.75rem;
   border-radius: 50%;
   display: flex;
@@ -39,10 +40,9 @@
 .cart-title {
   font-size: 1.875rem;
   font-weight: bold;
-  background: linear-gradient(45deg, #2563eb, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #6A42C7;
+  margin: 0px;
+  font-size: 20px;
 }
 
 .cart-subtitle {
@@ -82,6 +82,7 @@
 /* Cart Items Container */
 .cart-items-container {
   display: flex;
+  gap: 10px;
 }
 
 .cart-items-list {
@@ -152,7 +153,7 @@
 .product-price {
   font-size: 1.125rem;
   font-weight: bold;
-  color: #2563eb;
+  color: #6A42C7;
 }
 
 .product-original-price {
@@ -186,11 +187,11 @@
 }
 
 .quantity-display {
-  background: #dbeafe;
+  background: #DED0FF;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-weight: 600;
-  color: #2563eb;
+  color: #6A42C7;
   min-width: 3.125rem;
   text-align: center;
 }
@@ -221,23 +222,21 @@
   transform: scale(1.1);
 }
 
-/* Order Summary */
 .order-summary {
   background: white;
-  border-radius: 1rem;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
 .order-summary-header {
-  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  background: #DED0FF;
   padding: 1.5rem;
+  height: 100px;
 }
 
 .order-summary-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: white;
+  color: #6A42C7;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -289,17 +288,14 @@
 .grand-total-value {
   font-size: 1.5rem;
   font-weight: bold;
-  background: linear-gradient(45deg, #2563eb, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #6A42C7;
 }
 
 /* Buy Now Button */
 .buy-now-btn {
   width: 100%;
-  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
-  color: white;
+  background: #DED0FF;
+  color: #6A42C7;
   font-weight: bold;
   padding: 1rem 1.5rem;
   border: none;
@@ -314,8 +310,9 @@
 }
 
 .buy-now-btn:hover {
-  background: linear-gradient(45deg, #2563eb, #7c3aed);
-  transform: scale(1.05);
+  background:#6A42C7;
+  color: white;
+  transform: scale(1.03);
   box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
 }
 
