@@ -87,11 +87,7 @@ const Cart = () => {
                           alt={item.product_name}
                           className="product-image"
                         />
-                        {item.discount > 0 && (
-                          <div className="discount-badge">
-                            -{item.discount}%
-                          </div>
-                        )}
+                      
                       </div>
                       <div className="product-details">
                         <h3 className="product-name">{item.product_name}</h3>
@@ -108,6 +104,11 @@ const Cart = () => {
                             </span>
                           )}
                         </div>
+                          {item.discount > 0 && (
+                          <div className="discount-badge">
+                            discount: <span style={{color:'red'}}>{item.discount}%</span>
+                          </div>
+                        )}
                       </div>
 
                       <div className="quantity-controls">

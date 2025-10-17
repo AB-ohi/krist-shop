@@ -120,14 +120,8 @@
 }
 
 .discount-badge {
-  position: absolute;
-  top: -0.5rem;
-  right: -0.5rem;
-  background: #ef4444;
-  color: white;
-  font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.685);
+  font-size: 15px;
   font-weight: 600;
 }
 

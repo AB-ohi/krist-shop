@@ -1,8 +1,6 @@
-/* Success Page CSS */
-
 .success-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,75 +8,57 @@
 }
 
 .success-card {
-  background: white;
-  border-radius: 2rem;
+  background: #ffffff;
+  border-radius: 1.5rem;
   padding: 3rem 2rem;
   max-width: 600px;
   width: 100%;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 40px rgba(16, 185, 129, 0.25);
   text-align: center;
-  animation: slideUp 0.5s ease;
+  transition: all 0.4s ease;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.success-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 60px rgba(16, 185, 129, 0.3);
 }
 
 .success-icon-wrapper {
   margin-bottom: 2rem;
-  animation: scaleIn 0.6s ease;
-}
-
-@keyframes scaleIn {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 
 .success-icon {
-  color: #10b981;
-  filter: drop-shadow(0 4px 10px rgba(16, 185, 129, 0.3));
+  color: #059669;
+  filter: drop-shadow(0 4px 10px rgba(16, 185, 129, 0.4));
 }
 
 .success-title {
   font-size: 2rem;
   font-weight: bold;
-  color: #1f2937;
+  color: #064e3b;
   margin-bottom: 1rem;
 }
 
 .success-message {
-  color: #6b7280;
+  color: #065f46;
   font-size: 1.125rem;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
 
 .payment-details {
-  background: #f9fafb;
+  background: #f0fdf4;
   border-radius: 1rem;
   padding: 1.5rem;
   margin-bottom: 2rem;
   text-align: left;
+  box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.1);
 }
 
 .details-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1f2937;
+  color: #064e3b;
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -86,21 +66,17 @@
 .detail-row {
   display: flex;
   justify-content: space-between;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.detail-row:last-child {
-  border-bottom: none;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #d1fae5;
 }
 
 .detail-label {
-  color: #6b7280;
+  color: #047857;
   font-weight: 500;
 }
 
 .detail-value {
-  color: #1f2937;
+  color: #064e3b;
   font-weight: 600;
 }
 
@@ -111,14 +87,16 @@
 
 .success-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn-download {
   flex: 1;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   border-radius: 0.75rem;
   font-weight: 600;
   font-size: 1rem;
@@ -134,30 +112,39 @@
 .btn-primary {
   background: linear-gradient(135deg, #10b981, #059669);
   color: white;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
 }
 
 .btn-secondary {
   background: white;
-  color: #10b981;
+  color: #059669;
+  border: 2px solid #059669;
+}
+
+.btn-download {
+  background: #ecfdf5;
+  color: #047857;
   border: 2px solid #10b981;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.3);
 }
 
 .btn-secondary:hover {
   background: #10b981;
   color: white;
-  transform: translateY(-2px);
+}
+
+.btn-download:hover {
+  background: #10b981;
+  color: white;
 }
 
 .thank-you-text {
-  color: #6b7280;
+  color: #047857;
   font-size: 1.125rem;
-  margin: 0;
+  margin-top: 0.5rem;
 }
 
 .spinner-large {
@@ -170,34 +157,43 @@
   margin: 2rem auto;
 }
 
-.info-text {
-  color: #6b7280;
-  font-size: 0.95rem;
-  margin: 1rem 0 0 0;
-  line-height: 1.6;
-  text-align: center;
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.status-success {
-  color: #10b981 !important;
-  font-weight: bold;
+/* Animations */
+.animate-fade {
+  animation: fadeIn 0.7s ease;
+}
+
+.animate-slide {
+  animation: slideUp 0.8s ease;
+}
+
+.animate-pop {
+  animation: popIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 @media (max-width: 768px) {
-  .success-card {
-    padding: 2rem 1.5rem;
-  }
-
-  .success-title {
-    font-size: 1.5rem;
-  }
-
   .success-actions {
     flex-direction: column;
-  }
-
-  .success-icon {
-    width: 60px;
-    height: 60px;
   }
 }
