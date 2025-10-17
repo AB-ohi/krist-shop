@@ -16,14 +16,12 @@ const Payment = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // LocalStorage থেকে data লোড করুন
     const amount = localStorage.getItem("totalAmount") || 0;
     const items = JSON.parse(localStorage.getItem("cart")) || [];
     
     setTotalAmount(parseFloat(amount));
     setCartItems(items);
 
-    // যদি cart খালি থাকে তাহলে cart page এ redirect করুন
     if (items.length === 0) {
       alert("আপনার কার্টে কোন পণ্য নেই!");
       navigate("/cart");
@@ -38,7 +36,6 @@ const Payment = () => {
   const handleSSLCommerz = async (e) => {
     e.preventDefault();
     
-    // Validation
     if (!customerInfo.name || !customerInfo.email || !customerInfo.phone || !customerInfo.address) {
       alert("সকল তথ্য পূরণ করুন!");
       return;
@@ -47,7 +44,6 @@ const Payment = () => {
     setLoading(true);
 
     try {
-      // Backend API call করুন
       const response = await fetch("http://localhost:5000/api/payment/init", {
         method: "POST",
         headers: {
@@ -68,7 +64,6 @@ const Payment = () => {
       const data = await response.json();
 
       if (data.success && data.GatewayPageURL) {
-        // SSLCommerz payment page এ redirect করুন
         window.location.href = data.GatewayPageURL;
       } else {
         alert("পেমেন্ট শুরু করতে সমস্যা হয়েছে!");
@@ -116,8 +111,6 @@ const Payment = () => {
             <span className="order-total-amount">{totalAmount}৳</span>
           </div>
         </div>
-
-        {/* Customer Information Form */}
         <form onSubmit={handleSSLCommerz} className="payment-form">
           <div className="form-section">
             <h3 className="form-section-title">Customer Information</h3>

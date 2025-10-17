@@ -27,8 +27,6 @@ const UpdateProduct = ({ editProduct, setEditProduct }) => {
     const mainPrice = from.main_price.value;
     const quantity = from.quantity.value;
     const discount = from.discount.value;
-    // const discountVal =
-    //   discount !== "" ? parseFloat(discount) : parseFloat(editProduct.discount);
     const mainPriceVal =
       mainPrice !== ""
         ? parseFloat(mainPrice)

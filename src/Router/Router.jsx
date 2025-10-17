@@ -27,6 +27,8 @@ import { EventProvider } from "../Context/EventContext";
 import ManageEvent from "../page/Admin/ManageEvent";
 import Cart from "../page/Cart/Cart";
 import Payment from "../page/payment/Payment";
+// Payment success, fail, cancel pages import করুন
+import PaymentSuccess from "../page/PaymentSuccess/PaymentSuccess";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +65,20 @@ const router = createBrowserRouter([
         path: "/payment",
         element: <Payment />,
       },
+      {
+        path: "/payment/success",
+        element: <PaymentSuccess />,
+      },
+      // Payment Fail Route
+      // {
+      //   path: "/payment/fail",
+      //   element: <Fail />,
+      // },
+      // // Payment Cancel Route
+      // {
+      //   path: "/payment/cancel",
+      //   element: <Cancel />,
+      // },
       {
         path: "/profile",
         element: (

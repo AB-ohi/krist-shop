@@ -81,17 +81,7 @@ const AddressBook = () => {
       });
   };
 
-  // useEffect(() => {
-  //   fetch(`http://localhost:5000/addressAPI`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data) {
-  //         setAddress(data);
-  //       } else {
-  //         console.error("Error: No data fetched");
-  //       }
-  //     });
-  // }, []);
+
 
   return (
     <div className="address_body">

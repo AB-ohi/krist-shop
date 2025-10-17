@@ -1,12 +1,9 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Swiper, SwiperSlide } from "swiper/react";
 import ReactStars from 'react-rating-star-with-type'
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-// import required modules
 import { Pagination } from "swiper/modules";
 
 const Comment = () => {

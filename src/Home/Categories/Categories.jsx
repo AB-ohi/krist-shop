@@ -1,14 +1,12 @@
-// Import Swiper React components
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Categories.css";
 import { motion } from "framer-motion";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-// import required modules
 import { Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 const wearPic = [
