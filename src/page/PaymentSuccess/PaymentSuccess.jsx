@@ -103,9 +103,9 @@ const generatePDF = (paymentInfo) => {
           <CheckCircle size={80} className="success-icon" />
         </div>
 
-        <h1 className="success-title">🎉 পেমেন্ট সফল হয়েছে!</h1>
+        <h1 className="success-title">Payment successful!</h1>
         <p className="success-message">
-          আপনার অর্ডার সফলভাবে সম্পন্ন হয়েছে। শীঘ্রই আপনার পণ্য ডেলিভারি করা হবে।
+         Your order has been successfully completed. Your product will be delivered soon.
         </p>
 
         <div className="payment-details animate-slide">
