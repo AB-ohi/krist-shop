@@ -175,7 +175,7 @@ const Payment = () => {
             <div>
               <p className="info-title">SSLCommerz Payment Gateway</p>
               <p className="info-text">
-                আপনি Visa, MasterCard, bKash, Nagad, Rocket সহ সকল পেমেন্ট মেথড ব্যবহার করতে পারবেন
+                You can use all major payment methods including Visa, MasterCard, bKash, Nagad, and Rocket.
               </p>
             </div>
           </div>
