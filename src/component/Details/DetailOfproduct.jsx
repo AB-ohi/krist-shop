@@ -139,7 +139,7 @@ const handleAddToCart =()=>{
 
       <div className="order_cart_btn">
         <Link className="cart_btn" onClick={handleAddToCart}>Add to cart</Link>
-        <Link className="buy_btn">Buy now</Link>
+        <Link className="buy_btn" to={`/payment/${detail._id}`}>Buy now</Link>
       </div>
       <div className="product_notes">
         <p>
