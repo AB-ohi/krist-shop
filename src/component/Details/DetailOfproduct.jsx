@@ -24,64 +24,65 @@ const DetailOfProduct = ({ detail }) => {
       }, 200);
     }
   };
-const handleAddToCart =()=>{
-  let cart = JSON.parse(localStorage.getItem("cart"))||[];
-  const existingItems = cart.findIndex((item)=> item._id === detail._id);
-  if (existingItems >=  0){
-    const addedPrice =
-      detail.discount > 0
-        ? detail.discount_price * addProduct
-        : detail.main_price * addProduct;
+  const handleAddToCart = () => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingItems = cart.findIndex((item) => item._id === detail._id);
 
+    if (existingItems >= 0) {
+      const addedPrice =
+        detail.discount > 0
+          ? detail.discount_price * addProduct
+          : detail.main_price * addProduct;
 
-    cart [existingItems].quantity += addProduct;
-    cart [existingItems].total_price +=addedPrice;
-
-  }else{
-    const newProduct ={
+      cart[existingItems].quantity += addProduct;
+      cart[existingItems].total_price += addedPrice;
+    } else {
+      const newProduct = {
         _id: detail._id,
         product_name: detail.product_name,
-        main_price: detail.discount > 0 ? detail.discount_price  : detail.main_price,
-        total_price: detail.discount > 0 ? detail.discount_price * addProduct : detail.main_price * quantity,
+        main_price:
+          detail.discount > 0 ? detail.discount_price : detail.main_price,
+        total_price:
+          detail.discount > 0
+            ? detail.discount_price * addProduct
+            : detail.main_price * addProduct,
         quantity: addProduct,
         discount: detail.discount,
-        image:detail.images,
-        category:detail.category
-    };
-    cart.push(newProduct)
-  }
-  Swal.fire({
-    title: "✅ Product added to cart!",
-    html: `
+        image: detail.images,
+        category: detail.category,
+      };
+      cart.push(newProduct);
+    }
+
+    Swal.fire({
+      title: "✅ Product added to cart!",
+      html: `
     <div style="text-align:left">
     <p><strong>Product:</strong> ${detail.product_name}</p>
     <p><strong>Price:</strong> ${
-      detail.discount > 0 ? detail.discount_price * addProduct : detail.main_price * quantity
+      detail.discount > 0
+        ? detail.discount_price * addProduct
+        : detail.main_price * addProduct
     }৳</p>
     <p><strong>Quantity:</strong> ${addProduct}</p>
     ${
       detail.discount > 0
-      ? `<p><strong>Discount:</strong> ${detail.discount}%</p>`
-      : ""
+        ? `<p><strong>Discount:</strong> ${detail.discount}%</p>`
+        : ""
     }
     </div>
     `,
-    showCancelButton: true,
-    confirmButtonText: "OK",
-    cancelButtonText: "Cancel",
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    background: "#fff",
-    customClass: {
-      popup: "popup-style",
-    },
-  }
-).then((result) => {
-    if (result.isConfirmed) {
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-  });
-}
+      showCancelButton: true,
+      confirmButtonText: "OK",
+      cancelButtonText: "Cancel",
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }
+    });
+  };
 
   return (
     <div className="detailAria">
@@ -111,19 +112,20 @@ const handleAddToCart =()=>{
           <strong>Category:</strong> {detail.category}
         </p>
         <p
-  className={
-    detail.quantity > 0 ? "stock_available" : "stock_unavailable"
-  }
->
-  {detail.quantity > 0 ? (
-    detail.selling_type === "both" ? "Available in Website & Outlet" :
-    detail.selling_type === "online" ? "Available in Website only" :
-    detail.selling_type === "physical" ? "Available in Outlet only" :
-    "Available"
-  ) : (
-    "Out of stock"
-  )}
-</p>
+          className={
+            detail.quantity > 0 ? "stock_available" : "stock_unavailable"
+          }
+        >
+          {detail.quantity > 0
+            ? detail.selling_type === "both"
+              ? "Available in Website & Outlet"
+              : detail.selling_type === "online"
+              ? "Available in Website only"
+              : detail.selling_type === "physical"
+              ? "Available in Outlet only"
+              : "Available"
+            : "Out of stock"}
+        </p>
 
         {detail.compare_price && (
           <p>
@@ -138,8 +140,16 @@ const handleAddToCart =()=>{
       </div>
 
       <div className="order_cart_btn">
-        <Link className="cart_btn" onClick={handleAddToCart}>Add to cart</Link>
-        <Link className="buy_btn" to={`/payment/${detail._id}`}>Buy now</Link>
+        <Link className="cart_btn" onClick={handleAddToCart}>
+          Add to cart
+        </Link>
+        <Link
+          className="buy_btn"
+          to={`/single_payment/${detail._id}`}
+          state={{ quantity: addProduct }}
+        >
+          Buy now
+        </Link>
       </div>
       <div className="product_notes">
         <p>

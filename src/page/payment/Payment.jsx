@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { CreditCard, ShoppingBag, CheckCircle } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import "./payment.css";
 
 const Payment = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
+  const singlePaymentData = useLoaderData();
+ console.log(cartItems);
+useEffect(() => {
+  setCartItems(singlePaymentData);
+}, [singlePaymentData]);
   const [customerInfo, setCustomerInfo] = useState({
     name: "",
     email: "",
@@ -18,15 +23,16 @@ const Payment = () => {
   useEffect(() => {
     const amount = localStorage.getItem("totalAmount") || 0;
     const items = JSON.parse(localStorage.getItem("cart")) || [];
-    
+
+    setCartItems(singlePaymentData);
     setTotalAmount(parseFloat(amount));
     setCartItems(items);
 
     if (items.length === 0) {
       alert("আপনার কার্টে কোন পণ্য নেই!");
-      navigate("/cart");
+      navigate("/");
     }
-  }, [navigate]);
+  }, [navigate, singlePaymentData]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

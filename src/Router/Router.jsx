@@ -66,6 +66,12 @@ const router = createBrowserRouter([
         element: <Payment />,
       },
       {
+        path: "/single_payment/:_id",
+        element: <Payment/>,
+         loader: ({ params }) =>
+              fetch(`http://localhost:5000/AllProduct/single_payment/${params._id}`),
+          },
+      {
         path: "/payment/success",
         element: <PaymentSuccess />,
       },
