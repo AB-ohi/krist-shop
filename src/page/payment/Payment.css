@@ -175,6 +175,7 @@
 
 .form-input,
 .form-textarea {
+  overflow: scroll;
   width: 95%;
   padding: 0.7rem 1rem;
   border: 2px solid #e5e7eb;

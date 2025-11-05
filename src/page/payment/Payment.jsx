@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { CreditCard, ShoppingBag, CheckCircle } from "lucide-react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useLocation } from "react-router-dom";
 import "./payment.css";
 
 const Payment = () => {
+  const singlePaymentData = useLoaderData();
+  const location = useLocation();
+  const navigate = useNavigate();
+  
   const [totalAmount, setTotalAmount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
-  const singlePaymentData = useLoaderData();
- console.log(cartItems);
-useEffect(() => {
-  setCartItems(singlePaymentData);
-}, [singlePaymentData]);
   const [customerInfo, setCustomerInfo] = useState({
     name: "",
     email: "",
@@ -18,21 +17,47 @@ useEffect(() => {
     address: "",
   });
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+
+  console.log("Single Payment Data:", singlePaymentData);
 
   useEffect(() => {
-    const amount = localStorage.getItem("totalAmount") || 0;
-    const items = JSON.parse(localStorage.getItem("cart")) || [];
-
-    setCartItems(singlePaymentData);
-    setTotalAmount(parseFloat(amount));
-    setCartItems(items);
-
-    if (items.length === 0) {
-      alert("আপনার কার্টে কোন পণ্য নেই!");
-      navigate("/");
+    if (singlePaymentData) {
+      const buyNowQuantity = location.state?.quantity || 1;
+      
+      const singleItem = {
+        _id: singlePaymentData._id,
+        product_name: singlePaymentData.product_name,
+        image:singlePaymentData.images[0],
+        quantity: buyNowQuantity,
+        main_price: singlePaymentData.discount > 0 
+          ? singlePaymentData.discount_price 
+          : singlePaymentData.main_price,
+        total_price: (singlePaymentData.discount > 0 
+          ? singlePaymentData.discount_price 
+          : singlePaymentData.main_price) * buyNowQuantity,
+        discount: singlePaymentData.discount || 0,
+        category: singlePaymentData.category
+      };
+      
+      setCartItems([singleItem]);
+      setTotalAmount(singleItem.total_price);
+      
+      console.log("Single Item Set:", singleItem);
+    } else {
+      const amount = localStorage.getItem("totalAmount") || "0";
+      const items = JSON.parse(localStorage.getItem("cart")) || [];
+      
+      setTotalAmount(parseFloat(amount));
+      setCartItems(items);
+      
+      console.log("Cart Items Set:", items);
+      
+      if (items.length === 0) {
+        alert("আপনার কার্টে কোন পণ্য নেই!");
+        navigate("/");
+      }
     }
-  }, [navigate, singlePaymentData]);
+  }, [singlePaymentData, navigate, location.state]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -44,6 +69,11 @@ useEffect(() => {
     
     if (!customerInfo.name || !customerInfo.email || !customerInfo.phone || !customerInfo.address) {
       alert("সকল তথ্য পূরণ করুন!");
+      return;
+    }
+
+    if (cartItems.length === 0) {
+      alert("কোন পণ্য নেই!");
       return;
     }
 
@@ -85,7 +115,6 @@ useEffect(() => {
   return (
     <div className="payment-container">
       <div className="payment-wrapper">
-        {/* Header */}
         <div className="payment-header">
           <div className="payment-header-icon">
             <ShoppingBag size={32} />
@@ -94,7 +123,6 @@ useEffect(() => {
           <p className="payment-subtitle">Secure payment with SSLCommerz</p>
         </div>
 
-        {/* Order Summary Card */}
         <div className="order-summary-card">
           <h3 className="order-summary-card-title">
             <ShoppingBag size={20} />
@@ -108,7 +136,16 @@ useEffect(() => {
                   <p className="order-item-name">{item.product_name}</p>
                   <p className="order-item-quantity">Qty: {item.quantity}</p>
                 </div>
+                <div className="">
                 <p className="order-item-price">{item.total_price}৳</p>
+                {
+                  item.discount == 0? (
+                    <div>NO Discount</div>
+                  ):(
+                    <p className="order-item-discount">{item.discount}%</p>
+                  )
+                }
+                </div>
               </div>
             ))}
           </div>
@@ -117,6 +154,7 @@ useEffect(() => {
             <span className="order-total-amount">{totalAmount}৳</span>
           </div>
         </div>
+
         <form onSubmit={handleSSLCommerz} className="payment-form">
           <div className="form-section">
             <h3 className="form-section-title">Customer Information</h3>
@@ -175,7 +213,6 @@ useEffect(() => {
             </div>
           </div>
 
-          {/* Payment Gateway Info */}
           <div className="info-box-ssl">
             <CheckCircle size={20} />
             <div>
@@ -186,7 +223,6 @@ useEffect(() => {
             </div>
           </div>
 
-          {/* Submit Button */}
           <button 
             type="submit" 
             className="payment-submit-btn"
@@ -214,7 +250,6 @@ useEffect(() => {
           </button>
         </form>
 
-        {/* Security Info */}
         <div className="security-info">
           <p>🔒 Your payment is 100% secure and encrypted by SSLCommerz</p>
         </div>
