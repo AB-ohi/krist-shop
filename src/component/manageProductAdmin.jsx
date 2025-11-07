@@ -8,7 +8,9 @@ import { useState } from "react";
 const ManageProductAdmin = () => {
   const [allProducts, setAllProducts] = allProductHook();
   const [editProduct, setEditProduct] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   console.log(allProducts);
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -23,6 +25,7 @@ const ManageProductAdmin = () => {
     hidden: { opacity: 0, y: 50 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
+  
   const handelDelete = (productId) => {
     Swal.fire({
       title: "Are you sure?",
@@ -52,33 +55,64 @@ const ManageProductAdmin = () => {
       }
     });
   };
+  
   const updateSingleProduct = (UP) => {
     const foundProduct = allProducts.find((product) => product._id === UP._id);
     setEditProduct(foundProduct);
     console.log(foundProduct);
   };
 
+  const filteredProducts = allProducts?.filter((product) => {
+    const searchLower = searchTerm.toLowerCase();
+    const productName = product.product_name?.toLowerCase() || "";
+    const lastFiveId = product._id?.slice(-5).toLowerCase() || "";
+    
+    return productName.includes(searchLower) || lastFiveId.includes(searchLower);
+  });
+
   return (
     <div style={{ position: "relative" }}>
-      <table className="admin_product_table">
-        <thead className="admin_product_thead">
-          <tr>
-            <th>Image</th>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Discount</th>
-            <th>Discount Price</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <motion.tbody
-          variants={containerVariants}
-          initial="hidden"
-          animate="show"
-        >
-          {allProducts?.map((allProduct) => {
-            return (
+      <div className="search_container">
+        <input
+          type="text"
+          placeholder="Search by product name or ID (last 5 digits)..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search_input"
+        />
+        {searchTerm && (
+          <button 
+            onClick={() => setSearchTerm("")}
+            className="clear_search_btn"
+          >
+            ✕
+          </button>
+        )}
+      </div>
+
+      {filteredProducts?.length === 0 ? (
+        <div className="no_products_found">
+          <p>No products found matching "{searchTerm}"</p>
+        </div>
+      ) : (
+        <table className="admin_product_table">
+          <thead className="admin_product_thead">
+            <tr>
+              <th>Image</th>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Discount</th>
+              <th>Discount Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <motion.tbody
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+          >
+            {filteredProducts?.map((allProduct) => (
               <motion.tr
                 className="admin_manage_product_details"
                 key={allProduct._id}
@@ -89,6 +123,7 @@ const ManageProductAdmin = () => {
                     style={{ width: "50px" }}
                     src={allProduct.images?.[0]}
                     alt=""
+                    title={`ID: ${allProduct._id?.slice(-5)}`}
                   />
                 </td>
 
@@ -114,10 +149,11 @@ const ManageProductAdmin = () => {
                   </button>
                 </td>
               </motion.tr>
-            );
-          })}
-        </motion.tbody>
-      </table>
+            ))}
+          </motion.tbody>
+        </table>
+      )}
+
       <div>
         {editProduct && (
           <>
