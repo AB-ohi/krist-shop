@@ -38,7 +38,7 @@ const ProfileSideBer = () => {
             <MdOutlineCategory />
             Manage Event
           </NavLink>  
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/order">
+          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/manageOrder">
             <TbTruckDelivery />
             Manage Orders
           </NavLink>  

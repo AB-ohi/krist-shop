@@ -29,6 +29,7 @@ import Cart from "../page/Cart/Cart";
 import Payment from "../page/payment/Payment";
 // Payment success, fail, cancel pages import করুন
 import PaymentSuccess from "../page/PaymentSuccess/PaymentSuccess";
+import ManageOrder from "../page/Admin/ManageOrder";
 
 const router = createBrowserRouter([
   {
@@ -141,6 +142,14 @@ const router = createBrowserRouter([
               </AdminRoute>
             ),
           },
+          {
+            path:'manageOrder',
+            element:(
+              <AdminRoute>
+                <ManageOrder/>
+              </AdminRoute>
+            )
+          }
         ],
       },
 
