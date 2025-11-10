@@ -53,6 +53,12 @@
   /* border-bottom: 1px solid  rgb(106, 66, 199); */
 }
 
+.logout-link{
+  text-decoration: none;
+}
+.logout-link:hover{
+  color: white;
+}
 .profile_side_ber_active {
   text-align: start;
   font-size: 90%;

@@ -1,4 +1,4 @@
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./ProfileSideBer.css";
 import { CgProfile } from "react-icons/cg";
 import { LiaAddressBookSolid } from "react-icons/lia";
@@ -13,72 +13,119 @@ import { MdOutlineCategory } from "react-icons/md";
 import { TbTruckDelivery } from "react-icons/tb";
 import { TbMessages } from "react-icons/tb";
 import { FaRegUserCircle } from "react-icons/fa";
+import { hover } from "framer-motion";
 
 const ProfileSideBer = () => {
-  const userData = userRoleHook()
-  console.log(userData)
+  const userData = userRoleHook();
+  console.log(userData);
   const { user, logOut } = useContext(AuthContext);
   const handelLogOut = () => {
     logOut().then(() => {});
   };
   return (
     <div className="MainProfileSideBer">
-      {
-        userData?.role == 'admin'?(
-          <div className="MainChild">
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to={`/profile/dashboard/${user.displayName}`}>
-          <LuLayoutDashboard />
+      {userData?.role == "admin" ? (
+        <div className="MainChild">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "profile_side_ber_active" : "profile_side_ber"
+            }
+            to={`/profile/dashboard/${user.displayName}`}
+          >
+            <LuLayoutDashboard />
             Dashboard
           </NavLink>
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/manage_Product">
-          <MdOutlineProductionQuantityLimits/>
-          Manage Products
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "profile_side_ber_active" : "profile_side_ber"
+            }
+            to="/profile/manage_Product"
+          >
+            <MdOutlineProductionQuantityLimits />
+            Manage Products
           </NavLink>
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/event">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "profile_side_ber_active" : "profile_side_ber"
+            }
+            to="/profile/event"
+          >
             <MdOutlineCategory />
             Manage Event
-          </NavLink>  
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/manageOrder">
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "profile_side_ber_active" : "profile_side_ber"
+            }
+            to="/profile/manageOrder "
+          >
             <TbTruckDelivery />
             Manage Orders
-          </NavLink>  
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/manageUser">
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "profile_side_ber_active" : "profile_side_ber"
+            }
+            to="/profile/manageUser"
+          >
             <FaRegUserCircle />
             Manage Users
-          </NavLink>   
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/order">
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "profile_side_ber_active" : "profile_side_ber"
+            }
+            to="/profile/order"
+          >
             <TbMessages />
             Customer Messages
-          </NavLink> 
-        <button className="profile_side_ber" onClick={handelLogOut}>
-         <NavLink style={{textDecoration:'none'}}> <RiLogoutBoxLine /> LogOut</NavLink>
-        </button>
-      </div>
-        ):userData?.role == 'customer'?(
-          <div className="MainChild">
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to={`/profile/${user.displayName}`}>
+          </NavLink>
+          <button className="profile_side_ber" onClick={handelLogOut}>
+            <NavLink style={{ textDecoration: "none" }}>
+              {" "}
+              <RiLogoutBoxLine /> LogOut
+            </NavLink>
+          </button>
+        </div>
+      ) : userData?.role == "customer" ? (
+        <div className="MainChild">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "profile_side_ber_active" : "profile_side_ber"
+            }
+            to={`/profile/${user.displayName}`}
+          >
             <CgProfile />
             Profile
           </NavLink>
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/address">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "profile_side_ber_active" : "profile_side_ber"
+            }
+            to="/profile/address"
+          >
             <LiaAddressBookSolid />
             Address book
           </NavLink>
-          <NavLink className={({isActive})=>(isActive? "profile_side_ber_active":'profile_side_ber')} to="/profile/order">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "profile_side_ber_active" : "profile_side_ber"
+            }
+            to="/profile/order"
+          >
             <MdOutlineBookmarkBorder />
             My orders
-          </NavLink>  
+          </NavLink>
 
-        <button className="profile_side_ber" onClick={handelLogOut}>
-         <NavLink style={{textDecoration:'none'}}> <RiLogoutBoxLine /> LogOut</NavLink>
-        </button>
-      </div>
-        ):(
-          <div>
-
-          </div>
-        )
-      }
+          <button onClick={handelLogOut}>
+            <NavLink   className= "profile_side_ber">
+              <RiLogoutBoxLine /> LogOut
+            </NavLink>
+          </button>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
